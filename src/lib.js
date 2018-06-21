@@ -148,6 +148,7 @@ const membersToOutline = members => {
  * @name mdToMdAst
  * @param {string} md Markdown.
  * @returns {Object} Markdown AST.
+ * @ignore
  */
 const mdToMdAst = md =>
   unified()
@@ -484,6 +485,22 @@ function mdFileReplaceSection(path, heading, content) {
  * @kind function
  * @name babelPluginJsdocMd
  * @returns {Object} Babel plugin.
+ * @example <caption>Babel config, displaying default options.</caption>
+ * {
+ *   "plugins": [
+ *     [
+ *       "jsdoc-md",
+ *       {
+ *         "mdPath": "readme.md",
+ *         "heading": "API"
+ *       }
+ *     ]
+ *   ]
+ * }
+ * @example <caption>Babel config, using defaults.</caption>
+ * {
+ *   "plugins": ["jsdoc-md"]
+ * }
  */
 function babelPluginJsdocMd() {
   return {
