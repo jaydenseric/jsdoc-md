@@ -12,7 +12,7 @@ To install [`babel-plugin-jsdoc-md`](https://npm.im/babel-plugin-jsdoc-md) from 
 npm install babel-plugin-jsdoc-md
 ```
 
-Configure Babel (displaying default options):
+Configure Babel using default options:
 
 ```json
 {
@@ -28,7 +28,7 @@ Configure Babel (displaying default options):
 }
 ```
 
-To use defaults:
+Or simply:
 
 ```json
 {
