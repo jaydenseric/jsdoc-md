@@ -505,7 +505,7 @@ function mdFileReplaceSection(path, heading, content) {
 function babelPluginJsdocMd() {
   return {
     post({ ast: { comments } }) {
-      const { mdPath = 'jsdoc-scrape.md', heading = 'API' } = this.opts
+      const { mdPath = 'readme.md', heading = 'API' } = this.opts
       const members = comments.reduce((members, { value }) => {
         if (isJsdoc(value)) {
           const jsdocAst = doctrine.parse(value, { unwrap: true, sloppy: true })
