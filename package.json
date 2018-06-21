@@ -1,0 +1,95 @@
+{
+  "name": "babel-plugin-jsdoc-md",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A Babel plugin that analyzes JSDoc to generate documentation under a given heading in a markdown file (such as readme.md).",
+  "license": "MIT",
+  "author": {
+    "name": "Jayden Seric",
+    "email": "me@jaydenseric.com",
+    "url": "https://jaydenseric.com"
+  },
+  "repository": "github:jaydenseric/babel-plugin-jsdoc-md",
+  "homepage": "https://github.com/jaydenseric/babel-plugin-jsdoc-md#readme",
+  "bugs": "https://github.com/jaydenseric/babel-plugin-jsdoc-md/issues",
+  "keywords": [
+    "babel",
+    "plugin",
+    "jsdoc",
+    "md",
+    "markdown",
+    "readme",
+    "remark",
+    "unified"
+  ],
+  "files": [
+    "lib",
+    "!lib/test.*"
+  ],
+  "main": "lib",
+  "engines": {
+    "node": ">=8.5"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.0.0-beta.51"
+  },
+  "dependencies": {
+    "doctrine": "^2.1.0",
+    "mdast-util-inject": "^1.1.0",
+    "remark-parse": "^5.0.0",
+    "remark-stringify": "^5.0.0",
+    "remark-toc": "^5.0.0",
+    "unified": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-env": "^0.2.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.5.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.13.5",
+    "tap": "^12.0.1",
+    "tmp": "0.0.33",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "prepare": "FORCE_COLOR=1 run-s prepare:*",
+    "prepare:clean": "rm -r lib; mkdir lib",
+    "prepare:js": "babel src -d lib",
+    "prepare:prettier": "prettier 'lib/**/*.js' --write",
+    "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
+    "test:eslint": "eslint .",
+    "test:prettier": "prettier '**/*.{json,md}' -l",
+    "test:js": "node lib/test | tap-mocha-reporter spec",
+    "prepublishOnly": "run-s prepare test",
+    "watch": "watch 'npm run prepublishOnly --silent' src --interval 1",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.{json,md}": "prettier -l"
+  },
+  "eslintIgnore": [
+    "lib",
+    "tap-snapshots"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "env"
+    ]
+  },
+  "prettier": {
+    "proseWrap": "never",
+    "singleQuote": true,
+    "semi": false
+  }
+}
