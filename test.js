@@ -59,20 +59,22 @@ t.test('jsdocCommentsFromCode', t => {
       jsdocCommentsFromCode(
         `
 /**
-* Description.
+* a
 */
 let a
 
-/** Description. */
+/** b */
 let b
 
-// a
+const c = '/** c */'
 
-/* b */
+/* d */
 
 /*
-c
+e
 */
+
+// f
 `
       ),
       null,

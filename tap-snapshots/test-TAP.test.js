@@ -7,8 +7,8 @@
 'use strict'
 exports[`test TAP jsdocCommentsFromCode > JSDoc comments. 1`] = `
 [
-  "/**\\n* Description.\\n*/",
-  "/** Description. */"
+  "/**\\n* a\\n*/",
+  "/** b */"
 ]
 `
 
