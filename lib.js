@@ -1,4 +1,5 @@
 const { readFileSync, writeFileSync } = require('fs')
+const { parse: babelParse } = require('@babel/parser')
 const doctrine = require('doctrine')
 const toc = require('remark-toc')
 const stringify = require('remark-stringify')
@@ -24,17 +25,24 @@ const MEMBERSHIPS = {
  * @kind function
  * @name jsdocCommentsFromCode
  * @param {string} code Code to search.
- * @returns {string[]} JSDoc comments.
+ * @returns {string[]} JSDoc comment values.
  * @ignore
  */
 const jsdocCommentsFromCode = code => {
-  const matches = []
-  code.replace(
-    // See https://stackoverflow.com/a/35923766/1596978.
-    /\/\*\*\s*([^*]|(\*(?!\/)))*\*\//g,
-    match => matches.push(match)
-  )
-  return matches
+  const { comments } = babelParse(code, {
+    plugins: [
+      'classProperties',
+      'decorators',
+      'dynamicImport',
+      'jsx',
+      'objectRestSpread',
+      'typescript'
+    ]
+  })
+  return comments.reduce((comments, { value }) => {
+    if (value.match(/^\*\s/)) comments.push(value)
+    return comments
+  }, [])
 }
 
 /**

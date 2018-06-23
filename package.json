@@ -17,6 +17,7 @@
     "md",
     "markdown",
     "readme",
+    "babel",
     "remark",
     "unified"
   ],
@@ -30,6 +31,7 @@
     "node": ">=8.5"
   },
   "dependencies": {
+    "@babel/parser": "^7.0.0-beta.51",
     "doctrine": "^2.1.0",
     "glob": "^7.1.2",
     "mdast-util-inject": "^1.1.0",
