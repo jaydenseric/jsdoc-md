@@ -33,7 +33,7 @@
   "dependencies": {
     "@babel/parser": "^7.0.0-beta.51",
     "doctrine": "^2.1.0",
-    "glob": "^7.1.2",
+    "globby": "^8.0.1",
     "mdast-util-inject": "^1.1.0",
     "remark-parse": "^5.0.0",
     "remark-stringify": "^5.0.0",
@@ -55,7 +55,7 @@
     "tap": "^12.0.1"
   },
   "scripts": {
-    "jsdoc": "node cli -s lib.js",
+    "jsdoc": "node cli",
     "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,md}' -l",

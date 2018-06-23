@@ -6,7 +6,7 @@ const stringify = require('remark-stringify')
 const parse = require('remark-parse')
 const unified = require('unified')
 const mdastInject = require('mdast-util-inject')
-const glob = require('glob')
+const globby = require('globby')
 
 const DEFAULTS = {
   sourceGlob: '**/*.{mjs,js}',
@@ -527,7 +527,7 @@ function jsdocMd({
 } = {}) {
   const members = []
 
-  glob.sync(sourceGlob).forEach(path => {
+  globby.sync(sourceGlob, { gitignore: true }).forEach(path => {
     jsdocCommentsFromCode(readFileSync(path, { encoding: 'utf8' })).forEach(
       jsdocComment => {
         const member = jsdocAstToMember(
