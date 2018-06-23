@@ -174,8 +174,8 @@ exports[`test TAP mdToMdAst > Markdown AST. 1`] = `
           },
           "end": {
             "line": 1,
-            "column": 42,
-            "offset": 41
+            "column": 29,
+            "offset": 28
           },
           "indent": []
         }
@@ -189,8 +189,8 @@ exports[`test TAP mdToMdAst > Markdown AST. 1`] = `
       },
       "end": {
         "line": 1,
-        "column": 42,
-        "offset": 41
+        "column": 29,
+        "offset": 28
       },
       "indent": []
     }
