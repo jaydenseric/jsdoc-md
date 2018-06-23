@@ -1,40 +1,79 @@
-# babel-plugin-jsdoc-md
+# jsdoc-md
 
-[![Build status](https://travis-ci.org/jaydenseric/babel-plugin-jsdoc-md.svg)](https://travis-ci.org/jaydenseric/babel-plugin-jsdoc-md) [![npm version](https://img.shields.io/npm/v/babel-plugin-jsdoc-md.svg)](https://npm.im/babel-plugin-jsdoc-md)
+[![Build status](https://travis-ci.org/jaydenseric/jsdoc-md.svg)](https://travis-ci.org/jaydenseric/jsdoc-md) [![npm version](https://img.shields.io/npm/v/jsdoc-md.svg)](https://npm.im/jsdoc-md)
 
-A Babel plugin that analyzes JSDoc to generate documentation under a given heading in a markdown file (such as `readme.md`).
+A Node.js CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
 
 ## Setup
 
-To install [`babel-plugin-jsdoc-md`](https://npm.im/babel-plugin-jsdoc-md) from [npm](https://npmjs.com) run:
+To try it out with [npx](https://npm.im/npx) run:
 
 ```sh
-npm install babel-plugin-jsdoc-md
+npx jsdoc-md --help
 ```
 
-Configure Babel using default options:
+To install [`jsdoc-md`](https://npm.im/jsdoc-md) from [npm](https://npmjs.com) as a dev dependency run:
+
+```sh
+npm install jsdoc-md --save-dev
+```
+
+Add a script to your `package.json`:
 
 ```json
 {
-  "plugins": [
-    [
-      "jsdoc-md",
-      {
-        "mdPath": "readme.md",
-        "heading": "API"
-      }
-    ]
-  ]
+  "scripts": {
+    "jsdoc": "jsdoc-md"
+  }
 }
 ```
 
-Or simply:
+Then run the script to update docs:
 
-```json
-{
-  "plugins": ["jsdoc-md"]
-}
+```sh
+npm run jsdoc
 ```
+
+## CLI
+
+For in depth CLI usage info, run `npx jsdoc-md --help`.
+
+| Option           | Alias | Description                                   |
+| ---------------- | ----- | --------------------------------------------- |
+| --source-glob    | -s    | JSDoc source file glob pattern.               |
+| --markdown-path  | -m    | Path to the markdown file for docs insertion. |
+| --target-heading | -t    | Markdown file heading to insert docs under.   |
+| --help           | -h    | Show help.                                    |
+
+## API
+
+### Table of contents
+
+- [function jsdocMd](#function-jsdocmd)
+  - [Examples](#examples)
+
+### function jsdocMd
+
+Scrapes JSDoc from files to populate a markdown file documentation section.
+
+| Parameter             | Type | Description                                   |
+| --------------------- | ---- | --------------------------------------------- |
+| options               |      | Options.                                      |
+| options.sourceGlob    |      | JSDoc source file glob pattern.               |
+| options.markdownPath  |      | Path to the markdown file for docs insertion. |
+| options.targetHeading |      | Markdown file heading to insert docs under.   |
+
+#### Examples
+
+Customizing all options.
+
+    const { jsdocMd } = require('jsdoc-md')
+
+    jsdocMd({
+      sourceGlob: 'index.mjs',
+      markdownPath: 'README.md',
+      targetHeading: 'Docs'
+    })
 
 ## Caveats
 

@@ -5,7 +5,14 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`lib/test TAP jsdocAstToMember > A method. 1`] = `
+exports[`test TAP jsdocCommentsFromCode > JSDoc comments. 1`] = `
+[
+  "/**\\n* Description.\\n*/",
+  "/** Description. */"
+]
+`
+
+exports[`test TAP jsdocAstToMember > A method. 1`] = `
 {
   "kind": "function",
   "namepath": "A#b",
@@ -37,7 +44,7 @@ exports[`lib/test TAP jsdocAstToMember > A method. 1`] = `
 }
 `
 
-exports[`lib/test TAP membersToOutline > Outline. 1`] = `
+exports[`test TAP membersToOutline > Outline. 1`] = `
 [
   {
     "kind": "class",
@@ -131,7 +138,7 @@ exports[`lib/test TAP membersToOutline > Outline. 1`] = `
 ]
 `
 
-exports[`lib/test TAP mdToMdAst > Markdown AST. 1`] = `
+exports[`test TAP mdToMdAst > Markdown AST. 1`] = `
 [
   {
     "type": "paragraph",
@@ -139,7 +146,7 @@ exports[`lib/test TAP mdToMdAst > Markdown AST. 1`] = `
       {
         "type": "link",
         "title": null,
-        "url": "https://npm.im/babel-plugin-jsdoc-md",
+        "url": "https://npm.im/jsdoc-md",
         "children": [
           {
             "type": "text",
@@ -191,7 +198,7 @@ exports[`lib/test TAP mdToMdAst > Markdown AST. 1`] = `
 ]
 `
 
-exports[`lib/test TAP outlineToMdAst > Markdown. 1`] = `
+exports[`test TAP outlineToMdAst > Markdown. 1`] = `
 {
   "type": "root",
   "children": [
@@ -1497,7 +1504,7 @@ exports[`lib/test TAP outlineToMdAst > Markdown. 1`] = `
 }
 `
 
-exports[`lib/test TAP babelPluginJsdocMd > File content. 1`] = `
+exports[`test TAP jsdocMd > File content. 1`] = `
 # Preserve
 
 ## Target
@@ -1577,8 +1584,8 @@ Description.
 
 #### See
 
-- [babel-plugin-jsdoc-md on Github](https://github.com/jaydenseric/babel-plugin-jsdoc-md).
-- [babel-plugin-jsdoc-md on npm](https://npm.im/babel-plugin-jsdoc-md).
+- [jsdoc-md on Github](https://github.com/jaydenseric/jsdoc-md).
+- [jsdoc-md on npm](https://npm.im/jsdoc-md).
 
 ## Preserve
 

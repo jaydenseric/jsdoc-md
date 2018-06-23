@@ -1,4 +1,4 @@
-# babel-plugin-jsdoc-md changelog
+# jsdoc-md changelog
 
 ## Next
 

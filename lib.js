@@ -5,6 +5,13 @@ const stringify = require('remark-stringify')
 const parse = require('remark-parse')
 const unified = require('unified')
 const mdastInject = require('mdast-util-inject')
+const glob = require('glob')
+
+const DEFAULTS = {
+  sourceGlob: '**/*.{mjs,js}',
+  markdownPath: 'readme.md',
+  targetHeading: 'API'
+}
 
 const MEMBERSHIPS = {
   '.': 'static',
@@ -13,14 +20,22 @@ const MEMBERSHIPS = {
 }
 
 /**
- * Detects if a Babel AST CommentBlock value is JSDoc.
+ * Gets JSDoc comments from a code string.
  * @kind function
- * @name isJsdoc
- * @param {string} comment Babel AST CommentBlock value.
- * @returns {boolean} Is the comment JSDoc.
+ * @name jsdocCommentsFromCode
+ * @param {string} code Code to search.
+ * @returns {string[]} JSDoc comments.
  * @ignore
  */
-const isJsdoc = comment => !!comment.match(/^\*\s/)
+const jsdocCommentsFromCode = code => {
+  const matches = []
+  code.replace(
+    // See https://stackoverflow.com/a/35923766/1596978.
+    /\/\*\*\s*([^*]|(\*(?!\/)))*\*\//g,
+    match => matches.push(match)
+  )
+  return matches
+}
 
 /**
  * Gets a Doctrine JSDoc AST tag.
@@ -61,12 +76,12 @@ function getJsdocAstTags(tags, title) {
  * Decodes a JSDoc namepath.
  * @see [JSDoc namepaths](http://usejsdoc.org/about-namepaths.html)
  * @kind function
- * @name getJsdocNamepathParts
+ * @name deconstructJsdocNamepath
  * @param {string} namepath A JSDoc namepath.
  * @returns {Object} Namepath parts.
  * @ignore
  */
-function getJsdocNamepathParts(namepath) {
+function deconstructJsdocNamepath(namepath) {
   const [match, memberof, membership, name] =
     namepath.match(/^(?:([^.#~]+(?:[.#~][^.#~]+)*)([.#~]))?([^.#~]+)$/) || []
   if (!match) throw new Error(`Invalid JSDoc namepath “${namepath}”.`)
@@ -96,7 +111,7 @@ const jsdocAstToMember = ast => {
   return {
     kind,
     namepath,
-    ...getJsdocNamepathParts(namepath),
+    ...deconstructJsdocNamepath(namepath),
     ...ast
   }
 }
@@ -439,98 +454,103 @@ const outlineToMdAst = (outline, depth = 1) => {
  * @kind function
  * @name remarkPluginReplaceSection
  * @param {Object} [options] Options.
- * @param {string} [options.heading='API'] Heading text of the section to replace.
- * @param {Object} [options.content] Replacement content markdown AST (with a [`root`](https://github.com/syntax-tree/mdast#root) top level type), defaulting to empty.
+ * @param {string} [options.targetHeading='API'] Heading text of the section to replace.
+ * @param {Object} [options.replacementAst] Replacement markdown AST (with a [`root`](https://github.com/syntax-tree/mdast#root) top level type), defaulting to empty.
  * @returns {function} Remark transform function.
  * @ignore
  */
 const remarkPluginReplaceSection = ({
-  heading = 'API',
-  content = {
+  targetHeading = 'API',
+  replacementAst = {
     type: 'root',
     children: []
   }
 } = {}) => (targetAst, file, next) => {
-  mdastInject(heading, targetAst, content)
+  mdastInject(targetHeading, targetAst, replacementAst)
     ? next()
-    : next(new Error(`Missing heading “${heading}”.`))
+    : next(new Error(`Missing target heading “${targetHeading}”.`))
 }
 
 /**
  * Replaces the content of a section in a markdown file.
  * @kind function
  * @name mdFileReplaceSection
- * @param {string} path File path.
- * @param {string} heading Heading text of the section to replace.
- * @param {*} content Replacement content markdown AST (with a [`root`](https://github.com/syntax-tree/mdast#root) top level type), defaulting to empty.
+ * @param {Object} options Options.
+ * @param {string} options.markdownPath Markdown file path.
+ * @param {string} options.targetHeading Heading text of the section to replace.
+ * @param {Object} options.replacementAst Replacement markdown AST (with a [`root`](https://github.com/syntax-tree/mdast#root) top level type), defaulting to empty.
  * @ignore
  */
-function mdFileReplaceSection(path, heading, content) {
-  const fileContent = readFileSync(path, { encoding: 'utf8' })
+function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
+  const fileContent = readFileSync(markdownPath, { encoding: 'utf8' })
   const newFileContent = unified()
     .use(parse)
     .use(stringify, {
       // Prettier formatting.
       listItemIndent: '1'
     })
-    .use(remarkPluginReplaceSection, { heading, content })
+    .use(remarkPluginReplaceSection, { targetHeading, replacementAst })
     .processSync(fileContent)
 
-  writeFileSync(path, newFileContent)
+  writeFileSync(markdownPath, newFileContent)
 }
 
 /**
- * Babel plugin that scrapes JSDoc to populate a markdown file documentation
- * section.
+ * Scrapes JSDoc from files to populate a markdown file documentation section.
  * @kind function
- * @name babelPluginJsdocMd
- * @returns {Object} Babel plugin.
- * @example <caption>Babel config, displaying default options.</caption>
- * {
- *   "plugins": [
- *     [
- *       "jsdoc-md",
- *       {
- *         "mdPath": "readme.md",
- *         "heading": "API"
- *       }
- *     ]
- *   ]
- * }
- * @example <caption>Babel config, using defaults.</caption>
- * {
- *   "plugins": ["jsdoc-md"]
- * }
+ * @name jsdocMd
+ * @param {Object} [options] Options.
+ * @param {string} [options.sourceGlob=**\/*.{mjs,js}] JSDoc source file glob pattern.
+ * @param {string} [options.markdownPath=readme.md] Path to the markdown file for docs insertion.
+ * @param {string} [options.targetHeading=API] Markdown file heading to insert docs under.
+ * @example <caption>Customizing all options.</caption>
+ * const { jsdocMd } = require('jsdoc-md')
+ *
+ * jsdocMd({
+ *   sourceGlob: 'index.mjs',
+ *   markdownPath: 'README.md',
+ *   targetHeading: 'Docs'
+ * })
  */
-function babelPluginJsdocMd() {
-  return {
-    post({ ast: { comments } }) {
-      const { mdPath = 'readme.md', heading = 'API' } = this.opts
-      const members = comments.reduce((members, { value }) => {
-        if (isJsdoc(value)) {
-          const jsdocAst = doctrine.parse(value, { unwrap: true, sloppy: true })
-          const member = jsdocAstToMember(jsdocAst)
-          if (member) members.push(member)
-        }
-        return members
-      }, [])
-      const outline = membersToOutline(members)
-      const mdAst = outlineToMdAst(outline)
-      mdFileReplaceSection(mdPath, heading, mdAst)
-    }
-  }
+function jsdocMd({
+  sourceGlob = DEFAULTS.sourceGlob,
+  markdownPath = DEFAULTS.markdownPath,
+  targetHeading = DEFAULTS.targetHeading
+} = {}) {
+  const members = []
+
+  glob.sync(sourceGlob).forEach(path => {
+    jsdocCommentsFromCode(readFileSync(path, { encoding: 'utf8' })).forEach(
+      jsdocComment => {
+        const member = jsdocAstToMember(
+          doctrine.parse(jsdocComment, {
+            unwrap: true,
+            sloppy: true
+          })
+        )
+        if (member) members.push(member)
+      }
+    )
+  })
+
+  mdFileReplaceSection({
+    markdownPath,
+    targetHeading,
+    replacementAst: outlineToMdAst(membersToOutline(members))
+  })
 }
 
 module.exports = {
-  isJsdoc,
+  DEFAULTS,
+  jsdocCommentsFromCode,
   getJsdocAstTag,
   getJsdocAstTags,
-  getJsdocNamepathParts,
+  deconstructJsdocNamepath,
   jsdocAstToMember,
   membersToOutline,
   mdToMdAst,
   outlineToMdAst,
   remarkPluginReplaceSection,
   mdFileReplaceSection,
-  babelPluginJsdocMd
+  jsdocMd
 }

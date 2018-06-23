@@ -5,14 +5,13 @@ const { writeFileSync, unlinkSync, readFileSync } = require('fs')
 const t = require('tap')
 const doctrine = require('doctrine')
 const unified = require('unified')
-const { transformSync } = require('@babel/core')
 
 // Not package exports.
 const {
-  isJsdoc,
+  jsdocCommentsFromCode,
   getJsdocAstTag,
   getJsdocAstTags,
-  getJsdocNamepathParts,
+  deconstructJsdocNamepath,
   jsdocAstToMember,
   membersToOutline,
   mdToMdAst,
@@ -22,7 +21,7 @@ const {
 } = require('./lib')
 
 // Test package exports using the main entry.
-const babelPluginJsdocMd = require('.')
+const { jsdocMd } = require('.')
 
 /**
  * Creates a temporary file that deletes at test teardown.
@@ -35,7 +34,7 @@ const babelPluginJsdocMd = require('.')
  * @ignore
  */
 function createTestFile(content, extension, t) {
-  const path = `${tmpdir()}${sep}babel-plugin-jsdoc-md-test-${crypto
+  const path = `${tmpdir()}${sep}jsdoc-md-test-${crypto
     .randomBytes(16)
     .toString('hex')}.${extension}`
 
@@ -54,10 +53,33 @@ function createTestFile(content, extension, t) {
   return path
 }
 
-t.test('isJsdoc', t => {
-  t.equal(isJsdoc('* x *'), true, 'JSDoc comment.')
-  t.equal(isJsdoc('*\n * x\n'), true, 'JSDoc comment block.')
-  t.equal(isJsdoc('\n * x\n'), false, 'Comment block.')
+t.test('jsdocCommentsFromCode', t => {
+  t.matchSnapshot(
+    JSON.stringify(
+      jsdocCommentsFromCode(
+        `
+/**
+* Description.
+*/
+let a
+
+/** Description. */
+let b
+
+// a
+
+/* b */
+
+/*
+c
+*/
+`
+      ),
+      null,
+      2
+    ),
+    'JSDoc comments.'
+  )
   t.end()
 })
 
@@ -129,9 +151,9 @@ t.test('getJsdocAstTags', t => {
   t.end()
 })
 
-t.test('getJsdocNamepathParts', t => {
+t.test('deconstructJsdocNamepath', t => {
   t.deepEqual(
-    getJsdocNamepathParts('a'),
+    deconstructJsdocNamepath('a'),
     {
       memberof: undefined,
       membership: undefined,
@@ -141,7 +163,7 @@ t.test('getJsdocNamepathParts', t => {
   )
 
   t.deepEqual(
-    getJsdocNamepathParts('a.b#c~d'),
+    deconstructJsdocNamepath('a.b#c~d'),
     {
       memberof: 'a.b#c',
       membership: '~',
@@ -153,7 +175,7 @@ t.test('getJsdocNamepathParts', t => {
   // Invalid namepaths.
   ;['', 'a..b', 'a..b.c', 'a.'].forEach(namepath => {
     t.throws(
-      () => getJsdocNamepathParts(namepath),
+      () => deconstructJsdocNamepath(namepath),
       new Error(`Invalid JSDoc namepath “${namepath}”.`),
       'Throws'
     )
@@ -221,11 +243,7 @@ t.test('membersToOutline', t => {
 
 t.test('mdToMdAst', t => {
   t.matchSnapshot(
-    JSON.stringify(
-      mdToMdAst('[a](https://npm.im/babel-plugin-jsdoc-md)'),
-      null,
-      2
-    ),
+    JSON.stringify(mdToMdAst('[a](https://npm.im/jsdoc-md)'), null, 2),
     'Markdown AST.'
   )
   t.end()
@@ -297,8 +315,8 @@ t.test('remarkPluginReplaceSection', t => {
   t.deepEqual(
     unified()
       .use(remarkPluginReplaceSection, {
-        heading: 'A',
-        content: {
+        targetHeading: 'A',
+        replacementAst: {
           type: 'root',
           children: [
             {
@@ -437,15 +455,15 @@ t.test('remarkPluginReplaceSection', t => {
           type: 'root',
           children: []
         }),
-    new Error('Missing heading “API”.'),
-    'Missing heading.'
+    new Error('Missing target heading “API”.'),
+    'Missing target heading.'
   )
 
   t.end()
 })
 
 t.test('mdFileReplaceSection', t => {
-  const path = createTestFile(
+  const markdownPath = createTestFile(
     `# Preserve
 
 ## Target
@@ -458,22 +476,26 @@ Replace.
     t
   )
 
-  mdFileReplaceSection(path, 'Target', {
-    type: 'root',
-    children: [
-      {
-        type: 'paragraph',
-        children: [
-          {
-            type: 'text',
-            value: 'Replaced.'
-          }
-        ]
-      }
-    ]
+  mdFileReplaceSection({
+    markdownPath,
+    targetHeading: 'Target',
+    replacementAst: {
+      type: 'root',
+      children: [
+        {
+          type: 'paragraph',
+          children: [
+            {
+              type: 'text',
+              value: 'Replaced.'
+            }
+          ]
+        }
+      ]
+    }
   })
 
-  const fileReplacedContent = readFileSync(path, { encoding: 'utf8' })
+  const fileReplacedContent = readFileSync(markdownPath, { encoding: 'utf8' })
 
   t.equal(
     fileReplacedContent,
@@ -491,21 +513,9 @@ Replaced.
   t.end()
 })
 
-t.test('babelPluginJsdocMd', t => {
-  const mdPath = createTestFile(
-    `# Preserve
-
-## Target
-
-Replace.
-
-## Preserve
-`,
-    'md',
-    t
-  )
-
-  const code = `
+t.test('jsdocMd', t => {
+  const sourceGlob = createTestFile(
+    `
 /**
  * Description.
  * @kind constant
@@ -569,21 +579,31 @@ class B {
  * @kind function
  * @name c
  * @param {string} a Description.
- * @see [babel-plugin-jsdoc-md on Github](https://github.com/jaydenseric/babel-plugin-jsdoc-md).
- * @see [babel-plugin-jsdoc-md on npm](https://npm.im/babel-plugin-jsdoc-md).
+ * @see [jsdoc-md on Github](https://github.com/jaydenseric/jsdoc-md).
+ * @see [jsdoc-md on npm](https://npm.im/jsdoc-md).
  */
 function c(a) {}  
-`
+`,
+    'js',
+    t
+  )
 
-  transformSync(code, {
-    configFile: false,
-    plugins: [
-      '@babel/proposal-class-properties',
-      [babelPluginJsdocMd, { mdPath, heading: 'Target' }]
-    ]
-  })
+  const markdownPath = createTestFile(
+    `# Preserve
 
-  const fileReplacedContent = readFileSync(mdPath, { encoding: 'utf8' })
+## Target
+
+Replace.
+
+## Preserve
+`,
+    'md',
+    t
+  )
+
+  jsdocMd({ sourceGlob, markdownPath, targetHeading: 'Target' })
+
+  const fileReplacedContent = readFileSync(markdownPath, { encoding: 'utf8' })
 
   t.matchSnapshot(fileReplacedContent, 'File content.')
 
