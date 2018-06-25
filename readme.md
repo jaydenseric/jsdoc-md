@@ -36,7 +36,7 @@ npm run jsdoc
 
 ## CLI
 
-For in depth CLI usage info, run `npx jsdoc-md --help`.
+For detailed CLI usage instructions, run `npx jsdoc-md --help`.
 
 | Option           | Alias | Description                                   |
 | ---------------- | ----- | --------------------------------------------- |
