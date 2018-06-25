@@ -165,11 +165,11 @@ JSDoc inline tags such as [`{@link}`](http://usejsdoc.org/tags-inline-link.html)
  * Displays a message in a native popup window.
  * @kind function
  * @name popup
- * @example <caption>Say “hi” to the user.</caption>
+ * @example <caption>Say `Hello!` to the user.</caption>
  * This usage:
  *
  * ```js
- * popup('hi')
+ * popup('Hello!')
  * ```
  *
  * Displays like this on macOS:
