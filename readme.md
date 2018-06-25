@@ -104,7 +104,7 @@ A JSDoc tag subset is supported:
 - [`@prop`](http://usejsdoc.org/tags-property.html)
 - [`@returns`](http://usejsdoc.org/tags-returns.html)
 - [`@see`](http://usejsdoc.org/tags-see.html)
-- [`@example`](http://usejsdoc.org/tags-see.html)
+- [`@example`](http://usejsdoc.org/tags-example.html)
 - [`@ignore`](http://usejsdoc.org/tags-ignore.html)
 
 With the full set of JSDoc tags there is a confusing number of ways to document the same thing. Examples `TWO` and `THREE` use unsupported syntax:
