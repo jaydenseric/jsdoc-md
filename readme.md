@@ -65,15 +65,17 @@ Scrapes JSDoc from files to populate a markdown file documentation section.
 
 #### Examples
 
-Customizing all options.
+_Customizing all options._
 
-    const { jsdocMd } = require('jsdoc-md')
-
-    jsdocMd({
-      sourceGlob: 'index.mjs',
-      markdownPath: 'README.md',
-      targetHeading: 'Docs'
-    })
+> ```js
+> const { jsdocMd } = require('jsdoc-md')
+>
+> jsdocMd({
+>   sourceGlob: 'index.mjs',
+>   markdownPath: 'README.md',
+>   targetHeading: 'Docs'
+> })
+> ```
 
 ## Caveats
 
@@ -153,3 +155,26 @@ const MyNamespace = {
 ### Inline tags
 
 JSDoc inline tags such as [`{@link}`](http://usejsdoc.org/tags-inline-link.html) and [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutorial.html) are unsupported. Use markdown links instead.
+
+### Example content
+
+[`@example`](http://usejsdoc.org/tags-example.html) content outside `<caption />` (which may also contain markdown) is treated as markdown. This allows multiple code blocks with syntax highlighting and explanatory content such as paragraphs and images. For example:
+
+````js
+/**
+ * Displays a message in a native popup window.
+ * @kind function
+ * @name popup
+ * @example <caption>Say “hi” to the user.</caption>
+ * This usage:
+ *
+ * ```js
+ * popup('hi')
+ * ```
+ *
+ * Displays like this on macOS:
+ *
+ * ![Screenshot](path/to/screenshot.jpg)
+ */
+const popup = message => alert(message)
+````

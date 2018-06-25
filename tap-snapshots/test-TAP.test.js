@@ -1536,13 +1536,17 @@ Description, here is a **bold** word.
 
 #### Examples
 
-Construct a new instance, here is a **bold** word.
+_Construct a new instance, here is a **bold** word._
 
-    const b = new B()
+> \`\`\`js
+> const b = new B()
+> \`\`\`
 
-Construct a new instance with options.
+_Construct a new instance with options._
 
-    const b = new B(true)
+> \`\`\`js
+> const b = new B(true)
+> \`\`\`
 
 #### B inner typedef A
 

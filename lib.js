@@ -426,12 +426,17 @@ const outlineToMdAst = (outline, depth = 1) => {
           if (tag.caption)
             mdast.children.push({
               type: 'paragraph',
-              children: mdToMdAst(tag.caption)
+              children: [
+                {
+                  type: 'emphasis',
+                  children: mdToMdAst(tag.caption)
+                }
+              ]
             })
 
           mdast.children.push({
-            type: 'code',
-            value: tag.description
+            type: 'blockquote',
+            children: mdToMdAst(tag.description)
           })
         })
       }
@@ -512,6 +517,7 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
  * @param {string} [options.markdownPath=readme.md] Path to the markdown file for docs insertion.
  * @param {string} [options.targetHeading=API] Markdown file heading to insert docs under.
  * @example <caption>Customizing all options.</caption>
+ * ```js
  * const { jsdocMd } = require('jsdoc-md')
  *
  * jsdocMd({
@@ -519,6 +525,7 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
  *   markdownPath: 'README.md',
  *   targetHeading: 'Docs'
  * })
+ * ```
  */
 function jsdocMd({
   sourceGlob = DEFAULTS.sourceGlob,
