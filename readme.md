@@ -165,6 +165,7 @@ JSDoc inline tags such as [`{@link}`](http://usejsdoc.org/tags-inline-link.html)
  * Displays a message in a native popup window.
  * @kind function
  * @name popup
+ * @param {string} message Message text.
  * @example <caption>Say `Hello!` to the user.</caption>
  * This usage:
  *
