@@ -506,7 +506,23 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "title": "MDN article for \\"string\\" type.",
+                  "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "value": ""
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -564,7 +580,43 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "link",
+                      "title": "MDN article for \\"boolean\\" type.",
+                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "boolean"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "value": " | "
+                    },
+                    {
+                      "type": "link",
+                      "title": "MDN article for \\"string\\" type.",
+                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "string"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "value": ""
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -731,8 +783,15 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
-                  "value": "Type"
+                  "type": "link",
+                  "title": "",
+                  "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Types"
+                    }
+                  ]
                 }
               ]
             },
@@ -761,7 +820,28 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "link",
+                      "title": "typdef reference link.",
+                      "url": "#typedef-a",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "A"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -877,8 +957,15 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
-                  "value": "Type"
+                  "type": "link",
+                  "title": "",
+                  "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Types"
+                    }
+                  ]
                 }
               ]
             },
@@ -907,7 +994,28 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "link",
+                      "title": "MDN article for \\"string\\" type.",
+                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -965,7 +1073,28 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "link",
+                      "title": "MDN article for \\"string\\" type.",
+                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1081,8 +1210,15 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
-                  "value": "Type"
+                  "type": "link",
+                  "title": "",
+                  "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Types"
+                    }
+                  ]
                 }
               ]
             },
@@ -1111,7 +1247,28 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "link",
+                      "title": "MDN article for \\"string\\" type.",
+                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1227,8 +1384,15 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
-                  "value": "Type"
+                  "type": "link",
+                  "title": "",
+                  "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Types"
+                    }
+                  ]
                 }
               ]
             },
@@ -1257,7 +1421,28 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "link",
+                      "title": "MDN article for \\"string\\" type.",
+                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1424,8 +1609,15 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
-                  "value": "Type"
+                  "type": "link",
+                  "title": "",
+                  "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Types"
+                    }
+                  ]
                 }
               ]
             },
@@ -1454,7 +1646,28 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "link",
+                      "title": "MDN article for \\"string\\" type.",
+                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "string"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "value": ""
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1530,9 +1743,9 @@ Description.
 
 Description, here is a **bold** word.
 
-| Parameter | Type | Description                           |
-| --------- | ---- | ------------------------------------- |
-| a         |      | Description, here is a **bold** word. |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6)                                                             | Description                           |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| a         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean 'MDN article for "boolean" type.') ? | Description, here is a **bold** word. |
 
 #### Examples
 
@@ -1552,10 +1765,10 @@ _Construct a new instance with options._
 
 Description.
 
-| Property | Type | Description                           |
-| -------- | ---- | ------------------------------------- |
-| a        |      | Description, here is a **bold** word. |
-| b        |      | Description.                          |
+| Property | Type                                                                                                                                  | Description                           |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| a        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string 'MDN article for "string" type.')    | Description, here is a **bold** word. |
+| b        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean 'MDN article for "boolean" type.') | Description.                          |
 
 #### B static property b
 
@@ -1569,10 +1782,10 @@ Description.
 
 Description.
 
-| Parameter | Type | Description  |
-| --------- | ---- | ------------ |
-| a         |      | Description. |
-| b         |      | Description. |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6)                                                                  | Description  |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| a         | [B~A](#typedef-b~a "typdef reference link.")                                                                                                 | Description. |
+| b         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean 'MDN article for "boolean" type.') ?=true | Description. |
 
 #### B instance method e
 
@@ -1582,9 +1795,9 @@ Description.
 
 Description.
 
-| Parameter | Type | Description  |
-| --------- | ---- | ------------ |
-| a         |      | Description. |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6)                                                        | Description  |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| a         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string 'MDN article for "string" type.') | Description. |
 
 #### See
 
@@ -1593,4 +1806,237 @@ Description.
 
 ## Preserve
 
+`
+
+exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
+[
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "link",
+        "title": "MDN article for \\"string\\" type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "children": [
+          {
+            "type": "text",
+            "value": "string"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": " | "
+      },
+      {
+        "type": "link",
+        "title": "MDN article for \\"number\\" type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "children": [
+          {
+            "type": "text",
+            "value": "number"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "link",
+        "title": "MDN article for \\"Array\\" type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+        "children": [
+          {
+            "type": "text",
+            "value": "Array"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": "<"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for \\"string\\" type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "children": [
+          {
+            "type": "text",
+            "value": "string"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ">"
+      }
+    ]
+  },
+  {
+    "type": "link",
+    "title": "MDN article for \\"Object\\" type.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "children": [
+      {
+        "type": "text",
+        "value": "Object"
+      }
+    ]
+  },
+  {
+    "type": "link",
+    "title": "MDN article for \\"Null\\" type.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "children": [
+      {
+        "type": "text",
+        "value": "Null"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "5"
+      },
+      {
+        "type": "text",
+        "value": " | "
+      },
+      {
+        "type": "text",
+        "value": "false"
+      },
+      {
+        "type": "text",
+        "value": " | "
+      },
+      {
+        "type": "text",
+        "value": "true"
+      },
+      {
+        "type": "text",
+        "value": " | "
+      },
+      {
+        "type": "text",
+        "value": "Undefined"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "{ "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "a: "
+          },
+          {
+            "type": "text",
+            "value": "Null"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "b: "
+          },
+          {
+            "type": "text",
+            "value": "5"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": " }"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function(this:"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for \\"string\\" type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "children": [
+          {
+            "type": "text",
+            "value": "string"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "..."
+              },
+              {
+                "type": "link",
+                "title": "MDN article for \\"number\\" type.",
+                "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "number"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": "):"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for \\"Object\\" type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      }
+    ]
+  }
+]
 `

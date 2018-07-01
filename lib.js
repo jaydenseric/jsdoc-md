@@ -215,6 +215,7 @@ const outlineToMdAst = (outline, depth = 1) => {
    * @ignore
    */
   const recurse = ({ parentMember, members, depth }) => {
+    let typedefList = []
     members.forEach(member => {
       mdast.children.push({
         type: 'heading',
@@ -241,6 +242,7 @@ const outlineToMdAst = (outline, depth = 1) => {
         mdast.children.push(...mdToMdAst(member.description))
 
       if (member.kind === 'typedef') {
+        typedefList.push(member.namepath)
         const propTags = getJsdocAstTags(member.tags, 'prop')
         if (propTags) {
           const propTable = {
@@ -296,7 +298,13 @@ const outlineToMdAst = (outline, depth = 1) => {
                 },
                 {
                   type: 'tableCell',
-                  children: []
+                  children: [
+                    typeJsdocAstToMdAst(tag.type),
+                    {
+                      type: 'text',
+                      value: tag.default ? `=${tag.default}` : ''
+                    }
+                  ]
                 },
                 {
                   type: 'tableCell',
@@ -332,8 +340,16 @@ const outlineToMdAst = (outline, depth = 1) => {
                     type: 'tableCell',
                     children: [
                       {
-                        type: 'text',
-                        value: 'Type'
+                        type: 'link',
+                        title: '',
+                        url:
+                          'https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6',
+                        children: [
+                          {
+                            type: 'text',
+                            value: 'Types'
+                          }
+                        ]
                       }
                     ]
                   },
@@ -366,7 +382,18 @@ const outlineToMdAst = (outline, depth = 1) => {
                 },
                 {
                   type: 'tableCell',
-                  children: []
+                  children: [
+                    {
+                      type: 'paragraph',
+                      children: [
+                        typeJsdocAstToMdAst(tag.type, typedefList),
+                        {
+                          type: 'text',
+                          value: tag.default ? `=${tag.default}` : ''
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   type: 'tableCell',
@@ -509,6 +536,270 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
 }
 
 /**
+ * Decorate MD AST with a prefix & suffix.
+ * @param {!Object} md MD AST.
+ * @param {string} [prefix] Prefix string to add to front of node.
+ * @param {string} [suffix] String to add to front of node.
+ * @returns {Array<Object>} MD AST.
+ * @ignore
+ */
+const decorateMdAst = (md, prefix, suffix) => {
+  const children = []
+  prefix && children.push({ type: 'text', value: prefix })
+  children.push(md)
+  suffix && children.push({ type: 'text', value: suffix })
+  return children
+}
+
+/**
+ * Generates markdown AST for JSdoc ASX types.
+ * @param {Object} [entity] Jsdoc AST types.
+ * @param {Array} [entityList=[]] A list of typedef names.
+ * @returns {Object} Markdown AST.
+ * @ignore
+ */
+const typeJsdocAstToMdAst = (entity, entityList = []) => {
+  switch (entity.type) {
+    case 'OptionalType':
+      return {
+        type: 'paragraph',
+        children: decorateMdAst(
+          typeJsdocAstToMdAst(entity.expression, entityList),
+          null,
+          ' ?'
+        )
+      }
+    case 'RestType':
+      return {
+        type: 'paragraph',
+        children: decorateMdAst(
+          typeJsdocAstToMdAst(entity.expression, entityList),
+          '...'
+        )
+      }
+    case 'UnionType':
+      return {
+        type: 'paragraph',
+        children: entity.elements.reduce((acc, item, index, array) => {
+          if (index + 1 !== array.length)
+            return [
+              ...acc,
+              ...decorateMdAst(
+                typeJsdocAstToMdAst(item, entityList),
+                null,
+                ' | '
+              )
+            ]
+          else return [...acc, typeJsdocAstToMdAst(item, entityList)]
+        }, [])
+      }
+    case 'TypeApplication':
+      return {
+        type: 'paragraph',
+        children: [
+          typeJsdocAstToMdAst(entity.expression),
+          {
+            type: 'text',
+            value: '<'
+          },
+          ...entity.applications.reduce(
+            (acc, item, index, array) =>
+              index < array.length - 1
+                ? [
+                    ...acc,
+                    ...decorateMdAst(
+                      typeJsdocAstToMdAst(item, entityList),
+                      null,
+                      ', '
+                    )
+                  ]
+                : [...acc, typeJsdocAstToMdAst(item, entityList)],
+            []
+          ),
+          {
+            type: 'text',
+            value: '>'
+          }
+        ]
+      }
+    case 'RecordType':
+      return {
+        type: 'paragraph',
+        children: [
+          {
+            type: 'text',
+            value: '{ '
+          },
+          ...entity.fields.reduce(
+            (acc, item, index, array) =>
+              index + 1 !== array.length
+                ? [
+                    ...acc,
+                    typeJsdocAstToMdAst(item, entityList),
+                    { type: 'text', value: ', ' }
+                  ]
+                : [...acc, typeJsdocAstToMdAst(item, entityList)],
+            []
+          ),
+          {
+            type: 'text',
+            value: ' }'
+          }
+        ]
+      }
+    case 'FieldType':
+      return {
+        type: 'paragraph',
+        children: decorateMdAst(
+          typeJsdocAstToMdAst(entity.value, entityList),
+          `${entity.key}: `
+        )
+      }
+    case 'ArrayType':
+      return {
+        type: 'paragraph',
+        children: [
+          {
+            type: 'text',
+            value: '['
+          },
+          ...entity.elements.reduce((acc, item, index, array) => {
+            if (index + 1 !== array.length)
+              return [
+                ...acc,
+                ...decorateMdAst(
+                  typeJsdocAstToMdAst(item, entityList),
+                  null,
+                  ', '
+                )
+              ]
+            else return [...acc, typeJsdocAstToMdAst(item, entityList)]
+          }, []),
+          {
+            type: 'text',
+            value: ']'
+          }
+        ]
+      }
+    case 'NullableType':
+      return {
+        type: 'link',
+        title: 'MDN article for "Null" type.',
+        url:
+          'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null',
+        children: [
+          {
+            type: 'text',
+            value: 'Null'
+          }
+        ]
+      }
+
+    case 'NameExpression':
+      switch (entity.name) {
+        case 'boolean':
+        case 'number':
+        case 'string':
+        case 'Object':
+        case 'Array':
+          return {
+            type: 'link',
+            title: `MDN article for "${entity.name}" type.`,
+            url: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/${
+              entity.name
+            }`,
+            children: [
+              {
+                type: 'text',
+                value: entity.name
+              }
+            ]
+          }
+
+        default:
+          if (entityList.includes(entity.name))
+            return {
+              type: 'link',
+              title: 'typdef reference link.',
+              url: `#typedef-${entity.name.toLowerCase()}`,
+              children: [
+                {
+                  type: 'text',
+                  value: entity.name
+                }
+              ]
+            }
+
+          return { type: 'text', value: entity.name }
+      }
+    case 'FunctionType': {
+      const { this: t, result, params, new: n } = entity
+      let args
+      if (params)
+        args = params.reduce((acc, item, index, array) => {
+          if (index + 1 !== array.length)
+            return [
+              ...acc,
+              ...decorateMdAst(
+                typeJsdocAstToMdAst(item, entityList),
+                null,
+                ', '
+              )
+            ]
+          else return [...acc, typeJsdocAstToMdAst(item, entityList)]
+        }, [])
+
+      return {
+        type: 'paragraph',
+        children: [
+          {
+            type: 'text',
+            value: `function(${n ? 'new:' : t ? 'this:' : ''}`
+          },
+          t ? typeJsdocAstToMdAst(t, entityList) : { type: 'text', value: '' },
+          {
+            type: 'text',
+            value: params && params.length ? (t ? ', ' : '') : ''
+          },
+          {
+            type: 'paragraph',
+            children: params ? (params.length ? args : []) : []
+          },
+          {
+            type: 'text',
+            value: '):'
+          },
+          result
+            ? typeJsdocAstToMdAst(result, entityList)
+            : {
+                type: 'text',
+                value: ''
+              }
+        ]
+      }
+    }
+
+    case 'AllLiteral':
+    case 'NullLiteral':
+    case 'UndefinedLiteral':
+    case 'NumericLiteralType':
+    case 'StringLiteralType':
+    case 'BooleanLiteralType':
+      if (entity.hasOwnProperty('value'))
+        return {
+          type: 'text',
+          value: `${entity.value}`
+        }
+      return {
+        type: 'text',
+        value: entity.type.replace('Literal', '')
+      }
+    default:
+      throw new Error(`Unknown type "${entity.type}"`)
+  }
+}
+
+/**
  * Scrapes JSDoc from files to populate a markdown file documentation section.
  * @kind function
  * @name jsdocMd
@@ -567,5 +858,6 @@ module.exports = {
   outlineToMdAst,
   remarkPluginReplaceSection,
   mdFileReplaceSection,
-  jsdocMd
+  jsdocMd,
+  typeJsdocAstToMdAst
 }

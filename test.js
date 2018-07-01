@@ -17,7 +17,8 @@ const {
   mdToMdAst,
   outlineToMdAst,
   remarkPluginReplaceSection,
-  mdFileReplaceSection
+  mdFileReplaceSection,
+  typeJsdocAstToMdAst
 } = require('./lib')
 
 // Test package exports using the main entry.
@@ -613,5 +614,22 @@ Replace.
 
   t.matchSnapshot(fileReplacedContent, 'File content.')
 
+  t.end()
+})
+
+t.test('typeJsdocAstToMdAst', t => {
+  const node = [
+    '@type {string | number}',
+    '@type {Array<string>}',
+    '@type {Object}',
+    '@type {boolean?}',
+    '@type {5 | false | true | undefined}',
+    '@type {{a: null, b: 5}}',
+    '@type {function(this:string, ...number): Object}'
+  ]
+    .reduce((nodes, doclet) => [...nodes, ...doctrine.parse(doclet).tags], [])
+    .reduce((node, { type }) => [...node, typeJsdocAstToMdAst(type)], [])
+
+  t.matchSnapshot(JSON.stringify(node, null, 2), 'Markdown AST.')
   t.end()
 })
