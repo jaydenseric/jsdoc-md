@@ -509,7 +509,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "title": "MDN article for \\"string\\" type.",
+                  "title": "MDN article for ‘string’ type.",
                   "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
                   "children": [
                     {
@@ -586,7 +586,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                   "children": [
                     {
                       "type": "link",
-                      "title": "MDN article for \\"boolean\\" type.",
+                      "title": "MDN article for ‘boolean’ type.",
                       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean",
                       "children": [
                         {
@@ -597,11 +597,11 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     },
                     {
                       "type": "text",
-                      "value": " | "
+                      "value": " | "
                     },
                     {
                       "type": "link",
-                      "title": "MDN article for \\"string\\" type.",
+                      "title": "MDN article for ‘string’ type.",
                       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
                       "children": [
                         {
@@ -784,7 +784,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "title": "",
+                  "title": "JSDoc syntax descriptions.",
                   "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
                   "children": [
                     {
@@ -958,7 +958,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "title": "",
+                  "title": "JSDoc syntax descriptions.",
                   "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
                   "children": [
                     {
@@ -1000,7 +1000,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                   "children": [
                     {
                       "type": "link",
-                      "title": "MDN article for \\"string\\" type.",
+                      "title": "MDN article for ‘string’ type.",
                       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
                       "children": [
                         {
@@ -1079,7 +1079,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                   "children": [
                     {
                       "type": "link",
-                      "title": "MDN article for \\"string\\" type.",
+                      "title": "MDN article for ‘string’ type.",
                       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
                       "children": [
                         {
@@ -1211,7 +1211,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "title": "",
+                  "title": "JSDoc syntax descriptions.",
                   "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
                   "children": [
                     {
@@ -1253,7 +1253,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                   "children": [
                     {
                       "type": "link",
-                      "title": "MDN article for \\"string\\" type.",
+                      "title": "MDN article for ‘string’ type.",
                       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
                       "children": [
                         {
@@ -1385,7 +1385,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "title": "",
+                  "title": "JSDoc syntax descriptions.",
                   "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
                   "children": [
                     {
@@ -1427,7 +1427,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                   "children": [
                     {
                       "type": "link",
-                      "title": "MDN article for \\"string\\" type.",
+                      "title": "MDN article for ‘string’ type.",
                       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
                       "children": [
                         {
@@ -1610,7 +1610,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "title": "",
+                  "title": "JSDoc syntax descriptions.",
                   "url": "https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6",
                   "children": [
                     {
@@ -1652,7 +1652,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                   "children": [
                     {
                       "type": "link",
-                      "title": "MDN article for \\"string\\" type.",
+                      "title": "MDN article for ‘string’ type.",
                       "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
                       "children": [
                         {
@@ -1743,9 +1743,9 @@ Description.
 
 Description, here is a **bold** word.
 
-| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6)                                                             | Description                           |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                                | Description                           |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| a         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean 'MDN article for "boolean" type.') ? | Description, here is a **bold** word. |
+| a         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean "MDN article for ‘boolean’ type.") ? | Description, here is a **bold** word. |
 
 #### Examples
 
@@ -1767,8 +1767,8 @@ Description.
 
 | Property | Type                                                                                                                                  | Description                           |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| a        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string 'MDN article for "string" type.')    | Description, here is a **bold** word. |
-| b        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean 'MDN article for "boolean" type.') | Description.                          |
+| a        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string "MDN article for ‘string’ type.")    | Description, here is a **bold** word. |
+| b        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean "MDN article for ‘boolean’ type.") | Description.                          |
 
 #### B static property b
 
@@ -1782,10 +1782,10 @@ Description.
 
 Description.
 
-| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6)                                                                  | Description  |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                                     | Description  |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| a         | [B~A](#typedef-b~a "typdef reference link.")                                                                                                 | Description. |
-| b         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean 'MDN article for "boolean" type.') ?=true | Description. |
+| a         | [B~A](#typedef-ba "typdef reference link.")                                                                                                  | Description. |
+| b         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean "MDN article for ‘boolean’ type.") ?=true | Description. |
 
 #### B instance method e
 
@@ -1795,9 +1795,9 @@ Description.
 
 Description.
 
-| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6)                                                        | Description  |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                           | Description  |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| a         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string 'MDN article for "string" type.') | Description. |
+| a         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string "MDN article for ‘string’ type.") | Description. |
 
 #### See
 
