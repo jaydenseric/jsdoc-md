@@ -618,7 +618,7 @@ Replace.
 })
 
 t.test('typeJsdocAstToMdAst', t => {
-  const node = [
+  const entities = [
     '@type {string | number}',
     '@type {Array<string>}',
     '@type {Object}',
@@ -641,6 +641,6 @@ t.test('typeJsdocAstToMdAst', t => {
     '@type {function(string=, number=): Object}'
   ].map(doclet => typeJsdocAstToMdAst(doctrine.parse(doclet).tags[0].type))
 
-  t.matchSnapshot(JSON.stringify(node, null, 2), 'Markdown AST.')
+  t.matchSnapshot(JSON.stringify(entities, null, 2), 'Markdown AST.')
   t.end()
 })
