@@ -625,7 +625,14 @@ t.test('typeJsdocAstToMdAst', t => {
     '@type {boolean?}',
     '@type {5 | false | true | undefined}',
     '@type {{a: null, b: 5}}',
-    '@type {function(this:string, ...number): Object}'
+    // literal types test.
+    '@type {*}',
+    '@type {null}',
+    '@type {undefined}',
+    '@type {5}',
+    '@type {"kool"}',
+    '@type {true}',
+    '@type {false}',
     // Function types test.
     '@type {function()}',
     '@type {function(): number}',
