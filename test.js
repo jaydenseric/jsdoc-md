@@ -626,6 +626,19 @@ t.test('typeJsdocAstToMdAst', t => {
     '@type {5 | false | true | undefined}',
     '@type {{a: null, b: 5}}',
     '@type {function(this:string, ...number): Object}'
+    // Function types test.
+    '@type {function()}',
+    '@type {function(): number}',
+    '@type {function(string, boolean)}',
+    '@type {function(string, boolean): Object}',
+    '@type {function(new:typedef)}',
+    '@type {function(new:typedef, ...string)}',
+    '@type {function(new:typedef, ...string): Object}',
+    '@type {function(this:typedef)}',
+    '@type {function(this:typedef, ...string)}',
+    '@type {function(this:typedef, ...string): Object}',
+    '@type {function(string=, number=)}',
+    '@type {function(string=, number=): Object}'
   ].map(doclet => typeJsdocAstToMdAst(doctrine.parse(doclet).tags[0].type))
 
   t.matchSnapshot(JSON.stringify(node, null, 2), 'Markdown AST.')
