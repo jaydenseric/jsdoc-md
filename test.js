@@ -589,7 +589,7 @@ class B {
  * @see [jsdoc-md on Github](https://github.com/jaydenseric/jsdoc-md).
  * @see [jsdoc-md on npm](https://npm.im/jsdoc-md).
  */
-function c(a) {}  
+function c(a) {}
 `,
     'js',
     t
@@ -618,26 +618,37 @@ Replace.
 })
 
 t.test('typeJsdocAstToMdAst', t => {
-  const entities = [
-    '@type {string, number, boolean}',
-    // Union type test.
+  const typeMdAsts = [
+    // Name expression.
+    '@type {boolean}',
+    '@type {number}',
+    '@type {string}',
+    '@type {Object}',
+    '@type {Array}',
+
+    // Union.
     '@type {string | number}',
     '@type {Object | boolean}',
-    // Rest type test.
-    '@type {...boolean}',
-    // TypeApplication type test.
+
+    // Rest.
+    '@param {...string} a',
+
+    // Application.
     '@type {Array<string, number>}',
-    // Record types test.
+
+    // Record.
     '@type {{a: null, b: true}}',
-    // literal types test.
+
+    // Literal.
     '@type {*}',
     '@type {null}',
     '@type {undefined}',
     '@type {5}',
-    '@type {"kool"}',
+    '@type {""}',
     '@type {true}',
     '@type {false}',
-    // Function types test.
+
+    // Function.
     '@type {function()}',
     '@type {function(): number}',
     '@type {function(string, Object)}',
@@ -652,6 +663,6 @@ t.test('typeJsdocAstToMdAst', t => {
     '@type {function(string=, number=): Object}'
   ].map(doclet => typeJsdocAstToMdAst(doctrine.parse(doclet).tags[0].type))
 
-  t.matchSnapshot(JSON.stringify(entities, null, 2), 'Markdown AST.')
+  t.matchSnapshot(JSON.stringify(typeMdAsts, null, 2), 'Markdown ASTs.')
   t.end()
 })

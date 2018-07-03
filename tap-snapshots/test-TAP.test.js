@@ -1808,14 +1808,69 @@ Description.
 
 `
 
-exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
+exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
 [
+  {
+    "type": "link",
+    "title": "MDN article for ‘boolean’ type.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean",
+    "children": [
+      {
+        "type": "text",
+        "value": "boolean"
+      }
+    ]
+  },
+  {
+    "type": "link",
+    "title": "MDN article for ‘number’ type.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+    "children": [
+      {
+        "type": "text",
+        "value": "number"
+      }
+    ]
+  },
+  {
+    "type": "link",
+    "title": "MDN article for ‘string’ type.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+    "children": [
+      {
+        "type": "text",
+        "value": "string"
+      }
+    ]
+  },
+  {
+    "type": "link",
+    "title": "MDN article for ‘Object’ type.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "children": [
+      {
+        "type": "text",
+        "value": "Object"
+      }
+    ]
+  },
+  {
+    "type": "link",
+    "title": "MDN article for ‘Array’ type.",
+    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "children": [
+      {
+        "type": "text",
+        "value": "Array"
+      }
+    ]
+  },
   {
     "type": "paragraph",
     "children": [
       {
         "type": "link",
-        "title": "MDN article for \\"string\\" type.",
+        "title": "MDN article for ‘string’ type.",
         "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
         "children": [
           {
@@ -1826,11 +1881,11 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
       },
       {
         "type": "text",
-        "value": " | "
+        "value": " | "
       },
       {
         "type": "link",
-        "title": "MDN article for \\"number\\" type.",
+        "title": "MDN article for ‘number’ type.",
         "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
         "children": [
           {
@@ -1846,7 +1901,58 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
     "children": [
       {
         "type": "link",
-        "title": "MDN article for \\"Array\\" type.",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": " | "
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘boolean’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean",
+        "children": [
+          {
+            "type": "text",
+            "value": "boolean"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "..."
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘string’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "children": [
+          {
+            "type": "text",
+            "value": "string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "link",
+        "title": "MDN article for ‘Array’ type.",
         "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
         "children": [
           {
@@ -1861,7 +1967,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
       },
       {
         "type": "link",
-        "title": "MDN article for \\"string\\" type.",
+        "title": "MDN article for ‘string’ type.",
         "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
         "children": [
           {
@@ -1872,71 +1978,31 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
       },
       {
         "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘number’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "children": [
+          {
+            "type": "text",
+            "value": "number"
+          }
+        ]
+      },
+      {
+        "type": "text",
         "value": ">"
       }
     ]
   },
   {
-    "type": "link",
-    "title": "MDN article for \\"Object\\" type.",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-    "children": [
-      {
-        "type": "text",
-        "value": "Object"
-      }
-    ]
-  },
-  {
-    "type": "link",
-    "title": "MDN article for \\"Null\\" type.",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
-    "children": [
-      {
-        "type": "text",
-        "value": "Null"
-      }
-    ]
-  },
-  {
     "type": "paragraph",
     "children": [
       {
         "type": "text",
-        "value": "5"
-      },
-      {
-        "type": "text",
-        "value": " | "
-      },
-      {
-        "type": "text",
-        "value": "false"
-      },
-      {
-        "type": "text",
-        "value": " | "
-      },
-      {
-        "type": "text",
-        "value": "true"
-      },
-      {
-        "type": "text",
-        "value": " | "
-      },
-      {
-        "type": "text",
-        "value": "Undefined"
-      }
-    ]
-  },
-  {
-    "type": "paragraph",
-    "children": [
-      {
-        "type": "text",
-        "value": "{ "
+        "value": "{"
       },
       {
         "type": "paragraph",
@@ -1953,7 +2019,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
       },
       {
         "type": "text",
-        "value": ", "
+        "value": ", "
       },
       {
         "type": "paragraph",
@@ -1964,13 +2030,314 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
           },
           {
             "type": "text",
-            "value": "5"
+            "value": true
           }
         ]
       },
       {
         "type": "text",
-        "value": " }"
+        "value": "}"
+      }
+    ]
+  },
+  {
+    "type": "text",
+    "value": "All"
+  },
+  {
+    "type": "text",
+    "value": "Null"
+  },
+  {
+    "type": "text",
+    "value": "Undefined"
+  },
+  {
+    "type": "text",
+    "value": 5
+  },
+  {
+    "type": "text",
+    "value": ""
+  },
+  {
+    "type": "text",
+    "value": true
+  },
+  {
+    "type": "text",
+    "value": false
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function("
+      },
+      {
+        "type": "text",
+        "value": " )"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function("
+      },
+      {
+        "type": "text",
+        "value": " ):"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘number’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "children": [
+          {
+            "type": "text",
+            "value": "number"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function("
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘string’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "children": [
+          {
+            "type": "text",
+            "value": "string"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function("
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘string’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "children": [
+          {
+            "type": "text",
+            "value": "string"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘number’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "children": [
+          {
+            "type": "text",
+            "value": "number"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": ":"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function(new:"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": " )"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function(new:"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "..."
+          },
+          {
+            "type": "link",
+            "title": "MDN article for ‘string’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "children": [
+              {
+                "type": "text",
+                "value": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function(new:"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "..."
+          },
+          {
+            "type": "link",
+            "title": "MDN article for ‘string’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "children": [
+              {
+                "type": "text",
+                "value": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": ":"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
       }
     ]
   },
@@ -1983,39 +2350,58 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
       },
       {
         "type": "link",
-        "title": "MDN article for \\"string\\" type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
         "children": [
           {
             "type": "text",
-            "value": "string"
+            "value": "Object"
           }
         ]
       },
       {
         "type": "text",
-        "value": ", "
+        "value": " )"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function(this:"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
       },
       {
         "type": "paragraph",
         "children": [
           {
-            "type": "paragraph",
+            "type": "text",
+            "value": "..."
+          },
+          {
+            "type": "link",
+            "title": "MDN article for ‘string’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
             "children": [
               {
                 "type": "text",
-                "value": "..."
-              },
-              {
-                "type": "link",
-                "title": "MDN article for \\"number\\" type.",
-                "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
-                "children": [
-                  {
-                    "type": "text",
-                    "value": "number"
-                  }
-                ]
+                "value": "string"
               }
             ]
           }
@@ -2023,11 +2409,200 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown AST. 1`] = `
       },
       {
         "type": "text",
-        "value": "):"
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function(this:"
       },
       {
         "type": "link",
-        "title": "MDN article for \\"Object\\" type.",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "..."
+          },
+          {
+            "type": "link",
+            "title": "MDN article for ‘string’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "children": [
+              {
+                "type": "text",
+                "value": "string"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": ":"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "children": [
+          {
+            "type": "text",
+            "value": "Object"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function("
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "link",
+            "title": "MDN article for ‘string’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "children": [
+              {
+                "type": "text",
+                "value": "string"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": " ?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "link",
+            "title": "MDN article for ‘number’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+            "children": [
+              {
+                "type": "text",
+                "value": "number"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": " ?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "function("
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "link",
+            "title": "MDN article for ‘string’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "children": [
+              {
+                "type": "text",
+                "value": "string"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": " ?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ", "
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "link",
+            "title": "MDN article for ‘number’ type.",
+            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+            "children": [
+              {
+                "type": "text",
+                "value": "number"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": " ?"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": ")"
+      },
+      {
+        "type": "text",
+        "value": ":"
+      },
+      {
+        "type": "link",
+        "title": "MDN article for ‘Object’ type.",
         "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
         "children": [
           {
