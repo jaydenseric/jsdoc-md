@@ -798,7 +798,7 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
         value: entity.type.replace('Literal', '')
       }
     default:
-      throw new Error(`Unknown type "${entity.type}"`)
+      throw new Error(`Unknown type ‘${entity.type}’`)
   }
 }
 
