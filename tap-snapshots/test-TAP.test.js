@@ -510,7 +510,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                 {
                   "type": "link",
                   "title": "MDN article for ‘string’ type.",
-                  "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                   "children": [
                     {
                       "type": "text",
@@ -587,7 +587,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     {
                       "type": "link",
                       "title": "MDN article for ‘boolean’ type.",
-                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean",
+                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
                       "children": [
                         {
                           "type": "text",
@@ -602,7 +602,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     {
                       "type": "link",
                       "title": "MDN article for ‘string’ type.",
-                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                       "children": [
                         {
                           "type": "text",
@@ -1001,7 +1001,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     {
                       "type": "link",
                       "title": "MDN article for ‘string’ type.",
-                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                       "children": [
                         {
                           "type": "text",
@@ -1080,7 +1080,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     {
                       "type": "link",
                       "title": "MDN article for ‘string’ type.",
-                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                       "children": [
                         {
                           "type": "text",
@@ -1254,7 +1254,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     {
                       "type": "link",
                       "title": "MDN article for ‘string’ type.",
-                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                       "children": [
                         {
                           "type": "text",
@@ -1428,7 +1428,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     {
                       "type": "link",
                       "title": "MDN article for ‘string’ type.",
-                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                       "children": [
                         {
                           "type": "text",
@@ -1653,7 +1653,7 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                     {
                       "type": "link",
                       "title": "MDN article for ‘string’ type.",
-                      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                       "children": [
                         {
                           "type": "text",
@@ -1743,9 +1743,9 @@ Description.
 
 Description, here is a **bold** word.
 
-| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                                | Description                           |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| a         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean "MDN article for ‘boolean’ type.") ? | Description, here is a **bold** word. |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                 | Description                           |
+| --------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean "MDN article for ‘boolean’ type.") ? | Description, here is a **bold** word. |
 
 #### Examples
 
@@ -1765,10 +1765,10 @@ _Construct a new instance with options._
 
 Description.
 
-| Property | Type                                                                                                                                  | Description                           |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| a        | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string "MDN article for ‘string’ type.")    | Description, here is a **bold** word. |
-| b        | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean "MDN article for ‘boolean’ type.") | Description.                          |
+| Property | Type                                                                                                                   | Description                           |
+| -------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| a        | [string](https://developer.mozilla.org/javascript/reference/global_objects/string "MDN article for ‘string’ type.")    | Description, here is a **bold** word. |
+| b        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean "MDN article for ‘boolean’ type.") | Description.                          |
 
 #### B static property b
 
@@ -1782,10 +1782,10 @@ Description.
 
 Description.
 
-| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                                     | Description  |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| a         | [B~A](#typedef-ba "typdef reference link.")                                                                                                  | Description. |
-| b         | [boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean "MDN article for ‘boolean’ type.") ?=true | Description. |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                      | Description  |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| a         | [B~A](#typedef-ba "typdef reference link.")                                                                                   | Description. |
+| b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean "MDN article for ‘boolean’ type.") ?=true | Description. |
 
 #### B instance method e
 
@@ -1795,9 +1795,9 @@ Description.
 
 Description.
 
-| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")                           | Description  |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| a         | [string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string "MDN article for ‘string’ type.") | Description. |
+| Parameter | [Types](https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6 "JSDoc syntax descriptions.")            | Description  |
+| --------- | ------------------------------------------------------------------------------------------------------------------- | ------------ |
+| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string "MDN article for ‘string’ type.") | Description. |
 
 #### See
 
@@ -1813,7 +1813,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
   {
     "type": "link",
     "title": "MDN article for ‘boolean’ type.",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean",
+    "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
     "children": [
       {
         "type": "text",
@@ -1824,7 +1824,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
   {
     "type": "link",
     "title": "MDN article for ‘number’ type.",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+    "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
     "children": [
       {
         "type": "text",
@@ -1835,7 +1835,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
   {
     "type": "link",
     "title": "MDN article for ‘string’ type.",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+    "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
     "children": [
       {
         "type": "text",
@@ -1846,7 +1846,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
   {
     "type": "link",
     "title": "MDN article for ‘Object’ type.",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
     "children": [
       {
         "type": "text",
@@ -1857,7 +1857,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
   {
     "type": "link",
     "title": "MDN article for ‘Array’ type.",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
     "children": [
       {
         "type": "text",
@@ -1871,7 +1871,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘string’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
         "children": [
           {
             "type": "text",
@@ -1886,7 +1886,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘number’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
         "children": [
           {
             "type": "text",
@@ -1902,7 +1902,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -1917,7 +1917,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘boolean’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
         "children": [
           {
             "type": "text",
@@ -1937,7 +1937,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘string’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
         "children": [
           {
             "type": "text",
@@ -1953,7 +1953,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Array’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
         "children": [
           {
             "type": "text",
@@ -1968,7 +1968,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘string’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
         "children": [
           {
             "type": "text",
@@ -1983,7 +1983,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘number’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
         "children": [
           {
             "type": "text",
@@ -2095,7 +2095,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘number’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
         "children": [
           {
             "type": "text",
@@ -2115,7 +2115,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘string’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
         "children": [
           {
             "type": "text",
@@ -2130,7 +2130,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2158,7 +2158,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘string’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
         "children": [
           {
             "type": "text",
@@ -2173,7 +2173,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘number’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
         "children": [
           {
             "type": "text",
@@ -2192,7 +2192,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2212,7 +2212,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2236,7 +2236,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2258,7 +2258,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘string’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
             "children": [
               {
                 "type": "text",
@@ -2288,7 +2288,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2310,7 +2310,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘string’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
             "children": [
               {
                 "type": "text",
@@ -2331,7 +2331,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2351,7 +2351,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2375,7 +2375,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2397,7 +2397,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘string’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
             "children": [
               {
                 "type": "text",
@@ -2427,7 +2427,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2449,7 +2449,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘string’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
             "children": [
               {
                 "type": "text",
@@ -2470,7 +2470,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
@@ -2493,7 +2493,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘string’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
             "children": [
               {
                 "type": "text",
@@ -2517,7 +2517,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘number’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
             "children": [
               {
                 "type": "text",
@@ -2554,7 +2554,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘string’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
             "children": [
               {
                 "type": "text",
@@ -2578,7 +2578,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
           {
             "type": "link",
             "title": "MDN article for ‘number’ type.",
-            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number",
+            "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
             "children": [
               {
                 "type": "text",
@@ -2603,7 +2603,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
       {
         "type": "link",
         "title": "MDN article for ‘Object’ type.",
-        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+        "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
         "children": [
           {
             "type": "text",
