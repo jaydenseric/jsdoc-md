@@ -344,7 +344,7 @@ const outlineToMdAst = (outline, depth = 1) => {
                     children: [
                       {
                         type: 'link',
-                        title: '',
+                        title: 'JSDoc syntax descriptions.',
                         url:
                           'https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6',
                         children: [
