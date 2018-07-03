@@ -626,9 +626,7 @@ t.test('typeJsdocAstToMdAst', t => {
     '@type {5 | false | true | undefined}',
     '@type {{a: null, b: 5}}',
     '@type {function(this:string, ...number): Object}'
-  ]
-    .reduce((nodes, doclet) => [...nodes, ...doctrine.parse(doclet).tags], [])
-    .reduce((node, { type }) => [...node, typeJsdocAstToMdAst(type)], [])
+  ].map(doclet => typeJsdocAstToMdAst(doctrine.parse(doclet).tags[0].type))
 
   t.matchSnapshot(JSON.stringify(node, null, 2), 'Markdown AST.')
   t.end()
