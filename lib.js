@@ -707,7 +707,7 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
         case 'Array':
           return {
             type: 'link',
-            title: `MDN article for "${entity.name}" type.`,
+            title: `MDN article for ‘${entity.name}’ type.`,
             url: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/${
               entity.name
             }`,
