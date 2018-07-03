@@ -619,12 +619,16 @@ Replace.
 
 t.test('typeJsdocAstToMdAst', t => {
   const entities = [
+    '@type {string, number, boolean}',
+    // Union type test.
     '@type {string | number}',
-    '@type {Array<string>}',
-    '@type {Object}',
-    '@type {boolean?}',
-    '@type {5 | false | true | undefined}',
-    '@type {{a: null, b: 5}}',
+    '@type {Object | boolean}',
+    // Rest type test.
+    '@type {...boolean}',
+    // TypeApplication type test.
+    '@type {Array<string, number>}',
+    // Record types test.
+    '@type {{a: null, b: true}}',
     // literal types test.
     '@type {*}',
     '@type {null}',
@@ -636,14 +640,14 @@ t.test('typeJsdocAstToMdAst', t => {
     // Function types test.
     '@type {function()}',
     '@type {function(): number}',
-    '@type {function(string, boolean)}',
-    '@type {function(string, boolean): Object}',
-    '@type {function(new:typedef)}',
-    '@type {function(new:typedef, ...string)}',
-    '@type {function(new:typedef, ...string): Object}',
-    '@type {function(this:typedef)}',
-    '@type {function(this:typedef, ...string)}',
-    '@type {function(this:typedef, ...string): Object}',
+    '@type {function(string, Object)}',
+    '@type {function(string, number): Object}',
+    '@type {function(new:Object)}',
+    '@type {function(new:Object, ...string)}',
+    '@type {function(new:Object, ...string): Object}',
+    '@type {function(this:Object)}',
+    '@type {function(this:Object, ...string)}',
+    '@type {function(this:Object, ...string): Object}',
     '@type {function(string=, number=)}',
     '@type {function(string=, number=): Object}'
   ].map(doclet => typeJsdocAstToMdAst(doctrine.parse(doclet).tags[0].type))
