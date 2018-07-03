@@ -7,6 +7,9 @@ const parse = require('remark-parse')
 const unified = require('unified')
 const mdastInject = require('mdast-util-inject')
 const globby = require('globby')
+const GithubSlugger = require('github-slugger')
+
+const slugger = new GithubSlugger()
 
 const DEFAULTS = {
   sourceGlob: '**/*.{mjs,js}',
@@ -721,7 +724,7 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
             return {
               type: 'link',
               title: 'typdef reference link.',
-              url: `#typedef-${entity.name.toLowerCase()}`,
+              url: '#' + slugger.slug('typedef-' + entity.name),
               children: [
                 {
                   type: 'text',
