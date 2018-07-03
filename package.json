@@ -43,7 +43,7 @@
     "yargs": "^12.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.0.0",
+    "eslint": "^5.0.1",
     "eslint-config-env": "^0.5.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.13.0",
@@ -52,16 +52,18 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "npm-run-all": "^4.1.2",
-    "prettier": "^1.13.5",
+    "prettier": "^1.13.7",
     "tap": "^12.0.1"
   },
   "scripts": {
-    "jsdoc": "node cli",
+    "prepare": "run-s prepare:*",
+    "prepare:jsdoc": "node cli",
+    "prepare:prettier": "prettier readme.md --write",
     "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,md}' -l",
     "test:js": "node test | tap-mocha-reporter spec",
-    "prepublishOnly": "run-p jsdoc test",
+    "prepublishOnly": "run-s prepare test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
