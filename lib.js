@@ -539,22 +539,6 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
 }
 
 /**
- * Decorate MD AST with a prefix & suffix.
- * @param {!Object} md MD AST.
- * @param {string} [prefix] Prefix string to add to front of node.
- * @param {string} [suffix] String to add to front of node.
- * @returns {Array<Object>} MD AST.
- * @ignore
- */
-const decorateMdAst = (md, prefix, suffix) => {
-  const children = []
-  prefix && children.push({ type: 'text', value: prefix })
-  children.push(md)
-  suffix && children.push({ type: 'text', value: suffix })
-  return children
-}
-
-/**
  * Generates markdown AST for JSdoc ASX types.
  * @param {Object} [entity] Jsdoc AST types.
  * @param {Array} [entityList=[]] A list of typedef names.
@@ -566,118 +550,82 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
     case 'OptionalType':
       return {
         type: 'paragraph',
-        children: decorateMdAst(
+        children: [
           typeJsdocAstToMdAst(entity.expression, entityList),
-          null,
-          ' ?'
-        )
+          { type: 'text', value: ' ?' }
+        ]
       }
     case 'RestType':
       return {
         type: 'paragraph',
-        children: decorateMdAst(
-          typeJsdocAstToMdAst(entity.expression, entityList),
-          '...'
-        )
+        children: [
+          { type: 'text', value: '...' },
+          typeJsdocAstToMdAst(entity.expression, entityList)
+        ]
       }
     case 'UnionType': {
-      const children = []
-      entity.elements.forEach((item, index, array) => {
-        children.push(
-          ...decorateMdAst(
-            typeJsdocAstToMdAst(item, entityList),
-            null,
-            index + 1 !== array.length && ' | '
-          )
-        )
-      })
-
       return {
         type: 'paragraph',
-        children
+        children: entity.elements.reduce((children, item, index, array) => {
+          children.push(typeJsdocAstToMdAst(item, entityList))
+          if (index + 1 !== array.length)
+            children.push({ type: 'text', value: ' | ' })
+          return children
+        }, [])
       }
     }
     case 'TypeApplication': {
-      const children = [
-        typeJsdocAstToMdAst(entity.expression),
-        {
-          type: 'text',
-          value: '<'
-        },
-        {
-          type: 'text',
-          value: '>'
-        }
-      ]
-
-      entity.applications.reverse().forEach((item, index, array) => {
-        children.splice(
-          2,
-          0,
-          ...decorateMdAst(
-            typeJsdocAstToMdAst(item, entityList),
-            index < array.length - 1 && ', '
-          )
-        )
-      })
-
       return {
         type: 'paragraph',
-        children
+        children: [
+          typeJsdocAstToMdAst(entity.expression),
+          { type: 'text', value: '<' },
+          ...entity.applications.reduce((children, item, index, array) => {
+            children.push(typeJsdocAstToMdAst(item, entityList))
+            if (index + 1 !== array.length)
+              children.push({ type: 'text', value: ', ' })
+            return children
+          }, []),
+          { type: 'text', value: '>' }
+        ]
       }
     }
     case 'RecordType': {
-      const children = [{ type: 'text', value: '{' }]
-      entity.fields.forEach((item, index, array) =>
-        children.push(
-          ...decorateMdAst(
-            typeJsdocAstToMdAst(item, entityList),
-            null,
-            index + 1 !== array.length && ', '
-          )
-        )
-      )
-      children.push({ type: 'text', value: '}' })
-
       return {
         type: 'paragraph',
-        children
+        children: [
+          { type: 'text', value: '{' },
+          ...entity.fields.reduce((children, item, index, array) => {
+            children.push(typeJsdocAstToMdAst(item, entityList))
+            if (index + 1 !== array.length)
+              children.push({ type: 'text', value: ', ' })
+            return children
+          }, []),
+          { type: 'text', value: '}' }
+        ]
       }
     }
     case 'FieldType':
       return {
         type: 'paragraph',
-        children: decorateMdAst(
-          typeJsdocAstToMdAst(entity.value, entityList),
-          `${entity.key}: `
-        )
+        children: [
+          { type: 'text', value: `${entity.key}: ` },
+          typeJsdocAstToMdAst(entity.value, entityList)
+        ]
       }
     case 'ArrayType': {
-      const children = [
-        {
-          type: 'text',
-          value: '['
-        }
-      ]
-
-      entity.elements.forEach((item, index, array) => {
-        children.push(
-          ...decorateMdAst(
-            typeJsdocAstToMdAst(item, entityList),
-            null,
-            index + 1 !== array.length && ', '
-          )
-        )
-      })
-
-      children.push({
-        type: 'text',
-        value: ']'
-      })
-
       return {
         type: 'paragraph',
-        children
+        children: [
+          { type: 'text', value: '[' },
+          ...entity.elements.reduce((children, item, index, array) => {
+            children.push(typeJsdocAstToMdAst(item, entityList))
+            if (index + 1 !== array.length)
+              children.push({ type: 'text', value: ', ' })
+            return children
+          }, []),
+          { type: 'text', value: ']' }
+        ]
       }
     }
     case 'NameExpression':
@@ -725,39 +673,27 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
         }
       ]
 
-      entity.this &&
-        children.push(
-          ...decorateMdAst(
-            typeJsdocAstToMdAst(entity.this, entityList),
-            null,
-            entity.params.length && ', '
-          )
-        )
+      if (entity.this) {
+        children.push(typeJsdocAstToMdAst(entity.this, entityList))
+        if (entity.params.length) children.push({ type: 'text', value: ', ' })
+      }
 
-      entity.params.length &&
+      if (entity.params.length)
         entity.params.forEach((item, index, array) => {
-          children.push(
-            ...decorateMdAst(
-              typeJsdocAstToMdAst(item, entityList),
-              null,
-              index + 1 !== array.length ? ', ' : ')'
-            )
-          )
+          children.push(typeJsdocAstToMdAst(item, entityList), {
+            type: 'text',
+            value: index + 1 !== array.length ? ', ' : ')'
+          })
         })
 
       entity.result
         ? children.push(
-            ...decorateMdAst(
-              typeJsdocAstToMdAst(entity.result, entityList),
-              entity.params.length ? ':' : ' ):'
-            )
+            { type: 'text', value: entity.params.length ? ':' : ' ):' },
+            typeJsdocAstToMdAst(entity.result, entityList)
           )
         : children.push({ type: 'text', value: !entity.params.length && ' )' })
 
-      return {
-        type: 'paragraph',
-        children
-      }
+      return { type: 'paragraph', children }
     }
 
     case 'AllLiteral':
