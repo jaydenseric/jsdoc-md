@@ -516,10 +516,6 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                       "value": "string"
                     }
                   ]
-                },
-                {
-                  "type": "text",
-                  "value": ""
                 }
               ]
             },
@@ -608,10 +604,6 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
                       ]
                     }
                   ]
-                },
-                {
-                  "type": "text",
-                  "value": ""
                 }
               ]
             },
@@ -819,22 +811,13 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "paragraph",
+                  "type": "link",
+                  "title": "typdef reference link.",
+                  "url": "#typedef-a",
                   "children": [
                     {
-                      "type": "link",
-                      "title": "typdef reference link.",
-                      "url": "#typedef-a",
-                      "children": [
-                        {
-                          "type": "text",
-                          "value": "A"
-                        }
-                      ]
-                    },
-                    {
                       "type": "text",
-                      "value": ""
+                      "value": "A"
                     }
                   ]
                 }
@@ -993,21 +976,12 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "paragraph",
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                   "children": [
                     {
-                      "type": "link",
-                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-                      "children": [
-                        {
-                          "type": "text",
-                          "value": "string"
-                        }
-                      ]
-                    },
-                    {
                       "type": "text",
-                      "value": ""
+                      "value": "string"
                     }
                   ]
                 }
@@ -1071,21 +1045,12 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "paragraph",
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                   "children": [
                     {
-                      "type": "link",
-                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-                      "children": [
-                        {
-                          "type": "text",
-                          "value": "string"
-                        }
-                      ]
-                    },
-                    {
                       "type": "text",
-                      "value": ""
+                      "value": "string"
                     }
                   ]
                 }
@@ -1244,21 +1209,12 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "paragraph",
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                   "children": [
                     {
-                      "type": "link",
-                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-                      "children": [
-                        {
-                          "type": "text",
-                          "value": "string"
-                        }
-                      ]
-                    },
-                    {
                       "type": "text",
-                      "value": ""
+                      "value": "string"
                     }
                   ]
                 }
@@ -1417,21 +1373,12 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "paragraph",
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                   "children": [
                     {
-                      "type": "link",
-                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-                      "children": [
-                        {
-                          "type": "text",
-                          "value": "string"
-                        }
-                      ]
-                    },
-                    {
                       "type": "text",
-                      "value": ""
+                      "value": "string"
                     }
                   ]
                 }
@@ -1641,21 +1588,12 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "paragraph",
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                   "children": [
                     {
-                      "type": "link",
-                      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-                      "children": [
-                        {
-                          "type": "text",
-                          "value": "string"
-                        }
-                      ]
-                    },
-                    {
                       "type": "text",
-                      "value": ""
+                      "value": "string"
                     }
                   ]
                 }
