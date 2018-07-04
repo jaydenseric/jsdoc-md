@@ -267,7 +267,10 @@ const outlineToMdAst = (outline, depth = 1) => {
             const typeCellChildren = typeJsdocAstToMdAst(tag.type, typedefList)
 
             if ('default' in tag)
-              typeCellChildren.push({ type: 'text', value: `=${tag.default}` })
+              typeCellChildren.push(
+                { type: 'text', value: ' = ' },
+                { type: 'inlineCode', value: tag.default }
+              )
 
             propTable.children.push({
               type: 'tableRow',
@@ -316,7 +319,10 @@ const outlineToMdAst = (outline, depth = 1) => {
             const typeCellChildren = typeJsdocAstToMdAst(tag.type, typedefList)
 
             if ('default' in tag)
-              typeCellChildren.push({ type: 'text', value: `=${tag.default}` })
+              typeCellChildren.push(
+                { type: 'text', value: ' = ' },
+                { type: 'inlineCode', value: tag.default }
+              )
 
             paramTable.children.push({
               type: 'tableRow',
@@ -445,7 +451,7 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
 }
 
 /**
- * Converts a doctrine JSDoc AST type node to markdown AST.
+ * Converts a doctrine JSDoc AST type node to markdown AST children list.
  * @kind function
  * @name typeJsdocAstToMdAst
  * @param {Object} [typeJsdocAst] Doctrine JSDoc AST type node.
@@ -458,7 +464,7 @@ const typeJsdocAstToMdAst = (typeJsdocAst, entityList = []) => {
     case 'OptionalType':
       return [
         ...typeJsdocAstToMdAst(typeJsdocAst.expression, entityList),
-        { type: 'text', value: ' ?' }
+        { type: 'text', value: '?' }
       ]
     case 'RestType':
       return [

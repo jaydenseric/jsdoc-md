@@ -1633,9 +1633,9 @@ Description.
 
 Description, here is a **bold** word.
 
-| Parameter | Type                                                                                   | Description                           |
-| --------- | -------------------------------------------------------------------------------------- | ------------------------------------- |
-| a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) ? | Description, here is a **bold** word. |
+| Parameter | Type                                                                                  | Description                           |
+| --------- | ------------------------------------------------------------------------------------- | ------------------------------------- |
+| a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? | Description, here is a **bold** word. |
 
 #### Examples
 
@@ -1672,10 +1672,10 @@ Description.
 
 Description.
 
-| Parameter | Type                                                                                        | Description  |
-| --------- | ------------------------------------------------------------------------------------------- | ------------ |
-| a         | [B~A](#typedef-ba "typdef reference link.")                                                 | Description. |
-| b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) ?=true | Description. |
+| Parameter | Type                                                                                           | Description  |
+| --------- | ---------------------------------------------------------------------------------------------- | ------------ |
+| a         | [B~A](#typedef-ba "typdef reference link.")                                                    | Description. |
+| b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
 
 #### B instance method e
 
@@ -2305,7 +2305,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
     },
     {
       "type": "text",
-      "value": " ?"
+      "value": "?"
     },
     {
       "type": "text",
@@ -2323,7 +2323,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
     },
     {
       "type": "text",
-      "value": " ?"
+      "value": "?"
     },
     {
       "type": "text",
@@ -2351,7 +2351,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
     },
     {
       "type": "text",
-      "value": " ?"
+      "value": "?"
     },
     {
       "type": "text",
@@ -2369,7 +2369,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
     },
     {
       "type": "text",
-      "value": " ?"
+      "value": "?"
     },
     {
       "type": "text",
