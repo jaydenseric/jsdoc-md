@@ -264,9 +264,7 @@ const outlineToMdAst = (outline, depth = 1) => {
           }
 
           propTags.forEach(tag => {
-            const typeCellChildren = [
-              typeJsdocAstToMdAst(tag.type, typedefList)
-            ]
+            const typeCellChildren = typeJsdocAstToMdAst(tag.type, typedefList)
 
             if ('default' in tag)
               typeCellChildren.push({ type: 'text', value: `=${tag.default}` })
@@ -315,9 +313,7 @@ const outlineToMdAst = (outline, depth = 1) => {
           }
 
           paramTags.forEach(tag => {
-            const typeCellChildren = [
-              typeJsdocAstToMdAst(tag.type, typedefList)
-            ]
+            const typeCellChildren = typeJsdocAstToMdAst(tag.type, typedefList)
 
             if ('default' in tag)
               typeCellChildren.push({ type: 'text', value: `=${tag.default}` })
@@ -454,97 +450,70 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
  * @name typeJsdocAstToMdAst
  * @param {Object} [typeJsdocAst] Doctrine JSDoc AST type node.
  * @param {Array} [entityList=[]] Typedef name list.
- * @returns {Object} Markdown AST.
+ * @returns {Object[]} Markdown AST children list.
  * @ignore
  */
 const typeJsdocAstToMdAst = (typeJsdocAst, entityList = []) => {
   switch (typeJsdocAst.type) {
     case 'OptionalType':
-      return {
-        type: 'paragraph',
-        children: [
-          typeJsdocAstToMdAst(typeJsdocAst.expression, entityList),
-          { type: 'text', value: ' ?' }
-        ]
-      }
+      return [
+        ...typeJsdocAstToMdAst(typeJsdocAst.expression, entityList),
+        { type: 'text', value: ' ?' }
+      ]
     case 'RestType':
-      return {
-        type: 'paragraph',
-        children: [
-          { type: 'text', value: '…' },
-          typeJsdocAstToMdAst(typeJsdocAst.expression, entityList)
-        ]
-      }
+      return [
+        { type: 'text', value: '…' },
+        ...typeJsdocAstToMdAst(typeJsdocAst.expression, entityList)
+      ]
     case 'UnionType': {
-      return {
-        type: 'paragraph',
-        children: typeJsdocAst.elements.reduce(
-          (children, item, index, array) => {
-            children.push(typeJsdocAstToMdAst(item, entityList))
-            if (index + 1 !== array.length)
-              children.push({ type: 'text', value: ' | ' })
-            return children
-          },
-          []
-        )
-      }
+      return typeJsdocAst.elements.reduce((children, item, index, array) => {
+        children.push(...typeJsdocAstToMdAst(item, entityList))
+        if (index + 1 !== array.length)
+          children.push({ type: 'text', value: ' | ' })
+        return children
+      }, [])
     }
     case 'TypeApplication': {
-      return {
-        type: 'paragraph',
-        children: [
-          typeJsdocAstToMdAst(typeJsdocAst.expression),
-          { type: 'text', value: '<' },
-          ...typeJsdocAst.applications.reduce(
-            (children, item, index, array) => {
-              children.push(typeJsdocAstToMdAst(item, entityList))
-              if (index + 1 !== array.length)
-                children.push({ type: 'text', value: ', ' })
-              return children
-            },
-            []
-          ),
-          { type: 'text', value: '>' }
-        ]
-      }
+      return [
+        ...typeJsdocAstToMdAst(typeJsdocAst.expression),
+        { type: 'text', value: '<' },
+        ...typeJsdocAst.applications.reduce((children, item, index, array) => {
+          children.push(...typeJsdocAstToMdAst(item, entityList))
+          if (index + 1 !== array.length)
+            children.push({ type: 'text', value: ', ' })
+          return children
+        }, []),
+        { type: 'text', value: '>' }
+      ]
     }
     case 'RecordType': {
-      return {
-        type: 'paragraph',
-        children: [
-          { type: 'text', value: '{' },
-          ...typeJsdocAst.fields.reduce((children, item, index, array) => {
-            children.push(typeJsdocAstToMdAst(item, entityList))
-            if (index + 1 !== array.length)
-              children.push({ type: 'text', value: ', ' })
-            return children
-          }, []),
-          { type: 'text', value: '}' }
-        ]
-      }
+      return [
+        { type: 'text', value: '{' },
+        ...typeJsdocAst.fields.reduce((children, item, index, array) => {
+          children.push(...typeJsdocAstToMdAst(item, entityList))
+          if (index + 1 !== array.length)
+            children.push({ type: 'text', value: ', ' })
+          return children
+        }, []),
+        { type: 'text', value: '}' }
+      ]
     }
     case 'FieldType':
-      return {
-        type: 'paragraph',
-        children: [
-          { type: 'text', value: `${typeJsdocAst.key}: ` },
-          typeJsdocAstToMdAst(typeJsdocAst.value, entityList)
-        ]
-      }
+      return [
+        { type: 'text', value: `${typeJsdocAst.key}: ` },
+        ...typeJsdocAstToMdAst(typeJsdocAst.value, entityList)
+      ]
     case 'ArrayType': {
-      return {
-        type: 'paragraph',
-        children: [
-          { type: 'text', value: '[' },
-          ...typeJsdocAst.elements.reduce((children, item, index, array) => {
-            children.push(typeJsdocAstToMdAst(item, entityList))
-            if (index + 1 !== array.length)
-              children.push({ type: 'text', value: ', ' })
-            return children
-          }, []),
-          { type: 'text', value: ']' }
-        ]
-      }
+      return [
+        { type: 'text', value: '[' },
+        ...typeJsdocAst.elements.reduce((children, item, index, array) => {
+          children.push(...typeJsdocAstToMdAst(item, entityList))
+          if (index + 1 !== array.length)
+            children.push({ type: 'text', value: ', ' })
+          return children
+        }, []),
+        { type: 'text', value: ']' }
+      ]
     }
     case 'NameExpression':
       switch (typeJsdocAst.name) {
@@ -553,23 +522,27 @@ const typeJsdocAstToMdAst = (typeJsdocAst, entityList = []) => {
         case 'string':
         case 'Object':
         case 'Array':
-          return {
-            type: 'link',
-            url: `https://developer.mozilla.org/javascript/reference/global_objects/${
-              typeJsdocAst.name
-            }`,
-            children: [{ type: 'text', value: typeJsdocAst.name }]
-          }
+          return [
+            {
+              type: 'link',
+              url: `https://developer.mozilla.org/javascript/reference/global_objects/${
+                typeJsdocAst.name
+              }`,
+              children: [{ type: 'text', value: typeJsdocAst.name }]
+            }
+          ]
 
         default:
           return entityList.includes(typeJsdocAst.name)
-            ? {
-                type: 'link',
-                title: 'typdef reference link.',
-                url: '#' + slugger.slug('typedef-' + typeJsdocAst.name),
-                children: [{ type: 'text', value: typeJsdocAst.name }]
-              }
-            : { type: 'text', value: typeJsdocAst.name }
+            ? [
+                {
+                  type: 'link',
+                  title: 'typdef reference link.',
+                  url: '#' + slugger.slug('typedef-' + typeJsdocAst.name),
+                  children: [{ type: 'text', value: typeJsdocAst.name }]
+                }
+              ]
+            : [{ type: 'text', value: typeJsdocAst.name }]
       }
     case 'FunctionType': {
       const children = [
@@ -582,14 +555,14 @@ const typeJsdocAstToMdAst = (typeJsdocAst, entityList = []) => {
       ]
 
       if (typeJsdocAst.this) {
-        children.push(typeJsdocAstToMdAst(typeJsdocAst.this, entityList))
+        children.push(...typeJsdocAstToMdAst(typeJsdocAst.this, entityList))
         if (typeJsdocAst.params.length)
           children.push({ type: 'text', value: ', ' })
       }
 
       if (typeJsdocAst.params.length)
         typeJsdocAst.params.forEach((item, index, array) => {
-          children.push(typeJsdocAstToMdAst(item, entityList), {
+          children.push(...typeJsdocAstToMdAst(item, entityList), {
             type: 'text',
             value: index + 1 !== array.length ? ', ' : ')'
           })
@@ -598,28 +571,29 @@ const typeJsdocAstToMdAst = (typeJsdocAst, entityList = []) => {
       typeJsdocAst.result
         ? children.push(
             { type: 'text', value: typeJsdocAst.params.length ? ':' : ' ):' },
-            typeJsdocAstToMdAst(typeJsdocAst.result, entityList)
+            ...typeJsdocAstToMdAst(typeJsdocAst.result, entityList)
           )
         : children.push({
             type: 'text',
             value: !typeJsdocAst.params.length && ' )'
           })
 
-      return { type: 'paragraph', children }
+      return children
     }
-
     case 'AllLiteral':
     case 'NullLiteral':
     case 'UndefinedLiteral':
     case 'NumericLiteralType':
     case 'StringLiteralType':
     case 'BooleanLiteralType':
-      return {
-        type: 'text',
-        value: typeJsdocAst.hasOwnProperty('value')
-          ? typeJsdocAst.value
-          : typeJsdocAst.type.replace('Literal', '')
-      }
+      return [
+        {
+          type: 'text',
+          value: typeJsdocAst.hasOwnProperty('value')
+            ? typeJsdocAst.value
+            : typeJsdocAst.type.replace('Literal', '')
+        }
+      ]
     default:
       throw new Error(`Unknown type ‘${typeJsdocAst.type}’.`)
   }
