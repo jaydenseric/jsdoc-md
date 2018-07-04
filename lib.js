@@ -150,10 +150,7 @@ const membersToOutline = members => {
     // Reduce the search each time nodes are placed in the outline.
     membersClone = membersClone.filter(member => {
       if (member.memberof === parentNamepath) {
-        outline.push({
-          ...member,
-          members: recurse(member.namepath)
-        })
+        outline.push({ ...member, members: recurse(member.namepath) })
         return false
       }
       return true
@@ -194,12 +191,7 @@ const outlineToMdAst = (outline, depth = 1) => {
       {
         type: 'heading',
         depth,
-        children: [
-          {
-            type: 'text',
-            value: 'Table of contents'
-          }
-        ]
+        children: [{ type: 'text', value: 'Table of contents' }]
       }
     ]
   }
@@ -251,30 +243,15 @@ const outlineToMdAst = (outline, depth = 1) => {
                 children: [
                   {
                     type: 'tableCell',
-                    children: [
-                      {
-                        type: 'text',
-                        value: 'Property'
-                      }
-                    ]
+                    children: [{ type: 'text', value: 'Property' }]
                   },
                   {
                     type: 'tableCell',
-                    children: [
-                      {
-                        type: 'text',
-                        value: 'Type'
-                      }
-                    ]
+                    children: [{ type: 'text', value: 'Type' }]
                   },
                   {
                     type: 'tableCell',
-                    children: [
-                      {
-                        type: 'text',
-                        value: 'Description'
-                      }
-                    ]
+                    children: [{ type: 'text', value: 'Description' }]
                   }
                 ]
               }
@@ -287,21 +264,10 @@ const outlineToMdAst = (outline, depth = 1) => {
               children: [
                 {
                   type: 'tableCell',
-                  children: [
-                    {
-                      type: 'text',
-                      value: tag.name
-                    }
-                  ]
+                  children: [{ type: 'text', value: tag.name }]
                 },
-                {
-                  type: 'tableCell',
-                  children: []
-                },
-                {
-                  type: 'tableCell',
-                  children: mdToMdAst(tag.description)
-                }
+                { type: 'tableCell', children: [] },
+                { type: 'tableCell', children: mdToMdAst(tag.description) }
               ]
             })
           })
@@ -321,30 +287,15 @@ const outlineToMdAst = (outline, depth = 1) => {
                 children: [
                   {
                     type: 'tableCell',
-                    children: [
-                      {
-                        type: 'text',
-                        value: 'Parameter'
-                      }
-                    ]
+                    children: [{ type: 'text', value: 'Parameter' }]
                   },
                   {
                     type: 'tableCell',
-                    children: [
-                      {
-                        type: 'text',
-                        value: 'Type'
-                      }
-                    ]
+                    children: [{ type: 'text', value: 'Type' }]
                   },
                   {
                     type: 'tableCell',
-                    children: [
-                      {
-                        type: 'text',
-                        value: 'Description'
-                      }
-                    ]
+                    children: [{ type: 'text', value: 'Description' }]
                   }
                 ]
               }
@@ -357,21 +308,10 @@ const outlineToMdAst = (outline, depth = 1) => {
               children: [
                 {
                   type: 'tableCell',
-                  children: [
-                    {
-                      type: 'text',
-                      value: tag.name
-                    }
-                  ]
+                  children: [{ type: 'text', value: tag.name }]
                 },
-                {
-                  type: 'tableCell',
-                  children: []
-                },
-                {
-                  type: 'tableCell',
-                  children: mdToMdAst(tag.description)
-                }
+                { type: 'tableCell', children: [] },
+                { type: 'tableCell', children: mdToMdAst(tag.description) }
               ]
             })
           })
@@ -385,19 +325,10 @@ const outlineToMdAst = (outline, depth = 1) => {
         mdast.children.push({
           type: 'heading',
           depth: depth + 1,
-          children: [
-            {
-              type: 'text',
-              value: 'See'
-            }
-          ]
+          children: [{ type: 'text', value: 'See' }]
         })
 
-        const seeTagsList = {
-          type: 'list',
-          ordered: false,
-          children: []
-        }
+        const seeTagsList = { type: 'list', ordered: false, children: [] }
 
         seeTags.forEach(tag => {
           seeTagsList.children.push({
@@ -414,24 +345,14 @@ const outlineToMdAst = (outline, depth = 1) => {
         mdast.children.push({
           type: 'heading',
           depth: depth + 1,
-          children: [
-            {
-              type: 'text',
-              value: 'Examples'
-            }
-          ]
+          children: [{ type: 'text', value: 'Examples' }]
         })
 
         exampleTags.forEach(tag => {
           if (tag.caption)
             mdast.children.push({
               type: 'paragraph',
-              children: [
-                {
-                  type: 'emphasis',
-                  children: mdToMdAst(tag.caption)
-                }
-              ]
+              children: [{ type: 'emphasis', children: mdToMdAst(tag.caption) }]
             })
 
           mdast.children.push({
@@ -538,10 +459,7 @@ function jsdocMd({
     jsdocCommentsFromCode(readFileSync(path, { encoding: 'utf8' })).forEach(
       jsdocComment => {
         const member = jsdocAstToMember(
-          doctrine.parse(jsdocComment, {
-            unwrap: true,
-            sloppy: true
-          })
+          doctrine.parse(jsdocComment, { unwrap: true, sloppy: true })
         )
         if (member) members.push(member)
       }
