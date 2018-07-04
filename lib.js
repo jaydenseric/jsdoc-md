@@ -287,32 +287,22 @@ const outlineToMdAst = (outline, depth = 1) => {
           }
 
           propTags.forEach(tag => {
+            const typeCellChildren = [
+              typeJsdocAstToMdAst(tag.type, typedefList)
+            ]
+
+            if ('default' in tag)
+              typeCellChildren.push({ type: 'text', value: `=${tag.default}` })
+
             propTable.children.push({
               type: 'tableRow',
               children: [
                 {
                   type: 'tableCell',
-                  children: [
-                    {
-                      type: 'text',
-                      value: tag.name
-                    }
-                  ]
+                  children: [{ type: 'text', value: tag.name }]
                 },
-                {
-                  type: 'tableCell',
-                  children: [
-                    typeJsdocAstToMdAst(tag.type),
-                    {
-                      type: 'text',
-                      value: tag.default ? `=${tag.default}` : ''
-                    }
-                  ]
-                },
-                {
-                  type: 'tableCell',
-                  children: mdToMdAst(tag.description)
-                }
+                { type: 'tableCell', children: typeCellChildren },
+                { type: 'tableCell', children: mdToMdAst(tag.description) }
               ]
             })
           })
@@ -371,37 +361,22 @@ const outlineToMdAst = (outline, depth = 1) => {
           }
 
           paramTags.forEach(tag => {
+            const typeCellChildren = [
+              typeJsdocAstToMdAst(tag.type, typedefList)
+            ]
+
+            if ('default' in tag)
+              typeCellChildren.push({ type: 'text', value: `=${tag.default}` })
+
             paramTable.children.push({
               type: 'tableRow',
               children: [
                 {
                   type: 'tableCell',
-                  children: [
-                    {
-                      type: 'text',
-                      value: tag.name
-                    }
-                  ]
+                  children: [{ type: 'text', value: tag.name }]
                 },
-                {
-                  type: 'tableCell',
-                  children: [
-                    {
-                      type: 'paragraph',
-                      children: [
-                        typeJsdocAstToMdAst(tag.type, typedefList),
-                        {
-                          type: 'text',
-                          value: tag.default ? `=${tag.default}` : ''
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  type: 'tableCell',
-                  children: mdToMdAst(tag.description)
-                }
+                { type: 'tableCell', children: typeCellChildren },
+                { type: 'tableCell', children: mdToMdAst(tag.description) }
               ]
             })
           })
