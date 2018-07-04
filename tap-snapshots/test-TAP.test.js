@@ -198,6 +198,701 @@ exports[`test TAP mdToMdAst > Markdown AST. 1`] = `
 ]
 `
 
+exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
+[
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+      "children": [
+        {
+          "type": "text",
+          "value": "boolean"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
+      "children": [
+        {
+          "type": "text",
+          "value": "Array"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": " | "
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": " | "
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+      "children": [
+        {
+          "type": "text",
+          "value": "boolean"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "…"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
+      "children": [
+        {
+          "type": "text",
+          "value": "Array"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "<"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ">"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "{"
+    },
+    {
+      "type": "text",
+      "value": "a: "
+    },
+    {
+      "type": "text",
+      "value": "Null"
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "text",
+      "value": "b: "
+    },
+    {
+      "type": "text",
+      "value": true
+    },
+    {
+      "type": "text",
+      "value": "}"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "All"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "Null"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "Undefined"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": 5
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": ""
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": true
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": false
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "text",
+      "value": " )"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "text",
+      "value": " ):"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": false
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": ":"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function(new:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": " )"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function(new:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "text",
+      "value": "…"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": false
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function(new:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "text",
+      "value": "…"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": ":"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function(this:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": " )"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function(this:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "text",
+      "value": "…"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": false
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function(this:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "text",
+      "value": "…"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": ":"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "?"
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "?"
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": false
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "?"
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "?"
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": ":"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    }
+  ]
+]
+`
+
 exports[`test TAP membersToMdAst > Markdown. 1`] = `
 {
   "type": "root",
@@ -800,8 +1495,7 @@ exports[`test TAP membersToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "title": "typdef reference link.",
-                  "url": "#typedef-a",
+                  "url": "#a",
                   "children": [
                     {
                       "type": "text",
@@ -1674,7 +2368,7 @@ Description.
 
 | Parameter | Type                                                                                           | Description  |
 | --------- | ---------------------------------------------------------------------------------------------- | ------------ |
-| a         | [B~A](#typedef-ba "typdef reference link.")                                                    | Description. |
+| a         | [B~A](#ba)                                                                                     | Description. |
 | b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
 
 #### B instance method e
@@ -1696,699 +2390,4 @@ Description.
 
 ## Preserve
 
-`
-
-exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
-[
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
-      "children": [
-        {
-          "type": "text",
-          "value": "boolean"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
-      "children": [
-        {
-          "type": "text",
-          "value": "Array"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": " | "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": " | "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
-      "children": [
-        {
-          "type": "text",
-          "value": "boolean"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
-      "children": [
-        {
-          "type": "text",
-          "value": "Array"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "<"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ">"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "{"
-    },
-    {
-      "type": "text",
-      "value": "a: "
-    },
-    {
-      "type": "text",
-      "value": "Null"
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "text",
-      "value": "b: "
-    },
-    {
-      "type": "text",
-      "value": true
-    },
-    {
-      "type": "text",
-      "value": "}"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "All"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "Null"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "Undefined"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": 5
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": ""
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": true
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": false
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "text",
-      "value": " )"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "text",
-      "value": " ):"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": false
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(new:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": " )"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(new:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": false
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(new:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(this:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": " )"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(this:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": false
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(this:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": false
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ]
-]
 `
