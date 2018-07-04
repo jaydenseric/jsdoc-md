@@ -457,19 +457,19 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
 }
 
 /**
- * Generates markdown AST for JSdoc ASX types.
- * @param {Object} [entity] Jsdoc AST types.
- * @param {Array} [entityList=[]] A list of typedef names.
+ * Converts a doctrine JSDoc AST type node to markdown AST.
+ * @param {Object} [typeJsdocAst] Doctrine JSDoc AST type node.
+ * @param {Array} [entityList=[]] Typedef name list.
  * @returns {Object} Markdown AST.
  * @ignore
  */
-const typeJsdocAstToMdAst = (entity, entityList = []) => {
-  switch (entity.type) {
+const typeJsdocAstToMdAst = (typeJsdocAst, entityList = []) => {
+  switch (typeJsdocAst.type) {
     case 'OptionalType':
       return {
         type: 'paragraph',
         children: [
-          typeJsdocAstToMdAst(entity.expression, entityList),
+          typeJsdocAstToMdAst(typeJsdocAst.expression, entityList),
           { type: 'text', value: ' ?' }
         ]
       }
@@ -478,32 +478,38 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
         type: 'paragraph',
         children: [
           { type: 'text', value: '...' },
-          typeJsdocAstToMdAst(entity.expression, entityList)
+          typeJsdocAstToMdAst(typeJsdocAst.expression, entityList)
         ]
       }
     case 'UnionType': {
       return {
         type: 'paragraph',
-        children: entity.elements.reduce((children, item, index, array) => {
-          children.push(typeJsdocAstToMdAst(item, entityList))
-          if (index + 1 !== array.length)
-            children.push({ type: 'text', value: ' | ' })
-          return children
-        }, [])
+        children: typeJsdocAst.elements.reduce(
+          (children, item, index, array) => {
+            children.push(typeJsdocAstToMdAst(item, entityList))
+            if (index + 1 !== array.length)
+              children.push({ type: 'text', value: ' | ' })
+            return children
+          },
+          []
+        )
       }
     }
     case 'TypeApplication': {
       return {
         type: 'paragraph',
         children: [
-          typeJsdocAstToMdAst(entity.expression),
+          typeJsdocAstToMdAst(typeJsdocAst.expression),
           { type: 'text', value: '<' },
-          ...entity.applications.reduce((children, item, index, array) => {
-            children.push(typeJsdocAstToMdAst(item, entityList))
-            if (index + 1 !== array.length)
-              children.push({ type: 'text', value: ', ' })
-            return children
-          }, []),
+          ...typeJsdocAst.applications.reduce(
+            (children, item, index, array) => {
+              children.push(typeJsdocAstToMdAst(item, entityList))
+              if (index + 1 !== array.length)
+                children.push({ type: 'text', value: ', ' })
+              return children
+            },
+            []
+          ),
           { type: 'text', value: '>' }
         ]
       }
@@ -513,7 +519,7 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
         type: 'paragraph',
         children: [
           { type: 'text', value: '{' },
-          ...entity.fields.reduce((children, item, index, array) => {
+          ...typeJsdocAst.fields.reduce((children, item, index, array) => {
             children.push(typeJsdocAstToMdAst(item, entityList))
             if (index + 1 !== array.length)
               children.push({ type: 'text', value: ', ' })
@@ -527,8 +533,8 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
       return {
         type: 'paragraph',
         children: [
-          { type: 'text', value: `${entity.key}: ` },
-          typeJsdocAstToMdAst(entity.value, entityList)
+          { type: 'text', value: `${typeJsdocAst.key}: ` },
+          typeJsdocAstToMdAst(typeJsdocAst.value, entityList)
         ]
       }
     case 'ArrayType': {
@@ -536,7 +542,7 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
         type: 'paragraph',
         children: [
           { type: 'text', value: '[' },
-          ...entity.elements.reduce((children, item, index, array) => {
+          ...typeJsdocAst.elements.reduce((children, item, index, array) => {
             children.push(typeJsdocAstToMdAst(item, entityList))
             if (index + 1 !== array.length)
               children.push({ type: 'text', value: ', ' })
@@ -547,7 +553,7 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
       }
     }
     case 'NameExpression':
-      switch (entity.name) {
+      switch (typeJsdocAst.name) {
         case 'boolean':
         case 'number':
         case 'string':
@@ -556,50 +562,54 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
           return {
             type: 'link',
             url: `https://developer.mozilla.org/javascript/reference/global_objects/${
-              entity.name
+              typeJsdocAst.name
             }`,
-            children: [{ type: 'text', value: entity.name }]
+            children: [{ type: 'text', value: typeJsdocAst.name }]
           }
 
         default:
-          return entityList.includes(entity.name)
+          return entityList.includes(typeJsdocAst.name)
             ? {
                 type: 'link',
                 title: 'typdef reference link.',
-                url: '#' + slugger.slug('typedef-' + entity.name),
-                children: [{ type: 'text', value: entity.name }]
+                url: '#' + slugger.slug('typedef-' + typeJsdocAst.name),
+                children: [{ type: 'text', value: typeJsdocAst.name }]
               }
-            : { type: 'text', value: entity.name }
+            : { type: 'text', value: typeJsdocAst.name }
       }
     case 'FunctionType': {
       const children = [
         {
           type: 'text',
           value: `function(${
-            entity.this ? (entity.new ? 'new:' : 'this:') : ''
+            typeJsdocAst.this ? (typeJsdocAst.new ? 'new:' : 'this:') : ''
           }`
         }
       ]
 
-      if (entity.this) {
-        children.push(typeJsdocAstToMdAst(entity.this, entityList))
-        if (entity.params.length) children.push({ type: 'text', value: ', ' })
+      if (typeJsdocAst.this) {
+        children.push(typeJsdocAstToMdAst(typeJsdocAst.this, entityList))
+        if (typeJsdocAst.params.length)
+          children.push({ type: 'text', value: ', ' })
       }
 
-      if (entity.params.length)
-        entity.params.forEach((item, index, array) => {
+      if (typeJsdocAst.params.length)
+        typeJsdocAst.params.forEach((item, index, array) => {
           children.push(typeJsdocAstToMdAst(item, entityList), {
             type: 'text',
             value: index + 1 !== array.length ? ', ' : ')'
           })
         })
 
-      entity.result
+      typeJsdocAst.result
         ? children.push(
-            { type: 'text', value: entity.params.length ? ':' : ' ):' },
-            typeJsdocAstToMdAst(entity.result, entityList)
+            { type: 'text', value: typeJsdocAst.params.length ? ':' : ' ):' },
+            typeJsdocAstToMdAst(typeJsdocAst.result, entityList)
           )
-        : children.push({ type: 'text', value: !entity.params.length && ' )' })
+        : children.push({
+            type: 'text',
+            value: !typeJsdocAst.params.length && ' )'
+          })
 
       return { type: 'paragraph', children }
     }
@@ -612,12 +622,12 @@ const typeJsdocAstToMdAst = (entity, entityList = []) => {
     case 'BooleanLiteralType':
       return {
         type: 'text',
-        value: entity.hasOwnProperty('value')
-          ? entity.value
-          : entity.type.replace('Literal', '')
+        value: typeJsdocAst.hasOwnProperty('value')
+          ? typeJsdocAst.value
+          : typeJsdocAst.type.replace('Literal', '')
       }
     default:
-      throw new Error(`Unknown type ‘${entity.type}’`)
+      throw new Error(`Unknown type ‘${typeJsdocAst.type}’`)
   }
 }
 
