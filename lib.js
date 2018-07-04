@@ -150,7 +150,7 @@ const membersToOutline = members => {
   const recurse = parentNamepath => {
     const outline = []
 
-    // Reduce the search each time nodes are placed in the outline.
+    // Reduce the search each time members are placed in the outline.
     membersClone = membersClone.filter(member => {
       if (member.memberof === parentNamepath) {
         outline.push({ ...member, members: recurse(member.namepath) })
@@ -179,15 +179,16 @@ const mdToMdAst = md =>
     .parse(md).children
 
 /**
- * Converts a members outline to a markdown AST.
+ * Converts members to a markdown AST.
  * @kind function
- * @name outlineToMdAst
- * @param {Object} outline Members outline.
+ * @name membersToMdAst
+ * @param {Object[]} members Members.
  * @param {number} depth Top heading level.
  * @returns {Object} Markdown AST.
  * @ignore
  */
-const outlineToMdAst = (outline, depth = 1) => {
+const membersToMdAst = (members, depth = 1) => {
+  const outline = membersToOutline(members)
   const mdast = {
     type: 'root',
     children: [
@@ -202,7 +203,7 @@ const outlineToMdAst = (outline, depth = 1) => {
   /**
    * Recursively constructs the markdown AST.
    * @kind function
-   * @name outlineToMdAst~recurse
+   * @name membersToMdAst~recurse
    * @param {Object} options Options.
    * @param {Object} [options.parentMember] Parent member.
    * @param {Object[]} members Members.
@@ -645,7 +646,7 @@ function jsdocMd({
   mdFileReplaceSection({
     markdownPath,
     targetHeading,
-    replacementAst: outlineToMdAst(membersToOutline(members))
+    replacementAst: membersToMdAst(members)
   })
 }
 
@@ -658,7 +659,7 @@ module.exports = {
   jsdocAstToMember,
   membersToOutline,
   mdToMdAst,
-  outlineToMdAst,
+  membersToMdAst,
   remarkPluginReplaceSection,
   mdFileReplaceSection,
   jsdocMd,

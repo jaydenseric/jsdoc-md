@@ -15,7 +15,7 @@ const {
   jsdocAstToMember,
   membersToOutline,
   mdToMdAst,
-  outlineToMdAst,
+  membersToMdAst,
   remarkPluginReplaceSection,
   mdFileReplaceSection,
   typeJsdocAstToMdAst
@@ -213,7 +213,7 @@ t.test('jsdocAstToMember', t => {
 })
 
 t.test('membersToOutline', t => {
-  const nodes = [
+  const members = [
     `Description.
      @kind class
      @name A
@@ -233,13 +233,16 @@ t.test('membersToOutline', t => {
      @kind function
      @name A~methodName3
      @ignore`
-  ].reduce((nodes, doclet) => {
-    const node = jsdocAstToMember(doctrine.parse(doclet))
-    if (node) nodes.push(node)
-    return nodes
+  ].reduce((members, doclet) => {
+    const member = jsdocAstToMember(doctrine.parse(doclet))
+    if (member) members.push(member)
+    return members
   }, [])
 
-  t.matchSnapshot(JSON.stringify(membersToOutline(nodes), null, 2), 'Outline.')
+  t.matchSnapshot(
+    JSON.stringify(membersToOutline(members), null, 2),
+    'Outline.'
+  )
 
   t.end()
 })
@@ -252,8 +255,8 @@ t.test('mdToMdAst', t => {
   t.end()
 })
 
-t.test('outlineToMdAst', t => {
-  const nodes = [
+t.test('membersToMdAst', t => {
+  const members = [
     `Description.
      @kind typedef
      @name A
@@ -300,14 +303,14 @@ t.test('outlineToMdAst', t => {
      @kind function
      @name d
      @param {string} a Description.`
-  ].reduce((nodes, doclet) => {
-    const node = jsdocAstToMember(doctrine.parse(doclet))
-    if (node) nodes.push(node)
-    return nodes
+  ].reduce((members, doclet) => {
+    const member = jsdocAstToMember(doctrine.parse(doclet))
+    if (member) members.push(member)
+    return members
   }, [])
 
   t.matchSnapshot(
-    JSON.stringify(outlineToMdAst(membersToOutline(nodes), 3), null, 2),
+    JSON.stringify(membersToMdAst(members, 3), null, 2),
     'Markdown.'
   )
 

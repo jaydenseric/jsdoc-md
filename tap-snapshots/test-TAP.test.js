@@ -198,7 +198,7 @@ exports[`test TAP mdToMdAst > Markdown AST. 1`] = `
 ]
 `
 
-exports[`test TAP outlineToMdAst > Markdown. 1`] = `
+exports[`test TAP membersToMdAst > Markdown. 1`] = `
 {
   "type": "root",
   "children": [
