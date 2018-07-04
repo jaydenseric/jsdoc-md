@@ -471,7 +471,7 @@ const typeJsdocAstToMdAst = (typeJsdocAst, entityList = []) => {
       return {
         type: 'paragraph',
         children: [
-          { type: 'text', value: '...' },
+          { type: 'text', value: '…' },
           typeJsdocAstToMdAst(typeJsdocAst.expression, entityList)
         ]
       }

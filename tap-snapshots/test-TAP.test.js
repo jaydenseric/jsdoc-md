@@ -1818,7 +1818,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
     "children": [
       {
         "type": "text",
-        "value": "..."
+        "value": "…"
       },
       {
         "type": "link",
@@ -2127,7 +2127,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
         "children": [
           {
             "type": "text",
-            "value": "..."
+            "value": "…"
           },
           {
             "type": "link",
@@ -2177,7 +2177,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
         "children": [
           {
             "type": "text",
-            "value": "..."
+            "value": "…"
           },
           {
             "type": "link",
@@ -2260,7 +2260,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
         "children": [
           {
             "type": "text",
-            "value": "..."
+            "value": "…"
           },
           {
             "type": "link",
@@ -2310,7 +2310,7 @@ exports[`test TAP typeJsdocAstToMdAst > Markdown ASTs. 1`] = `
         "children": [
           {
             "type": "text",
-            "value": "..."
+            "value": "…"
           },
           {
             "type": "link",
