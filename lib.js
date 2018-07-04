@@ -303,15 +303,7 @@ const outlineToMdAst = (outline, depth = 1) => {
                   },
                   {
                     type: 'tableCell',
-                    children: [
-                      {
-                        type: 'link',
-                        title: 'JSDoc syntax descriptions.',
-                        url:
-                          'https://gist.github.com/pur3miish/b66468f7c97971fa6d7da483f98e78f6',
-                        children: [{ type: 'text', value: 'Types' }]
-                      }
-                    ]
+                    children: [{ type: 'text', value: 'Type' }]
                   },
                   {
                     type: 'tableCell',
