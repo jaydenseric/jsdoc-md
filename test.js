@@ -5,24 +5,18 @@ const { writeFileSync, unlinkSync, readFileSync } = require('fs')
 const t = require('tap')
 const doctrine = require('doctrine')
 const unified = require('unified')
-
-// Not package exports.
-const {
-  jsdocCommentsFromCode,
-  getJsdocAstTag,
-  getJsdocAstTags,
-  deconstructJsdocNamepath,
-  jsdocAstToMember,
-  membersToOutline,
-  mdToMdAst,
-  membersToMdAst,
-  remarkPluginReplaceSection,
-  mdFileReplaceSection,
-  typeJsdocAstToMdAst
-} = require('./lib')
-
-// Test package exports using the main entry.
-const { jsdocMd } = require('.')
+const jsdocCommentsFromCode = require('./lib/jsdocCommentsFromCode')
+const getJsdocAstTag = require('./lib/getJsdocAstTag')
+const getJsdocAstTags = require('./lib/getJsdocAstTags')
+const deconstructJsdocNamepath = require('./lib/deconstructJsdocNamepath')
+const jsdocAstToMember = require('./lib/jsdocAstToMember')
+const membersToOutline = require('./lib/membersToOutline')
+const mdToMdAst = require('./lib/mdToMdAst')
+const typeJsdocAstToMdAst = require('./lib/typeJsdocAstToMdAst')
+const membersToMdAst = require('./lib/membersToMdAst')
+const remarkPluginReplaceSection = require('./lib/remarkPluginReplaceSection')
+const mdFileReplaceSection = require('./lib/mdFileReplaceSection')
+const jsdocMd = require('./lib/jsdocMd')
 
 /**
  * Creates a temporary file that deletes at test teardown.

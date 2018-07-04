@@ -22,7 +22,7 @@
     "unified"
   ],
   "files": [
-    "lib.js",
+    "lib",
     "index.js",
     "cli.js"
   ],
