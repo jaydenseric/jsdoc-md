@@ -450,6 +450,8 @@ function mdFileReplaceSection({ markdownPath, targetHeading, replacementAst }) {
 
 /**
  * Converts a doctrine JSDoc AST type node to markdown AST.
+ * @kind function
+ * @name typeJsdocAstToMdAst
  * @param {Object} [typeJsdocAst] Doctrine JSDoc AST type node.
  * @param {Array} [entityList=[]] Typedef name list.
  * @returns {Object} Markdown AST.
