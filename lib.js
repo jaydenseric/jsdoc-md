@@ -205,14 +205,14 @@ const membersToMdAst = (members, depth = 1) => {
    * @kind function
    * @name membersToMdAst~recurse
    * @param {Object} options Options.
+   * @param {number} options.depth Top heading level for the member.
    * @param {Object} [options.parentMember] Parent member.
-   * @param {Object[]} members Members.
-   * @param {number} depth Top heading level for the member.
+   * @param {Object[]} options.childMembers Child members of the parent member.
    * @ignore
    */
-  const recurse = ({ parentMember, members, depth }) => {
+  const recurse = ({ depth, parentMember, childMembers }) => {
     let typedefList = []
-    members.forEach(member => {
+    childMembers.forEach(member => {
       mdast.children.push({
         type: 'heading',
         depth,
@@ -386,14 +386,14 @@ const membersToMdAst = (members, depth = 1) => {
 
       if (member.members)
         recurse({
+          depth: depth + 1,
           parentMember: member,
-          members: member.members,
-          depth: depth + 1
+          childMembers: member.members
         })
     })
   }
 
-  recurse({ members: outline, depth })
+  recurse({ depth, childMembers: outline })
 
   // Return markdown AST.
   return unified()
