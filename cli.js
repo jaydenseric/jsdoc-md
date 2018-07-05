@@ -2,7 +2,7 @@
 
 const yargs = require('yargs')
 const jsdocMd = require('./lib/jsdocMd')
-const { DEFAULTS } = require('./lib/constants')
+const DEFAULTS = require('./lib/defaults')
 
 const { argv } = yargs
   .options({

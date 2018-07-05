@@ -24,7 +24,8 @@
   "files": [
     "lib",
     "index.js",
-    "cli.js"
+    "cli.js",
+    "!*.test.js"
   ],
   "bin": "cli.js",
   "engines": {
@@ -62,7 +63,7 @@
     "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,md}' -l",
-    "test:js": "node test | tap-mocha-reporter spec",
+    "test:js": "tap ./lib/*.test.js -R spec",
     "prepublishOnly": "run-s prepare test",
     "precommit": "lint-staged"
   },
@@ -76,7 +77,13 @@
   "eslintConfig": {
     "extends": [
       "env"
-    ]
+    ],
+    "overrides": [{
+      "files": "*.test.js",
+      "rules": {
+        "node/no-unpublished-require": "off"
+      }
+    }]
   },
   "prettier": {
     "proseWrap": "never",
