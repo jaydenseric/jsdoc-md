@@ -28,7 +28,7 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
         "description": "Description.",
         "type": {
           "type": "NameExpression",
-          "name": "A"
+          "name": "string"
         },
         "name": "a"
       }
@@ -37,10 +37,10 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
     "children": [
       {
         "kind": "function",
-        "namepath": "A#methodName1",
+        "namepath": "A.a",
         "memberof": "A",
-        "membership": "#",
-        "name": "methodName1",
+        "membership": ".",
+        "name": "a",
         "description": "Description.",
         "tags": [
           {
@@ -51,27 +51,27 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
           {
             "title": "name",
             "description": null,
-            "name": "A#methodName1"
+            "name": "A.a"
           },
           {
             "title": "param",
             "description": "Description.",
             "type": {
               "type": "NameExpression",
-              "name": "A"
+              "name": "B"
             },
             "name": "a"
           }
         ],
         "parent": "~0",
-        "heading": "A instance method methodName1"
+        "heading": "A static method a"
       },
       {
         "kind": "function",
-        "namepath": "A#methodName2",
+        "namepath": "A#b",
         "memberof": "A",
         "membership": "#",
-        "name": "methodName2",
+        "name": "b",
         "description": "Description.",
         "tags": [
           {
@@ -82,24 +82,51 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
           {
             "title": "name",
             "description": null,
-            "name": "A#methodName2"
-          },
-          {
-            "title": "param",
-            "description": "Description.",
-            "type": {
-              "type": "NameExpression",
-              "name": "A"
-            },
-            "name": "a"
+            "name": "A#b"
           }
         ],
         "parent": "~0",
-        "heading": "A instance method methodName2"
+        "heading": "A instance method b"
       }
     ]
   },
   "~0~children~0",
-  "~0~children~1"
+  "~0~children~1",
+  {
+    "kind": "typedef",
+    "namepath": "B",
+    "name": "B",
+    "description": "Description.",
+    "tags": [
+      {
+        "title": "kind",
+        "description": null,
+        "kind": "typedef"
+      },
+      {
+        "title": "name",
+        "description": null,
+        "name": "B"
+      },
+      {
+        "title": "type",
+        "description": null,
+        "type": {
+          "type": "NameExpression",
+          "name": "Object"
+        }
+      },
+      {
+        "title": "prop",
+        "description": "Description.",
+        "type": {
+          "type": "NameExpression",
+          "name": "string"
+        },
+        "name": "a"
+      }
+    ],
+    "heading": "typedef B"
+  }
 ]
 `
