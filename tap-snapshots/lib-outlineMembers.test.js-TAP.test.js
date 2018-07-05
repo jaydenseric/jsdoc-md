@@ -126,7 +126,7 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
         "name": "a"
       }
     ],
-    "heading": "typedef B"
+    "heading": "type B"
   }
 ]
 `

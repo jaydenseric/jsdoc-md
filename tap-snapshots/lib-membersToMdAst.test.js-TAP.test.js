@@ -39,11 +39,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
                 {
                   "type": "link",
                   "title": null,
-                  "url": "#typedef-a",
+                  "url": "#type-a",
                   "children": [
                     {
                       "type": "text",
-                      "value": "typedef A"
+                      "value": "type A"
                     }
                   ]
                 }
@@ -219,14 +219,14 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
       "children": [
         {
           "type": "text",
-          "value": "typedef A"
+          "value": "type A"
         }
       ],
       "data": {
         "hProperties": {
-          "id": "typedef-a"
+          "id": "type-a"
         },
-        "id": "typedef-a"
+        "id": "type-a"
       }
     },
     {
@@ -607,7 +607,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "#typedef-a",
+                  "url": "#type-a",
                   "children": [
                     {
                       "type": "text",
