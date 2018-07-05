@@ -232,28 +232,6 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               ]
             }
           ]
-        },
-        {
-          "type": "listItem",
-          "loose": false,
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "link",
-                  "title": null,
-                  "url": "#type-f",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "type F"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         }
       ]
     },
@@ -360,94 +338,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "string"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "Description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 13,
-                          "offset": 12
-                        },
-                        "indent": []
-                      }
-                    }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 13,
-                      "offset": 12
-                    },
-                    "indent": []
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "b"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "link",
                   "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
                   "children": [
                     {
                       "type": "text",
                       "value": "boolean"
-                    }
-                  ]
-                },
-                {
-                  "type": "text",
-                  "value": " | "
-                },
-                {
-                  "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "string"
                     }
                   ]
                 }
@@ -1609,163 +1504,6 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           ]
         }
       ]
-    },
-    {
-      "type": "heading",
-      "depth": 3,
-      "children": [
-        {
-          "type": "text",
-          "value": "type F"
-        }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "type-f"
-        },
-        "id": "type-f"
-      }
-    },
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "value": "Description.",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 13,
-              "offset": 12
-            },
-            "indent": []
-          }
-        }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 13,
-          "offset": 12
-        },
-        "indent": []
-      }
-    },
-    {
-      "type": "table",
-      "children": [
-        {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Property"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Type"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Description"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "a"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "boolean"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "Description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 13,
-                          "offset": 12
-                        },
-                        "indent": []
-                      }
-                    }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 13,
-                      "offset": 12
-                    },
-                    "indent": []
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
     }
   ]
 }
@@ -1783,16 +1521,14 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
   - [C static property e](#c-static-property-e)
 - [function d](#function-d)
 - [type E](#type-e)
-- [type F](#type-f)
 
 ### type A
 
 Description.
 
-| Property | Type                                                                                                                                                                       | Description  |
-| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| a        | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)                                                                                         | Description. |
-| b        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) \\| [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Property | Type                                                                                 | Description  |
+| -------- | ------------------------------------------------------------------------------------ | ------------ |
+| a        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
 
 ### constant B
 
@@ -1850,13 +1586,5 @@ Description.
 | Parameter | Type                                                                                 | Description  |
 | --------- | ------------------------------------------------------------------------------------ | ------------ |
 | a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
-
-### type F
-
-Description.
-
-| Property | Type                                                                                 | Description  |
-| -------- | ------------------------------------------------------------------------------------ | ------------ |
-| a        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
 
 `
