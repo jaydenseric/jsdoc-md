@@ -72,7 +72,7 @@ Description.
 
 | Parameter | Type                                                                                           | Description  |
 | --------- | ---------------------------------------------------------------------------------------------- | ------------ |
-| a         | [B~A](#ba)                                                                                     | Description. |
+| a         | [B~A](#b-inner-typedef-a)                                                                      | Description. |
 | b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
 
 #### B instance method e

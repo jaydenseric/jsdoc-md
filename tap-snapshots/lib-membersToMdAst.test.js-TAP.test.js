@@ -607,7 +607,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "#a",
+                  "url": "#typedef-a",
                   "children": [
                     {
                       "type": "text",
