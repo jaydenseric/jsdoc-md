@@ -699,3 +699,64 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
   ]
 ]
 `
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown. 1`] = `
+[boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)
+
+[number](https://developer.mozilla.org/javascript/reference/global_objects/number)
+
+[string](https://developer.mozilla.org/javascript/reference/global_objects/string)
+
+[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+
+[Array](https://developer.mozilla.org/javascript/reference/global_objects/Array)
+
+[string](https://developer.mozilla.org/javascript/reference/global_objects/string) | [number](https://developer.mozilla.org/javascript/reference/global_objects/number)
+
+[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object) | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)
+
+…[string](https://developer.mozilla.org/javascript/reference/global_objects/string)
+
+[Array](https://developer.mozilla.org/javascript/reference/global_objects/Array)&lt;[string](https://developer.mozilla.org/javascript/reference/global_objects/string), [number](https://developer.mozilla.org/javascript/reference/global_objects/number)>
+
+{a: null, b: true}
+
+\\*
+
+null
+
+undefined
+
+2
+
+
+
+true
+
+false
+
+function( )
+
+function( ):[number](https://developer.mozilla.org/javascript/reference/global_objects/number)
+
+function([string](https://developer.mozilla.org/javascript/reference/global_objects/string), [Object](https://developer.mozilla.org/javascript/reference/global_objects/Object))
+
+function([string](https://developer.mozilla.org/javascript/reference/global_objects/string), [number](https://developer.mozilla.org/javascript/reference/global_objects/number)):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+
+function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object) )
+
+function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string))
+
+function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string)):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+
+function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object) )
+
+function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string))
+
+function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string)):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+
+function([string](https://developer.mozilla.org/javascript/reference/global_objects/string)?, [number](https://developer.mozilla.org/javascript/reference/global_objects/number)?)
+
+function([string](https://developer.mozilla.org/javascript/reference/global_objects/string)?, [number](https://developer.mozilla.org/javascript/reference/global_objects/number)?):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+
+`
