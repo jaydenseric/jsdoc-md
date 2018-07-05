@@ -190,7 +190,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": "Null"
+      "value": "null"
     },
     {
       "type": "text",
@@ -202,7 +202,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": true
+      "value": "true"
     },
     {
       "type": "text",
@@ -212,25 +212,25 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
   [
     {
       "type": "text",
-      "value": "All"
+      "value": "*"
     }
   ],
   [
     {
       "type": "text",
-      "value": "Null"
+      "value": "null"
     }
   ],
   [
     {
       "type": "text",
-      "value": "Undefined"
+      "value": "undefined"
     }
   ],
   [
     {
       "type": "text",
-      "value": 5
+      "value": "2"
     }
   ],
   [
@@ -242,13 +242,13 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
   [
     {
       "type": "text",
-      "value": true
+      "value": "true"
     }
   ],
   [
     {
       "type": "text",
-      "value": false
+      "value": "false"
     }
   ],
   [
