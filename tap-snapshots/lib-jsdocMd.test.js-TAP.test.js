@@ -53,6 +53,8 @@ _Construct a new instance with options._
 
 Description.
 
+**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+
 | Property | Type                                                                                 | Description                           |
 | -------- | ------------------------------------------------------------------------------------ | ------------------------------------- |
 | a        | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)   | Description, here is a **bold** word. |
