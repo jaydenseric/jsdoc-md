@@ -9,65 +9,67 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
 [
   [
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
-      "children": [
-        {
-          "type": "text",
-          "value": "boolean"
-        }
-      ]
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "text",
+      "value": ")"
     }
   ],
   [
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "text",
+      "value": "null"
+    },
+    {
+      "type": "text",
+      "value": ")"
     }
   ],
   [
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
+      "type": "text",
+      "value": "function("
+    },
+    {
+      "type": "text",
+      "value": "):"
+    },
+    {
+      "type": "text",
+      "value": "*"
     }
   ],
   [
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ],
-  [
+      "type": "text",
+      "value": "function("
+    },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
-      "children": [
-        {
-          "type": "text",
-          "value": "Array"
-        }
-      ]
-    }
-  ],
-  [
+      "type": "text",
+      "value": "{"
+    },
+    {
+      "type": "text",
+      "value": "a: "
+    },
+    {
+      "type": "text",
+      "value": "stringLiteral"
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "text",
+      "value": "b: "
+    },
     {
       "type": "link",
       "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
@@ -80,62 +82,22 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": " | "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "value": "}"
     },
     {
       "type": "text",
-      "value": " | "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
-      "children": [
-        {
-          "type": "text",
-          "value": "boolean"
-        }
-      ]
+      "value": ")"
     }
   ],
   [
+    {
+      "type": "text",
+      "value": "function("
+    },
     {
       "type": "text",
       "value": "…"
     },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    }
-  ],
-  [
     {
       "type": "link",
       "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
@@ -152,6 +114,20 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
+    {
+      "type": "link",
       "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
       "children": [
         {
@@ -162,15 +138,37 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": ", "
+      "value": ">"
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": ":"
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Array",
       "children": [
         {
           "type": "text",
-          "value": "number"
+          "value": "Array"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "<"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
         }
       ]
     },
@@ -182,15 +180,17 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
   [
     {
       "type": "text",
-      "value": "{"
+      "value": "function(this:"
     },
     {
-      "type": "text",
-      "value": "a: "
-    },
-    {
-      "type": "text",
-      "value": "null"
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
     },
     {
       "type": "text",
@@ -198,30 +198,32 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": "b: "
+      "value": "5"
     },
     {
       "type": "text",
-      "value": "true"
+      "value": ")"
+    }
+  ],
+  [
+    {
+      "type": "text",
+      "value": "function(this:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
     },
     {
       "type": "text",
-      "value": "}"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "*"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "null"
-    }
-  ],
-  [
+      "value": "):"
+    },
     {
       "type": "text",
       "value": "undefined"
@@ -230,22 +232,54 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
   [
     {
       "type": "text",
-      "value": "2"
+      "value": "function(this:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ")"
     }
   ],
   [
     {
       "type": "text",
-      "value": ""
-    }
-  ],
-  [
+      "value": "function(this:"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": ", "
+    },
     {
       "type": "text",
       "value": "true"
-    }
-  ],
-  [
+    },
+    {
+      "type": "text",
+      "value": ")"
+    },
+    {
+      "type": "text",
+      "value": ":"
+    },
     {
       "type": "text",
       "value": "false"
@@ -254,51 +288,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
   [
     {
       "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "text",
-      "value": " )"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "text",
-      "value": " ):"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
+      "value": "function(new:"
     },
     {
       "type": "link",
@@ -312,17 +302,25 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": ")"
+      "value": "):"
     },
     {
       "type": "text",
-      "value": false
-    }
-  ],
-  [
+      "value": "["
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+      "children": [
+        {
+          "type": "text",
+          "value": "boolean"
+        }
+      ]
+    },
     {
       "type": "text",
-      "value": "function("
+      "value": ", "
     },
     {
       "type": "link",
@@ -336,35 +334,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "value": "]"
     }
   ],
   [
@@ -384,7 +354,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": " )"
+      "value": ")"
     }
   ],
   [
@@ -408,17 +378,11 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": "…"
+      "value": "true"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
+      "type": "text",
+      "value": "?"
     },
     {
       "type": "text",
@@ -426,7 +390,29 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": false
+      "value": ":"
+    },
+    {
+      "type": "text",
+      "value": "["
+    },
+    {
+      "type": "text",
+      "value": "…"
+    },
+    {
+      "type": "link",
+      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "children": [
+        {
+          "type": "text",
+          "value": "number"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "]"
     }
   ],
   [
@@ -450,313 +436,41 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown ASTs
     },
     {
       "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
+      "value": "5"
     },
     {
       "type": "text",
       "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(this:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": " )"
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(this:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": false
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function(this:"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "text",
-      "value": "…"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": false
-    }
-  ],
-  [
-    {
-      "type": "text",
-      "value": "function("
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ", "
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
-      "children": [
-        {
-          "type": "text",
-          "value": "number"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "value": "?"
-    },
-    {
-      "type": "text",
-      "value": ")"
-    },
-    {
-      "type": "text",
-      "value": ":"
-    },
-    {
-      "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
     }
   ]
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst > Markdown. 1`] = `
-[boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)
+function()
 
-[number](https://developer.mozilla.org/javascript/reference/global_objects/number)
+function(null)
 
-[string](https://developer.mozilla.org/javascript/reference/global_objects/string)
+function():\\*
 
-[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+function({a: stringLiteral, b: [string](https://developer.mozilla.org/javascript/reference/global_objects/string)})
 
-[Array](https://developer.mozilla.org/javascript/reference/global_objects/Array)
+function(…[Array](https://developer.mozilla.org/javascript/reference/global_objects/Array)&lt;[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), [string](https://developer.mozilla.org/javascript/reference/global_objects/string)>):[Array](https://developer.mozilla.org/javascript/reference/global_objects/Array)&lt;[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)>
 
-[string](https://developer.mozilla.org/javascript/reference/global_objects/string) | [number](https://developer.mozilla.org/javascript/reference/global_objects/number)
+function(this:[number](https://developer.mozilla.org/javascript/reference/global_objects/number), 5)
 
-[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object) | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)
+function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)):undefined
 
-…[string](https://developer.mozilla.org/javascript/reference/global_objects/string)
+function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object))
 
-[Array](https://developer.mozilla.org/javascript/reference/global_objects/Array)&lt;[string](https://developer.mozilla.org/javascript/reference/global_objects/string), [number](https://developer.mozilla.org/javascript/reference/global_objects/number)>
+function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), true):false
 
-{a: null, b: true}
+function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)):\\[[boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean), [string](https://developer.mozilla.org/javascript/reference/global_objects/string)]
 
-\\*
+function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object))
 
-null
+function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), true?):\\[…[number](https://developer.mozilla.org/javascript/reference/global_objects/number)]
 
-undefined
-
-2
-
-
-
-true
-
-false
-
-function( )
-
-function( ):[number](https://developer.mozilla.org/javascript/reference/global_objects/number)
-
-function([string](https://developer.mozilla.org/javascript/reference/global_objects/string), [Object](https://developer.mozilla.org/javascript/reference/global_objects/Object))
-
-function([string](https://developer.mozilla.org/javascript/reference/global_objects/string), [number](https://developer.mozilla.org/javascript/reference/global_objects/number)):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
-
-function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object) )
-
-function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string))
-
-function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string)):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
-
-function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object) )
-
-function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string))
-
-function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), …[string](https://developer.mozilla.org/javascript/reference/global_objects/string)):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
-
-function([string](https://developer.mozilla.org/javascript/reference/global_objects/string)?, [number](https://developer.mozilla.org/javascript/reference/global_objects/number)?)
-
-function([string](https://developer.mozilla.org/javascript/reference/global_objects/string)?, [number](https://developer.mozilla.org/javascript/reference/global_objects/number)?):[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/Object), 5)
 
 `
