@@ -22,9 +22,10 @@
     "unified"
   ],
   "files": [
-    "lib.js",
+    "lib",
     "index.js",
-    "cli.js"
+    "cli.js",
+    "!*.test.js"
   ],
   "bin": "cli.js",
   "engines": {
@@ -33,6 +34,7 @@
   "dependencies": {
     "@babel/parser": "^7.0.0-beta.51",
     "doctrine": "^2.1.0",
+    "github-slugger": "^1.2.0",
     "globby": "^8.0.1",
     "mdast-util-inject": "^1.1.0",
     "remark-parse": "^5.0.0",
@@ -42,6 +44,7 @@
     "yargs": "^12.0.1"
   },
   "devDependencies": {
+    "circular-json": "^0.5.5",
     "eslint": "^5.0.1",
     "eslint-config-env": "^0.5.0",
     "eslint-config-prettier": "^2.9.0",
@@ -61,7 +64,7 @@
     "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,md}' -l",
-    "test:js": "node test | tap-mocha-reporter spec",
+    "test:js": "tap ./lib/*.test.js -R spec",
     "prepublishOnly": "run-s prepare test",
     "precommit": "lint-staged"
   },
@@ -75,6 +78,14 @@
   "eslintConfig": {
     "extends": [
       "env"
+    ],
+    "overrides": [
+      {
+        "files": "*.test.js",
+        "rules": {
+          "node/no-unpublished-require": "off"
+        }
+      }
     ]
   },
   "prettier": {

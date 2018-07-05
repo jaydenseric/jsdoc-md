@@ -1,5 +1,3 @@
-const { jsdocMd } = require('./lib')
-
 module.exports = {
-  jsdocMd
+  jsdocMd: require('./lib/jsdocMd')
 }

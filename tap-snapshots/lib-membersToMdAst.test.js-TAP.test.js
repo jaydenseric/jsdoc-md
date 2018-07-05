@@ -5,200 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test TAP jsdocCommentsFromCode > JSDoc comments. 1`] = `
-[
-  "*\\n* a\\n",
-  "* b "
-]
-`
-
-exports[`test TAP jsdocAstToMember > A method. 1`] = `
-{
-  "kind": "function",
-  "namepath": "A#b",
-  "memberof": "A",
-  "membership": "#",
-  "name": "b",
-  "description": "Description.",
-  "tags": [
-    {
-      "title": "kind",
-      "description": null,
-      "kind": "function"
-    },
-    {
-      "title": "name",
-      "description": null,
-      "name": "A#b"
-    },
-    {
-      "title": "param",
-      "description": "Description.",
-      "type": {
-        "type": "NameExpression",
-        "name": "number"
-      },
-      "name": "a"
-    }
-  ]
-}
-`
-
-exports[`test TAP membersToOutline > Outline. 1`] = `
-[
-  {
-    "kind": "class",
-    "namepath": "A",
-    "name": "A",
-    "description": "Description.",
-    "tags": [
-      {
-        "title": "kind",
-        "description": null,
-        "kind": "class"
-      },
-      {
-        "title": "name",
-        "description": null,
-        "name": "A"
-      },
-      {
-        "title": "param",
-        "description": "Description.",
-        "type": {
-          "type": "NameExpression",
-          "name": "A"
-        },
-        "name": "a"
-      }
-    ],
-    "members": [
-      {
-        "kind": "function",
-        "namepath": "A#methodName1",
-        "memberof": "A",
-        "membership": "#",
-        "name": "methodName1",
-        "description": "Description.",
-        "tags": [
-          {
-            "title": "kind",
-            "description": null,
-            "kind": "function"
-          },
-          {
-            "title": "name",
-            "description": null,
-            "name": "A#methodName1"
-          },
-          {
-            "title": "param",
-            "description": "Description.",
-            "type": {
-              "type": "NameExpression",
-              "name": "A"
-            },
-            "name": "a"
-          }
-        ],
-        "members": []
-      },
-      {
-        "kind": "function",
-        "namepath": "A#methodName2",
-        "memberof": "A",
-        "membership": "#",
-        "name": "methodName2",
-        "description": "Description.",
-        "tags": [
-          {
-            "title": "kind",
-            "description": null,
-            "kind": "function"
-          },
-          {
-            "title": "name",
-            "description": null,
-            "name": "A#methodName2"
-          },
-          {
-            "title": "param",
-            "description": "Description.",
-            "type": {
-              "type": "NameExpression",
-              "name": "A"
-            },
-            "name": "a"
-          }
-        ],
-        "members": []
-      }
-    ]
-  }
-]
-`
-
-exports[`test TAP mdToMdAst > Markdown AST. 1`] = `
-[
-  {
-    "type": "paragraph",
-    "children": [
-      {
-        "type": "link",
-        "title": null,
-        "url": "https://npm.im/jsdoc-md",
-        "children": [
-          {
-            "type": "text",
-            "value": "a",
-            "position": {
-              "start": {
-                "line": 1,
-                "column": 2,
-                "offset": 1
-              },
-              "end": {
-                "line": 1,
-                "column": 3,
-                "offset": 2
-              },
-              "indent": []
-            }
-          }
-        ],
-        "position": {
-          "start": {
-            "line": 1,
-            "column": 1,
-            "offset": 0
-          },
-          "end": {
-            "line": 1,
-            "column": 29,
-            "offset": 28
-          },
-          "indent": []
-        }
-      }
-    ],
-    "position": {
-      "start": {
-        "line": 1,
-        "column": 1,
-        "offset": 0
-      },
-      "end": {
-        "line": 1,
-        "column": 29,
-        "offset": 28
-      },
-      "indent": []
-    }
-  }
-]
-`
-
-exports[`test TAP outlineToMdAst > Markdown. 1`] = `
+exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
 {
   "type": "root",
   "children": [
@@ -506,7 +313,18 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -564,7 +382,32 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "boolean"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "value": " | "
+                },
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -761,7 +604,18 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "#typedef-a",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -907,7 +761,18 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -965,7 +830,18 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1111,7 +987,18 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1257,7 +1144,18 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1454,7 +1352,18 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
             },
             {
               "type": "tableCell",
-              "children": []
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "type": "tableCell",
@@ -1502,95 +1411,4 @@ exports[`test TAP outlineToMdAst > Markdown. 1`] = `
     }
   ]
 }
-`
-
-exports[`test TAP jsdocMd > File content. 1`] = `
-# Preserve
-
-## Target
-
-### Table of contents
-
-- [constant A](#constant-a)
-- [class B](#class-b)
-  - [Examples](#examples)
-  - [B inner typedef A](#b-inner-typedef-a)
-  - [B static property b](#b-static-property-b)
-  - [B instance property c](#b-instance-property-c)
-  - [B static method d](#b-static-method-d)
-  - [B instance method e](#b-instance-method-e)
-- [function c](#function-c)
-  - [See](#see)
-
-### constant A
-
-Description.
-
-### class B
-
-Description, here is a **bold** word.
-
-| Parameter | Type | Description                           |
-| --------- | ---- | ------------------------------------- |
-| a         |      | Description, here is a **bold** word. |
-
-#### Examples
-
-_Construct a new instance, here is a **bold** word._
-
-> \`\`\`js
-> const b = new B()
-> \`\`\`
-
-_Construct a new instance with options._
-
-> \`\`\`js
-> const b = new B(true)
-> \`\`\`
-
-#### B inner typedef A
-
-Description.
-
-| Property | Type | Description                           |
-| -------- | ---- | ------------------------------------- |
-| a        |      | Description, here is a **bold** word. |
-| b        |      | Description.                          |
-
-#### B static property b
-
-Description.
-
-#### B instance property c
-
-Description.
-
-#### B static method d
-
-Description.
-
-| Parameter | Type | Description  |
-| --------- | ---- | ------------ |
-| a         |      | Description. |
-| b         |      | Description. |
-
-#### B instance method e
-
-Description.
-
-### function c
-
-Description.
-
-| Parameter | Type | Description  |
-| --------- | ---- | ------------ |
-| a         |      | Description. |
-
-#### See
-
-- [jsdoc-md on Github](https://github.com/jaydenseric/jsdoc-md).
-- [jsdoc-md on npm](https://npm.im/jsdoc-md).
-
-## Preserve
-
 `
