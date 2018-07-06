@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`lib/jsdocAstToMember.test.js TAP jsdocAstToMember > A method. 1`] = `
+exports[`lib/jsdocToMember.test.js TAP jsdocToMember > A method. 1`] = `
 {
   "kind": "function",
   "namepath": "A#b",
