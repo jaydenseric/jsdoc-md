@@ -910,11 +910,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "#type-a",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
                   "children": [
                     {
                       "type": "text",
-                      "value": "A"
+                      "value": "string"
                     }
                   ]
                 }
@@ -1067,11 +1067,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "url": "#type-a",
                   "children": [
                     {
                       "type": "text",
-                      "value": "string"
+                      "value": "A"
                     }
                   ]
                 }
@@ -1293,11 +1293,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "url": "#type-a",
                   "children": [
                     {
                       "type": "text",
-                      "value": "string"
+                      "value": "A"
                     }
                   ]
                 }
@@ -1608,9 +1608,9 @@ Description.
 
 Description.
 
-| Parameter | Type         | Description  |
-| --------- | ------------ | ------------ |
-| a         | [A](#type-a) | Description. |
+| Parameter | Type                                                                               | Description  |
+| --------- | ---------------------------------------------------------------------------------- | ------------ |
+| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 #### E static method a
 
@@ -1618,16 +1618,16 @@ Description.
 
 | Parameter | Type                                                                               | Description  |
 | --------- | ---------------------------------------------------------------------------------- | ------------ |
-| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| a         | [A](#type-a)                                                                       | Description. |
 | b         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 #### E instance method b
 
 Description.
 
-| Parameter | Type                                                                               | Description  |
-| --------- | ---------------------------------------------------------------------------------- | ------------ |
-| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Parameter | Type         | Description  |
+| --------- | ------------ | ------------ |
+| a         | [A](#type-a) | Description. |
 
 #### E inner function c
 
