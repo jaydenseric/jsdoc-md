@@ -38,11 +38,11 @@ npm run jsdoc
 
 For detailed CLI usage instructions, run `npx jsdoc-md --help`.
 
-| Option           | Alias | Default         | Description                                   |
-| ---------------- | ----- | --------------- | --------------------------------------------- |
-| --source-glob    | -s    | `**/*.{mjs,js}` | JSDoc source file glob pattern.               |
-| --markdown-path  | -m    | `readme.md`     | Path to the markdown file for docs insertion. |
-| --target-heading | -t    | `API`           | Markdown file heading to insert docs under.   |
+| Option             | Alias | Default         | Description                                   |
+| ------------------ | ----- | --------------- | --------------------------------------------- |
+| `--source-glob`    | `-s`  | `**/*.{mjs,js}` | JSDoc source file glob pattern.               |
+| `--markdown-path`  | `-m`  | `readme.md`     | Path to the markdown file for docs insertion. |
+| `--target-heading` | `-t`  | `API`           | Markdown file heading to insert docs under.   |
 
 ## API
 
