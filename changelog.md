@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Minor
+
+- Generate function return documentation, fixes [#7](https://github.com/jaydenseric/jsdoc-md/issues/7).
+
 ## 1.1.0
 
 ### Minor
