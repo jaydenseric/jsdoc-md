@@ -153,7 +153,9 @@ const MyNamespace = {
 
 ### Inline tags
 
-JSDoc inline tags such as [`{@link}`](http://usejsdoc.org/tags-inline-link.html) and [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutorial.html) are unsupported. Use markdown links instead.
+One [JSDoc inline tag link](http://usejsdoc.org/tags-inline-link.html) syntax is supported for namepath links in JSDoc descriptions and tags with markdown content: `` [`b` method]{@link A#b} ``. Use normal markdown syntax for non-namepath links.
+
+Other inline tags such as [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutorial.html) are unsupported.
 
 ### Example content
 

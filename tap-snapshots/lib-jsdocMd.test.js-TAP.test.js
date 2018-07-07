@@ -91,7 +91,7 @@ Description.
 
 #### See
 
-- [jsdoc-md on Github](https://github.com/jaydenseric/jsdoc-md).
+- [\`B\`](#class-b).
 - [jsdoc-md on npm](https://npm.im/jsdoc-md).
 
 ## Preserve

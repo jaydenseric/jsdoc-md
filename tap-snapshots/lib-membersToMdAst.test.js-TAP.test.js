@@ -671,7 +671,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       "children": [
         {
           "type": "text",
-          "value": "Description.",
+          "value": "Description, see ",
           "position": {
             "start": {
               "line": 1,
@@ -680,8 +680,62 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
             },
             "end": {
               "line": 1,
-              "column": 13,
-              "offset": 12
+              "column": 18,
+              "offset": 17
+            },
+            "indent": []
+          }
+        },
+        {
+          "type": "link",
+          "title": null,
+          "url": "#class-e",
+          "children": [
+            {
+              "type": "text",
+              "value": "E",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 19,
+                  "offset": 18
+                },
+                "end": {
+                  "line": 1,
+                  "column": 20,
+                  "offset": 19
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 18,
+              "offset": 17
+            },
+            "end": {
+              "line": 1,
+              "column": 31,
+              "offset": 30
+            },
+            "indent": []
+          }
+        },
+        {
+          "type": "text",
+          "value": ".",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 31,
+              "offset": 30
+            },
+            "end": {
+              "line": 1,
+              "column": 32,
+              "offset": 31
             },
             "indent": []
           }
@@ -695,8 +749,8 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         "end": {
           "line": 1,
-          "column": 13,
-          "offset": 12
+          "column": 32,
+          "offset": 31
         },
         "indent": []
       }
@@ -1598,7 +1652,7 @@ Description.
 
 ### function d
 
-Description.
+Description, see [E](#class-e).
 
 | Parameter | Type                                                                               | Description  |
 | --------- | ---------------------------------------------------------------------------------- | ------------ |
