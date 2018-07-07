@@ -1245,6 +1245,73 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       ]
     },
     {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " "
+        },
+        {
+          "type": "link",
+          "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+          "children": [
+            {
+              "type": "text",
+              "value": "boolean"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " — "
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Description.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 13,
+                  "offset": 12
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 13,
+              "offset": 12
+            },
+            "indent": []
+          }
+        }
+      ]
+    },
+    {
       "type": "heading",
       "depth": 4,
       "children": [
@@ -1398,6 +1465,59 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " "
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Description.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 13,
+                  "offset": 12
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 13,
+              "offset": 12
+            },
+            "indent": []
+          }
         }
       ]
     },
@@ -1675,6 +1795,8 @@ Description.
 | a         | [A](#type-a)                                                                       | Description. |
 | b         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
+**Returns:** [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) — Description.
+
 #### E instance method b
 
 Description.
@@ -1682,6 +1804,8 @@ Description.
 | Parameter | Type         | Description  |
 | --------- | ------------ | ------------ |
 | a         | [A](#type-a) | Description. |
+
+**Returns:** Description.
 
 #### E inner function c
 
