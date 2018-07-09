@@ -1,5 +1,16 @@
 # jsdoc-md changelog
 
+## Next
+
+### Minor
+
+- Default documentation for global types (such as `Object`) can be overridden using `@typedef`.
+- Also auto-link MDN articles for global types `function` and `Date`.
+
+### Patch
+
+- Varied capitalization of global types (such as `Object`) results in a consistently lowercase MDN link slug.
+
 ## 1.2.0
 
 ### Minor

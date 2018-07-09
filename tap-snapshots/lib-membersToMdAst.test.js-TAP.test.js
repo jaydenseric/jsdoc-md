@@ -304,7 +304,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         {
           "type": "link",
-          "url": "https://developer.mozilla.org/javascript/reference/global_objects/Object",
+          "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
           "children": [
             {
               "type": "text",
@@ -488,8 +488,14 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "value": " "
         },
         {
-          "type": "text",
-          "value": "function"
+          "type": "link",
+          "url": "https://developer.mozilla.org/javascript/reference/global_objects/function",
+          "children": [
+            {
+              "type": "text",
+              "value": "function"
+            }
+          ]
         }
       ]
     },
@@ -1750,7 +1756,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
 
 Description.
 
-**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
 
 | Property | Type                                                                                 | Description  |
 | -------- | ------------------------------------------------------------------------------------ | ------------ |
@@ -1760,7 +1766,7 @@ Description.
 
 Description.
 
-**Type:** function
+**Type:** [function](https://developer.mozilla.org/javascript/reference/global_objects/function)
 
 | Parameter | Type                                                                                 | Description  |
 | --------- | ------------------------------------------------------------------------------------ | ------------ |

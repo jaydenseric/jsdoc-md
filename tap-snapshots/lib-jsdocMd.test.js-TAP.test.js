@@ -53,7 +53,7 @@ _Construct a new instance with options._
 
 Description.
 
-**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)
+**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
 
 | Property | Type                                                                                 | Description                           |
 | -------- | ------------------------------------------------------------------------------------ | ------------------------------------- |
