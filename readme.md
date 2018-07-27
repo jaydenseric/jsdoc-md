@@ -1,6 +1,6 @@
 # jsdoc-md
 
-[![Build status](https://travis-ci.org/jaydenseric/jsdoc-md.svg)](https://travis-ci.org/jaydenseric/jsdoc-md) [![npm version](https://img.shields.io/npm/v/jsdoc-md.svg)](https://npm.im/jsdoc-md)
+[![Build status](https://travis-ci.org/jaydenseric/jsdoc-md.svg?branch=master)](https://travis-ci.org/jaydenseric/jsdoc-md) [![npm version](https://badgen.now.sh/npm/v/jsdoc-md)](https://npm.im/jsdoc-md)
 
 A Node.js CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
 
