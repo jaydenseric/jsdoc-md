@@ -32,7 +32,7 @@ Description.
 Description, here is a **bold** word.
 
 | Parameter | Type                                                                                  | Description                           |
-| --------- | ------------------------------------------------------------------------------------- | ------------------------------------- |
+| :-------- | :------------------------------------------------------------------------------------ | :------------------------------------ |
 | a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? | Description, here is a **bold** word. |
 
 #### Examples
@@ -56,7 +56,7 @@ Description.
 **Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
 
 | Property | Type                                                                                 | Description                           |
-| -------- | ------------------------------------------------------------------------------------ | ------------------------------------- |
+| :------- | :----------------------------------------------------------------------------------- | :------------------------------------ |
 | a        | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)   | Description, here is a **bold** word. |
 | b        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description.                          |
 
@@ -73,7 +73,7 @@ Description.
 Description.
 
 | Parameter | Type                                                                                           | Description  |
-| --------- | ---------------------------------------------------------------------------------------------- | ------------ |
+| :-------- | :--------------------------------------------------------------------------------------------- | :----------- |
 | a         | [B~A](#b-inner-typedef-a)                                                                      | Description. |
 | b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
 
@@ -86,7 +86,7 @@ Description.
 Description.
 
 | Parameter | Type                                                                               | Description  |
-| --------- | ---------------------------------------------------------------------------------- | ------------ |
+| :-------- | :--------------------------------------------------------------------------------- | :----------- |
 | a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 #### See

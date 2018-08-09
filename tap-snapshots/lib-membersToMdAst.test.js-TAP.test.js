@@ -316,6 +316,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
       "children": [
         {
           "type": "tableRow",
@@ -501,6 +506,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
       "children": [
         {
           "type": "tableRow",
@@ -763,6 +773,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
       "children": [
         {
           "type": "tableRow",
@@ -920,6 +935,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
       "children": [
         {
           "type": "tableRow",
@@ -1077,6 +1097,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
       "children": [
         {
           "type": "tableRow",
@@ -1370,6 +1395,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
       "children": [
         {
           "type": "tableRow",
@@ -1580,6 +1610,11 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
       "children": [
         {
           "type": "tableRow",
@@ -1759,7 +1794,7 @@ Description.
 **Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
 
 | Property | Type                                                                                 | Description  |
-| -------- | ------------------------------------------------------------------------------------ | ------------ |
+| :------- | :----------------------------------------------------------------------------------- | :----------- |
 | a        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
 
 ### type B
@@ -1769,7 +1804,7 @@ Description.
 **Type:** [function](https://developer.mozilla.org/javascript/reference/global_objects/function)
 
 | Parameter | Type                                                                                 | Description  |
-| --------- | ------------------------------------------------------------------------------------ | ------------ |
+| :-------- | :----------------------------------------------------------------------------------- | :----------- |
 | a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
 
 ### constant C
@@ -1781,7 +1816,7 @@ Description.
 Description, see [E](#class-e).
 
 | Parameter | Type                                                                               | Description  |
-| --------- | ---------------------------------------------------------------------------------- | ------------ |
+| :-------- | :--------------------------------------------------------------------------------- | :----------- |
 | a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 ### class E
@@ -1789,7 +1824,7 @@ Description, see [E](#class-e).
 Description.
 
 | Parameter | Type                                                                               | Description  |
-| --------- | ---------------------------------------------------------------------------------- | ------------ |
+| :-------- | :--------------------------------------------------------------------------------- | :----------- |
 | a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 #### E static method a
@@ -1797,7 +1832,7 @@ Description.
 Description.
 
 | Parameter | Type                                                                               | Description  |
-| --------- | ---------------------------------------------------------------------------------- | ------------ |
+| :-------- | :--------------------------------------------------------------------------------- | :----------- |
 | a         | [A](#type-a)                                                                       | Description. |
 | b         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
@@ -1808,7 +1843,7 @@ Description.
 Description.
 
 | Parameter | Type         | Description  |
-| --------- | ------------ | ------------ |
+| :-------- | :----------- | :----------- |
 | a         | [A](#type-a) | Description. |
 
 **Returns:** Description.
@@ -1818,7 +1853,7 @@ Description.
 Description.
 
 | Parameter | Type                                                                               | Description  |
-| --------- | ---------------------------------------------------------------------------------- | ------------ |
+| :-------- | :--------------------------------------------------------------------------------- | :----------- |
 | a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 #### E static property e

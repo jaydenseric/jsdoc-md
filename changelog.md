@@ -2,6 +2,10 @@
 
 ## Next
 
+### Minor
+
+- Explicitly left align table cell contents.
+
 ### Patch
 
 - Updated dependencies.
