@@ -7,7 +7,7 @@
 - Updated dependencies.
 - Configured Prettier to lint `.yml` files.
 - Ensure the readme Travis build status badge only tracks `master` branch.
-- Use [Badgen](https://badgen.now.sh) for the readme npm version badge.
+- Use [Badgen](https://badgen.net) for the readme npm version badge.
 
 ## 1.3.0
 
