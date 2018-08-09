@@ -62,14 +62,14 @@
     "prepare:prettier": "prettier readme.md --write",
     "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
     "test:eslint": "eslint .",
-    "test:prettier": "prettier '**/*.{json,md}' -l",
+    "test:prettier": "prettier '**/*.{json,yml,md}' -l",
     "test:js": "tap ./lib/*.test.js -R spec",
     "prepublishOnly": "run-s prepare test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.js": "eslint",
-    "*.{json,md}": "prettier -l"
+    "*.{json,yml,md}": "prettier -l"
   },
   "eslintIgnore": [
     "tap-snapshots"
