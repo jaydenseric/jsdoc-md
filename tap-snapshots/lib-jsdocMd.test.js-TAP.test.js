@@ -12,20 +12,16 @@ exports[`lib/jsdocMd.test.js TAP jsdocMd > File content. 1`] = `
 
 ### Table of contents
 
-- [constant A](#constant-a)
 - [class B](#class-b)
   - [Examples](#examples)
-  - [B inner typedef A](#b-inner-typedef-a)
-  - [B static property b](#b-static-property-b)
-  - [B instance property c](#b-instance-property-c)
   - [B static method d](#b-static-method-d)
+  - [B static property b](#b-static-property-b)
   - [B instance method e](#b-instance-method-e)
+  - [B instance property c](#b-instance-property-c)
+  - [B inner typedef A](#b-inner-typedef-a)
 - [function c](#function-c)
   - [See](#see)
-
-### constant A
-
-Description.
+- [constant A](#constant-a)
 
 ### class B
 
@@ -49,6 +45,27 @@ _Construct a new instance with options._
 > const b = new B(true)
 > \`\`\`
 
+#### B static method d
+
+Description.
+
+| Parameter | Type                                                                                           | Description  |
+| :-------- | :--------------------------------------------------------------------------------------------- | :----------- |
+| a         | [B~A](#b-inner-typedef-a)                                                                      | Description. |
+| b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
+
+#### B static property b
+
+Description.
+
+#### B instance method e
+
+Description.
+
+#### B instance property c
+
+Description.
+
 #### B inner typedef A
 
 Description.
@@ -59,27 +76,6 @@ Description.
 | :------- | :----------------------------------------------------------------------------------- | :------------------------------------ |
 | a        | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)   | Description, here is a **bold** word. |
 | b        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description.                          |
-
-#### B static property b
-
-Description.
-
-#### B instance property c
-
-Description.
-
-#### B static method d
-
-Description.
-
-| Parameter | Type                                                                                           | Description  |
-| :-------- | :--------------------------------------------------------------------------------------------- | :----------- |
-| a         | [B~A](#b-inner-typedef-a)                                                                      | Description. |
-| b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
-
-#### B instance method e
-
-Description.
 
 ### function c
 
@@ -93,6 +89,10 @@ Description.
 
 - [\`B\`](#class-b).
 - [jsdoc-md on npm](https://npm.im/jsdoc-md).
+
+### constant A
+
+Description.
 
 ## Preserve
 

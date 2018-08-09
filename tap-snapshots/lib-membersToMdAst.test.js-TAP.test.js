@@ -39,94 +39,6 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                 {
                   "type": "link",
                   "title": null,
-                  "url": "#type-a",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "type A"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "loose": false,
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "link",
-                  "title": null,
-                  "url": "#type-b",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "type B"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "loose": false,
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "link",
-                  "title": null,
-                  "url": "#constant-c",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "constant C"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "loose": false,
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "link",
-                  "title": null,
-                  "url": "#function-d",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "function d"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "listItem",
-          "loose": false,
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "link",
-                  "title": null,
                   "url": "#class-e",
                   "children": [
                     {
@@ -156,6 +68,28 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                             {
                               "type": "text",
                               "value": "E static method a"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "loose": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#e-static-property-e",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "E static property e"
                             }
                           ]
                         }
@@ -206,675 +140,94 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                       ]
                     }
                   ]
-                },
-                {
-                  "type": "listItem",
-                  "loose": false,
-                  "children": [
-                    {
-                      "type": "paragraph",
-                      "children": [
-                        {
-                          "type": "link",
-                          "title": null,
-                          "url": "#e-static-property-e",
-                          "children": [
-                            {
-                              "type": "text",
-                              "value": "E static property e"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "depth": 3,
-      "children": [
-        {
-          "type": "text",
-          "value": "type A"
-        }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "type-a"
-        },
-        "id": "type-a"
-      }
-    },
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "value": "Description.",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 13,
-              "offset": 12
-            },
-            "indent": []
-          }
-        }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 13,
-          "offset": 12
-        },
-        "indent": []
-      }
-    },
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "strong",
-          "children": [
-            {
-              "type": "text",
-              "value": "Type:"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "value": " "
-        },
-        {
-          "type": "link",
-          "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
-          "children": [
-            {
-              "type": "text",
-              "value": "Object"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "table",
-      "align": [
-        "left",
-        "left",
-        "left"
-      ],
-      "children": [
-        {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Property"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Type"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Description"
                 }
               ]
             }
           ]
         },
         {
-          "type": "tableRow",
+          "type": "listItem",
+          "loose": false,
           "children": [
             {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "a"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
+              "type": "paragraph",
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+                  "title": null,
+                  "url": "#function-d",
                   "children": [
                     {
                       "type": "text",
-                      "value": "boolean"
+                      "value": "function d"
                     }
                   ]
                 }
               ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "Description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 13,
-                          "offset": 12
-                        },
-                        "indent": []
-                      }
-                    }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 13,
-                      "offset": 12
-                    },
-                    "indent": []
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "depth": 3,
-      "children": [
-        {
-          "type": "text",
-          "value": "type B"
-        }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "type-b"
-        },
-        "id": "type-b"
-      }
-    },
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "value": "Description.",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 13,
-              "offset": 12
-            },
-            "indent": []
-          }
-        }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 13,
-          "offset": 12
-        },
-        "indent": []
-      }
-    },
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "strong",
-          "children": [
-            {
-              "type": "text",
-              "value": "Type:"
             }
           ]
         },
         {
-          "type": "text",
-          "value": " "
-        },
-        {
-          "type": "link",
-          "url": "https://developer.mozilla.org/javascript/reference/global_objects/function",
+          "type": "listItem",
+          "loose": false,
           "children": [
             {
-              "type": "text",
-              "value": "function"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "table",
-      "align": [
-        "left",
-        "left",
-        "left"
-      ],
-      "children": [
-        {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Parameter"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Type"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Description"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "a"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
+              "type": "paragraph",
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+                  "title": null,
+                  "url": "#constant-c",
                   "children": [
                     {
                       "type": "text",
-                      "value": "boolean"
+                      "value": "constant C"
                     }
                   ]
                 }
               ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "paragraph",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "Description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 13,
-                          "offset": 12
-                        },
-                        "indent": []
-                      }
-                    }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 13,
-                      "offset": 12
-                    },
-                    "indent": []
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "depth": 3,
-      "children": [
-        {
-          "type": "text",
-          "value": "constant C"
-        }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "constant-c"
-        },
-        "id": "constant-c"
-      }
-    },
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "value": "Description.",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 13,
-              "offset": 12
-            },
-            "indent": []
-          }
-        }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 13,
-          "offset": 12
-        },
-        "indent": []
-      }
-    },
-    {
-      "type": "heading",
-      "depth": 3,
-      "children": [
-        {
-          "type": "text",
-          "value": "function d"
-        }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "function-d"
-        },
-        "id": "function-d"
-      }
-    },
-    {
-      "type": "paragraph",
-      "children": [
-        {
-          "type": "text",
-          "value": "Description, see ",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 18,
-              "offset": 17
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "link",
-          "title": null,
-          "url": "#class-e",
-          "children": [
-            {
-              "type": "text",
-              "value": "E",
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 19,
-                  "offset": 18
-                },
-                "end": {
-                  "line": 1,
-                  "column": 20,
-                  "offset": 19
-                },
-                "indent": []
-              }
-            }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 18,
-              "offset": 17
-            },
-            "end": {
-              "line": 1,
-              "column": 31,
-              "offset": 30
-            },
-            "indent": []
-          }
-        },
-        {
-          "type": "text",
-          "value": ".",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 31,
-              "offset": 30
-            },
-            "end": {
-              "line": 1,
-              "column": 32,
-              "offset": 31
-            },
-            "indent": []
-          }
-        }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 32,
-          "offset": 31
-        },
-        "indent": []
-      }
-    },
-    {
-      "type": "table",
-      "align": [
-        "left",
-        "left",
-        "left"
-      ],
-      "children": [
-        {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Parameter"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Type"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "Description"
-                }
-              ]
             }
           ]
         },
         {
-          "type": "tableRow",
+          "type": "listItem",
+          "loose": false,
           "children": [
             {
-              "type": "tableCell",
-              "children": [
-                {
-                  "type": "text",
-                  "value": "a"
-                }
-              ]
-            },
-            {
-              "type": "tableCell",
+              "type": "paragraph",
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "title": null,
+                  "url": "#type-a",
                   "children": [
                     {
                       "type": "text",
-                      "value": "string"
+                      "value": "type A"
                     }
                   ]
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "loose": false,
+          "children": [
             {
-              "type": "tableCell",
+              "type": "paragraph",
               "children": [
                 {
-                  "type": "paragraph",
+                  "type": "link",
+                  "title": null,
+                  "url": "#type-b",
                   "children": [
                     {
                       "type": "text",
-                      "value": "Description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 13,
-                          "offset": 12
-                        },
-                        "indent": []
-                      }
+                      "value": "type B"
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 13,
-                      "offset": 12
-                    },
-                    "indent": []
-                  }
+                  ]
                 }
               ]
             }
@@ -1348,6 +701,57 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       "children": [
         {
           "type": "text",
+          "value": "E static property e"
+        }
+      ],
+      "data": {
+        "hProperties": {
+          "id": "e-static-property-e"
+        },
+        "id": "e-static-property-e"
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Description.",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 13,
+              "offset": 12
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 13,
+          "offset": 12
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "heading",
+      "depth": 4,
+      "children": [
+        {
+          "type": "text",
           "value": "E instance method b"
         }
       ],
@@ -1721,18 +1125,234 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     },
     {
       "type": "heading",
-      "depth": 4,
+      "depth": 3,
       "children": [
         {
           "type": "text",
-          "value": "E static property e"
+          "value": "function d"
         }
       ],
       "data": {
         "hProperties": {
-          "id": "e-static-property-e"
+          "id": "function-d"
         },
-        "id": "e-static-property-e"
+        "id": "function-d"
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Description, see ",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 18,
+              "offset": 17
+            },
+            "indent": []
+          }
+        },
+        {
+          "type": "link",
+          "title": null,
+          "url": "#class-e",
+          "children": [
+            {
+              "type": "text",
+              "value": "E",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 19,
+                  "offset": 18
+                },
+                "end": {
+                  "line": 1,
+                  "column": 20,
+                  "offset": 19
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 18,
+              "offset": 17
+            },
+            "end": {
+              "line": 1,
+              "column": 31,
+              "offset": 30
+            },
+            "indent": []
+          }
+        },
+        {
+          "type": "text",
+          "value": ".",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 31,
+              "offset": 30
+            },
+            "end": {
+              "line": 1,
+              "column": 32,
+              "offset": 31
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 32,
+          "offset": 31
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
+      "children": [
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Parameter"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Type"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Description"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "a"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Description.",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 13,
+                          "offset": 12
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 13,
+                      "offset": 12
+                    },
+                    "indent": []
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 3,
+      "children": [
+        {
+          "type": "text",
+          "value": "constant C"
+        }
+      ],
+      "data": {
+        "hProperties": {
+          "id": "constant-c"
+        },
+        "id": "constant-c"
       }
     },
     {
@@ -1769,6 +1389,386 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         "indent": []
       }
+    },
+    {
+      "type": "heading",
+      "depth": 3,
+      "children": [
+        {
+          "type": "text",
+          "value": "type A"
+        }
+      ],
+      "data": {
+        "hProperties": {
+          "id": "type-a"
+        },
+        "id": "type-a"
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Description.",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 13,
+              "offset": 12
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 13,
+          "offset": 12
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "Type:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " "
+        },
+        {
+          "type": "link",
+          "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+          "children": [
+            {
+              "type": "text",
+              "value": "Object"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
+      "children": [
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Property"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Type"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Description"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "a"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "boolean"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Description.",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 13,
+                          "offset": 12
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 13,
+                      "offset": 12
+                    },
+                    "indent": []
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 3,
+      "children": [
+        {
+          "type": "text",
+          "value": "type B"
+        }
+      ],
+      "data": {
+        "hProperties": {
+          "id": "type-b"
+        },
+        "id": "type-b"
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "text",
+          "value": "Description.",
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 13,
+              "offset": 12
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 13,
+          "offset": 12
+        },
+        "indent": []
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "Type:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " "
+        },
+        {
+          "type": "link",
+          "url": "https://developer.mozilla.org/javascript/reference/global_objects/function",
+          "children": [
+            {
+              "type": "text",
+              "value": "function"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
+      "children": [
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Parameter"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Type"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Description"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "a"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "link",
+                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "boolean"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Description.",
+                      "position": {
+                        "start": {
+                          "line": 1,
+                          "column": 1,
+                          "offset": 0
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 13,
+                          "offset": 12
+                        },
+                        "indent": []
+                      }
+                    }
+                  ],
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 13,
+                      "offset": 12
+                    },
+                    "indent": []
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
@@ -1777,47 +1777,15 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
 exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
 ### Table of contents
 
-- [type A](#type-a)
-- [type B](#type-b)
-- [constant C](#constant-c)
-- [function d](#function-d)
 - [class E](#class-e)
   - [E static method a](#e-static-method-a)
+  - [E static property e](#e-static-property-e)
   - [E instance method b](#e-instance-method-b)
   - [E inner function c](#e-inner-function-c)
-  - [E static property e](#e-static-property-e)
-
-### type A
-
-Description.
-
-**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
-
-| Property | Type                                                                                 | Description  |
-| :------- | :----------------------------------------------------------------------------------- | :----------- |
-| a        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
-
-### type B
-
-Description.
-
-**Type:** [function](https://developer.mozilla.org/javascript/reference/global_objects/function)
-
-| Parameter | Type                                                                                 | Description  |
-| :-------- | :----------------------------------------------------------------------------------- | :----------- |
-| a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
-
-### constant C
-
-Description.
-
-### function d
-
-Description, see [E](#class-e).
-
-| Parameter | Type                                                                               | Description  |
-| :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+- [function d](#function-d)
+- [constant C](#constant-c)
+- [type A](#type-a)
+- [type B](#type-b)
 
 ### class E
 
@@ -1838,6 +1806,10 @@ Description.
 
 **Returns:** [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) — Description.
 
+#### E static property e
+
+Description.
+
 #### E instance method b
 
 Description.
@@ -1856,8 +1828,36 @@ Description.
 | :-------- | :--------------------------------------------------------------------------------- | :----------- |
 | a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
-#### E static property e
+### function d
+
+Description, see [E](#class-e).
+
+| Parameter | Type                                                                               | Description  |
+| :-------- | :--------------------------------------------------------------------------------- | :----------- |
+| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+
+### constant C
 
 Description.
+
+### type A
+
+Description.
+
+**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
+
+| Property | Type                                                                                 | Description  |
+| :------- | :----------------------------------------------------------------------------------- | :----------- |
+| a        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
+
+### type B
+
+Description.
+
+**Type:** [function](https://developer.mozilla.org/javascript/reference/global_objects/function)
+
+| Parameter | Type                                                                                 | Description  |
+| :-------- | :----------------------------------------------------------------------------------- | :----------- |
+| a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
 
 `
