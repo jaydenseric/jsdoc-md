@@ -333,7 +333,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "a"
                 }
               ]
@@ -495,7 +495,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "a"
                 }
               ]
@@ -564,7 +564,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "b"
                 }
               ]
@@ -844,7 +844,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "a"
                 }
               ]
@@ -1059,7 +1059,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "a"
                 }
               ]
@@ -1275,7 +1275,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "a"
                 }
               ]
@@ -1516,7 +1516,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "a"
                 }
               ]
@@ -1706,7 +1706,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "type": "tableCell",
               "children": [
                 {
-                  "type": "text",
+                  "type": "inlineCode",
                   "value": "a"
                 }
               ]
@@ -1793,7 +1793,7 @@ Description.
 
 | Parameter | Type                                                                               | Description  |
 | :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| \`a\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 #### E static method a
 
@@ -1801,8 +1801,8 @@ Description.
 
 | Parameter | Type                                                                               | Description  |
 | :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| a         | [A](#type-a)                                                                       | Description. |
-| b         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| \`a\`       | [A](#type-a)                                                                       | Description. |
+| \`b\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 **Returns:** [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) — Description.
 
@@ -1816,7 +1816,7 @@ Description.
 
 | Parameter | Type         | Description  |
 | :-------- | :----------- | :----------- |
-| a         | [A](#type-a) | Description. |
+| \`a\`       | [A](#type-a) | Description. |
 
 **Returns:** Description.
 
@@ -1826,7 +1826,7 @@ Description.
 
 | Parameter | Type                                                                               | Description  |
 | :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| \`a\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 ### function d
 
@@ -1834,7 +1834,7 @@ Description, see [E](#class-e).
 
 | Parameter | Type                                                                               | Description  |
 | :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| \`a\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
 
 ### constant C
 
@@ -1848,7 +1848,7 @@ Description.
 
 | Property | Type                                                                                 | Description  |
 | :------- | :----------------------------------------------------------------------------------- | :----------- |
-| a        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
+| \`a\`      | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
 
 ### type B
 
@@ -1858,6 +1858,6 @@ Description.
 
 | Parameter | Type                                                                                 | Description  |
 | :-------- | :----------------------------------------------------------------------------------- | :----------- |
-| a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
+| \`a\`       | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
 
 `

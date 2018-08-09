@@ -6,6 +6,7 @@
 
 - Sort members in the documentation outline, fixes [#8](https://github.com/jaydenseric/jsdoc-md/issues/8).
 - Explicitly left align table cell contents.
+- Display parameter and property names as inline code.
 
 ### Patch
 
