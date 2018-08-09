@@ -31,7 +31,7 @@
     "node": ">=8.5"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0-beta.56",
     "doctrine": "^2.1.0",
     "github-slugger": "^1.2.0",
     "globby": "^8.0.1",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "circular-json": "^0.5.5",
-    "eslint": "^5.2.0",
+    "eslint": "^5.3.0",
     "eslint-config-env": "^1.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.13.0",
@@ -53,7 +53,7 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.2.0",
     "npm-run-all": "^4.1.2",
-    "prettier": "^1.13.7",
+    "prettier": "^1.14.1",
     "tap": "^12.0.1"
   },
   "scripts": {
