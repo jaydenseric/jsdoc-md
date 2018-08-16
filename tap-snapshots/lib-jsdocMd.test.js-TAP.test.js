@@ -27,9 +27,9 @@ exports[`lib/jsdocMd.test.js TAP jsdocMd > File content. 1`] = `
 
 Description, here is a **bold** word.
 
-| Parameter | Type                                                                                  | Description                           |
-| :-------- | :------------------------------------------------------------------------------------ | :------------------------------------ |
-| \`a\`       | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? | Description, here is a **bold** word. |
+| Parameter | Type                               | Description                           |
+| :-------- | :--------------------------------- | :------------------------------------ |
+| \`a\`       | [boolean](https://mdn.io/boolean)? | Description, here is a **bold** word. |
 
 #### Examples
 
@@ -49,10 +49,10 @@ _Construct a new instance with options._
 
 Description.
 
-| Parameter | Type                                                                                           | Description  |
-| :-------- | :--------------------------------------------------------------------------------------------- | :----------- |
-| \`a\`       | [B~A](#b-inner-typedef-a)                                                                      | Description. |
-| \`b\`       | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
+| Parameter | Type                                        | Description  |
+| :-------- | :------------------------------------------ | :----------- |
+| \`a\`       | [B~A](#b-inner-typedef-a)                   | Description. |
+| \`b\`       | [boolean](https://mdn.io/boolean)? = \`true\` | Description. |
 
 #### B static property b
 
@@ -70,20 +70,20 @@ Description.
 
 Description.
 
-**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
+**Type:** [Object](https://mdn.io/object)
 
-| Property | Type                                                                                 | Description                           |
-| :------- | :----------------------------------------------------------------------------------- | :------------------------------------ |
-| \`a\`      | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)   | Description, here is a **bold** word. |
-| \`b\`      | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description.                          |
+| Property | Type                              | Description                           |
+| :------- | :-------------------------------- | :------------------------------------ |
+| \`a\`      | [string](https://mdn.io/string)   | Description, here is a **bold** word. |
+| \`b\`      | [boolean](https://mdn.io/boolean) | Description.                          |
 
 ### function c
 
 Description.
 
-| Parameter | Type                                                                               | Description  |
-| :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| \`a\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Parameter | Type                            | Description  |
+| :-------- | :------------------------------ | :----------- |
+| \`a\`       | [string](https://mdn.io/string) | Description. |
 
 #### See
 

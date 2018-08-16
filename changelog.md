@@ -2,6 +2,10 @@
 
 ## Next
 
+### Minor
+
+- Use [mdn.io](https://github.com/lazd/mdn.io) for shorter [MDN](https://developer.mozilla.org) links in generated markdown.
+
 ### Patch
 
 - Updated dependencies.

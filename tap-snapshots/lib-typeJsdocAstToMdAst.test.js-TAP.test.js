@@ -72,7 +72,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "url": "https://mdn.io/string",
       "children": [
         {
           "type": "text",
@@ -100,7 +100,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/array",
+      "url": "https://mdn.io/array",
       "children": [
         {
           "type": "text",
@@ -114,7 +114,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -128,7 +128,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "url": "https://mdn.io/string",
       "children": [
         {
           "type": "text",
@@ -150,7 +150,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/array",
+      "url": "https://mdn.io/array",
       "children": [
         {
           "type": "text",
@@ -164,7 +164,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -184,7 +184,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "url": "https://mdn.io/number",
       "children": [
         {
           "type": "text",
@@ -212,7 +212,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -236,7 +236,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -256,7 +256,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -292,7 +292,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -310,7 +310,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+      "url": "https://mdn.io/boolean",
       "children": [
         {
           "type": "text",
@@ -324,7 +324,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "url": "https://mdn.io/string",
       "children": [
         {
           "type": "text",
@@ -344,7 +344,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -364,7 +364,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -402,7 +402,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "url": "https://mdn.io/number",
       "children": [
         {
           "type": "text",
@@ -422,7 +422,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
     },
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -453,25 +453,25 @@ function(null)
 
 function():\\*
 
-function({a: stringLiteral, b: [string](https://developer.mozilla.org/javascript/reference/global_objects/string)})
+function({a: stringLiteral, b: [string](https://mdn.io/string)})
 
-function(…[Array](https://developer.mozilla.org/javascript/reference/global_objects/array)&lt;[Object](https://developer.mozilla.org/javascript/reference/global_objects/object), [string](https://developer.mozilla.org/javascript/reference/global_objects/string)>):[Array](https://developer.mozilla.org/javascript/reference/global_objects/array)&lt;[Object](https://developer.mozilla.org/javascript/reference/global_objects/object)>
+function(…[Array](https://mdn.io/array)&lt;[Object](https://mdn.io/object), [string](https://mdn.io/string)>):[Array](https://mdn.io/array)&lt;[Object](https://mdn.io/object)>
 
-function(this:[number](https://developer.mozilla.org/javascript/reference/global_objects/number), 5)
+function(this:[number](https://mdn.io/number), 5)
 
-function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/object)):undefined
+function(this:[Object](https://mdn.io/object)):undefined
 
-function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/object))
+function(this:[Object](https://mdn.io/object))
 
-function(this:[Object](https://developer.mozilla.org/javascript/reference/global_objects/object), true):false
+function(this:[Object](https://mdn.io/object), true):false
 
-function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/object)):\\[[boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean), [string](https://developer.mozilla.org/javascript/reference/global_objects/string)]
+function(new:[Object](https://mdn.io/object)):\\[[boolean](https://mdn.io/boolean), [string](https://mdn.io/string)]
 
-function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/object))
+function(new:[Object](https://mdn.io/object))
 
-function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/object), true?):\\[…[number](https://developer.mozilla.org/javascript/reference/global_objects/number)]
+function(new:[Object](https://mdn.io/object), true?):\\[…[number](https://mdn.io/number)]
 
-function(new:[Object](https://developer.mozilla.org/javascript/reference/global_objects/object), 5)
+function(new:[Object](https://mdn.io/object), 5)
 
 `
 
@@ -480,7 +480,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+      "url": "https://mdn.io/boolean",
       "children": [
         {
           "type": "text",
@@ -492,7 +492,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+      "url": "https://mdn.io/boolean",
       "children": [
         {
           "type": "text",
@@ -504,7 +504,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "url": "https://mdn.io/number",
       "children": [
         {
           "type": "text",
@@ -516,7 +516,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/number",
+      "url": "https://mdn.io/number",
       "children": [
         {
           "type": "text",
@@ -528,7 +528,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "url": "https://mdn.io/string",
       "children": [
         {
           "type": "text",
@@ -540,7 +540,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+      "url": "https://mdn.io/string",
       "children": [
         {
           "type": "text",
@@ -552,7 +552,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/function",
+      "url": "https://mdn.io/function",
       "children": [
         {
           "type": "text",
@@ -564,7 +564,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/function",
+      "url": "https://mdn.io/function",
       "children": [
         {
           "type": "text",
@@ -576,7 +576,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/array",
+      "url": "https://mdn.io/array",
       "children": [
         {
           "type": "text",
@@ -588,7 +588,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/array",
+      "url": "https://mdn.io/array",
       "children": [
         {
           "type": "text",
@@ -600,7 +600,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -612,7 +612,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+      "url": "https://mdn.io/object",
       "children": [
         {
           "type": "text",
@@ -624,7 +624,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/date",
+      "url": "https://mdn.io/date",
       "children": [
         {
           "type": "text",
@@ -636,7 +636,7 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://developer.mozilla.org/javascript/reference/global_objects/date",
+      "url": "https://mdn.io/date",
       "children": [
         {
           "type": "text",
@@ -649,33 +649,33 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression types. > Markdown. 1`] = `
-[Boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)
+[Boolean](https://mdn.io/boolean)
 
-[boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)
+[boolean](https://mdn.io/boolean)
 
-[Number](https://developer.mozilla.org/javascript/reference/global_objects/number)
+[Number](https://mdn.io/number)
 
-[number](https://developer.mozilla.org/javascript/reference/global_objects/number)
+[number](https://mdn.io/number)
 
-[String](https://developer.mozilla.org/javascript/reference/global_objects/string)
+[String](https://mdn.io/string)
 
-[string](https://developer.mozilla.org/javascript/reference/global_objects/string)
+[string](https://mdn.io/string)
 
-[Function](https://developer.mozilla.org/javascript/reference/global_objects/function)
+[Function](https://mdn.io/function)
 
-[function](https://developer.mozilla.org/javascript/reference/global_objects/function)
+[function](https://mdn.io/function)
 
-[Array](https://developer.mozilla.org/javascript/reference/global_objects/array)
+[Array](https://mdn.io/array)
 
-[array](https://developer.mozilla.org/javascript/reference/global_objects/array)
+[array](https://mdn.io/array)
 
-[Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
+[Object](https://mdn.io/object)
 
-[object](https://developer.mozilla.org/javascript/reference/global_objects/object)
+[object](https://mdn.io/object)
 
-[Date](https://developer.mozilla.org/javascript/reference/global_objects/date)
+[Date](https://mdn.io/date)
 
-[date](https://developer.mozilla.org/javascript/reference/global_objects/date)
+[date](https://mdn.io/date)
 
 `
 

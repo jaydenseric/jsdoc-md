@@ -343,7 +343,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "url": "https://mdn.io/string",
                   "children": [
                     {
                       "type": "text",
@@ -574,7 +574,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "url": "https://mdn.io/string",
                   "children": [
                     {
                       "type": "text",
@@ -646,7 +646,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         {
           "type": "link",
-          "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+          "url": "https://mdn.io/boolean",
           "children": [
             {
               "type": "text",
@@ -1069,7 +1069,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "url": "https://mdn.io/string",
                   "children": [
                     {
                       "type": "text",
@@ -1285,7 +1285,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/string",
+                  "url": "https://mdn.io/string",
                   "children": [
                     {
                       "type": "text",
@@ -1459,7 +1459,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         {
           "type": "link",
-          "url": "https://developer.mozilla.org/javascript/reference/global_objects/object",
+          "url": "https://mdn.io/object",
           "children": [
             {
               "type": "text",
@@ -1526,7 +1526,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+                  "url": "https://mdn.io/boolean",
                   "children": [
                     {
                       "type": "text",
@@ -1649,7 +1649,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         {
           "type": "link",
-          "url": "https://developer.mozilla.org/javascript/reference/global_objects/function",
+          "url": "https://mdn.io/function",
           "children": [
             {
               "type": "text",
@@ -1716,7 +1716,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "link",
-                  "url": "https://developer.mozilla.org/javascript/reference/global_objects/boolean",
+                  "url": "https://mdn.io/boolean",
                   "children": [
                     {
                       "type": "text",
@@ -1791,20 +1791,20 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
 
 Description.
 
-| Parameter | Type                                                                               | Description  |
-| :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| \`a\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Parameter | Type                            | Description  |
+| :-------- | :------------------------------ | :----------- |
+| \`a\`       | [string](https://mdn.io/string) | Description. |
 
 #### E static method a
 
 Description.
 
-| Parameter | Type                                                                               | Description  |
-| :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| \`a\`       | [A](#type-a)                                                                       | Description. |
-| \`b\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Parameter | Type                            | Description  |
+| :-------- | :------------------------------ | :----------- |
+| \`a\`       | [A](#type-a)                    | Description. |
+| \`b\`       | [string](https://mdn.io/string) | Description. |
 
-**Returns:** [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) — Description.
+**Returns:** [boolean](https://mdn.io/boolean) — Description.
 
 #### E static property e
 
@@ -1824,17 +1824,17 @@ Description.
 
 Description.
 
-| Parameter | Type                                                                               | Description  |
-| :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| \`a\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Parameter | Type                            | Description  |
+| :-------- | :------------------------------ | :----------- |
+| \`a\`       | [string](https://mdn.io/string) | Description. |
 
 ### function d
 
 Description, see [E](#class-e).
 
-| Parameter | Type                                                                               | Description  |
-| :-------- | :--------------------------------------------------------------------------------- | :----------- |
-| \`a\`       | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Parameter | Type                            | Description  |
+| :-------- | :------------------------------ | :----------- |
+| \`a\`       | [string](https://mdn.io/string) | Description. |
 
 ### constant C
 
@@ -1844,20 +1844,20 @@ Description.
 
 Description.
 
-**Type:** [Object](https://developer.mozilla.org/javascript/reference/global_objects/object)
+**Type:** [Object](https://mdn.io/object)
 
-| Property | Type                                                                                 | Description  |
-| :------- | :----------------------------------------------------------------------------------- | :----------- |
-| \`a\`      | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
+| Property | Type                              | Description  |
+| :------- | :-------------------------------- | :----------- |
+| \`a\`      | [boolean](https://mdn.io/boolean) | Description. |
 
 ### type B
 
 Description.
 
-**Type:** [function](https://developer.mozilla.org/javascript/reference/global_objects/function)
+**Type:** [function](https://mdn.io/function)
 
-| Parameter | Type                                                                                 | Description  |
-| :-------- | :----------------------------------------------------------------------------------- | :----------- |
-| \`a\`       | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description. |
+| Parameter | Type                              | Description  |
+| :-------- | :-------------------------------- | :----------- |
+| \`a\`       | [boolean](https://mdn.io/boolean) | Description. |
 
 `
