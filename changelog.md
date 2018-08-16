@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Swapped readme badge order.
 
 ## 1.4.0
 
