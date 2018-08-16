@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Removed the [`npm-run-all`](https://npm.im/npm-run-all) dev dependency and stopped using it for package scripts.
 - Swapped readme badge order.
 
 ## 1.4.0

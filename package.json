@@ -52,19 +52,18 @@
     "eslint-plugin-prettier": "^2.6.1",
     "husky": "^0.14.3",
     "lint-staged": "^7.2.2",
-    "npm-run-all": "^4.1.2",
     "prettier": "^1.14.2",
     "tap": "^12.0.1"
   },
   "scripts": {
-    "prepare": "run-s prepare:*",
+    "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
     "prepare:jsdoc": "node cli",
     "prepare:prettier": "prettier readme.md --write",
-    "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:js",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
     "test:js": "tap ./lib/*.test.js -R spec",
-    "prepublishOnly": "run-s prepare test",
+    "prepublishOnly": "npm run prepare && npm test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
