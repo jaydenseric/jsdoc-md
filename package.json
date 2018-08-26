@@ -28,7 +28,7 @@
   ],
   "bin": "cli.js",
   "engines": {
-    "node": ">=8.5"
+    "node": ">=6"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-rc.1",

@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Minor
+
+- Support Node.js v6+, from v8.5+.
+
 ## 1.5.0
 
 ### Minor
