@@ -6,6 +6,10 @@
 
 - Support Node.js v6+, from v8.5+.
 
+### Patch
+
+- Work around a Babel breaking change to parsing decorators, see [babel/babel#8562](https://github.com/babel/babel/issues/8562).
+
 ## 1.5.0
 
 ### Minor
