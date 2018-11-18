@@ -28,10 +28,12 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
     {
       "type": "list",
       "ordered": false,
+      "spread": false,
       "children": [
         {
           "type": "listItem",
           "loose": false,
+          "spread": false,
           "children": [
             {
               "type": "paragraph",
@@ -52,10 +54,12 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
             {
               "type": "list",
               "ordered": false,
+              "spread": false,
               "children": [
                 {
                   "type": "listItem",
                   "loose": false,
+                  "spread": false,
                   "children": [
                     {
                       "type": "paragraph",
@@ -78,6 +82,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                 {
                   "type": "listItem",
                   "loose": false,
+                  "spread": false,
                   "children": [
                     {
                       "type": "paragraph",
@@ -100,6 +105,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                 {
                   "type": "listItem",
                   "loose": false,
+                  "spread": false,
                   "children": [
                     {
                       "type": "paragraph",
@@ -122,6 +128,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                 {
                   "type": "listItem",
                   "loose": false,
+                  "spread": false,
                   "children": [
                     {
                       "type": "paragraph",
@@ -148,6 +155,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         {
           "type": "listItem",
           "loose": false,
+          "spread": false,
           "children": [
             {
               "type": "paragraph",
@@ -170,6 +178,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         {
           "type": "listItem",
           "loose": false,
+          "spread": false,
           "children": [
             {
               "type": "paragraph",
@@ -192,6 +201,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         {
           "type": "listItem",
           "loose": false,
+          "spread": false,
           "children": [
             {
               "type": "paragraph",
@@ -214,6 +224,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         {
           "type": "listItem",
           "loose": false,
+          "spread": false,
           "children": [
             {
               "type": "paragraph",
