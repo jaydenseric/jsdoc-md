@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const yargs = require('yargs')
-const jsdocMd = require('./lib/jsdocMd')
 const DEFAULTS = require('./lib/defaults')
+const jsdocMd = require('./lib/jsdocMd')
 
 const { argv } = yargs
   .options({

@@ -1,7 +1,7 @@
 const crypto = require('crypto')
-const { sep } = require('path')
-const { tmpdir } = require('os')
 const { writeFileSync, unlinkSync } = require('fs')
+const { tmpdir } = require('os')
+const { sep } = require('path')
 
 /**
  * Creates a temporary file that deletes at test teardown.
