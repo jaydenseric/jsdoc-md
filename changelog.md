@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Minor
+
+- Updated dependencies.
+
 ## 1.6.0
 
 ### Minor
