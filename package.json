@@ -64,8 +64,12 @@
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
     "test:js": "tap ./lib/*.test.js -R spec",
-    "prepublishOnly": "npm run prepare && npm test",
-    "precommit": "lint-staged"
+    "prepublishOnly": "npm run prepare && npm test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.js": "eslint",
