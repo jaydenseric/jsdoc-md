@@ -1,6 +1,6 @@
 # jsdoc-md
 
-[![Build status](https://travis-ci.org/jaydenseric/jsdoc-md.svg)](https://travis-ci.org/jaydenseric/jsdoc-md) [![npm version](https://img.shields.io/npm/v/jsdoc-md.svg)](https://npm.im/jsdoc-md)
+[![npm version](https://badgen.net/npm/v/jsdoc-md)](https://npm.im/jsdoc-md) [![Build status](https://travis-ci.org/jaydenseric/jsdoc-md.svg?branch=master)](https://travis-ci.org/jaydenseric/jsdoc-md)
 
 A Node.js CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
 
@@ -38,12 +38,11 @@ npm run jsdoc
 
 For detailed CLI usage instructions, run `npx jsdoc-md --help`.
 
-| Option           | Alias | Description                                   |
-| ---------------- | ----- | --------------------------------------------- |
-| --source-glob    | -s    | JSDoc source file glob pattern.               |
-| --markdown-path  | -m    | Path to the markdown file for docs insertion. |
-| --target-heading | -t    | Markdown file heading to insert docs under.   |
-| --help           | -h    | Show help.                                    |
+| Option             | Alias | Default         | Description                                   |
+| :----------------- | :---- | :-------------- | :-------------------------------------------- |
+| `--source-glob`    | `-s`  | `**/*.{mjs,js}` | JSDoc source file glob pattern.               |
+| `--markdown-path`  | `-m`  | `readme.md`     | Path to the markdown file for docs insertion. |
+| `--target-heading` | `-t`  | `API`           | Markdown file heading to insert docs under.   |
 
 ## API
 
@@ -56,12 +55,12 @@ For detailed CLI usage instructions, run `npx jsdoc-md --help`.
 
 Scrapes JSDoc from files to populate a markdown file documentation section.
 
-| Parameter             | Type                                                                                                  | Description                                   |
-| --------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------- |
-| options               | [Object](https://developer.mozilla.org/javascript/reference/global_objects/Object)?                   | Options.                                      |
-| options.sourceGlob    | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)? = `**/*.{mjs,js}` | JSDoc source file glob pattern.               |
-| options.markdownPath  | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)? = `readme.md`     | Path to the markdown file for docs insertion. |
-| options.targetHeading | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)? = `API`           | Markdown file heading to insert docs under.   |
+| Parameter               | Type                                               | Description                                   |
+| :---------------------- | :------------------------------------------------- | :-------------------------------------------- |
+| `options`               | [Object](https://mdn.io/object)?                   | Options.                                      |
+| `options.sourceGlob`    | [string](https://mdn.io/string)? = `**/*.{mjs,js}` | JSDoc source file glob pattern.               |
+| `options.markdownPath`  | [string](https://mdn.io/string)? = `readme.md`     | Path to the markdown file for docs insertion. |
+| `options.targetHeading` | [string](https://mdn.io/string)? = `API`           | Markdown file heading to insert docs under.   |
 
 #### Examples
 
@@ -154,7 +153,9 @@ const MyNamespace = {
 
 ### Inline tags
 
-JSDoc inline tags such as [`{@link}`](http://usejsdoc.org/tags-inline-link.html) and [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutorial.html) are unsupported. Use markdown links instead.
+One [JSDoc inline tag link](http://usejsdoc.org/tags-inline-link.html) syntax is supported for namepath links in JSDoc descriptions and tags with markdown content: `` [`b` method]{@link A#b} ``. Use normal markdown syntax for non-namepath links.
+
+Other inline tags such as [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutorial.html) are unsupported.
 
 ### Example content
 

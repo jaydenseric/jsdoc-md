@@ -1,7 +1,6 @@
 {
   "name": "jsdoc-md",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.6.0",
   "description": "A CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
   "license": "MIT",
   "author": {
@@ -29,10 +28,10 @@
   ],
   "bin": "cli.js",
   "engines": {
-    "node": ">=8.5"
+    "node": ">=6"
   },
   "dependencies": {
-    "@babel/parser": "^7.0.0-beta.51",
+    "@babel/core": "^7.0.0",
     "doctrine": "^2.1.0",
     "github-slugger": "^1.2.0",
     "globby": "^8.0.1",
@@ -45,32 +44,31 @@
   },
   "devDependencies": {
     "circular-json": "^0.5.5",
-    "eslint": "^5.0.1",
-    "eslint-config-env": "^0.5.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^6.0.1",
+    "eslint": "^5.3.0",
+    "eslint-config-env": "^1.0.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-prettier": "^2.6.1",
     "husky": "^0.14.3",
-    "lint-staged": "^7.2.0",
-    "npm-run-all": "^4.1.2",
-    "prettier": "^1.13.7",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
     "tap": "^12.0.1"
   },
   "scripts": {
-    "prepare": "run-s prepare:*",
+    "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
     "prepare:jsdoc": "node cli",
     "prepare:prettier": "prettier readme.md --write",
-    "test": "FORCE_COLOR=1 TAP_COLORS=1 run-p test:* -c --aggregate-output",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:js",
     "test:eslint": "eslint .",
-    "test:prettier": "prettier '**/*.{json,md}' -l",
+    "test:prettier": "prettier '**/*.{json,yml,md}' -l",
     "test:js": "tap ./lib/*.test.js -R spec",
-    "prepublishOnly": "run-s prepare test",
+    "prepublishOnly": "npm run prepare && npm test",
     "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.js": "eslint",
-    "*.{json,md}": "prettier -l"
+    "*.{json,yml,md}": "prettier -l"
   },
   "eslintIgnore": [
     "tap-snapshots"

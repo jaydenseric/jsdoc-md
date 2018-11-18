@@ -12,28 +12,24 @@ exports[`lib/jsdocMd.test.js TAP jsdocMd > File content. 1`] = `
 
 ### Table of contents
 
-- [constant A](#constant-a)
 - [class B](#class-b)
   - [Examples](#examples)
-  - [B inner typedef A](#b-inner-typedef-a)
-  - [B static property b](#b-static-property-b)
-  - [B instance property c](#b-instance-property-c)
   - [B static method d](#b-static-method-d)
+  - [B static property b](#b-static-property-b)
   - [B instance method e](#b-instance-method-e)
+  - [B instance property c](#b-instance-property-c)
+  - [B inner typedef A](#b-inner-typedef-a)
 - [function c](#function-c)
   - [See](#see)
-
-### constant A
-
-Description.
+- [constant A](#constant-a)
 
 ### class B
 
 Description, here is a **bold** word.
 
-| Parameter | Type                                                                                  | Description                           |
-| --------- | ------------------------------------------------------------------------------------- | ------------------------------------- |
-| a         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? | Description, here is a **bold** word. |
+| Parameter | Type                               | Description                           |
+| :-------- | :--------------------------------- | :------------------------------------ |
+| \`a\`       | [boolean](https://mdn.io/boolean)? | Description, here is a **bold** word. |
 
 #### Examples
 
@@ -49,16 +45,20 @@ _Construct a new instance with options._
 > const b = new B(true)
 > \`\`\`
 
-#### B inner typedef A
+#### B static method d
 
 Description.
 
-| Property | Type                                                                                 | Description                           |
-| -------- | ------------------------------------------------------------------------------------ | ------------------------------------- |
-| a        | [string](https://developer.mozilla.org/javascript/reference/global_objects/string)   | Description, here is a **bold** word. |
-| b        | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean) | Description.                          |
+| Parameter | Type                                        | Description  |
+| :-------- | :------------------------------------------ | :----------- |
+| \`a\`       | [B~A](#b-inner-typedef-a)                   | Description. |
+| \`b\`       | [boolean](https://mdn.io/boolean)? = \`true\` | Description. |
 
 #### B static property b
+
+Description.
+
+#### B instance method e
 
 Description.
 
@@ -66,31 +66,33 @@ Description.
 
 Description.
 
-#### B static method d
+#### B inner typedef A
 
 Description.
 
-| Parameter | Type                                                                                           | Description  |
-| --------- | ---------------------------------------------------------------------------------------------- | ------------ |
-| a         | [B~A](#b-inner-typedef-a)                                                                      | Description. |
-| b         | [boolean](https://developer.mozilla.org/javascript/reference/global_objects/boolean)? = \`true\` | Description. |
+**Type:** [Object](https://mdn.io/object)
 
-#### B instance method e
-
-Description.
+| Property | Type                              | Description                           |
+| :------- | :-------------------------------- | :------------------------------------ |
+| \`a\`      | [string](https://mdn.io/string)   | Description, here is a **bold** word. |
+| \`b\`      | [boolean](https://mdn.io/boolean) | Description.                          |
 
 ### function c
 
 Description.
 
-| Parameter | Type                                                                               | Description  |
-| --------- | ---------------------------------------------------------------------------------- | ------------ |
-| a         | [string](https://developer.mozilla.org/javascript/reference/global_objects/string) | Description. |
+| Parameter | Type                            | Description  |
+| :-------- | :------------------------------ | :----------- |
+| \`a\`       | [string](https://mdn.io/string) | Description. |
 
 #### See
 
-- [jsdoc-md on Github](https://github.com/jaydenseric/jsdoc-md).
+- [\`B\`](#class-b).
 - [jsdoc-md on npm](https://npm.im/jsdoc-md).
+
+### constant A
+
+Description.
 
 ## Preserve
 

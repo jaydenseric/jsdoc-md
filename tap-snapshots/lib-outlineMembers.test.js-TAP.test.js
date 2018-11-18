@@ -34,6 +34,7 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
       }
     ],
     "heading": "class A",
+    "slug": "class-a",
     "children": [
       {
         "kind": "function",
@@ -64,7 +65,8 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
           }
         ],
         "parent": "~0",
-        "heading": "A static method a"
+        "heading": "A static method a",
+        "slug": "a-static-method-a"
       },
       {
         "kind": "function",
@@ -86,7 +88,8 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
           }
         ],
         "parent": "~0",
-        "heading": "A instance method b"
+        "heading": "A instance method b",
+        "slug": "a-instance-method-b"
       }
     ]
   },
@@ -126,7 +129,8 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers > Outlined members. 1`] =
         "name": "a"
       }
     ],
-    "heading": "type B"
+    "heading": "type B",
+    "slug": "type-b"
   }
 ]
 `
