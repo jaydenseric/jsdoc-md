@@ -2,6 +2,10 @@
 
 ## Next
 
+### Minor
+
+- [Uint8Array](https://mdn.io/uint8array) now MDN linked & alphabetized, updated snapshot test for `Uint8Array` and fixed [#11](https://github.com/jaydenseric/jsdoc-md/issues/9).
+
 ### Patch
 
 - Updated dependencies.
