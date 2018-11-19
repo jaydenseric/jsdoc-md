@@ -2,10 +2,15 @@
 
 ## Next
 
+### Minor
+
+- Added MDN links for [`Uint8Array`](https://mdn.io/uint8array) types and updated snapshot tests, fixing [#11](https://github.com/jaydenseric/jsdoc-md/issues/9) via [#12](https://github.com/jaydenseric/jsdoc-md/pull/12).
+
 ### Patch
 
 - Updated dependencies.
 - Updated package scripts and config for the new [`husky`](https://npm.im/husky) version.
+- Added a missing test for the `Promise` type MDN link.
 
 ## 1.6.0
 

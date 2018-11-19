@@ -480,6 +480,30 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
+      "url": "https://mdn.io/array",
+      "children": [
+        {
+          "type": "text",
+          "value": "Array"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://mdn.io/array",
+      "children": [
+        {
+          "type": "text",
+          "value": "array"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
       "url": "https://mdn.io/boolean",
       "children": [
         {
@@ -504,11 +528,11 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://mdn.io/number",
+      "url": "https://mdn.io/date",
       "children": [
         {
           "type": "text",
-          "value": "Number"
+          "value": "Date"
         }
       ]
     }
@@ -516,35 +540,11 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://mdn.io/number",
+      "url": "https://mdn.io/date",
       "children": [
         {
           "type": "text",
-          "value": "number"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://mdn.io/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "String"
-        }
-      ]
-    }
-  ],
-  [
-    {
-      "type": "link",
-      "url": "https://mdn.io/string",
-      "children": [
-        {
-          "type": "text",
-          "value": "string"
+          "value": "date"
         }
       ]
     }
@@ -576,11 +576,11 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://mdn.io/array",
+      "url": "https://mdn.io/number",
       "children": [
         {
           "type": "text",
-          "value": "Array"
+          "value": "Number"
         }
       ]
     }
@@ -588,11 +588,11 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://mdn.io/array",
+      "url": "https://mdn.io/number",
       "children": [
         {
           "type": "text",
-          "value": "array"
+          "value": "number"
         }
       ]
     }
@@ -624,11 +624,11 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://mdn.io/date",
+      "url": "https://mdn.io/promise",
       "children": [
         {
           "type": "text",
-          "value": "Date"
+          "value": "Promise"
         }
       ]
     }
@@ -636,11 +636,59 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
   [
     {
       "type": "link",
-      "url": "https://mdn.io/date",
+      "url": "https://mdn.io/promise",
       "children": [
         {
           "type": "text",
-          "value": "date"
+          "value": "promise"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://mdn.io/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "String"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://mdn.io/string",
+      "children": [
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://mdn.io/uint8array",
+      "children": [
+        {
+          "type": "text",
+          "value": "Uint8Array"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://mdn.io/uint8array",
+      "children": [
+        {
+          "type": "text",
+          "value": "uint8array"
         }
       ]
     }
@@ -649,33 +697,41 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression types. > Markdown. 1`] = `
+[Array](https://mdn.io/array)
+
+[array](https://mdn.io/array)
+
 [Boolean](https://mdn.io/boolean)
 
 [boolean](https://mdn.io/boolean)
 
-[Number](https://mdn.io/number)
+[Date](https://mdn.io/date)
 
-[number](https://mdn.io/number)
-
-[String](https://mdn.io/string)
-
-[string](https://mdn.io/string)
+[date](https://mdn.io/date)
 
 [Function](https://mdn.io/function)
 
 [function](https://mdn.io/function)
 
-[Array](https://mdn.io/array)
+[Number](https://mdn.io/number)
 
-[array](https://mdn.io/array)
+[number](https://mdn.io/number)
 
 [Object](https://mdn.io/object)
 
 [object](https://mdn.io/object)
 
-[Date](https://mdn.io/date)
+[Promise](https://mdn.io/promise)
 
-[date](https://mdn.io/date)
+[promise](https://mdn.io/promise)
+
+[String](https://mdn.io/string)
+
+[string](https://mdn.io/string)
+
+[Uint8Array](https://mdn.io/uint8array)
+
+[uint8array](https://mdn.io/uint8array)
 
 `
 
