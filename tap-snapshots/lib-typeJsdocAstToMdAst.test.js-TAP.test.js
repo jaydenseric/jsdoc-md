@@ -644,6 +644,30 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
         }
       ]
     }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://mdn.io/uint8array",
+      "children": [
+        {
+          "type": "text",
+          "value": "Uint8Array"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "https://mdn.io/uint8array",
+      "children": [
+        {
+          "type": "text",
+          "value": "uint8array"
+        }
+      ]
+    }
   ]
 ]
 `
@@ -676,6 +700,10 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression 
 [Date](https://mdn.io/date)
 
 [date](https://mdn.io/date)
+
+[Uint8Array](https://mdn.io/uint8array)
+
+[uint8array](https://mdn.io/uint8array)
 
 `
 

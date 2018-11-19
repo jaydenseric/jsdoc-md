@@ -4,6 +4,8 @@
 
 ### Patch
 
+- Included mdn [Uint8Array](https://mdn.io/uint8array) type link.
+- Updated snapshot test for Uint8array type.
 - Updated dependencies.
 - Updated package scripts and config for the new [`husky`](https://npm.im/husky) version.
 
