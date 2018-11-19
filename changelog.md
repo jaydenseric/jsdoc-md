@@ -6,7 +6,8 @@
 
 - Updated dependencies.
 - Updated package scripts and config for the new [`husky`](https://npm.im/husky) version.
-- [Uint8Array](https://mdn.io/uint8array) now MDN linked, updated snapshot test for `Uint8Array` and fixed [#11](https://github.com/jaydenseric/jsdoc-md/issues/9).
+- [Uint8Array](https://mdn.io/uint8array) now MDN linked & alphabetized, updated snapshot test for `Uint8Array` and fixed [#11](https://github.com/jaydenseric/jsdoc-md/issues/9).
+- Test added for `Promise` type MDN link & alphabetized order of tests.
 
 ## 1.6.0
 
