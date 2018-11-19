@@ -4,10 +4,9 @@
 
 ### Patch
 
-- Included mdn [Uint8Array](https://mdn.io/uint8array) type link.
-- Updated snapshot test for Uint8array type.
 - Updated dependencies.
 - Updated package scripts and config for the new [`husky`](https://npm.im/husky) version.
+- [Uint8Array](https://mdn.io/uint8array) now MDN linked, updated snapshot test for `Uint8Array` and fixed [#11](https://github.com/jaydenseric/jsdoc-md/issues/9).
 
 ## 1.6.0
 
