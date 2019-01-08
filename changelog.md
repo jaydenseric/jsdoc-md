@@ -2,9 +2,12 @@
 
 ## Next
 
-### Patch
+### Minor
 
 - Added MDN links for types listed in [#13](https://github.com/jaydenseric/jsdoc-md/issues/13) and updated snapshot tests.
+
+### Patch
+
 - Updated dependencies.
 
 ## 1.7.0
