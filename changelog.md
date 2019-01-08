@@ -1,5 +1,15 @@
 # jsdoc-md changelog
 
+## Next
+
+### Minor
+
+- Added MDN links for more types, fixing [#13](https://github.com/jaydenseric/jsdoc-md/issues/13) via [#14](https://github.com/jaydenseric/jsdoc-md/pull/14).
+
+### Patch
+
+- Updated dependencies.
+
 ## 1.7.0
 
 ### Minor
