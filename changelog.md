@@ -4,7 +4,7 @@
 
 ### Minor
 
-- Added MDN links for types listed in [#13](https://github.com/jaydenseric/jsdoc-md/issues/13) and updated snapshot tests.
+- Added MDN links for more types, fixing [#13](https://github.com/jaydenseric/jsdoc-md/issues/13) via [#14](https://github.com/jaydenseric/jsdoc-md/pull/14).
 
 ### Patch
 
