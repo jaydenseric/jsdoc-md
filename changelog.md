@@ -9,6 +9,7 @@
 ### Patch
 
 - Updated dependencies.
+- Allow Babel to load config relative to files being parsed.
 
 ## 1.7.0
 
