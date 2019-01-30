@@ -33,8 +33,8 @@
   "dependencies": {
     "@babel/core": "^7.2.2",
     "doctrine": "^3.0.0",
-    "github-slugger": "^1.2.0",
-    "globby": "^8.0.1",
+    "github-slugger": "^1.2.1",
+    "globby": "^9.0.0",
     "mdast-util-inject": "^1.1.0",
     "remark-parse": "^6.0.3",
     "remark-stringify": "^6.0.4",
@@ -44,17 +44,17 @@
   },
   "devDependencies": {
     "circular-json": "^0.5.9",
-    "eslint": "^5.12.0",
+    "eslint": "^5.12.1",
     "eslint-config-env": "^2.0.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-import-order-alphabetical": "0.0.1",
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^1.3.1",
-    "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3",
-    "tap": "^12.1.1"
+    "lint-staged": "^8.1.1",
+    "prettier": "^1.16.1",
+    "tap": "^12.4.0"
   },
   "scripts": {
     "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
