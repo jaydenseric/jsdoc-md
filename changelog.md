@@ -7,6 +7,7 @@
 - Updated dependencies.
 - Allow Babel to load config relative to files being parsed.
 - Stopped automatically linking global types to MDN.
+- Simplified ESLint config.
 
 ## 1.7.0
 
