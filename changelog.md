@@ -2,14 +2,13 @@
 
 ## Next
 
-### Minor
-
-- Added MDN links for more types, fixing [#13](https://github.com/jaydenseric/jsdoc-md/issues/13) via [#14](https://github.com/jaydenseric/jsdoc-md/pull/14).
-
 ### Patch
 
 - Updated dependencies.
 - Allow Babel to load config relative to files being parsed.
+- Use proper MDN links for global types.
+- Modified list of global types that link to MDN.
+- Global types must be correct capitalization to link to MDN, fixing [#15](https://github.com/jaydenseric/jsdoc-md/issues/15).
 
 ## 1.7.0
 

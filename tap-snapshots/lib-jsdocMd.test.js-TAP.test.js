@@ -27,9 +27,9 @@ exports[`lib/jsdocMd.test.js TAP jsdocMd > File content. 1`] = `
 
 Description, here is a **bold** word.
 
-| Parameter | Type                               | Description                           |
-| :-------- | :--------------------------------- | :------------------------------------ |
-| \`a\`       | [boolean](https://mdn.io/boolean)? | Description, here is a **bold** word. |
+| Parameter | Type     | Description                           |
+| :-------- | :------- | :------------------------------------ |
+| \`a\`       | boolean? | Description, here is a **bold** word. |
 
 #### Examples
 
@@ -49,10 +49,10 @@ _Construct a new instance with options._
 
 Description.
 
-| Parameter | Type                                        | Description  |
-| :-------- | :------------------------------------------ | :----------- |
-| \`a\`       | [B~A](#b-inner-typedef-a)                   | Description. |
-| \`b\`       | [boolean](https://mdn.io/boolean)? = \`true\` | Description. |
+| Parameter | Type                      | Description  |
+| :-------- | :------------------------ | :----------- |
+| \`a\`       | [B~A](#b-inner-typedef-a) | Description. |
+| \`b\`       | boolean? = \`true\`         | Description. |
 
 #### B static property b
 
@@ -70,20 +70,20 @@ Description.
 
 Description.
 
-**Type:** [Object](https://mdn.io/object)
+**Type:** [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
-| Property | Type                              | Description                           |
-| :------- | :-------------------------------- | :------------------------------------ |
-| \`a\`      | [string](https://mdn.io/string)   | Description, here is a **bold** word. |
-| \`b\`      | [boolean](https://mdn.io/boolean) | Description.                          |
+| Property | Type    | Description                           |
+| :------- | :------ | :------------------------------------ |
+| \`a\`      | string  | Description, here is a **bold** word. |
+| \`b\`      | boolean | Description.                          |
 
 ### function c
 
 Description.
 
-| Parameter | Type                            | Description  |
-| :-------- | :------------------------------ | :----------- |
-| \`a\`       | [string](https://mdn.io/string) | Description. |
+| Parameter | Type   | Description  |
+| :-------- | :----- | :----------- |
+| \`a\`       | string | Description. |
 
 #### See
 
