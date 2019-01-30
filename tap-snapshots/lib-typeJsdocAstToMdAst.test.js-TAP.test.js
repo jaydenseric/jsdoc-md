@@ -93,28 +93,16 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "…"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-      "children": [
-        {
-          "type": "text",
-          "value": "Array"
-        }
-      ]
+      "type": "text",
+      "value": "Array"
     },
     {
       "type": "text",
       "value": "<"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -137,28 +125,16 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": ":"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-      "children": [
-        {
-          "type": "text",
-          "value": "Array"
-        }
-      ]
+      "type": "text",
+      "value": "Array"
     },
     {
       "type": "text",
       "value": "<"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -193,14 +169,8 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "function(this:"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -217,14 +187,8 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "function(this:"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -237,14 +201,8 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "function(this:"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -273,14 +231,8 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "function(new:"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -313,14 +265,8 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "function(new:"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -333,14 +279,8 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "function(new:"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -385,14 +325,8 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst FunctionType ty
       "value": "function(new:"
     },
     {
-      "type": "link",
-      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-      "children": [
-        {
-          "type": "text",
-          "value": "Object"
-        }
-      ]
+      "type": "text",
+      "value": "Object"
     },
     {
       "type": "text",
@@ -419,62 +353,52 @@ function():\\*
 
 function({a: stringLiteral, b: string})
 
-function(…[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), string>):[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>
+function(…Array&lt;Object, string>):Array&lt;Object>
 
 function(this:number, 5)
 
-function(this:[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)):undefined
+function(this:Object):undefined
 
-function(this:[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))
+function(this:Object)
 
-function(this:[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), true):false
+function(this:Object, true):false
 
-function(new:[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)):\\[boolean, string]
+function(new:Object):\\[boolean, string]
 
-function(new:[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))
+function(new:Object)
 
-function(new:[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), true?):\\[…number]
+function(new:Object, true?):\\[…number]
 
-function(new:[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object), 5)
+function(new:Object, 5)
 
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression types. > Markdown ASTs. 1`] = `
 [
-  {
-    "type": "link",
-    "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
-    "children": [
-      {
-        "type": "text",
-        "value": "Array"
-      }
-    ]
-  }
+  [
+    {
+      "type": "text",
+      "value": "Array"
+    }
+  ],
+  [
+    {
+      "type": "link",
+      "url": "#type-object",
+      "children": [
+        {
+          "type": "text",
+          "value": "Object"
+        }
+      ]
+    }
+  ]
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst NameExpression types. > Markdown. 1`] = `
-[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+Array
 
-`
-
-exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Override global type. > Markdown ASTs. 1`] = `
-[
-  {
-    "type": "link",
-    "url": "#type-object",
-    "children": [
-      {
-        "type": "text",
-        "value": "Object"
-      }
-    ]
-  }
-]
-`
-
-exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Override global type. > Markdown. 1`] = `
 [Object](#type-object)
 
 `

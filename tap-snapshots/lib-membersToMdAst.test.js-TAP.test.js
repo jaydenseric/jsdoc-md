@@ -1439,14 +1439,8 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "value": " "
         },
         {
-          "type": "link",
-          "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
-          "children": [
-            {
-              "type": "text",
-              "value": "Object"
-            }
-          ]
+          "type": "text",
+          "value": "Object"
         }
       ]
     },
@@ -1807,7 +1801,7 @@ Description.
 
 Description.
 
-**Type:** [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+**Type:** Object
 
 | Property | Type    | Description  |
 | :------- | :------ | :----------- |
