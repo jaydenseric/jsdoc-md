@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-md",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "A CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
   "license": "MIT",
   "author": {
@@ -8,6 +8,9 @@
     "email": "me@jaydenseric.com",
     "url": "https://jaydenseric.com"
   },
+  "contributors": [
+    "David Nunez <arizonatribe@gmail.com>"
+  ],
   "repository": "github:jaydenseric/jsdoc-md",
   "homepage": "https://github.com/jaydenseric/jsdoc-md#readme",
   "bugs": "https://github.com/jaydenseric/jsdoc-md/issues",
