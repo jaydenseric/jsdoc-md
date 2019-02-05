@@ -35,13 +35,13 @@ Description, here is a **bold** word.
 
 _Construct a new instance, here is a **bold** word._
 
-\`\`\`javascript
+\`\`\`js
 const b = new B()
 \`\`\`
 
 _Construct a new instance with options._
 
-\`\`\`javascript
+\`\`\`js
 const b = new B(true)
 \`\`\`
 
