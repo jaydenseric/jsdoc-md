@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dev dependencies.
+- Use default [`tap`](https://npm.im/tap) reporter for tests.
 
 ## 1.7.1
 
