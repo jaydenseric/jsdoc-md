@@ -58,6 +58,8 @@ Description.
 
 Description.
 
+**Type:** string
+
 #### B instance method e
 
 Description.
@@ -65,6 +67,8 @@ Description.
 #### B instance property c
 
 Description.
+
+**Type:** string
 
 #### B inner typedef A
 

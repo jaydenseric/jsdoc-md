@@ -2,6 +2,10 @@
 
 ## Next
 
+### Major
+
+- `@kind member` now displays an associated `@type` and throws an error if there is none.
+
 ### Patch
 
 - Updated dev dependencies.

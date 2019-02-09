@@ -740,6 +740,28 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       }
     },
     {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "Type:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " "
+        },
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
       "type": "heading",
       "depth": 4,
       "children": [
@@ -1766,6 +1788,8 @@ Description.
 #### E static property e
 
 Description.
+
+**Type:** string
 
 #### E instance method b
 
