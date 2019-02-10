@@ -14,6 +14,7 @@
 
 - Updated dev dependencies.
 - Use default [`tap`](https://npm.im/tap) reporter for tests.
+- Simplify package `test:js` script glob.
 
 ## 1.7.1
 
