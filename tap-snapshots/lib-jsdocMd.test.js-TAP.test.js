@@ -45,6 +45,8 @@ _Construct a new instance with options._
 > const b = new B(true)
 > \`\`\`
 
+* * *
+
 #### B static method d
 
 Description.
@@ -54,21 +56,29 @@ Description.
 | \`a\`       | [B~A](#b-inner-typedef-a) | Description. |
 | \`b\`       | boolean? = \`true\`         | Description. |
 
+* * *
+
 #### B static property b
 
 Description.
 
 **Type:** string
 
+* * *
+
 #### B instance method e
 
 Description.
+
+* * *
 
 #### B instance property c
 
 Description.
 
 **Type:** string
+
+* * *
 
 #### B inner typedef A
 
@@ -80,6 +90,8 @@ Description.
 | :------- | :------ | :------------------------------------ |
 | \`a\`      | string  | Description, here is a **bold** word. |
 | \`b\`      | boolean | Description.                          |
+
+* * *
 
 ### function c
 
@@ -93,6 +105,8 @@ Description.
 
 - [\`B\`](#class-b).
 - [jsdoc-md on npm](https://npm.im/jsdoc-md).
+
+* * *
 
 ### constant A
 

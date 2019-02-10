@@ -6,6 +6,10 @@
 
 - `@kind member` now displays an associated `@type` and throws an error if there is none.
 
+### Minor
+
+- Separate top level member sections with `<hr />`.
+
 ### Patch
 
 - Updated dev dependencies.

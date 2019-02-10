@@ -403,6 +403,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       ]
     },
     {
+      "type": "thematicBreak"
+    },
+    {
       "type": "heading",
       "depth": 4,
       "children": [
@@ -689,6 +692,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       ]
     },
     {
+      "type": "thematicBreak"
+    },
+    {
       "type": "heading",
       "depth": 4,
       "children": [
@@ -760,6 +766,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "value": "string"
         }
       ]
+    },
+    {
+      "type": "thematicBreak"
     },
     {
       "type": "heading",
@@ -977,6 +986,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       ]
     },
     {
+      "type": "thematicBreak"
+    },
+    {
       "type": "heading",
       "depth": 4,
       "children": [
@@ -1131,6 +1143,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           ]
         }
       ]
+    },
+    {
+      "type": "thematicBreak"
     },
     {
       "type": "heading",
@@ -1343,6 +1358,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       ]
     },
     {
+      "type": "thematicBreak"
+    },
+    {
       "type": "heading",
       "depth": 3,
       "children": [
@@ -1392,6 +1410,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         "indent": []
       }
+    },
+    {
+      "type": "thematicBreak"
     },
     {
       "type": "heading",
@@ -1570,6 +1591,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           ]
         }
       ]
+    },
+    {
+      "type": "thematicBreak"
     },
     {
       "type": "heading",
@@ -1774,6 +1798,8 @@ Description.
 | :-------- | :----- | :----------- |
 | \`a\`       | string | Description. |
 
+* * *
+
 #### E static method a
 
 Description.
@@ -1785,11 +1811,15 @@ Description.
 
 **Returns:** boolean — Description.
 
+* * *
+
 #### E static property e
 
 Description.
 
 **Type:** string
+
+* * *
 
 #### E instance method b
 
@@ -1801,6 +1831,8 @@ Description.
 
 **Returns:** Description.
 
+* * *
+
 #### E inner function c
 
 Description.
@@ -1808,6 +1840,8 @@ Description.
 | Parameter | Type   | Description  |
 | :-------- | :----- | :----------- |
 | \`a\`       | string | Description. |
+
+* * *
 
 ### function d
 
@@ -1817,9 +1851,13 @@ Description, see [E](#class-e).
 | :-------- | :----- | :----------- |
 | \`a\`       | string | Description. |
 
+* * *
+
 ### constant C
 
 Description.
+
+* * *
 
 ### type A
 
@@ -1830,6 +1868,8 @@ Description.
 | Property | Type    | Description  |
 | :------- | :------ | :----------- |
 | \`a\`      | boolean | Description. |
+
+* * *
 
 ### type B
 
