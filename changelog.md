@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Fix `<hr />` incorrectly appearing above non top level members.
+
 ## 2.0.0
 
 ### Major

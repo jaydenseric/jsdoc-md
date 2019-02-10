@@ -45,8 +45,6 @@ _Construct a new instance with options._
 > const b = new B(true)
 > \`\`\`
 
-* * *
-
 #### B static method d
 
 Description.
@@ -56,29 +54,21 @@ Description.
 | \`a\`       | [B~A](#b-inner-typedef-a) | Description. |
 | \`b\`       | boolean? = \`true\`         | Description. |
 
-* * *
-
 #### B static property b
 
 Description.
 
 **Type:** string
 
-* * *
-
 #### B instance method e
 
 Description.
-
-* * *
 
 #### B instance property c
 
 Description.
 
 **Type:** string
-
-* * *
 
 #### B inner typedef A
 
