@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-md",
-  "version": "1.7.2",
+  "version": "2.0.2",
   "description": "A CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
   "license": "MIT",
   "author": {
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "circular-json": "^0.5.9",
-    "eslint": "^5.12.1",
+    "eslint": "^5.13.0",
     "eslint-config-env": "^2.0.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.16.0",
@@ -55,9 +55,9 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-prettier": "^3.0.1",
     "husky": "^1.3.1",
-    "lint-staged": "^8.1.1",
-    "prettier": "^1.16.2",
-    "tap": "^12.5.0"
+    "lint-staged": "^8.1.3",
+    "prettier": "^1.16.4",
+    "tap": "^12.5.2"
   },
   "scripts": {
     "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
@@ -66,7 +66,7 @@
     "test": "npm run test:eslint && npm run test:prettier && npm run test:js",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
-    "test:js": "tap ./lib/*.test.js -R spec",
+    "test:js": "tap lib/*.test.js",
     "prepublishOnly": "npm run prepare && npm test"
   },
   "husky": {

@@ -58,6 +58,8 @@ Description.
 
 Description.
 
+**Type:** string
+
 #### B instance method e
 
 Description.
@@ -65,6 +67,8 @@ Description.
 #### B instance property c
 
 Description.
+
+**Type:** string
 
 #### B inner typedef A
 
@@ -76,6 +80,8 @@ Description.
 | :------- | :------ | :------------------------------------ |
 | \`a\`      | string  | Description, here is a **bold** word. |
 | \`b\`      | boolean | Description.                          |
+
+* * *
 
 ### function c
 
@@ -89,6 +95,8 @@ Description.
 
 - [\`B\`](#class-b).
 - [jsdoc-md on npm](https://npm.im/jsdoc-md).
+
+* * *
 
 ### constant A
 

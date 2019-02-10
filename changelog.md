@@ -1,5 +1,27 @@
 # jsdoc-md changelog
 
+## 2.0.1
+
+### Patch
+
+- Fix `<hr />` incorrectly appearing above non top level members.
+
+## 2.0.0
+
+### Major
+
+- `@kind member` now displays an associated `@type` and throws an error if there is none.
+
+### Minor
+
+- Separate top level member sections with `<hr />`.
+
+### Patch
+
+- Updated dev dependencies.
+- Use default [`tap`](https://npm.im/tap) reporter for tests.
+- Simplify package `test:js` script glob.
+
 ## 1.7.1
 
 ### Patch

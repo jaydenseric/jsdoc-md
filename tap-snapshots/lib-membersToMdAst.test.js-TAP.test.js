@@ -740,6 +740,28 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       }
     },
     {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "Type:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " "
+        },
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
       "type": "heading",
       "depth": 4,
       "children": [
@@ -1111,6 +1133,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       ]
     },
     {
+      "type": "thematicBreak"
+    },
+    {
       "type": "heading",
       "depth": 3,
       "children": [
@@ -1321,6 +1346,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       ]
     },
     {
+      "type": "thematicBreak"
+    },
+    {
       "type": "heading",
       "depth": 3,
       "children": [
@@ -1370,6 +1398,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         "indent": []
       }
+    },
+    {
+      "type": "thematicBreak"
     },
     {
       "type": "heading",
@@ -1548,6 +1579,9 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           ]
         }
       ]
+    },
+    {
+      "type": "thematicBreak"
     },
     {
       "type": "heading",
@@ -1767,6 +1801,8 @@ Description.
 
 Description.
 
+**Type:** string
+
 #### E instance method b
 
 Description.
@@ -1785,6 +1821,8 @@ Description.
 | :-------- | :----- | :----------- |
 | \`a\`       | string | Description. |
 
+* * *
+
 ### function d
 
 Description, see [E](#class-e).
@@ -1793,9 +1831,13 @@ Description, see [E](#class-e).
 | :-------- | :----- | :----------- |
 | \`a\`       | string | Description. |
 
+* * *
+
 ### constant C
 
 Description.
+
+* * *
 
 ### type A
 
@@ -1806,6 +1848,8 @@ Description.
 | Property | Type    | Description  |
 | :------- | :------ | :----------- |
 | \`a\`      | boolean | Description. |
+
+* * *
 
 ### type B
 
