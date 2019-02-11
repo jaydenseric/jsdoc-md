@@ -1400,6 +1400,28 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       }
     },
     {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "strong",
+          "children": [
+            {
+              "type": "text",
+              "value": "Type:"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " "
+        },
+        {
+          "type": "text",
+          "value": "string"
+        }
+      ]
+    },
+    {
       "type": "thematicBreak"
     },
     {
@@ -1836,6 +1858,8 @@ Description, see [E](#class-e).
 ### constant C
 
 Description.
+
+**Type:** string
 
 * * *
 
