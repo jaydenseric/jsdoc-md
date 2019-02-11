@@ -9,6 +9,7 @@
 
 ### Patch
 
+- Updated dev dependencies.
 - `@kind constant` now renders an associated `@type`.
 
 ## 2.0.1
