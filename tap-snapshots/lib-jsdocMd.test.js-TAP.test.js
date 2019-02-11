@@ -102,6 +102,8 @@ Description.
 
 Description.
 
+**Type:** boolean
+
 ## Preserve
 
 `

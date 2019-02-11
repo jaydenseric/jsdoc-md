@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-md",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "A CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
   "license": "MIT",
   "author": {
@@ -48,7 +48,7 @@
   "devDependencies": {
     "circular-json": "^0.5.9",
     "eslint": "^5.13.0",
-    "eslint-config-env": "^2.0.0",
+    "eslint-config-env": "^3.0.0",
     "eslint-config-prettier": "^4.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-import-order-alphabetical": "0.0.1",

@@ -1,5 +1,22 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Remove `.html` from [usejsdoc.org](http://usejsdoc.org) links.
+
+## 2.1.0
+
+### Minor
+
+- Render any combination of supported tags, even if they are illogical (e.g. `@param` with `@prop`). This fixes `@kind constant` not rendering an associated `@type`.
+- `@kind typedef` without an associated `@type` no longer causes an error. Linting would be a better way to ensure the right combination of tags are used.
+
+### Patch
+
+- Updated dev dependencies.
+
 ## 2.0.1
 
 ### Patch
@@ -102,7 +119,7 @@
 
 ### Minor
 
-- Support [JSDoc inline tag links](http://usejsdoc.org/tags-inline-link.html) (e.g. `` [`b` method]{@link A#b} ``) for descriptions and tags with markdown content, closes [#5](https://github.com/jaydenseric/jsdoc-md/issues/5).
+- Support [JSDoc inline tag links](http://usejsdoc.org/tags-inline-link) (e.g. `` [`b` method]{@link A#b} ``) for descriptions and tags with markdown content, closes [#5](https://github.com/jaydenseric/jsdoc-md/issues/5).
 
 ### Patch
 

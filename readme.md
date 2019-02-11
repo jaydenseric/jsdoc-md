@@ -96,15 +96,15 @@ const ONE = 1
 
 A JSDoc tag subset is supported:
 
-- [`@kind`](http://usejsdoc.org/tags-kind.html)
-- [`@name`](http://usejsdoc.org/tags-name.html)
-- [`@type`](http://usejsdoc.org/tags-type.html)
-- [`@prop`](http://usejsdoc.org/tags-property.html)
-- [`@param`](http://usejsdoc.org/tags-param.html)
-- [`@returns`](http://usejsdoc.org/tags-returns.html)
-- [`@see`](http://usejsdoc.org/tags-see.html)
-- [`@example`](http://usejsdoc.org/tags-example.html)
-- [`@ignore`](http://usejsdoc.org/tags-ignore.html)
+- [`@kind`](http://usejsdoc.org/tags-kind)
+- [`@name`](http://usejsdoc.org/tags-name)
+- [`@type`](http://usejsdoc.org/tags-type)
+- [`@prop`](http://usejsdoc.org/tags-property)
+- [`@param`](http://usejsdoc.org/tags-param)
+- [`@returns`](http://usejsdoc.org/tags-returns)
+- [`@see`](http://usejsdoc.org/tags-see)
+- [`@example`](http://usejsdoc.org/tags-example)
+- [`@ignore`](http://usejsdoc.org/tags-ignore)
 
 With the full set of JSDoc tags there is a confusing number of ways to document the same thing. Examples `TWO` and `THREE` use unsupported syntax:
 
@@ -141,25 +141,25 @@ const MyNamespace = {
 
 ### Namepath prefixes
 
-[JSDoc namepath prefixes](http://usejsdoc.org/about-namepaths.html) are not supported:
+[JSDoc namepath prefixes](http://usejsdoc.org/about-namepaths) are not supported:
 
-- [`module:`](http://usejsdoc.org/tags-module.html)
-- [`external:`](http://usejsdoc.org/tags-external.html)
-- [`event:`](http://usejsdoc.org/tags-event.html)
+- [`module:`](http://usejsdoc.org/tags-module)
+- [`external:`](http://usejsdoc.org/tags-external)
+- [`event:`](http://usejsdoc.org/tags-event)
 
 ### Namepath special characters
 
-[JSDoc namepath special characters](http://usejsdoc.org/about-namepaths.html) with surrounding quotes and backslash escapes (e.g. `@name a."#b"."\"c"`) are not supported.
+[JSDoc namepath special characters](http://usejsdoc.org/about-namepaths) with surrounding quotes and backslash escapes (e.g. `@name a."#b"."\"c"`) are not supported.
 
 ### Inline tags
 
-One [JSDoc inline tag link](http://usejsdoc.org/tags-inline-link.html) syntax is supported for namepath links in JSDoc descriptions and tags with markdown content: `` [`b` method]{@link A#b} ``. Use normal markdown syntax for non-namepath links.
+One [JSDoc inline tag link](http://usejsdoc.org/tags-inline-link) syntax is supported for namepath links in JSDoc descriptions and tags with markdown content: `` [`b` method]{@link A#b} ``. Use normal markdown syntax for non-namepath links.
 
-Other inline tags such as [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutorial.html) are unsupported.
+Other inline tags such as [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutorial) are unsupported.
 
 ### Example content
 
-[`@example`](http://usejsdoc.org/tags-example.html) content outside `<caption />` (which may also contain markdown) is treated as markdown. This allows multiple code blocks with syntax highlighting and explanatory content such as paragraphs and images. For example:
+[`@example`](http://usejsdoc.org/tags-example) content outside `<caption />` (which may also contain markdown) is treated as markdown. This allows multiple code blocks with syntax highlighting and explanatory content such as paragraphs and images. For example:
 
 ````js
 /**
