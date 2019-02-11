@@ -4,13 +4,12 @@
 
 ### Minor
 
-- Render any combination of supported tags, even if they are illogical (e.g. `@param` with `@prop`).
+- Render any combination of supported tags, even if they are illogical (e.g. `@param` with `@prop`). This fixes `@kind constant` not rendering an associated `@type`.
 - `@kind typedef` without an associated `@type` no longer causes an error. Linting would be a better way to ensure the right combination of tags are used.
 
 ### Patch
 
 - Updated dev dependencies.
-- `@kind constant` now renders an associated `@type`.
 
 ## 2.0.1
 
