@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Remove `.html` from [usejsdoc.org](http://usejsdoc.org) links.
+
 ## 2.1.0
 
 ### Minor
@@ -113,7 +119,7 @@
 
 ### Minor
 
-- Support [JSDoc inline tag links](http://usejsdoc.org/tags-inline-link.html) (e.g. `` [`b` method]{@link A#b} ``) for descriptions and tags with markdown content, closes [#5](https://github.com/jaydenseric/jsdoc-md/issues/5).
+- Support [JSDoc inline tag links](http://usejsdoc.org/tags-inline-link) (e.g. `` [`b` method]{@link A#b} ``) for descriptions and tags with markdown content, closes [#5](https://github.com/jaydenseric/jsdoc-md/issues/5).
 
 ### Patch
 
