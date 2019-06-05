@@ -65,27 +65,5 @@
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
     "test:js": "tap lib/*.test.js",
     "prepublishOnly": "npm run prepare && npm test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": "eslint",
-    "*.{json,yml,md}": "prettier -l"
-  },
-  "eslintIgnore": [
-    "tap-snapshots"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "env"
-    ]
-  },
-  "prettier": {
-    "proseWrap": "never",
-    "singleQuote": true,
-    "semi": false
   }
 }
