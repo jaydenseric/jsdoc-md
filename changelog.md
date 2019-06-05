@@ -6,7 +6,8 @@
 
 - Updated dependencies.
 - Reduced the published size of `package.json` by moving dev tool configs to separate files.
-- Remove `.html` from [usejsdoc.org](http://usejsdoc.org) links.
+- Removed `.html` from [usejsdoc.org](http://usejsdoc.org) links.
+- Removed the test file glob from the `test:js` script args as [`tap`](https://npm.im/tap) now finds the files automatically.
 - Test `outlineMembers` with missing members.
 - Test `membersToMdAst` with a parameter default value.
 

@@ -63,7 +63,7 @@
     "test": "npm run test:eslint && npm run test:prettier && npm run test:js",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
-    "test:js": "tap lib/*.test.js",
+    "test:js": "tap",
     "prepublishOnly": "npm run prepare && npm test"
   }
 }
