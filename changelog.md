@@ -7,6 +7,7 @@
 - Updated dependencies.
 - Reduced the published size of `package.json` by moving dev tool configs to separate files.
 - Remove `.html` from [usejsdoc.org](http://usejsdoc.org) links.
+- Test `outlineMembers` with missing members.
 
 ## 2.1.0
 
