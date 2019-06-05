@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Updated dependencies.
 - Remove `.html` from [usejsdoc.org](http://usejsdoc.org) links.
 
 ## 2.1.0
