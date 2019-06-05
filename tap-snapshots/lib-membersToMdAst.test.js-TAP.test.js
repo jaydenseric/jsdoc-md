@@ -1555,6 +1555,18 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                 {
                   "type": "text",
                   "value": "boolean"
+                },
+                {
+                  "type": "text",
+                  "value": "?"
+                },
+                {
+                  "type": "text",
+                  "value": " = "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "true"
                 }
               ]
             },
@@ -1869,9 +1881,9 @@ Description.
 
 **Type:** Object
 
-| Property | Type    | Description  |
-| :------- | :------ | :----------- |
-| \`a\`      | boolean | Description. |
+| Property | Type              | Description  |
+| :------- | :---------------- | :----------- |
+| \`a\`      | boolean? = \`true\` | Description. |
 
 * * *
 
