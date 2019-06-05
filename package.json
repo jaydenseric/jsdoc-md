@@ -51,10 +51,10 @@
     "eslint-plugin-import-order-alphabetical": "^0.0.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^2.3.0",
+    "husky": "^2.4.0",
     "lint-staged": "^8.1.7",
     "prettier": "^1.17.1",
-    "tap": "^14.2.1"
+    "tap": "^14.2.2"
   },
   "scripts": {
     "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
