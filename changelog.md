@@ -4,8 +4,8 @@
 
 ### Minor
 
-- Support the nullable literal (`?`) type.
-- Support the void literal (`function(): void`) type.
+- Support the nullable literal type (`?`).
+- Support the void literal type (`function(): void`).
 
 ### Patch
 
