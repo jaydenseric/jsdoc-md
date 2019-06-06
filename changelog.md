@@ -2,6 +2,10 @@
 
 ## Next
 
+### Major
+
+- Support Node.js v8+, from v6+.
+
 ### Minor
 
 - Support the nullable literal type (`?`).
