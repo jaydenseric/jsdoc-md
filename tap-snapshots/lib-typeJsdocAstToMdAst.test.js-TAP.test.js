@@ -267,6 +267,32 @@ function():\\*
 
 `
 
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type FunctionType with return and VoidLiteral > Markdown AST. 1`] = `
+[
+  {
+    "type": "text",
+    "value": "function("
+  },
+  {
+    "type": "text",
+    "value": ")"
+  },
+  {
+    "type": "text",
+    "value": ":"
+  },
+  {
+    "type": "text",
+    "value": "void"
+  }
+]
+`
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type FunctionType with return and VoidLiteral > Markdown. 1`] = `
+function():void
+
+`
+
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type FunctionType with this > Markdown AST. 1`] = `
 [
   {

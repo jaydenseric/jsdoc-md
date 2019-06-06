@@ -5,6 +5,7 @@
 ### Minor
 
 - Support the nullable literal (`?`) type.
+- Support the void literal (`function(): void`) type.
 
 ### Patch
 
