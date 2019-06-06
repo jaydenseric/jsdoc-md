@@ -67,6 +67,52 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                         {
                           "type": "link",
                           "title": null,
+                          "url": "#description-heading",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Description heading"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "loose": false,
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#examples",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Examples"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "loose": false,
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
                           "url": "#e-static-method-a",
                           "children": [
                             {
@@ -298,6 +344,48 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
       }
     },
     {
+      "type": "heading",
+      "depth": 4,
+      "children": [
+        {
+          "type": "text",
+          "value": "Description heading",
+          "position": {
+            "start": {
+              "line": 3,
+              "column": 3,
+              "offset": 16
+            },
+            "end": {
+              "line": 3,
+              "column": 22,
+              "offset": 35
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 3,
+          "column": 1,
+          "offset": 14
+        },
+        "end": {
+          "line": 3,
+          "column": 22,
+          "offset": 35
+        },
+        "indent": []
+      },
+      "data": {
+        "hProperties": {
+          "id": "description-heading"
+        },
+        "id": "description-heading"
+      }
+    },
+    {
       "type": "table",
       "align": [
         "left",
@@ -399,6 +487,136 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 4,
+      "children": [
+        {
+          "type": "text",
+          "value": "Examples"
+        }
+      ],
+      "data": {
+        "hProperties": {
+          "id": "examples"
+        },
+        "id": "examples"
+      }
+    },
+    {
+      "type": "paragraph",
+      "children": [
+        {
+          "type": "emphasis",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Example caption.",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 17,
+                      "offset": 16
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 17,
+                  "offset": 16
+                },
+                "indent": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "blockquote",
+      "children": [
+        {
+          "type": "heading",
+          "depth": 5,
+          "children": [
+            {
+              "type": "text",
+              "value": "Heading",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 3,
+                  "offset": 2
+                },
+                "end": {
+                  "line": 1,
+                  "column": 10,
+                  "offset": 9
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 10,
+              "offset": 9
+            },
+            "indent": []
+          },
+          "data": {
+            "hProperties": {
+              "id": "heading"
+            },
+            "id": "heading"
+          }
+        },
+        {
+          "type": "code",
+          "lang": "js",
+          "meta": null,
+          "value": "new E('a')",
+          "position": {
+            "start": {
+              "line": 2,
+              "column": 1,
+              "offset": 10
+            },
+            "end": {
+              "line": 4,
+              "column": 4,
+              "offset": 30
+            },
+            "indent": [
+              1,
+              1
+            ]
+          }
         }
       ]
     },
@@ -1803,6 +2021,8 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
 ### Table of contents
 
 - [class E](#class-e)
+  - [Description heading](#description-heading)
+  - [Examples](#examples)
   - [E static method a](#e-static-method-a)
   - [E static property e](#e-static-property-e)
   - [E instance method b](#e-instance-method-b)
@@ -1816,9 +2036,21 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
 
 Description.
 
+#### Description heading
+
 | Parameter | Type   | Description  |
 | :-------- | :----- | :----------- |
 | \`a\`       | string | Description. |
+
+#### Examples
+
+_Example caption._
+
+> ##### Heading
+>
+> \`\`\`js
+> new E('a')
+> \`\`\`
 
 #### E static method a
 

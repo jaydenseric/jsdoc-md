@@ -36,6 +36,7 @@
     "github-slugger": "^1.2.1",
     "globby": "^9.2.0",
     "mdast-util-inject": "^1.1.0",
+    "remark-behead": "^2.2.1",
     "remark-parse": "^6.0.3",
     "remark-stringify": "^6.0.4",
     "remark-toc": "^5.1.1",

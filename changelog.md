@@ -6,6 +6,7 @@
 
 - Support the nullable literal type (`?`).
 - Support the void literal type (`function(): void`).
+- Automatically adjust heading levels in descriptions and examples to suit the surrounding document.
 
 ### Patch
 
