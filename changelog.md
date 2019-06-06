@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Minor
+
+- Simplified the `prepublishOnly` script.
+
 ## 3.0.0
 
 ### Major
