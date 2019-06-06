@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`lib/outlineMembers.test.js TAP outlineMembers Members not missing. > Outlined members. 1`] = `
+exports[`lib/outlineMembers.test.js TAP outlineMembers Members not missing > Outlined members. 1`] = `
 [
   {
     "kind": "class",
