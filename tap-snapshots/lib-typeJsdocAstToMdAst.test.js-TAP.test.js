@@ -375,6 +375,20 @@ null
 
 `
 
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NullableLiteral > Markdown AST. 1`] = `
+[
+  {
+    "type": "text",
+    "value": "?"
+  }
+]
+`
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NullableLiteral > Markdown. 1`] = `
+?
+
+`
+
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NumericLiteralType > Markdown AST. 1`] = `
 [
   {

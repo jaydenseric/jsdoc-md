@@ -2,6 +2,10 @@
 
 ## Next
 
+### Minor
+
+- Support the nullable literal (`?`) type.
+
 ### Patch
 
 - Updated dependencies.
