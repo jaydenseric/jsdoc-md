@@ -33,9 +33,7 @@ const { argv } = yargs
   })
   .example(
     '$0',
-    `Document .mjs and .js files under the “${DEFAULTS.markdownPath}” “${
-      DEFAULTS.targetHeading
-    }” heading.`
+    `Document .mjs and .js files under the “${DEFAULTS.markdownPath}” “${DEFAULTS.targetHeading}” heading.`
   )
   .example(
     '$0 -s src/**/*.mjs -m README.md -t Docs',
