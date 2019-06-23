@@ -1,6 +1,6 @@
 {
-  "name": "@kamikazept/jsdoc-md",
-  "version": "1.0.0",
+  "name": "jsdoc-md",
+  "version": "3.1.0",
   "description": "A CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
   "license": "MIT",
   "author": {
