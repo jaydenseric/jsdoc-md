@@ -4,6 +4,7 @@
 
 ### Minor
 
+- Updated dev dependencies.
 - Simplified the `prepublishOnly` script.
 
 ## 3.0.0
