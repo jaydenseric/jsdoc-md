@@ -1,4 +1,4 @@
-# jsdoc-md
+# @kamikazept/jsdoc-md
 
 [![npm version](https://badgen.net/npm/v/jsdoc-md)](https://npm.im/jsdoc-md) [![Build status](https://travis-ci.org/jaydenseric/jsdoc-md.svg?branch=master)](https://travis-ci.org/jaydenseric/jsdoc-md)
 
@@ -9,13 +9,14 @@ A Node.js CLI to analyze source JSDoc and generate documentation under a given h
 To try it out with [npx](https://npm.im/npx) run:
 
 ```sh
-npx jsdoc-md --help
+npx @kamikazept/jsdoc-md --help
 ```
 
-To install [`jsdoc-md`](https://npm.im/jsdoc-md) from [npm](https://npmjs.com) as a dev dependency run:
+To install [`@kamikazept/jsdoc-md`](https://npm.im/@kamikazept/jsdoc-md) from [npm](https://npmjs.com) as a dev dependency run:
 
 ```sh
-npm install jsdoc-md --save-dev
+npm install @kamikazept/jsdoc-md --save-dev
+yarn add @kamikazept/jsdoc-md --dev
 ```
 
 Add a script to your `package.json`:
