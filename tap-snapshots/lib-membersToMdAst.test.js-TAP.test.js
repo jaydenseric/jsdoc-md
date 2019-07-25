@@ -17,13 +17,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "Table of contents"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "table-of-contents"
-        },
-        "id": "table-of-contents"
-      }
+      ]
     },
     {
       "type": "list",
@@ -300,13 +294,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "class E"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "class-e"
-        },
-        "id": "class-e"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -377,12 +365,6 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "offset": 35
         },
         "indent": []
-      },
-      "data": {
-        "hProperties": {
-          "id": "description-heading"
-        },
-        "id": "description-heading"
       }
     },
     {
@@ -498,13 +480,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "Examples"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "examples"
-        },
-        "id": "examples"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -588,12 +564,6 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "offset": 9
             },
             "indent": []
-          },
-          "data": {
-            "hProperties": {
-              "id": "heading"
-            },
-            "id": "heading"
           }
         },
         {
@@ -628,13 +598,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "E static method a"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "e-static-method-a"
-        },
-        "id": "e-static-method-a"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -914,13 +878,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "E static property e"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "e-static-property-e"
-        },
-        "id": "e-static-property-e"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -987,13 +945,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "E instance method b"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "e-instance-method-b"
-        },
-        "id": "e-instance-method-b"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -1202,13 +1154,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "E inner function c"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "e-inner-function-c"
-        },
-        "id": "e-inner-function-c"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -1361,13 +1307,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "function d"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "function-d"
-        },
-        "id": "function-d"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -1574,13 +1514,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "constant C"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "constant-c"
-        },
-        "id": "constant-c"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -1650,13 +1584,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "type A"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "type-a"
-        },
-        "id": "type-a"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -1711,7 +1639,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         {
           "type": "text",
-          "value": "Object"
+          "value": "object"
         }
       ]
     },
@@ -1843,13 +1771,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
           "type": "text",
           "value": "type B"
         }
-      ],
-      "data": {
-        "hProperties": {
-          "id": "type-b"
-        },
-        "id": "type-b"
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -1904,7 +1826,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
         },
         {
           "type": "text",
-          "value": "function"
+          "value": "Function"
         }
       ]
     },
@@ -2111,7 +2033,7 @@ Description.
 
 Description.
 
-**Type:** Object
+**Type:** object
 
 | Property | Type              | Description  |
 | :------- | :---------------- | :----------- |
@@ -2123,7 +2045,7 @@ Description.
 
 Description.
 
-**Type:** function
+**Type:** Function
 
 | Parameter | Type    | Description  |
 | :-------- | :------ | :----------- |

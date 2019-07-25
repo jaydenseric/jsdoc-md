@@ -116,7 +116,7 @@ exports[`lib/outlineMembers.test.js TAP outlineMembers Members not missing > Out
         "description": null,
         "type": {
           "type": "NameExpression",
-          "name": "Object"
+          "name": "object"
         }
       },
       {

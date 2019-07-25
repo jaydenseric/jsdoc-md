@@ -9,7 +9,7 @@ const { sep } = require('path')
  * @name createTestFile
  * @param {string} content File content.
  * @param {string} extension File extension.
- * @param {Object} t TAP test context.
+ * @param {object} t TAP test context.
  * @returns {string} File path.
  * @ignore
  */

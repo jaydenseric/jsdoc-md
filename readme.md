@@ -57,7 +57,7 @@ Scrapes JSDoc from files to populate a markdown file documentation section.
 
 | Parameter | Type | Description |
 | :-- | :-- | :-- |
-| `options` | Object? | Options. |
+| `options` | object? | Options. |
 | `options.sourceGlob` | string? = `**/*.{mjs,js}` | JSDoc source file glob pattern. |
 | `options.markdownPath` | string? = `readme.md` | Path to the markdown file for docs insertion. |
 | `options.targetHeading` | string? = `API` | Markdown file heading to insert docs under. |
