@@ -31,31 +31,32 @@
     "node": ">=8"
   },
   "dependencies": {
-    "@babel/core": "^7.4.5",
+    "@babel/core": "^7.5.5",
     "doctrine": "^3.0.0",
     "github-slugger": "^1.2.1",
     "globby": "^9.2.0",
     "mdast-util-inject": "^1.1.0",
     "remark-behead": "^2.2.1",
-    "remark-parse": "^6.0.3",
-    "remark-stringify": "^6.0.4",
-    "remark-toc": "^5.1.1",
-    "unified": "^7.1.0",
-    "yargs": "^13.2.4"
+    "remark-parse": "^7.0.0",
+    "remark-stringify": "^7.0.1",
+    "remark-toc": "^6.0.0",
+    "unified": "^8.3.2",
+    "yargs": "^13.3.0"
   },
   "devDependencies": {
     "circular-json": "^0.5.9",
-    "eslint": "^6.0.0",
-    "eslint-config-env": "^6.0.0",
-    "eslint-config-prettier": "^5.0.0",
-    "eslint-plugin-import": "^2.17.3",
+    "eslint": "^6.1.0",
+    "eslint-config-env": "^8.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-import-order-alphabetical": "^0.0.2",
+    "eslint-plugin-jsdoc": "^15.7.2",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^2.4.1",
-    "lint-staged": "^8.2.1",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
     "prettier": "^1.18.2",
-    "tap": "^14.2.5"
+    "tap": "^14.4.3"
   },
   "scripts": {
     "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
