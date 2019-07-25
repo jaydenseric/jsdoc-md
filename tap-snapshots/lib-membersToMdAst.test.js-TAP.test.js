@@ -84,29 +84,6 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                         {
                           "type": "link",
                           "title": null,
-                          "url": "#examples",
-                          "children": [
-                            {
-                              "type": "text",
-                              "value": "Examples"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "listItem",
-                  "loose": false,
-                  "spread": false,
-                  "children": [
-                    {
-                      "type": "paragraph",
-                      "children": [
-                        {
-                          "type": "link",
-                          "title": null,
                           "url": "#e-static-method-a",
                           "children": [
                             {
@@ -1944,7 +1921,6 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown. 1`] = `
 
 - [class E](#class-e)
   - [Description heading](#description-heading)
-  - [Examples](#examples)
   - [E static method a](#e-static-method-a)
   - [E static property e](#e-static-property-e)
   - [E instance method b](#e-instance-method-b)

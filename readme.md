@@ -49,7 +49,6 @@ For detailed CLI usage instructions, run `npx jsdoc-md --help`.
 ### Table of contents
 
 - [function jsdocMd](#function-jsdocmd)
-  - [Examples](#examples)
 
 ### function jsdocMd
 

@@ -13,14 +13,12 @@ exports[`lib/jsdocMd.test.js TAP jsdocMd > File content. 1`] = `
 ### Table of contents
 
 - [class B](#class-b)
-  - [Examples](#examples)
   - [B static method d](#b-static-method-d)
   - [B static property b](#b-static-property-b)
   - [B instance method e](#b-instance-method-e)
   - [B instance property c](#b-instance-property-c)
   - [B inner typedef A](#b-inner-typedef-a)
 - [function c](#function-c)
-  - [See](#see)
 - [constant A](#constant-a)
 
 ### class B

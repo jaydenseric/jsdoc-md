@@ -2,6 +2,10 @@
 
 ## Next
 
+### Minor
+
+- Exclude “See” and “Examples” headings from generated table of contents.
+
 ### Patch
 
 - Updated dependencies.
