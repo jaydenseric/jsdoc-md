@@ -519,6 +519,48 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLite
 
 `
 
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType empty > Markdown AST. 1`] = `
+[
+  {
+    "type": "inlineCode",
+    "value": "''"
+  }
+]
+`
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType empty > Markdown. 1`] = `
+\`''\`
+
+`
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType space > Markdown AST. 1`] = `
+[
+  {
+    "type": "inlineCode",
+    "value": "' '"
+  }
+]
+`
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType space > Markdown. 1`] = `
+\`' '\`
+
+`
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType tab > Markdown AST. 1`] = `
+[
+  {
+    "type": "inlineCode",
+    "value": "'  '"
+  }
+]
+`
+
+exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType tab > Markdown. 1`] = `
+\`'  '\`
+
+`
+
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type TypeApplication > Markdown AST. 1`] = `
 [
   {

@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Display quotes around string literal types that are empty or only contain whitespace, to avoid resulting empty inline code and markdown rendering issues.
+
 ## 4.0.0
 
 ### Major
