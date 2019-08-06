@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Updated dependencies.
 - Renamed `test:js` package script to `test:tap`.
 
 ## 3.1.0
