@@ -2,6 +2,16 @@
 
 ## Next
 
+### Major
+
+- `@param` and `@prop` default values are now parsed as JSDoc types; an invalid type will result in an error.
+
+### Minor
+
+- Richer markdown for `@param` and `@prop` default values:
+  - `null`, `undefined`, `void`, number, string, and boolean literal values display as inline code.
+  - JSDoc member name references display as links.
+
 ### Patch
 
 - Updated dependencies.

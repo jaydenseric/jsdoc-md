@@ -1433,6 +1433,24 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
                 {
                   "type": "text",
                   "value": "string"
+                },
+                {
+                  "type": "text",
+                  "value": "?"
+                },
+                {
+                  "type": "text",
+                  "value": " = "
+                },
+                {
+                  "type": "link",
+                  "url": "#constant-c",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "C"
+                    }
+                  ]
                 }
               ]
             },
@@ -1864,7 +1882,7 @@ exports[`lib/membersToMdAst.test.js TAP membersToMdAst > Markdown AST. 1`] = `
               "children": [
                 {
                   "type": "text",
-                  "value": "boolean"
+                  "value": "object"
                 }
               ]
             },
@@ -1991,9 +2009,9 @@ Description.
 
 Description, see [E](#class-e).
 
-| Parameter | Type   | Description  |
-| :-------- | :----- | :----------- |
-| \`a\`       | string | Description. |
+| Parameter | Type                       | Description  |
+| :-------- | :------------------------- | :----------- |
+| \`a\`       | string? = [C](#constant-c) | Description. |
 
 * * *
 
@@ -2023,8 +2041,8 @@ Description.
 
 **Type:** Function
 
-| Parameter | Type    | Description  |
-| :-------- | :------ | :----------- |
-| \`a\`       | boolean | Description. |
+| Parameter | Type   | Description  |
+| :-------- | :----- | :----------- |
+| \`a\`       | object | Description. |
 
 `

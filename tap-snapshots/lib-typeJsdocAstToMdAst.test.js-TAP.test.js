@@ -74,14 +74,14 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type ArrayType 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type BooleanLiteralType > Markdown AST. 1`] = `
 [
   {
-    "type": "text",
+    "type": "inlineCode",
     "value": "true"
   }
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type BooleanLiteralType > Markdown. 1`] = `
-true
+\`true\`
 
 `
 
@@ -282,14 +282,16 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type FunctionTy
     "value": ":"
   },
   {
-    "type": "text",
+    "type": "inlineCode",
     "value": "void"
   }
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type FunctionType with return and VoidLiteral > Markdown. 1`] = `
-function():void
+function():
+
+\`void\`
 
 `
 
@@ -390,14 +392,14 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NameExpres
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NullLiteral > Markdown AST. 1`] = `
 [
   {
-    "type": "text",
+    "type": "inlineCode",
     "value": "null"
   }
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NullLiteral > Markdown. 1`] = `
-null
+\`null\`
 
 `
 
@@ -418,14 +420,14 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NullableLi
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NumericLiteralType > Markdown AST. 1`] = `
 [
   {
-    "type": "text",
+    "type": "inlineCode",
     "value": "1"
   }
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type NumericLiteralType > Markdown. 1`] = `
-1
+\`1\`
 
 `
 
@@ -506,14 +508,14 @@ exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type RestType >
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType > Markdown AST. 1`] = `
 [
   {
-    "type": "text",
+    "type": "inlineCode",
     "value": "a"
   }
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type StringLiteralType > Markdown. 1`] = `
-a
+\`a\`
 
 `
 
@@ -580,14 +582,14 @@ Array&lt;\\*, \\*>
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type UndefinedLiteral > Markdown AST. 1`] = `
 [
   {
-    "type": "text",
+    "type": "inlineCode",
     "value": "undefined"
   }
 ]
 `
 
 exports[`lib/typeJsdocAstToMdAst.test.js TAP typeJsdocAstToMdAst Type UndefinedLiteral > Markdown. 1`] = `
-undefined
+\`undefined\`
 
 `
 
