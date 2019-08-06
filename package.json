@@ -62,10 +62,10 @@
     "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
     "prepare:jsdoc": "node cli",
     "prepare:prettier": "prettier readme.md --write",
-    "test": "npm run test:eslint && npm run test:prettier && npm run test:js",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:tap",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
-    "test:js": "tap",
+    "test:tap": "tap",
     "prepublishOnly": "npm test"
   }
 }

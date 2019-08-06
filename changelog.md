@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Renamed `test:js` package script to `test:tap`.
+
 ## 3.1.0
 
 ### Minor
