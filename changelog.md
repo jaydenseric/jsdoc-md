@@ -25,6 +25,7 @@
 - Use strict mode for scripts.
 - Use less arrow functions for better stack traces.
 - More consistent module exports style.
+- Removed `package-lock.json` from `.gitignore` and `.prettierignore` as it’s disabled in `.npmrc` anyway.
 - Use GitHub Actions instead of Travis for CI.
 
 ## 4.0.1
