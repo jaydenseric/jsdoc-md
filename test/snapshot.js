@@ -4,7 +4,7 @@ const fs = require('fs')
 
 /**
  * Asserts a string value matches a snapshot saved to a file. The environment
- * variable `UPDATE_SNAPSHOTS=1` can be used to create or update the snapshot.
+ * variable `SAVE_SNAPSHOTS=1` can be used to create or update the snapshot.
  * @kind function
  * @name snapshot
  * @param {string} value Value to assert matches the snapshot.
@@ -18,14 +18,14 @@ module.exports = async function snapshot(
   filePath,
   assertion = require('assert').strictEqual
 ) {
-  if (process.env.UPDATE_SNAPSHOTS) await fs.promises.writeFile(filePath, value)
+  if (process.env.SAVE_SNAPSHOTS) await fs.promises.writeFile(filePath, value)
   else {
     try {
       var valueExpected = await fs.promises.readFile(filePath, 'utf8')
     } catch (error) {
       throw typeof error === 'object' && error && error.code === 'ENOENT'
         ? new Error(
-            `Use the environment variable \`UPDATE_SNAPSHOTS=1\` to create missing snapshot \`${filePath}\`.`
+            `Use the environment variable \`SAVE_SNAPSHOTS=1\` to create missing snapshot \`${filePath}\`.`
           )
         : error
     }
