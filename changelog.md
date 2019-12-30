@@ -24,6 +24,7 @@
 - Added a new [`disposable-directory`](https://npm.im/disposable-directory) dev dependency, using it to replace the `createTestFile` helper and improve tests.
 - Use strict mode for scripts.
 - Use less arrow functions for better stack traces.
+- Replaced every `forEach` loop with `for` `of`.
 - More consistent module exports style.
 - Removed `package-lock.json` from `.gitignore` and `.prettierignore` as it’s disabled in `.npmrc` anyway.
 - Use GitHub Actions instead of Travis for CI.
