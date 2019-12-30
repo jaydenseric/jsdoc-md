@@ -6,13 +6,7 @@ A Node.js CLI to analyze source JSDoc and generate documentation under a given h
 
 ## Setup
 
-To try it out with [npx](https://npm.im/npx) run:
-
-```sh
-npx jsdoc-md --help
-```
-
-To install [`jsdoc-md`](https://npm.im/jsdoc-md) from [npm](https://npmjs.com) as a dev dependency run:
+To install from [npm](https://npmjs.com) run:
 
 ```sh
 npm install jsdoc-md --save-dev

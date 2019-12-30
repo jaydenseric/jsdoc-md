@@ -28,6 +28,7 @@
 - More consistent module exports style.
 - Removed `package-lock.json` from `.gitignore` and `.prettierignore` as it’s disabled in `.npmrc` anyway.
 - Use GitHub Actions instead of Travis for CI.
+- Simplified the readme “Setup” section.
 
 ## 4.0.1
 
