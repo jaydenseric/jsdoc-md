@@ -1,5 +1,3 @@
 'use strict'
 
-module.exports = {
-  jsdocMd: require('./lib/jsdocMd')
-}
+exports.jsdocMd = require('./lib/jsdocMd')

@@ -21,6 +21,8 @@
 - Stop using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
 - Added a new [`disposable-directory`](https://npm.im/disposable-directory) dev dependency, using it to replace the `createTestFile` helper and improve tests.
 - Use strict mode for scripts.
+- Use less arrow functions for better stack traces.
+- More consistent module exports style.
 - Use GitHub Actions instead of Travis for CI.
 
 ## 4.0.1
