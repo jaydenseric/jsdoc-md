@@ -1,3 +1,5 @@
+'use strict'
+
 const crypto = require('crypto')
 const { writeFileSync, unlinkSync } = require('fs')
 const { tmpdir } = require('os')

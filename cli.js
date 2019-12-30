@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict'
+
 const yargs = require('yargs')
 const DEFAULTS = require('./lib/defaults')
 const jsdocMd = require('./lib/jsdocMd')
