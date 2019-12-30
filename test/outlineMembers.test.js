@@ -2,7 +2,7 @@
 
 const { throws } = require('assert')
 const { join } = require('path')
-const CircularJSON = require('circular-json')
+const { stringify } = require('flatted')
 const jsdocToMember = require('../lib/jsdocToMember')
 const outlineMembers = require('../lib/outlineMembers')
 const snapshot = require('./snapshot')
@@ -36,7 +36,7 @@ module.exports = tests => {
     }, [])
 
     await snapshot(
-      CircularJSON.stringify(outlineMembers(members), null, 2),
+      stringify(outlineMembers(members), null, 2),
       join(__dirname, 'snapshots', 'outlineMembers.json')
     )
   })

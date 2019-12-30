@@ -20,6 +20,7 @@
 - Removed the now redundant [`eslint-plugin-import-order-alphabetical`](https://npm.im/eslint-plugin-import-order-alphabetical) dev dependency.
 - Stop using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
 - Replaced the [`tap`](https://npm.im/tap) dev dependency with [`test-director`](https://npm.im/test-director) and [`coverage-node`](https://npm.im/coverage-node), refactoring the tests accordingly. This vastly reduces the dev install size.
+- Replaced the deprecated [`circular-json`](https://npm.im/circular-json) dev dependency with [`flatted`](https://npm.im/flatted).
 - Added a new [`disposable-directory`](https://npm.im/disposable-directory) dev dependency, using it to replace the `createTestFile` helper and improve tests.
 - Use strict mode for scripts.
 - Use less arrow functions for better stack traces.

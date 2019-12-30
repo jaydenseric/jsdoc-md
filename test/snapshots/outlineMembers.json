@@ -1,127 +1,127 @@
-[
-  {
-    "kind": "class",
-    "namepath": "A",
-    "name": "A",
-    "description": "Description.",
-    "tags": [
-      {
-        "title": "kind",
-        "description": null,
-        "kind": "class"
-      },
-      {
-        "title": "name",
-        "description": null,
-        "name": "A"
-      },
-      {
-        "title": "param",
-        "description": "Description.",
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        },
-        "name": "a"
-      }
-    ],
-    "heading": "class A",
-    "slug": "class-a",
-    "children": [
-      {
-        "kind": "function",
-        "namepath": "A.a",
-        "memberof": "A",
-        "membership": ".",
-        "name": "a",
-        "description": "Description.",
-        "tags": [
-          {
-            "title": "kind",
-            "description": null,
-            "kind": "function"
-          },
-          {
-            "title": "name",
-            "description": null,
-            "name": "A.a"
-          },
-          {
-            "title": "param",
-            "description": "Description.",
-            "type": {
-              "type": "NameExpression",
-              "name": "B"
-            },
-            "name": "a"
-          }
-        ],
-        "parent": "~0",
-        "heading": "A static method a",
-        "slug": "a-static-method-a"
-      },
-      {
-        "kind": "function",
-        "namepath": "A#b",
-        "memberof": "A",
-        "membership": "#",
-        "name": "b",
-        "description": "Description.",
-        "tags": [
-          {
-            "title": "kind",
-            "description": null,
-            "kind": "function"
-          },
-          {
-            "title": "name",
-            "description": null,
-            "name": "A#b"
-          }
-        ],
-        "parent": "~0",
-        "heading": "A instance method b",
-        "slug": "a-instance-method-b"
-      }
-    ]
-  },
-  "~0~children~0",
-  "~0~children~1",
-  {
-    "kind": "typedef",
-    "namepath": "B",
-    "name": "B",
-    "description": "Description.",
-    "tags": [
-      {
-        "title": "kind",
-        "description": null,
-        "kind": "typedef"
-      },
-      {
-        "title": "name",
-        "description": null,
-        "name": "B"
-      },
-      {
-        "title": "type",
-        "description": null,
-        "type": {
-          "type": "NameExpression",
-          "name": "object"
-        }
-      },
-      {
-        "title": "prop",
-        "description": "Description.",
-        "type": {
-          "type": "NameExpression",
-          "name": "string"
-        },
-        "name": "a"
-      }
-    ],
-    "heading": "type B",
-    "slug": "type-b"
-  }
-]
+[[
+  "1",
+  "2",
+  "3",
+  "4"
+],{
+  "kind": "5",
+  "namepath": "6",
+  "name": "6",
+  "description": "7",
+  "tags": "8",
+  "heading": "9",
+  "slug": "10",
+  "children": "11"
+},{
+  "kind": "12",
+  "namepath": "13",
+  "memberof": "6",
+  "membership": "14",
+  "name": "15",
+  "description": "7",
+  "tags": "16",
+  "parent": "1",
+  "heading": "17",
+  "slug": "18"
+},{
+  "kind": "12",
+  "namepath": "19",
+  "memberof": "6",
+  "membership": "20",
+  "name": "21",
+  "description": "7",
+  "tags": "22",
+  "parent": "1",
+  "heading": "23",
+  "slug": "24"
+},{
+  "kind": "25",
+  "namepath": "26",
+  "name": "26",
+  "description": "7",
+  "tags": "27",
+  "heading": "28",
+  "slug": "29"
+},"class","A","Description.",[
+  "30",
+  "31",
+  "32"
+],"class A","class-a",[
+  "2",
+  "3"
+],"function","A.a",".","a",[
+  "33",
+  "34",
+  "35"
+],"A static method a","a-static-method-a","A#b","#","b",[
+  "36",
+  "37"
+],"A instance method b","a-instance-method-b","typedef","B",[
+  "38",
+  "39",
+  "40",
+  "41"
+],"type B","type-b",{
+  "title": "42",
+  "description": null,
+  "kind": "5"
+},{
+  "title": "43",
+  "description": null,
+  "name": "6"
+},{
+  "title": "44",
+  "description": "7",
+  "type": "45",
+  "name": "15"
+},{
+  "title": "42",
+  "description": null,
+  "kind": "12"
+},{
+  "title": "43",
+  "description": null,
+  "name": "13"
+},{
+  "title": "44",
+  "description": "7",
+  "type": "46",
+  "name": "15"
+},{
+  "title": "42",
+  "description": null,
+  "kind": "12"
+},{
+  "title": "43",
+  "description": null,
+  "name": "19"
+},{
+  "title": "42",
+  "description": null,
+  "kind": "25"
+},{
+  "title": "43",
+  "description": null,
+  "name": "26"
+},{
+  "title": "47",
+  "description": null,
+  "type": "48"
+},{
+  "title": "49",
+  "description": "7",
+  "type": "50",
+  "name": "15"
+},"kind","name","param",{
+  "type": "51",
+  "name": "52"
+},{
+  "type": "51",
+  "name": "26"
+},"type",{
+  "type": "51",
+  "name": "53"
+},"prop",{
+  "type": "51",
+  "name": "52"
+},"NameExpression","string","object"]
