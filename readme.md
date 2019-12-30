@@ -64,6 +64,7 @@ _Customizing all options._
 > const { jsdocMd } = require('jsdoc-md')
 >
 > jsdocMd({
+>   cwd: '/path/to/project',
 >   sourceGlob: 'index.mjs',
 >   markdownPath: 'README.md',
 >   targetHeading: 'Docs'
