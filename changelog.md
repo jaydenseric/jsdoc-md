@@ -2,6 +2,10 @@
 
 ## Next
 
+### Major
+
+- Support Node.js v10+, from v8+.
+
 ### Patch
 
 - Stop using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
