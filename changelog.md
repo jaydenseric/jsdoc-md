@@ -7,11 +7,16 @@
 - Support Node.js v10+, from v8+.
 - Updated the [`globby`](https://npm.im/globby) dependency to v10, which may affect how the `jsdoc-md` CLI `--source-glob` option works.
 
+### Minor
+
+- Added a new `cwd` option for the `jsdocMd` function.
+
 ### Patch
 
 - Updated dependencies.
 - Removed the now redundant [`eslint-plugin-import-order-alphabetical`](https://npm.im/eslint-plugin-import-order-alphabetical) dev dependency.
 - Stop using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
+- Added a new [`disposable-directory`](https://npm.im/disposable-directory) dev dependency, using it to replace the `createTestFile` helper and improve tests.
 - Use strict mode for scripts.
 
 ## 4.0.1
