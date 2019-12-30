@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Stop using [`husky`](https://npm.im/husky) and [`lint-staged`](https://npm.im/lint-staged).
+
 ## 4.0.1
 
 ### Patch
