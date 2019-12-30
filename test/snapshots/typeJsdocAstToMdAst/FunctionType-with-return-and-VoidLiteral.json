@@ -1,0 +1,18 @@
+[
+  {
+    "type": "text",
+    "value": "function("
+  },
+  {
+    "type": "text",
+    "value": ")"
+  },
+  {
+    "type": "text",
+    "value": ":"
+  },
+  {
+    "type": "inlineCode",
+    "value": "void"
+  }
+]

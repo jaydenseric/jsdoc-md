@@ -1,0 +1,18 @@
+[
+  {
+    "type": "text",
+    "value": "{"
+  },
+  {
+    "type": "text",
+    "value": "a: "
+  },
+  {
+    "type": "text",
+    "value": "*"
+  },
+  {
+    "type": "text",
+    "value": "}"
+  }
+]

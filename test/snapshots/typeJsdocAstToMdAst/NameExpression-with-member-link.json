@@ -1,0 +1,12 @@
+[
+  {
+    "type": "link",
+    "url": "#type-b",
+    "children": [
+      {
+        "type": "text",
+        "value": "B"
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "type": "text",
+    "value": "function("
+  },
+  {
+    "type": "text",
+    "value": "new:"
+  },
+  {
+    "type": "text",
+    "value": "A"
+  },
+  {
+    "type": "text",
+    "value": ", "
+  },
+  {
+    "type": "text",
+    "value": "*"
+  },
+  {
+    "type": "text",
+    "value": ")"
+  }
+]

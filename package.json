@@ -24,8 +24,7 @@
   "files": [
     "lib",
     "index.js",
-    "cli.js",
-    "!*.test.js"
+    "cli.js"
   ],
   "bin": "cli.js",
   "engines": {
@@ -45,6 +44,7 @@
     "yargs": "^15.0.2"
   },
   "devDependencies": {
+    "coverage-node": "^2.0.1",
     "circular-json": "^0.5.9",
     "disposable-directory": "^1.0.0",
     "eslint": "^6.8.0",
@@ -55,16 +55,16 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1",
-    "tap": "^14.10.5"
+    "test-director": "^3.0.0"
   },
   "scripts": {
     "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
     "prepare:jsdoc": "node cli",
     "prepare:prettier": "prettier readme.md --write",
-    "test": "npm run test:eslint && npm run test:prettier && npm run test:tap",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:api",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
-    "test:tap": "tap",
+    "test:api": "coverage-node test",
     "prepublishOnly": "npm test"
   }
 }

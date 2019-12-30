@@ -1,0 +1,14 @@
+[
+  {
+    "type": "text",
+    "value": "function("
+  },
+  {
+    "type": "text",
+    "value": "*"
+  },
+  {
+    "type": "text",
+    "value": ")"
+  }
+]
