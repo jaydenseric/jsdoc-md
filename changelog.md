@@ -22,6 +22,7 @@
 - Replaced the [`tap`](https://npm.im/tap) dev dependency with [`test-director`](https://npm.im/test-director) and [`coverage-node`](https://npm.im/coverage-node), refactoring the tests accordingly. This vastly reduces the dev install size.
 - Replaced the deprecated [`circular-json`](https://npm.im/circular-json) dev dependency with [`flatted`](https://npm.im/flatted).
 - Added a new [`disposable-directory`](https://npm.im/disposable-directory) dev dependency, using it to replace the `createTestFile` helper and improve tests.
+- Added a new [`hard-rejection`](https://npm.im/hard-rejection) dev dependency to ensure unhandled rejections in tests exit the process with an error.
 - Use strict mode for scripts.
 - Use less arrow functions for better stack traces.
 - Replaced every `forEach` loop with `for` `of`.

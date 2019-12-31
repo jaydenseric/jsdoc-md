@@ -2,16 +2,6 @@
 
 const { TestDirector } = require('test-director')
 
-process
-  .on('uncaughtException', error => {
-    console.error('Uncaught exception:', error)
-    process.exitCode = 1
-  })
-  .on('unhandledRejection', error => {
-    console.error('Unhandled rejection:', error)
-    process.exitCode = 1
-  })
-
 const tests = new TestDirector()
 
 require('./lib/deconstructJsdocNamepath.test')(tests)

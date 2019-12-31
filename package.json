@@ -46,8 +46,8 @@
     "yargs": "^15.0.2"
   },
   "devDependencies": {
-    "coverage-node": "^2.0.1",
     "circular-json": "^0.5.9",
+    "coverage-node": "^2.0.1",
     "disposable-directory": "^1.0.0",
     "eslint": "^6.8.0",
     "eslint-config-env": "^13.0.0",
@@ -57,6 +57,7 @@
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.2",
     "flatted": "^2.0.1",
+    "hard-rejection": "^2.1.0",
     "prettier": "^1.19.1",
     "test-director": "^3.0.0"
   },
@@ -67,7 +68,7 @@
     "test": "npm run test:eslint && npm run test:prettier && npm run test:api",
     "test:eslint": "eslint .",
     "test:prettier": "prettier '**/*.{json,yml,md}' -l",
-    "test:api": "coverage-node test",
+    "test:api": "coverage-node -r hard-rejection/register test",
     "prepublishOnly": "npm test"
   }
 }
