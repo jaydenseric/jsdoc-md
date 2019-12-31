@@ -22,11 +22,13 @@
     "unified"
   ],
   "files": [
-    "lib",
-    "index.js",
-    "cli.js"
+    "cli",
+    "lib"
   ],
-  "bin": "cli.js",
+  "main": "lib",
+  "bin": {
+    "jsdoc-md": "cli/jsdoc-md.js"
+  },
   "engines": {
     "node": ">=10"
   },
@@ -60,7 +62,7 @@
   },
   "scripts": {
     "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
-    "prepare:jsdoc": "node cli",
+    "prepare:jsdoc": "node cli/jsdoc-md",
     "prepare:prettier": "prettier readme.md --write",
     "test": "npm run test:eslint && npm run test:prettier && npm run test:api",
     "test:eslint": "eslint .",

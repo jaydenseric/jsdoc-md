@@ -27,6 +27,7 @@
 - Replaced every `forEach` loop with `for` `of`.
 - More consistent module exports style.
 - Removed `package-lock.json` from `.gitignore` and `.prettierignore` as it’s disabled in `.npmrc` anyway.
+- Added a package `main` field and moved the index and bin files.
 - Use GitHub Actions instead of Travis for CI.
 - Simplified the readme “Setup” section.
 
