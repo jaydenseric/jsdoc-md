@@ -1,11 +1,11 @@
 'use strict'
 
 const { throws } = require('assert')
-const { join } = require('path')
+const { resolve } = require('path')
 const { stringify } = require('flatted')
-const jsdocToMember = require('../lib/jsdocToMember')
-const outlineMembers = require('../lib/outlineMembers')
-const snapshot = require('./snapshot')
+const jsdocToMember = require('../../lib/jsdocToMember')
+const outlineMembers = require('../../lib/outlineMembers')
+const snapshot = require('../snapshot')
 
 module.exports = tests => {
   tests.add('`outlineMembers` with no missing members.', async () => {
@@ -37,7 +37,7 @@ module.exports = tests => {
 
     await snapshot(
       stringify(outlineMembers(members), null, 2),
-      join(__dirname, 'snapshots', 'outlineMembers.json')
+      resolve(__dirname, '../snapshots', 'outlineMembers.json')
     )
   })
 

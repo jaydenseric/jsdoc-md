@@ -2,7 +2,7 @@
 
 const { deepStrictEqual, strictEqual } = require('assert')
 const doctrine = require('doctrine')
-const getJsdocAstTag = require('../lib/getJsdocAstTag')
+const getJsdocAstTag = require('../../lib/getJsdocAstTag')
 
 module.exports = tests => {
   tests.add('`getJsdocAstTag` with a tag.', () => {

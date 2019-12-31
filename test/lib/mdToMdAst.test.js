@@ -1,7 +1,7 @@
 'use strict'
 
 const { deepStrictEqual } = require('assert')
-const mdToMdAst = require('../lib/mdToMdAst')
+const mdToMdAst = require('../../lib/mdToMdAst')
 
 module.exports = tests => {
   tests.add('`mdToMdAst`.', () => {

@@ -4,7 +4,7 @@ const { strictEqual } = require('assert')
 const fs = require('fs')
 const { join } = require('path')
 const { disposableDirectory } = require('disposable-directory')
-const jsdocMd = require('../lib/jsdocMd')
+const jsdocMd = require('../../lib/jsdocMd')
 
 module.exports = tests => {
   tests.add('`jsdocMd`.', async () => {

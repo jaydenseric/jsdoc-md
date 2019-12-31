@@ -1,7 +1,7 @@
 'use strict'
 
 const { deepStrictEqual, strictEqual } = require('assert')
-const jsdocToMember = require('../lib/jsdocToMember')
+const jsdocToMember = require('../../lib/jsdocToMember')
 
 module.exports = tests => {
   tests.add('`jsdocToMember` with a method.', () => {

@@ -1,11 +1,11 @@
 'use strict'
 
-const { join } = require('path')
+const { resolve } = require('path')
 const stringify = require('remark-stringify')
 const unified = require('unified')
-const jsdocToMember = require('../lib/jsdocToMember')
-const membersToMdAst = require('../lib/membersToMdAst')
-const snapshot = require('./snapshot')
+const jsdocToMember = require('../../lib/jsdocToMember')
+const membersToMdAst = require('../../lib/membersToMdAst')
+const snapshot = require('../snapshot')
 
 module.exports = tests => {
   tests.add('`membersToMdAst`.', async () => {
@@ -83,7 +83,7 @@ new E('a')
 
     await snapshot(
       JSON.stringify(mdAst, null, 2),
-      join(__dirname, 'snapshots', 'membersToMdAst.json')
+      resolve(__dirname, '../snapshots', 'membersToMdAst.json')
     )
 
     const md = unified()
@@ -93,6 +93,6 @@ new E('a')
       })
       .stringify(mdAst)
 
-    await snapshot(md, join(__dirname, 'snapshots', 'membersToMdAst.md'))
+    await snapshot(md, resolve(__dirname, '../snapshots', 'membersToMdAst.md'))
   })
 }

@@ -1,7 +1,7 @@
 'use strict'
 
 const { deepStrictEqual, throws } = require('assert')
-const typeJsdocStringToJsdocAst = require('../lib/typeJsdocStringToJsdocAst')
+const typeJsdocStringToJsdocAst = require('../../lib/typeJsdocStringToJsdocAst')
 
 module.exports = tests => {
   tests.add('`typeJsdocStringToJsdocAst` with a parameter type.', () => {

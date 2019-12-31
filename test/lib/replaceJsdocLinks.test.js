@@ -1,9 +1,9 @@
 'use strict'
 
 const { strictEqual, throws } = require('assert')
-const jsdocToMember = require('../lib/jsdocToMember')
-const outlineMembers = require('../lib/outlineMembers')
-const replaceJsdocLinks = require('../lib/replaceJsdocLinks')
+const jsdocToMember = require('../../lib/jsdocToMember')
+const outlineMembers = require('../../lib/outlineMembers')
+const replaceJsdocLinks = require('../../lib/replaceJsdocLinks')
 
 module.exports = tests => {
   const outlinedMembers = outlineMembers(

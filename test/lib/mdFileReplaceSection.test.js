@@ -4,7 +4,7 @@ const { strictEqual } = require('assert')
 const fs = require('fs')
 const { join } = require('path')
 const { disposableDirectory } = require('disposable-directory')
-const mdFileReplaceSection = require('../lib/mdFileReplaceSection')
+const mdFileReplaceSection = require('../../lib/mdFileReplaceSection')
 
 module.exports = tests => {
   tests.add('`mdFileReplaceSection`.', async () => {

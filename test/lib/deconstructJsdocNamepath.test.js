@@ -1,7 +1,7 @@
 'use strict'
 
 const { deepStrictEqual, throws } = require('assert')
-const deconstructJsdocNamepath = require('../lib/deconstructJsdocNamepath')
+const deconstructJsdocNamepath = require('../../lib/deconstructJsdocNamepath')
 
 module.exports = tests => {
   tests.add('`deconstructJsdocNamepath` with no nested members.', () => {

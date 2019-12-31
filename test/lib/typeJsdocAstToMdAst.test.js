@@ -1,15 +1,15 @@
 'use strict'
 
 const { throws } = require('assert')
-const { join } = require('path')
+const { resolve } = require('path')
 const stringify = require('remark-stringify')
 const unified = require('unified')
-const jsdocToMember = require('../lib/jsdocToMember')
-const outlineMembers = require('../lib/outlineMembers')
-const remarkStringifyOptions = require('../lib/remarkStringifyOptions')
-const typeJsdocAstToMdAst = require('../lib/typeJsdocAstToMdAst')
-const typeJsdocStringToJsdocAst = require('../lib/typeJsdocStringToJsdocAst')
-const snapshot = require('./snapshot')
+const jsdocToMember = require('../../lib/jsdocToMember')
+const outlineMembers = require('../../lib/outlineMembers')
+const remarkStringifyOptions = require('../../lib/remarkStringifyOptions')
+const typeJsdocAstToMdAst = require('../../lib/typeJsdocAstToMdAst')
+const typeJsdocStringToJsdocAst = require('../../lib/typeJsdocStringToJsdocAst')
+const snapshot = require('../snapshot')
 
 module.exports = tests => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {
@@ -70,9 +70,9 @@ module.exports = tests => {
 
         await snapshot(
           JSON.stringify(typeMdAst, null, 2),
-          join(
+          resolve(
             __dirname,
-            'snapshots',
+            '../snapshots',
             'typeJsdocAstToMdAst',
             `${snapshotFileName}.json`
           )
@@ -82,9 +82,9 @@ module.exports = tests => {
           unified()
             .use(stringify, remarkStringifyOptions)
             .stringify({ type: 'root', children: typeMdAst }),
-          join(
+          resolve(
             __dirname,
-            'snapshots',
+            '../snapshots',
             'typeJsdocAstToMdAst',
             `${snapshotFileName}.md`
           )
