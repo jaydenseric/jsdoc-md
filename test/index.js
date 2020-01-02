@@ -4,6 +4,7 @@ const { TestDirector } = require('test-director')
 
 const tests = new TestDirector()
 
+require('./cli/jsdoc-md.test')(tests)
 require('./lib/deconstructJsdocNamepath.test')(tests)
 require('./lib/getJsdocAstTag.test')(tests)
 require('./lib/getJsdocAstTags.test')(tests)
