@@ -5,7 +5,12 @@
 ### Major
 
 - Support Node.js v10+, from v8+.
-- Updated the [`globby`](https://npm.im/globby) dependency to v10, which may affect how the `jsdoc-md` CLI `--source-glob` option works.
+- Updated the [`globby`](https://npm.im/globby) dependency to v10, which may affect how the `jsdoc-md` command `--source-glob` argument and `jsdocMd` function `sourceGlob` option work.
+- Replaced the [`yargs`](https://npm.im/yargs) dependency with [`arg`](https://npm.im/arg), for a smaller install size. This affects the `jsdoc-md` command:
+  - The `--help`/`-h` argument is gone.
+  - The `--version`/`-v` argument is gone.
+  - Short arguments can’t be used with `=` (e.g. `jsdoc-md -m readme.md` works, `jsdoc-md -m=readme.md` doesn’t), see [zeit/arg#51](https://github.com/zeit/arg/issues/51).
+  - Behavior using quotes around argument values may have changed.
 
 ### Minor
 
@@ -32,6 +37,8 @@
 - Added a package `main` field and moved the index and bin files.
 - Use GitHub Actions instead of Travis for CI.
 - Simplified the readme “Setup” section.
+- Improved CLI docs with examples.
+- Documented how files are excluded via `.gitignore`.
 
 ## 4.0.1
 

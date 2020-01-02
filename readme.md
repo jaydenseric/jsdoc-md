@@ -30,13 +30,35 @@ npm run jsdoc
 
 ## CLI
 
-For detailed CLI usage instructions, run `npx jsdoc-md --help`.
+The `jsdoc-md` command scrapes JSDoc from source files nested in the current working directory to populate a markdown file documentation section. Source files are excluded via `.gitignore` files.
+
+It implements the [function `jsdocMd`](#function-jsdocmd) and has the following arguments:
 
 | Option | Alias | Default | Description |
 | :-- | :-- | :-- | :-- |
 | `--source-glob` | `-s` | `**/*.{mjs,js}` | JSDoc source file glob pattern. |
 | `--markdown-path` | `-m` | `readme.md` | Path to the markdown file for docs insertion. |
 | `--target-heading` | `-t` | `API` | Markdown file heading to insert docs under. |
+
+[`npx`](https://npm.im/npx) examples:
+
+```sh
+npx jsdoc-md
+```
+
+```sh
+npx jsdoc-md --source-glob **/*.{mjs,js} --markdown-path readme.md --target-heading API
+```
+
+Example [`package.json` scripts](https://docs.npmjs.com/files/package.json#scripts) for a project that uses [Prettier](https://prettier.io) to format the readme:
+
+```json
+{
+  "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
+  "prepare:jsdoc": "jsdoc-md",
+  "prepare:prettier": "prettier readme.md --write"
+}
+```
 
 ## API
 
@@ -46,7 +68,7 @@ For detailed CLI usage instructions, run `npx jsdoc-md --help`.
 
 ### function jsdocMd
 
-Scrapes JSDoc from files to populate a markdown file documentation section.
+Scrapes JSDoc from source files to populate a markdown file documentation section. Source files are excluded via `.gitignore` files.
 
 | Parameter | Type | Description |
 | :-- | :-- | :-- |

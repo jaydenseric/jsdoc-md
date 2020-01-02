@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.7.7",
+    "arg": "^4.1.2",
     "doctrine": "^3.0.0",
     "github-slugger": "^1.2.1",
     "globby": "^10.0.1",
@@ -42,8 +43,7 @@
     "remark-parse": "^7.0.2",
     "remark-stringify": "^7.0.4",
     "remark-toc": "^6.0.0",
-    "unified": "^8.4.2",
-    "yargs": "^15.0.2"
+    "unified": "^8.4.2"
   },
   "devDependencies": {
     "coverage-node": "^2.0.2",

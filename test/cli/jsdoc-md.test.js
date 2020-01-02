@@ -108,9 +108,9 @@ const A = true
         'node',
         [
           cliPath,
-          '--source-glob="**/*.txt"',
-          '--markdown-path="markdown.md"',
-          '--target-heading="Target"'
+          '--source-glob=**/*.txt',
+          '--markdown-path=markdown.md',
+          '--target-heading=Target'
         ],
         {
           cwd: tempDirPath
