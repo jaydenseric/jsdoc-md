@@ -46,7 +46,6 @@
     "yargs": "^15.0.2"
   },
   "devDependencies": {
-    "circular-json": "^0.5.9",
     "coverage-node": "^2.0.1",
     "disposable-directory": "^1.0.0",
     "eslint": "^6.8.0",
