@@ -3,9 +3,9 @@
 const { throws } = require('assert')
 const { resolve } = require('path')
 const { stringify } = require('flatted')
+const snapshot = require('snapshot-assertion')
 const jsdocToMember = require('../../lib/jsdocToMember')
 const outlineMembers = require('../../lib/outlineMembers')
-const snapshot = require('../snapshot')
 
 module.exports = tests => {
   tests.add('`outlineMembers` with no missing members.', async () => {

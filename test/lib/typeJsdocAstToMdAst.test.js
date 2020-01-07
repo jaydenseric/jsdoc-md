@@ -3,13 +3,13 @@
 const { throws } = require('assert')
 const { resolve } = require('path')
 const stringify = require('remark-stringify')
+const snapshot = require('snapshot-assertion')
 const unified = require('unified')
 const jsdocToMember = require('../../lib/jsdocToMember')
 const outlineMembers = require('../../lib/outlineMembers')
 const remarkStringifyOptions = require('../../lib/remarkStringifyOptions')
 const typeJsdocAstToMdAst = require('../../lib/typeJsdocAstToMdAst')
 const typeJsdocStringToJsdocAst = require('../../lib/typeJsdocStringToJsdocAst')
-const snapshot = require('../snapshot')
 
 module.exports = tests => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {

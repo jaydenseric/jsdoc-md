@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Use [`snapshot-assertion`](https://npm.im/snapshot-assertion) for snapshot assertions in tests.
 
 ## 5.0.0
 
