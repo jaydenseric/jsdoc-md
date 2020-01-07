@@ -1,6 +1,6 @@
 # jsdoc-md changelog
 
-## Next
+## 5.0.1
 
 ### Patch
 
