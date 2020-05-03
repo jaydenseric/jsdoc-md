@@ -13,6 +13,7 @@
 - Configured Prettier option `semi` to the default, `true`.
 - Lint fixes for [`prettier`](https://npm.im/prettier) v2.
 - Ensure GitHub Actions run on pull request.
+- Also run GitHub Actions with Node.js v14.
 - Fixed the internal `mdFileReplaceSection` function for Node.js v14.
 
 ## 5.0.1
