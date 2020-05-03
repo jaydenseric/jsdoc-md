@@ -7,6 +7,12 @@
 - Updated dependencies, some of which now have a [package `exports` field](https://nodejs.org/api/esm.html#esm_package_exports) to support native ESM in Node.js.
 - Updated Node.js support from v10+ to `10 - 12 || >= 13.7` to reflect the package `exports` related breaking changes.
 
+### Patch
+
+- Improved the package `prepare:prettier` and `test:prettier` scripts.
+- Configured Prettier option `semi` to the default, `true`.
+- Lint fixes for [`prettier`](https://npm.im/prettier) v2.
+
 ## 5.0.1
 
 ### Patch

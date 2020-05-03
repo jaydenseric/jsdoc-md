@@ -1,17 +1,17 @@
-'use strict'
+'use strict';
 
-const { throws } = require('assert')
-const { resolve } = require('path')
-const stringify = require('remark-stringify')
-const snapshot = require('snapshot-assertion')
-const unified = require('unified')
-const jsdocToMember = require('../../lib/jsdocToMember')
-const outlineMembers = require('../../lib/outlineMembers')
-const remarkStringifyOptions = require('../../lib/remarkStringifyOptions')
-const typeJsdocAstToMdAst = require('../../lib/typeJsdocAstToMdAst')
-const typeJsdocStringToJsdocAst = require('../../lib/typeJsdocStringToJsdocAst')
+const { throws } = require('assert');
+const { resolve } = require('path');
+const stringify = require('remark-stringify');
+const snapshot = require('snapshot-assertion');
+const unified = require('unified');
+const jsdocToMember = require('../../lib/jsdocToMember');
+const outlineMembers = require('../../lib/outlineMembers');
+const remarkStringifyOptions = require('../../lib/remarkStringifyOptions');
+const typeJsdocAstToMdAst = require('../../lib/typeJsdocAstToMdAst');
+const typeJsdocStringToJsdocAst = require('../../lib/typeJsdocStringToJsdocAst');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {
     const members = outlineMembers([
       jsdocToMember(
@@ -19,8 +19,8 @@ module.exports = tests => {
          @kind typedef
          @name B
          @type {boolean}`
-      )
-    ])
+      ),
+    ]);
 
     for (const [name, typeJsdocString] of [
       ['AllLiteral', '*'],
@@ -52,7 +52,7 @@ module.exports = tests => {
       ['FunctionType with new', 'function(new:A)'],
       ['FunctionType with new and param', 'function(new:A, *)'],
       ['FunctionType with this', 'function(this:A)'],
-      ['FunctionType with this and param', 'function(this:A, *)']
+      ['FunctionType with this and param', 'function(this:A, *)'],
     ])
       tests.add(`\`typeJsdocAstToMdAst\` with type ${name}.`, async () => {
         const typeMdAst = typeJsdocAstToMdAst(
@@ -64,9 +64,9 @@ module.exports = tests => {
             true
           ),
           members
-        )
+        );
 
-        const snapshotFileName = name.replace(/ /g, '-')
+        const snapshotFileName = name.replace(/ /g, '-');
 
         await snapshot(
           JSON.stringify(typeMdAst, null, 2),
@@ -76,7 +76,7 @@ module.exports = tests => {
             'typeJsdocAstToMdAst',
             `${snapshotFileName}.json`
           )
-        )
+        );
 
         await snapshot(
           unified()
@@ -88,13 +88,13 @@ module.exports = tests => {
             'typeJsdocAstToMdAst',
             `${snapshotFileName}.md`
           )
-        )
-      })
-  })
+        );
+      });
+  });
 
   tests.add('`typeJsdocAstToMdAst` with an unknown type.', () => {
     throws(() => {
-      typeJsdocAstToMdAst({ type: 'MadeUp' })
-    }, new Error('Unknown JSDoc type “MadeUp”.'))
-  })
-}
+      typeJsdocAstToMdAst({ type: 'MadeUp' });
+    }, new Error('Unknown JSDoc type “MadeUp”.'));
+  });
+};

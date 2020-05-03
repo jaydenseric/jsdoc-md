@@ -1,17 +1,17 @@
-'use strict'
+'use strict';
 
-const { deepStrictEqual, strictEqual } = require('assert')
-const doctrine = require('doctrine')
-const getJsdocAstTag = require('../../lib/getJsdocAstTag')
+const { deepStrictEqual, strictEqual } = require('assert');
+const doctrine = require('doctrine');
+const getJsdocAstTag = require('../../lib/getJsdocAstTag');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`getJsdocAstTag` with a tag.', () => {
     deepStrictEqual(getJsdocAstTag(doctrine.parse('@name a').tags, 'name'), {
       title: 'name',
       description: null,
-      name: 'a'
-    })
-  })
+      name: 'a',
+    });
+  });
 
   tests.add('`getJsdocAstTag` with a tag override.', () => {
     deepStrictEqual(
@@ -25,12 +25,12 @@ module.exports = tests => {
       {
         title: 'name',
         description: null,
-        name: 'b'
+        name: 'b',
       }
-    )
-  })
+    );
+  });
 
   tests.add('`getJsdocAstTag` with no tag.', () => {
-    strictEqual(getJsdocAstTag(doctrine.parse('').tags, 'name'), undefined)
-  })
-}
+    strictEqual(getJsdocAstTag(doctrine.parse('').tags, 'name'), undefined);
+  });
+};

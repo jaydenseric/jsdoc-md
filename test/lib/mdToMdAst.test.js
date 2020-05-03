@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-const { deepStrictEqual } = require('assert')
-const mdToMdAst = require('../../lib/mdToMdAst')
+const { deepStrictEqual } = require('assert');
+const mdToMdAst = require('../../lib/mdToMdAst');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`mdToMdAst`.', () => {
     deepStrictEqual(
       JSON.stringify(mdToMdAst('a'), null, 2),
@@ -44,6 +44,6 @@ module.exports = tests => {
     }
   }
 ]`
-    )
-  })
-}
+    );
+  });
+};

@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-const { deepStrictEqual } = require('assert')
-const jsdocCommentsFromCode = require('../../lib/jsdocCommentsFromCode')
+const { deepStrictEqual } = require('assert');
+const jsdocCommentsFromCode = require('../../lib/jsdocCommentsFromCode');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`jsdocCommentsFromCode`.', () => {
     deepStrictEqual(
       jsdocCommentsFromCode(
@@ -27,6 +27,6 @@ e
 `
       ),
       ['*\n* a\n', '* b ']
-    )
-  })
-}
+    );
+  });
+};

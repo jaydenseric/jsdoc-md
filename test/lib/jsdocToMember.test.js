@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-const { deepStrictEqual, strictEqual } = require('assert')
-const jsdocToMember = require('../../lib/jsdocToMember')
+const { deepStrictEqual, strictEqual } = require('assert');
+const jsdocToMember = require('../../lib/jsdocToMember');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`jsdocToMember` with a method.', () => {
     deepStrictEqual(
       jsdocToMember(
@@ -23,36 +23,36 @@ module.exports = tests => {
           {
             title: 'kind',
             description: null,
-            kind: 'function'
+            kind: 'function',
           },
           {
             title: 'name',
             description: null,
-            name: 'A#b'
+            name: 'A#b',
           },
           {
             title: 'param',
             description: 'Description.',
             type: {
               type: 'NameExpression',
-              name: 'number'
+              name: 'number',
             },
-            name: 'a'
-          }
-        ]
+            name: 'a',
+          },
+        ],
       }
-    )
-  })
+    );
+  });
 
   tests.add('`jsdocToMember` with @ignore.', () => {
-    strictEqual(jsdocToMember('@ignore'), undefined)
-  })
+    strictEqual(jsdocToMember('@ignore'), undefined);
+  });
 
   tests.add('`jsdocToMember` with a missing kind tag.', () => {
-    strictEqual(jsdocToMember('@name A'), undefined)
-  })
+    strictEqual(jsdocToMember('@name A'), undefined);
+  });
 
   tests.add('`jsdocToMember` with a missing name tag.', () => {
-    strictEqual(jsdocToMember('@kind function'), undefined)
-  })
-}
+    strictEqual(jsdocToMember('@kind function'), undefined);
+  });
+};

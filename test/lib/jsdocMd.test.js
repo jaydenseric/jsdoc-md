@@ -1,16 +1,16 @@
-'use strict'
+'use strict';
 
-const { strictEqual } = require('assert')
-const fs = require('fs')
-const { join } = require('path')
-const { disposableDirectory } = require('disposable-directory')
-const jsdocMd = require('../../lib/jsdocMd')
+const { strictEqual } = require('assert');
+const fs = require('fs');
+const { join } = require('path');
+const { disposableDirectory } = require('disposable-directory');
+const jsdocMd = require('../../lib/jsdocMd');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`jsdocMd`.', async () => {
-    await disposableDirectory(async tempDirPath => {
-      const sourcePath = join(tempDirPath, 'index.js')
-      const markdownPath = join(tempDirPath, 'readme.md')
+    await disposableDirectory(async (tempDirPath) => {
+      const sourcePath = join(tempDirPath, 'index.js');
+      const markdownPath = join(tempDirPath, 'readme.md');
 
       await fs.promises.writeFile(
         sourcePath,
@@ -89,7 +89,7 @@ class B {
  */
 function c(a) {}
 `
-      )
+      );
 
       await fs.promises.writeFile(
         markdownPath,
@@ -101,14 +101,14 @@ Replace.
 
 ## Preserve
 `
-      )
+      );
 
       jsdocMd({
         cwd: tempDirPath,
         sourceGlob: sourcePath,
         markdownPath,
-        targetHeading: 'Target'
-      })
+        targetHeading: 'Target',
+      });
 
       strictEqual(
         await fs.promises.readFile(markdownPath, 'utf8'),
@@ -210,7 +210,7 @@ Description.
 
 ## Preserve
 `
-      )
-    })
-  })
-}
+      );
+    });
+  });
+};

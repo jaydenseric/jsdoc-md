@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
-const { deepStrictEqual, throws } = require('assert')
-const unified = require('unified')
-const remarkPluginReplaceSection = require('../../lib/remarkPluginReplaceSection')
+const { deepStrictEqual, throws } = require('assert');
+const unified = require('unified');
+const remarkPluginReplaceSection = require('../../lib/remarkPluginReplaceSection');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`remarkPluginReplaceSection` with defaults.', () => {
     deepStrictEqual(
       unified()
@@ -18,20 +18,20 @@ module.exports = tests => {
               children: [
                 {
                   type: 'text',
-                  value: 'API'
-                }
-              ]
+                  value: 'API',
+                },
+              ],
             },
             {
               type: 'paragraph',
               children: [
                 {
                   type: 'text',
-                  value: 'Replace.'
-                }
-              ]
-            }
-          ]
+                  value: 'Replace.',
+                },
+              ],
+            },
+          ],
         }),
       {
         type: 'root',
@@ -42,14 +42,14 @@ module.exports = tests => {
             children: [
               {
                 type: 'text',
-                value: 'API'
-              }
-            ]
-          }
-        ]
+                value: 'API',
+              },
+            ],
+          },
+        ],
       }
-    )
-  })
+    );
+  });
 
   tests.add('`remarkPluginReplaceSection` with options.', () => {
     deepStrictEqual(
@@ -64,12 +64,12 @@ module.exports = tests => {
                 children: [
                   {
                     type: 'text',
-                    value: 'Replaced.'
-                  }
-                ]
-              }
-            ]
-          }
+                    value: 'Replaced.',
+                  },
+                ],
+              },
+            ],
+          },
         })
         .runSync({
           type: 'root',
@@ -80,18 +80,18 @@ module.exports = tests => {
               children: [
                 {
                   type: 'text',
-                  value: 'A'
-                }
-              ]
+                  value: 'A',
+                },
+              ],
             },
             {
               type: 'paragraph',
               children: [
                 {
                   type: 'text',
-                  value: 'Replace.'
-                }
-              ]
+                  value: 'Replace.',
+                },
+              ],
             },
             {
               type: 'heading',
@@ -99,11 +99,11 @@ module.exports = tests => {
               children: [
                 {
                   type: 'text',
-                  value: 'B'
-                }
-              ]
-            }
-          ]
+                  value: 'B',
+                },
+              ],
+            },
+          ],
         }),
       {
         type: 'root',
@@ -114,18 +114,18 @@ module.exports = tests => {
             children: [
               {
                 type: 'text',
-                value: 'A'
-              }
-            ]
+                value: 'A',
+              },
+            ],
           },
           {
             type: 'paragraph',
             children: [
               {
                 type: 'text',
-                value: 'Replaced.'
-              }
-            ]
+                value: 'Replaced.',
+              },
+            ],
           },
           {
             type: 'heading',
@@ -133,23 +133,21 @@ module.exports = tests => {
             children: [
               {
                 type: 'text',
-                value: 'B'
-              }
-            ]
-          }
-        ]
+                value: 'B',
+              },
+            ],
+          },
+        ],
       }
-    )
-  })
+    );
+  });
 
   tests.add('`remarkPluginReplaceSection` with a missing heading.', () => {
     throws(() => {
-      unified()
-        .use(remarkPluginReplaceSection)
-        .runSync({
-          type: 'root',
-          children: []
-        })
-    }, new Error('Missing target heading “API”.'))
-  })
-}
+      unified().use(remarkPluginReplaceSection).runSync({
+        type: 'root',
+        children: [],
+      });
+    }, new Error('Missing target heading “API”.'));
+  });
+};

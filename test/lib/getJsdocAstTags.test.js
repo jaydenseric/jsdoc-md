@@ -1,10 +1,10 @@
-'use strict'
+'use strict';
 
-const { deepStrictEqual, strictEqual } = require('assert')
-const doctrine = require('doctrine')
-const getJsdocAstTags = require('../../lib/getJsdocAstTags')
+const { deepStrictEqual, strictEqual } = require('assert');
+const doctrine = require('doctrine');
+const getJsdocAstTags = require('../../lib/getJsdocAstTags');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`getJsdocAstTags` with @param.', () => {
     deepStrictEqual(
       getJsdocAstTags(
@@ -22,19 +22,19 @@ module.exports = tests => {
           title: 'param',
           description: 'Description.',
           type: { type: 'NameExpression', name: 'string' },
-          name: 'a'
+          name: 'a',
         },
         {
           title: 'param',
           description: 'Description.',
           type: { type: 'NameExpression', name: 'string' },
-          name: 'b'
-        }
+          name: 'b',
+        },
       ]
-    )
-  })
+    );
+  });
 
   tests.add('`getJsdocAstTags` with no tags.', () => {
-    strictEqual(getJsdocAstTags(doctrine.parse('').tags, 'param'), undefined)
-  })
-}
+    strictEqual(getJsdocAstTags(doctrine.parse('').tags, 'param'), undefined);
+  });
+};

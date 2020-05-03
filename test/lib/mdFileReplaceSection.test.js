@@ -1,15 +1,15 @@
-'use strict'
+'use strict';
 
-const { strictEqual } = require('assert')
-const fs = require('fs')
-const { join } = require('path')
-const { disposableDirectory } = require('disposable-directory')
-const mdFileReplaceSection = require('../../lib/mdFileReplaceSection')
+const { strictEqual } = require('assert');
+const fs = require('fs');
+const { join } = require('path');
+const { disposableDirectory } = require('disposable-directory');
+const mdFileReplaceSection = require('../../lib/mdFileReplaceSection');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`mdFileReplaceSection`.', async () => {
-    await disposableDirectory(async tempDirPath => {
-      const markdownPath = join(tempDirPath, 'readme.md')
+    await disposableDirectory(async (tempDirPath) => {
+      const markdownPath = join(tempDirPath, 'readme.md');
 
       await fs.promises.writeFile(
         markdownPath,
@@ -21,7 +21,7 @@ Replace.
 
 ## Preserve
 `
-      )
+      );
 
       mdFileReplaceSection({
         markdownPath,
@@ -34,18 +34,18 @@ Replace.
               children: [
                 {
                   type: 'text',
-                  value: 'Replaced.'
-                }
-              ]
-            }
-          ]
-        }
-      })
+                  value: 'Replaced.',
+                },
+              ],
+            },
+          ],
+        },
+      });
 
       const fileReplacedContent = await fs.promises.readFile(
         markdownPath,
         'utf8'
-      )
+      );
 
       strictEqual(
         fileReplacedContent,
@@ -57,7 +57,7 @@ Replaced.
 
 ## Preserve
 `
-      )
-    })
-  })
-}
+      );
+    });
+  });
+};

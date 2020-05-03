@@ -1,13 +1,13 @@
-'use strict'
+'use strict';
 
-const { resolve } = require('path')
-const stringify = require('remark-stringify')
-const snapshot = require('snapshot-assertion')
-const unified = require('unified')
-const jsdocToMember = require('../../lib/jsdocToMember')
-const membersToMdAst = require('../../lib/membersToMdAst')
+const { resolve } = require('path');
+const stringify = require('remark-stringify');
+const snapshot = require('snapshot-assertion');
+const unified = require('unified');
+const jsdocToMember = require('../../lib/jsdocToMember');
+const membersToMdAst = require('../../lib/membersToMdAst');
 
-module.exports = tests => {
+module.exports = (tests) => {
   tests.add('`membersToMdAst`.', async () => {
     const members = [
       `Description.
@@ -72,27 +72,27 @@ new E('a')
       `Description.
 @kind member
 @name E.e
-@type {string}`
+@type {string}`,
     ].reduce((members, jsdoc) => {
-      const member = jsdocToMember(jsdoc)
-      if (member) members.push(member)
-      return members
-    }, [])
+      const member = jsdocToMember(jsdoc);
+      if (member) members.push(member);
+      return members;
+    }, []);
 
-    const mdAst = membersToMdAst(members, 3)
+    const mdAst = membersToMdAst(members, 3);
 
     await snapshot(
       JSON.stringify(mdAst, null, 2),
       resolve(__dirname, '../snapshots', 'membersToMdAst.json')
-    )
+    );
 
     const md = unified()
       .use(stringify, {
         // Prettier formatting.
-        listItemIndent: '1'
+        listItemIndent: '1',
       })
-      .stringify(mdAst)
+      .stringify(mdAst);
 
-    await snapshot(md, resolve(__dirname, '../snapshots', 'membersToMdAst.md'))
-  })
-}
+    await snapshot(md, resolve(__dirname, '../snapshots', 'membersToMdAst.md'));
+  });
+};

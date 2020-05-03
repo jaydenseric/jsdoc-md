@@ -83,14 +83,14 @@ Scrapes JSDoc from source files to populate a markdown file documentation sectio
 _Customizing all options._
 
 > ```js
-> const { jsdocMd } = require('jsdoc-md')
+> const { jsdocMd } = require('jsdoc-md');
 >
 > jsdocMd({
 >   cwd: '/path/to/project',
 >   sourceGlob: 'index.mjs',
 >   markdownPath: 'README.md',
->   targetHeading: 'Docs'
-> })
+>   targetHeading: 'Docs',
+> });
 > ```
 
 ## Caveats
@@ -106,7 +106,7 @@ Missing JSDoc tags are not inferred by inspecting the code, so be sure to use al
  * @name ONE
  * @type {number}
  */
-const ONE = 1
+const ONE = 1;
 ```
 
 ### Tag subset
@@ -152,8 +152,8 @@ const MyNamespace = {
    * @const MyNamespace.THREE
    * @type {number}
    */
-  THREE: 3
-}
+  THREE: 3,
+};
 ```
 
 ### Namepath prefixes
@@ -195,5 +195,5 @@ Other inline tags such as [`{@tutorial}`](http://usejsdoc.org/tags-inline-tutori
  *
  * ![Screenshot](path/to/screenshot.jpg)
  */
-const popup = message => alert(message)
+const popup = (message) => alert(message);
 ````
