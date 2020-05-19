@@ -9,6 +9,7 @@
 
 ### Patch
 
+- Simplified the `typeJsdocStringToJsdocAst` function.
 - Converted a `jsdocMd` test assertion to a snapshot assertion.
 
 ## 6.0.0
