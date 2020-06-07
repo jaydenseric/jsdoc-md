@@ -15,9 +15,11 @@ require('./lib/mdFileReplaceSection.test')(tests);
 require('./lib/mdToMdAst.test')(tests);
 require('./lib/membersToMdAst.test')(tests);
 require('./lib/outlineMembers.test')(tests);
+require('./lib/parseJsdocExample.test')(tests);
 require('./lib/remarkPluginReplaceSection.test')(tests);
 require('./lib/replaceJsdocLinks.test')(tests);
 require('./lib/typeJsdocAstToMdAst.test')(tests);
 require('./lib/typeJsdocStringToJsdocAst.test')(tests);
+require('./lib/unescapeJsdoc.test')(tests);
 
 tests.run();

@@ -10,25 +10,46 @@ const outlineMembers = require('../../lib/outlineMembers');
 module.exports = (tests) => {
   tests.add('`outlineMembers` with no missing members.', async () => {
     const members = [
-      `Description.
-@kind class
-@name A
-@param {string} a Description.`,
+      `/**
+ * Description.
+ * @kind class
+ * @name A
+ * @param {string} a Description.
+ */`,
 
-      `Description.
-@kind function
-@name A.a
-@param {B} a Description.`,
+      `/**
+ * Description.
+ * @kind function
+ * @name A.a
+ * @param {B} a Description.
+ */`,
 
-      `Description.
-@kind function
-@name A#b`,
+      `/**
+ * Description.
+ * @kind function
+ * @name A#b
+ */`,
 
-      `Description.
-@kind typedef
-@name B
-@type {object}
-@prop {string} a Description.`,
+      `/**
+ * Description.
+ * @kind function
+ * @name A~c
+ */`,
+
+      `/**
+ * Description.
+ * @kind member
+ * @name A#d
+ * @type {object}
+ */`,
+
+      `/**
+ * Description.
+ * @kind typedef
+ * @name B
+ * @type {object}
+ * @prop {string} a Description.
+ */`,
     ].reduce((members, jsdoc) => {
       const member = jsdocToMember(jsdoc);
       if (member) members.push(member);
@@ -45,9 +66,11 @@ module.exports = (tests) => {
     throws(() => {
       outlineMembers([
         jsdocToMember(
-          `Description.
-@kind function
-@name A.a`
+          `/**
+ * Description.
+ * @kind function
+ * @name A.a
+ */`
         ),
       ]);
     }, new Error('Missing JSDoc for namepath “A”.'));

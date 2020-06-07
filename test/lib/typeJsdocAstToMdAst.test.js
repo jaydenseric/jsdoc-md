@@ -15,10 +15,12 @@ module.exports = (tests) => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {
     const members = outlineMembers([
       jsdocToMember(
-        `Description.
-         @kind typedef
-         @name B
-         @type {boolean}`
+        `/**
+ * Description.
+ * @kind typedef
+ * @name B
+ * @type {boolean}
+ */`
       ),
     ]);
 
@@ -56,13 +58,12 @@ module.exports = (tests) => {
     ])
       tests.add(`\`typeJsdocAstToMdAst\` with type ${name}.`, async () => {
         const typeMdAst = typeJsdocAstToMdAst(
-          typeJsdocStringToJsdocAst(
-            typeJsdocString,
-
+          typeJsdocStringToJsdocAst({
+            type: typeJsdocString,
             // Allow all features, including optional (`*=`) and rest (`...*`)
             // parameters.
-            true
-          ),
+            parameter: true,
+          }),
           members
         );
 

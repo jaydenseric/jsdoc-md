@@ -10,69 +10,97 @@ const membersToMdAst = require('../../lib/membersToMdAst');
 module.exports = (tests) => {
   tests.add('`membersToMdAst`.', async () => {
     const members = [
-      `Description.
-@kind typedef
-@name A
-@type {object}
-@prop {boolean} [a=true] Description.`,
+      `/**
+ * Description.
+ * @kind typedef
+ * @name A
+ * @type {object}
+ * @prop {boolean} [a=true] Description.
+ */`,
 
-      `Description.
-@kind typedef
-@name B
-@type {Function}
-@param {object} a Description.`,
+      `/**
+ * Description.
+ * @kind typedef
+ * @name B
+ * @type {Function}
+ * @param {object} a Description.
+ */`,
 
-      `Description.
-@kind constant
-@name C
-@type {string}`,
+      `/**
+ * Description.
+ * @kind constant
+ * @name C
+ * @type {string}
+ */`,
 
-      `Description, see [E]{@link E}.
-@kind function
-@name d
-@param {string} [a=C] Description.`,
+      `/**
+ * Description, see [E]{@link E}.
+ * @kind function
+ * @name d
+ * @param {string} [a=C] Description.
+ */`,
 
-      `Description.
+      `/**
+ * Description.
+ *
+ * # Description heading
+ *
+ * @kind class
+ * @name E
+ * @param {string} a Description.
+ * @example <caption>Example caption.</caption>
+ * # Heading
+ * \`\`\`js
+ * new E('a')
+ * \`\`\`
+ */`,
 
-# Description heading
+      `/**
+ * Description.
+ * @kind function
+ * @name E.a
+ * @param {A} a Description.
+ * @param {string} b Description.
+ * @returns {boolean} Description.
+ */`,
 
-@kind class
-@name E
-@param {string} a Description.
-@example <caption>Example caption.</caption>
-# Heading
-\`\`\`js
-new E('a')
-\`\`\`
-`,
+      `/**
+ * Description.
+ * @kind function
+ * @name E#b
+ * @param {A} a Description.
+ * @returns Description.
+ */`,
 
-      `Description.
-@kind function
-@name E.a
-@param {A} a Description.
-@param {string} b Description.
-@returns {boolean} Description.`,
+      `/**
+ * Description.
+ * @kind function
+ * @name E~c
+ * @param {string} a Description.
+ */`,
 
-      `Description.
-@kind function
-@name E#b
-@param {A} a Description.
-@returns Description.`,
+      `/**
+ * Description.
+ * @kind function
+ * @name E~d
+ * @ignore
+ */`,
 
-      `Description.
-@kind function
-@name E~c
-@param {string} a Description.`,
+      `/**
+ * Description.
+ * @kind member
+ * @name E.e
+ * @type {string}
+ */`,
 
-      `Description.
-@kind function
-@name E~d
-@ignore`,
-
-      `Description.
-@kind member
-@name E.e
-@type {string}`,
+      `/**
+ * Description.
+ * @kind function
+ * @name f
+ * @returns Description.
+ * @see [\`E\`]{@link E}.
+ * @see [\`jsdoc-md\` on npm](https://npm.im/jsdoc-md).
+ */`,
     ].reduce((members, jsdoc) => {
       const member = jsdocToMember(jsdoc);
       if (member) members.push(member);

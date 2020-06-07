@@ -1,0 +1,20 @@
+[
+  {
+    "tag": "param",
+    "type": "string",
+    "name": "a",
+    "optional": false,
+    "description": "Description.",
+    "line": 4,
+    "source": "@param {string} a Description."
+  },
+  {
+    "tag": "param",
+    "type": "string",
+    "name": "b",
+    "optional": false,
+    "description": "Description.",
+    "line": 5,
+    "source": "@param {string} b Description."
+  }
+]

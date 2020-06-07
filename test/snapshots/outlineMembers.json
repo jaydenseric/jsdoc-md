@@ -2,126 +2,244 @@
   "1",
   "2",
   "3",
-  "4"
+  "4",
+  "5",
+  "6"
 ],{
-  "kind": "5",
-  "namepath": "6",
-  "name": "6",
-  "description": "7",
-  "tags": "8",
-  "heading": "9",
-  "slug": "10",
-  "children": "11"
+  "kind": "7",
+  "namepath": "8",
+  "name": "8",
+  "tags": "9",
+  "line": 0,
+  "description": "10",
+  "source": "11",
+  "heading": "12",
+  "slug": "13",
+  "children": "14"
 },{
-  "kind": "12",
-  "namepath": "13",
-  "memberof": "6",
-  "membership": "14",
-  "name": "15",
-  "description": "7",
-  "tags": "16",
+  "kind": "15",
+  "namepath": "16",
+  "memberof": "8",
+  "membership": "17",
+  "name": "18",
+  "tags": "19",
+  "line": 0,
+  "description": "10",
+  "source": "20",
   "parent": "1",
-  "heading": "17",
-  "slug": "18"
+  "heading": "21",
+  "slug": "22"
 },{
-  "kind": "12",
-  "namepath": "19",
-  "memberof": "6",
-  "membership": "20",
-  "name": "21",
-  "description": "7",
-  "tags": "22",
+  "kind": "15",
+  "namepath": "23",
+  "memberof": "8",
+  "membership": "24",
+  "name": "25",
+  "tags": "26",
+  "line": 0,
+  "description": "10",
+  "source": "27",
   "parent": "1",
-  "heading": "23",
-  "slug": "24"
-},{
-  "kind": "25",
-  "namepath": "26",
-  "name": "26",
-  "description": "7",
-  "tags": "27",
   "heading": "28",
   "slug": "29"
-},"class","A","Description.",[
-  "30",
-  "31",
-  "32"
-],"class A","class-a",[
+},{
+  "kind": "15",
+  "namepath": "30",
+  "memberof": "8",
+  "membership": "31",
+  "name": "32",
+  "tags": "33",
+  "line": 0,
+  "description": "10",
+  "source": "34",
+  "parent": "1",
+  "heading": "35",
+  "slug": "36"
+},{
+  "kind": "37",
+  "namepath": "38",
+  "memberof": "8",
+  "membership": "24",
+  "name": "39",
+  "tags": "40",
+  "line": 0,
+  "description": "10",
+  "source": "41",
+  "parent": "1",
+  "heading": "42",
+  "slug": "43"
+},{
+  "kind": "44",
+  "namepath": "45",
+  "name": "45",
+  "tags": "46",
+  "line": 0,
+  "description": "10",
+  "source": "47",
+  "heading": "48",
+  "slug": "49"
+},"class","A",[
+  "50",
+  "51",
+  "52"
+],"Description.","Description.\n@kind class\n@name A\n@param {string} a Description.","class A","class-a",[
   "2",
-  "3"
+  "3",
+  "4",
+  "5"
 ],"function","A.a",".","a",[
-  "33",
-  "34",
-  "35"
-],"A static method a","a-static-method-a","A#b","#","b",[
-  "36",
-  "37"
-],"A instance method b","a-instance-method-b","typedef","B",[
-  "38",
-  "39",
-  "40",
-  "41"
-],"type B","type-b",{
-  "title": "42",
-  "description": null,
-  "kind": "5"
+  "53",
+  "54",
+  "55"
+],"Description.\n@kind function\n@name A.a\n@param {B} a Description.","A static method a","a-static-method-a","A#b","#","b",[
+  "56",
+  "57"
+],"Description.\n@kind function\n@name A#b","A instance method b","a-instance-method-b","A~c","~","c",[
+  "58",
+  "59"
+],"Description.\n@kind function\n@name A~c","A inner function c","a-inner-function-c","member","A#d","d",[
+  "60",
+  "61",
+  "62"
+],"Description.\n@kind member\n@name A#d\n@type {object}","A instance property d","a-instance-property-d","typedef","B",[
+  "63",
+  "64",
+  "65",
+  "66"
+],"Description.\n@kind typedef\n@name B\n@type {object}\n@prop {string} a Description.","type B","type-b",{
+  "tag": "67",
+  "name": "7",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 2,
+  "source": "69"
 },{
-  "title": "43",
-  "description": null,
-  "name": "6"
+  "tag": "70",
+  "name": "8",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 3,
+  "source": "71"
 },{
-  "title": "44",
-  "description": "7",
+  "tag": "72",
+  "type": "73",
+  "name": "18",
+  "optional": false,
+  "description": "10",
+  "line": 4,
+  "source": "74"
+},{
+  "tag": "67",
+  "name": "15",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 2,
+  "source": "75"
+},{
+  "tag": "70",
+  "name": "16",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 3,
+  "source": "76"
+},{
+  "tag": "72",
   "type": "45",
-  "name": "15"
+  "name": "18",
+  "optional": false,
+  "description": "10",
+  "line": 4,
+  "source": "77"
 },{
-  "title": "42",
-  "description": null,
-  "kind": "12"
+  "tag": "67",
+  "name": "15",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 2,
+  "source": "75"
 },{
-  "title": "43",
-  "description": null,
-  "name": "13"
+  "tag": "70",
+  "name": "23",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 3,
+  "source": "78"
 },{
-  "title": "44",
-  "description": "7",
-  "type": "46",
-  "name": "15"
+  "tag": "67",
+  "name": "15",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 2,
+  "source": "75"
 },{
-  "title": "42",
-  "description": null,
-  "kind": "12"
+  "tag": "70",
+  "name": "30",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 3,
+  "source": "79"
 },{
-  "title": "43",
-  "description": null,
-  "name": "19"
+  "tag": "67",
+  "name": "37",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 2,
+  "source": "80"
 },{
-  "title": "42",
-  "description": null,
-  "kind": "25"
+  "tag": "70",
+  "name": "38",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 3,
+  "source": "81"
 },{
-  "title": "43",
-  "description": null,
-  "name": "26"
+  "tag": "82",
+  "type": "83",
+  "name": "68",
+  "optional": false,
+  "description": "68",
+  "line": 4,
+  "source": "84"
 },{
-  "title": "47",
-  "description": null,
-  "type": "48"
+  "tag": "67",
+  "name": "44",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 2,
+  "source": "85"
 },{
-  "title": "49",
-  "description": "7",
-  "type": "50",
-  "name": "15"
-},"kind","name","param",{
-  "type": "51",
-  "name": "52"
+  "tag": "70",
+  "name": "45",
+  "optional": false,
+  "type": "68",
+  "description": "68",
+  "line": 3,
+  "source": "86"
 },{
-  "type": "51",
-  "name": "26"
-},"type",{
-  "type": "51",
-  "name": "53"
-},"prop",{
-  "type": "51",
-  "name": "52"
-},"NameExpression","string","object"]
+  "tag": "82",
+  "type": "83",
+  "name": "68",
+  "optional": false,
+  "description": "68",
+  "line": 4,
+  "source": "84"
+},{
+  "tag": "87",
+  "type": "73",
+  "name": "18",
+  "optional": false,
+  "description": "10",
+  "line": 5,
+  "source": "88"
+},"kind","","@kind class","name","@name A","param","string","@param {string} a Description.","@kind function","@name A.a","@param {B} a Description.","@name A#b","@name A~c","@kind member","@name A#d","type","object","@type {object}","@kind typedef","@name B","prop","@prop {string} a Description."]

@@ -7,6 +7,7 @@
   - [E instance method b](#e-instance-method-b)
   - [E inner function c](#e-inner-function-c)
 - [function d](#function-d)
+- [function f](#function-f)
 - [constant C](#constant-c)
 - [type A](#type-a)
 - [type B](#type-b)
@@ -75,6 +76,19 @@ Description, see [E](#class-e).
 | Parameter | Type                       | Description  |
 | :-------- | :------------------------- | :----------- |
 | `a`       | string? = [C](#constant-c) | Description. |
+
+* * *
+
+### function f
+
+Description.
+
+**Returns:** Description.
+
+#### See
+
+- [`E`](#class-e).
+- [`jsdoc-md` on npm](https://npm.im/jsdoc-md).
 
 * * *
 

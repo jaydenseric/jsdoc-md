@@ -1,58 +1,38 @@
 'use strict';
 
-const { deepStrictEqual, strictEqual } = require('assert');
+const { strictEqual } = require('assert');
+const { resolve } = require('path');
+const snapshot = require('snapshot-assertion');
 const jsdocToMember = require('../../lib/jsdocToMember');
 
 module.exports = (tests) => {
-  tests.add('`jsdocToMember` with a method.', () => {
-    deepStrictEqual(
-      jsdocToMember(
-        `Description.
-@kind function
-@name A#b
-@param {number} a Description.`
+  tests.add('`jsdocToMember` with a method.', async () => {
+    await snapshot(
+      JSON.stringify(
+        jsdocToMember(
+          `/**
+ * Description.
+ * @kind function
+ * @name A#b
+ * @param {number} a Description.
+ */`
+        ),
+        null,
+        2
       ),
-      {
-        kind: 'function',
-        namepath: 'A#b',
-        memberof: 'A',
-        membership: '#',
-        name: 'b',
-        description: 'Description.',
-        tags: [
-          {
-            title: 'kind',
-            description: null,
-            kind: 'function',
-          },
-          {
-            title: 'name',
-            description: null,
-            name: 'A#b',
-          },
-          {
-            title: 'param',
-            description: 'Description.',
-            type: {
-              type: 'NameExpression',
-              name: 'number',
-            },
-            name: 'a',
-          },
-        ],
-      }
+      resolve(__dirname, '../snapshots', 'jsdocToMember', 'with-a-method.json')
     );
   });
 
   tests.add('`jsdocToMember` with @ignore.', () => {
-    strictEqual(jsdocToMember('@ignore'), undefined);
+    strictEqual(jsdocToMember('/** @ignore */'), undefined);
   });
 
   tests.add('`jsdocToMember` with a missing kind tag.', () => {
-    strictEqual(jsdocToMember('@name A'), undefined);
+    strictEqual(jsdocToMember('/** @name A */'), undefined);
   });
 
   tests.add('`jsdocToMember` with a missing name tag.', () => {
-    strictEqual(jsdocToMember('@kind function'), undefined);
+    strictEqual(jsdocToMember('/** @kind function */'), undefined);
   });
 };

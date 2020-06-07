@@ -8,15 +8,19 @@ const replaceJsdocLinks = require('../../lib/replaceJsdocLinks');
 module.exports = (tests) => {
   const outlinedMembers = outlineMembers(
     [
-      `Description.
-       @kind typedef
-       @name A
-       @type {string}`,
+      `/**
+ * Description.
+ * @kind typedef
+ * @name A
+ * @type {string}
+ */`,
 
-      `Description.
-       @kind typedef
-       @name B
-       @type {string}`,
+      `/**
+ * Description.
+ * @kind typedef
+ * @name B
+ * @type {string}
+ */`,
     ].reduce((members, jsdoc) => {
       const member = jsdocToMember(jsdoc);
       if (member) members.push(member);

@@ -11,8 +11,11 @@
 
 - Updated dependencies.
 - Stopped testing with Node.js v13.
+- Use [`comment-parser`](https://npm.im/comment-parser) to parse JSDoc comments instead of [`doctrine`](https://npm.im/doctrine).
+- Fixed only the first multiline comment end syntax escape being unescaped when parsing JSDoc comments.
 - Simplified the `typeJsdocStringToJsdocAst` function.
 - Converted a `jsdocMd` test assertion to a snapshot assertion.
+- More thorough tests.
 - Updated the EditorConfig URL.
 
 ## 6.0.0

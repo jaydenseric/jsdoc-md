@@ -8,8 +8,8 @@ module.exports = (tests) => {
     deepStrictEqual(
       jsdocCommentsFromCode(
         `/**
-* a
-*/
+ * a
+ */
 let a
 
 /** b */
@@ -26,7 +26,12 @@ e
 // f
 `
       ),
-      ['*\n* a\n', '* b ']
+      [
+        `/**
+ * a
+ */`,
+        '/** b */',
+      ]
     );
   });
 };
