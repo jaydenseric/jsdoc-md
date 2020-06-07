@@ -10,6 +10,7 @@
 ### Patch
 
 - Updated dependencies.
+- Stopped testing with Node.js v13.
 - Simplified the `typeJsdocStringToJsdocAst` function.
 - Converted a `jsdocMd` test assertion to a snapshot assertion.
 - Updated the EditorConfig URL.
