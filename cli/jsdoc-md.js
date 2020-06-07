@@ -3,7 +3,7 @@
 'use strict';
 
 const arg = require('arg');
-const jsdocMd = require('../lib/jsdocMd');
+const jsdocMd = require('../public/jsdocMd');
 
 const {
   '--source-glob': sourceGlob,

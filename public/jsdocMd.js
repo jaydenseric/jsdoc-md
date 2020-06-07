@@ -2,10 +2,10 @@
 
 const { readFileSync } = require('fs');
 const globby = require('globby');
-const jsdocCommentsFromCode = require('./jsdocCommentsFromCode');
-const jsdocToMember = require('./jsdocToMember');
-const mdFileReplaceSection = require('./mdFileReplaceSection');
-const membersToMdAst = require('./membersToMdAst');
+const jsdocCommentsFromCode = require('../private/jsdocCommentsFromCode');
+const jsdocToMember = require('../private/jsdocToMember');
+const mdFileReplaceSection = require('../private/mdFileReplaceSection');
+const membersToMdAst = require('../private/membersToMdAst');
 
 /**
  * Scrapes JSDoc from source files to populate a markdown file documentation
@@ -17,6 +17,22 @@ const membersToMdAst = require('./membersToMdAst');
  * @param {string} [options.sourceGlob='**\/*.{mjs,js}'] JSDoc source file glob pattern.
  * @param {string} [options.markdownPath='readme.md'] Path to the markdown file for docs insertion.
  * @param {string} [options.targetHeading='API'] Markdown file heading to insert docs under.
+ * @example <caption>Ways to `import`.</caption>
+ * ```js
+ * import { jsdocMd } from 'jsdoc-md';
+ * ```
+ *
+ * ```js
+ * import jsdocMd from 'jsdoc-md/public/jsdocMd.js';
+ * ```
+ * @example <caption>Ways to `require`.</caption>
+ * ```js
+ * const { jsdocMd } = require('jsdoc-md');
+ * ```
+ *
+ * ```js
+ * const jsdocMd = require('jsdoc-md/public/execute');
+ * ```
  * @example <caption>Customizing all options.</caption>
  * ```js
  * const { jsdocMd } = require('jsdoc-md')

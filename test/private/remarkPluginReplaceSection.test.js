@@ -2,7 +2,7 @@
 
 const { deepStrictEqual, throws } = require('assert');
 const unified = require('unified');
-const remarkPluginReplaceSection = require('../../lib/remarkPluginReplaceSection');
+const remarkPluginReplaceSection = require('../../private/remarkPluginReplaceSection');
 
 module.exports = (tests) => {
   tests.add('`remarkPluginReplaceSection` with defaults.', () => {

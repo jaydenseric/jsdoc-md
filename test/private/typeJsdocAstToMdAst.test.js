@@ -5,11 +5,11 @@ const { resolve } = require('path');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
-const jsdocToMember = require('../../lib/jsdocToMember');
-const outlineMembers = require('../../lib/outlineMembers');
-const remarkStringifyOptions = require('../../lib/remarkStringifyOptions');
-const typeJsdocAstToMdAst = require('../../lib/typeJsdocAstToMdAst');
-const typeJsdocStringToJsdocAst = require('../../lib/typeJsdocStringToJsdocAst');
+const jsdocToMember = require('../../private/jsdocToMember');
+const outlineMembers = require('../../private/outlineMembers');
+const remarkStringifyOptions = require('../../private/remarkStringifyOptions');
+const typeJsdocAstToMdAst = require('../../private/typeJsdocAstToMdAst');
+const typeJsdocStringToJsdocAst = require('../../private/typeJsdocStringToJsdocAst');
 
 module.exports = (tests) => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {

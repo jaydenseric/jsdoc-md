@@ -1,7 +1,7 @@
 'use strict';
 
 const { deepStrictEqual } = require('assert');
-const parseJsdocExample = require('../../lib/parseJsdocExample');
+const parseJsdocExample = require('../../private/parseJsdocExample');
 
 module.exports = (tests) => {
   tests.add('`parseJsdocExample` with caption only.', () => {

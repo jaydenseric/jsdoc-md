@@ -6,10 +6,12 @@
 
 - Updated Node.js support to `^10.13.0 || ^12.0.0 || >= 13.7.0`.
 - Updated dev dependencies, some of which require newer Node.js versions than previously supported.
+- Added a [package `exports` field](https://nodejs.org/api/esm.html#esm_package_entry_points) with [conditional exports](https://nodejs.org/api/esm.html#esm_conditional_exports) to support native ESM in Node.js and keep internal code private, [whilst avoiding the dual package hazard](https://nodejs.org/api/esm.html#esm_approach_1_use_an_es_module_wrapper). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
 
 ### Patch
 
 - Updated dependencies.
+- Added ESM related keywords to the package `keywords` field.
 - Stopped testing with Node.js v13.
 - Use [`comment-parser`](https://npm.im/comment-parser) to parse JSDoc comments instead of [`doctrine`](https://npm.im/doctrine).
 - Fixed only the first multiline comment end syntax escape being unescaped when parsing JSDoc comments.

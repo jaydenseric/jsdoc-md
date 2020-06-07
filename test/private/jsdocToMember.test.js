@@ -3,7 +3,7 @@
 const { strictEqual } = require('assert');
 const { resolve } = require('path');
 const snapshot = require('snapshot-assertion');
-const jsdocToMember = require('../../lib/jsdocToMember');
+const jsdocToMember = require('../../private/jsdocToMember');
 
 module.exports = (tests) => {
   tests.add('`jsdocToMember` with a method.', async () => {

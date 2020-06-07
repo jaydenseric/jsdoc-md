@@ -4,7 +4,7 @@ const fs = require('fs');
 const { join, resolve } = require('path');
 const { disposableDirectory } = require('disposable-directory');
 const snapshot = require('snapshot-assertion');
-const jsdocMd = require('../../lib/jsdocMd');
+const jsdocMd = require('../../public/jsdocMd');
 
 module.exports = (tests) => {
   tests.add('`jsdocMd`.', async () => {

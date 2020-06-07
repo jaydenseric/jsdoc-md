@@ -4,8 +4,8 @@ const { resolve } = require('path');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
-const jsdocToMember = require('../../lib/jsdocToMember');
-const membersToMdAst = require('../../lib/membersToMdAst');
+const jsdocToMember = require('../../private/jsdocToMember');
+const membersToMdAst = require('../../private/membersToMdAst');
 
 module.exports = (tests) => {
   tests.add('`membersToMdAst`.', async () => {

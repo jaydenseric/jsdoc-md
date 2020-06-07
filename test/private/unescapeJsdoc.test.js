@@ -1,7 +1,7 @@
 'use strict';
 
 const { strictEqual } = require('assert');
-const unescapeJsdoc = require('../../lib/unescapeJsdoc');
+const unescapeJsdoc = require('../../private/unescapeJsdoc');
 
 module.exports = (tests) => {
   tests.add('`unescapeJsdoc` unescapes one multiline comment end.', () => {

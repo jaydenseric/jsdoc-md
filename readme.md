@@ -80,6 +80,26 @@ Scrapes JSDoc from source files to populate a markdown file documentation sectio
 
 #### Examples
 
+_Ways to `import`._
+
+> ```js
+> import { jsdocMd } from 'jsdoc-md';
+> ```
+>
+> ```js
+> import jsdocMd from 'jsdoc-md/public/jsdocMd.js';
+> ```
+
+_Ways to `require`._
+
+> ```js
+> const { jsdocMd } = require('jsdoc-md');
+> ```
+>
+> ```js
+> const jsdocMd = require('jsdoc-md/public/execute');
+> ```
+
 _Customizing all options._
 
 > ```js

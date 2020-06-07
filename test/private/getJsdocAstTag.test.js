@@ -4,7 +4,7 @@ const { strictEqual } = require('assert');
 const { resolve } = require('path');
 const commentParser = require('comment-parser');
 const snapshot = require('snapshot-assertion');
-const getJsdocAstTag = require('../../lib/getJsdocAstTag');
+const getJsdocAstTag = require('../../private/getJsdocAstTag');
 
 module.exports = (tests) => {
   tests.add('`getJsdocAstTag` with a tag.', async () => {
