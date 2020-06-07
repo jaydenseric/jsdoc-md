@@ -12,6 +12,7 @@
 - Updated dependencies.
 - Simplified the `typeJsdocStringToJsdocAst` function.
 - Converted a `jsdocMd` test assertion to a snapshot assertion.
+- Updated the EditorConfig URL.
 
 ## 6.0.0
 
