@@ -208,7 +208,7 @@ Other inline tags such as [`{@tutorial}`](https://jsdoc.app/tags-inline-tutorial
  * This usage:
  *
  * ```js
- * popup('Hello!')
+ * popup('Hello!');
  * ```
  *
  * Displays like this on macOS:

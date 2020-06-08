@@ -27,13 +27,13 @@ Description, here is a **bold** word.
 _Construct a new instance, here is a **bold** word._
 
 > ```js
-> const b = new B()
+> const b = new B();
 > ```
 
 _Construct a new instance with options._
 
 > ```js
-> const b = new B(true)
+> const b = new B(true);
 > ```
 
 #### B static method d

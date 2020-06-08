@@ -52,7 +52,7 @@ module.exports = (tests) => {
  * @example <caption>Example caption.</caption>
  * # Heading
  * \`\`\`js
- * new E('a')
+ * new E('a');
  * \`\`\`
  */`,
 

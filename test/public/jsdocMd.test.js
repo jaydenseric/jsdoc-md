@@ -29,11 +29,11 @@ const A = true
  * @param {boolean} [a] Description, here is a **bold** word.
  * @example <caption>Construct a new instance, here is a **bold** word.</caption>
  * \`\`\`js
- * const b = new B()
+ * const b = new B();
  * \`\`\`
  * @example <caption>Construct a new instance with options.</caption>
  * \`\`\`js
- * const b = new B(true)
+ * const b = new B(true);
  * \`\`\`
  */
 class B {

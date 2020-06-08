@@ -595,7 +595,7 @@
           "type": "code",
           "lang": "js",
           "meta": null,
-          "value": "new E('a')",
+          "value": "new E('a');",
           "position": {
             "start": {
               "line": 2,
@@ -605,7 +605,7 @@
             "end": {
               "line": 4,
               "column": 4,
-              "offset": 30
+              "offset": 31
             },
             "indent": [
               1,

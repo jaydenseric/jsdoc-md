@@ -31,7 +31,7 @@ _Example caption._
 > ##### Heading
 >
 > ```js
-> new E('a')
+> new E('a');
 > ```
 
 #### E static method a

@@ -27,6 +27,7 @@
 - More thorough tests.
 - Updated the EditorConfig URL.
 - Update [`http://usejsdoc.org`](http://usejsdoc.org) links to [`https://jsdoc.app`](https://jsdoc.app).
+- Prettier format code examples.
 
 ## 6.0.0
 

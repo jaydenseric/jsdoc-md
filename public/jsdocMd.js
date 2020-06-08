@@ -35,14 +35,14 @@ const membersToMdAst = require('../private/membersToMdAst');
  * ```
  * @example <caption>Customizing all options.</caption>
  * ```js
- * const { jsdocMd } = require('jsdoc-md')
+ * const { jsdocMd } = require('jsdoc-md');
  *
  * jsdocMd({
  *   cwd: '/path/to/project',
  *   sourceGlob: 'index.mjs',
  *   markdownPath: 'README.md',
- *   targetHeading: 'Docs'
- * })
+ *   targetHeading: 'Docs',
+ * });
  * ```
  */
 module.exports = function jsdocMd({
