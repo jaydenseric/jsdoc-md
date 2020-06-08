@@ -4,7 +4,7 @@
 
 ### Major
 
-- Updated Node.js support to `^10.13.0 || ^12.0.0 || >= 13.7.0`.
+- Updated Node.js support to `^10.17.0 || ^12.0.0 || >= 13.7.0`.
 - Updated dev dependencies, some of which require newer Node.js versions than previously supported.
 - Added a [package `exports` field](https://nodejs.org/api/esm.html#esm_package_entry_points) with [conditional exports](https://nodejs.org/api/esm.html#esm_conditional_exports) to support native ESM in Node.js and keep internal code private, [whilst avoiding the dual package hazard](https://nodejs.org/api/esm.html#esm_approach_1_use_an_es_module_wrapper). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
 
@@ -28,6 +28,7 @@
 - Updated the EditorConfig URL.
 - Update [`http://usejsdoc.org`](http://usejsdoc.org) links to [`https://jsdoc.app`](https://jsdoc.app).
 - Prettier format code examples.
+- Simplify ESLint config after correcting the minimum supported Node.js to v10.17.0.
 
 ## 6.0.0
 

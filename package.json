@@ -42,7 +42,7 @@
     "jsdoc-md": "cli/jsdoc-md.js"
   },
   "engines": {
-    "node": "^10.13.0 || ^12.0.0 || >= 13.7.0"
+    "node": "^10.17.0 || ^12.0.0 || >= 13.7.0"
   },
   "dependencies": {
     "@babel/core": "^7.10.2",
