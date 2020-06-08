@@ -11,9 +11,9 @@
 ### Minor
 
 - Support documenting events:
-  - Support the `event` [`@kind`](http://usejsdoc.org/tags-kind) value.
+  - Support the `event` [`@kind`](https://jsdoc.app/tags-kind) value.
   - Support the `event:` name prefix in [JSDoc namepaths](https://jsdoc.app/about-namepaths).
-  - Support the [`@fires`](http://usejsdoc.org/tags-fires) JSDoc tag.
+  - Support the [`@fires`](https://jsdoc.app/tags-fires) JSDoc tag.
 
 ### Patch
 
@@ -26,6 +26,7 @@
 - Converted a `jsdocMd` test assertion to a snapshot assertion.
 - More thorough tests.
 - Updated the EditorConfig URL.
+- Update [`http://usejsdoc.org`](http://usejsdoc.org) links to [`https://jsdoc.app`](https://jsdoc.app).
 
 ## 6.0.0
 
@@ -260,7 +261,7 @@
 
 ### Minor
 
-- Support [JSDoc inline tag links](http://usejsdoc.org/tags-inline-link) (e.g. `` [`b` method]{@link A#b} ``) for descriptions and tags with markdown content, closes [#5](https://github.com/jaydenseric/jsdoc-md/issues/5).
+- Support [JSDoc inline tag links](https://jsdoc.app/tags-inline-link) (e.g. `` [`b` method]{@link A#b} ``) for descriptions and tags with markdown content, closes [#5](https://github.com/jaydenseric/jsdoc-md/issues/5).
 
 ### Patch
 

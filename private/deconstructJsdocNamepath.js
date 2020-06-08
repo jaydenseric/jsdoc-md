@@ -2,7 +2,7 @@
 
 /**
  * Decodes a JSDoc namepath.
- * @see [JSDoc namepaths](http://usejsdoc.org/about-namepaths)
+ * @see [JSDoc namepaths](https://jsdoc.app/about-namepaths).
  * @kind function
  * @name deconstructJsdocNamepath
  * @param {string} namepath A JSDoc namepath.
