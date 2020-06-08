@@ -5,6 +5,8 @@
   - [E static method a](#e-static-method-a)
   - [E static property e](#e-static-property-e)
   - [E instance method b](#e-instance-method-b)
+  - [E event a](#e-event-a)
+  - [E event b](#e-event-b)
   - [E inner function c](#e-inner-function-c)
 - [function d](#function-d)
 - [function f](#function-f)
@@ -43,6 +45,11 @@ Description.
 
 **Returns:** boolean — Description.
 
+##### Fires
+
+- [E event a](#e-event-a)
+- [E event b](#e-event-b)
+
 #### E static property e
 
 Description.
@@ -58,6 +65,26 @@ Description.
 | `a`       | [A](#type-a) | Description. |
 
 **Returns:** Description.
+
+#### E event a
+
+Description.
+
+**Type:** object
+
+| Property | Type   | Description  |
+| :------- | :----- | :----------- |
+| `a`      | string | Description. |
+
+#### E event b
+
+Description.
+
+**Type:** object
+
+| Property | Type   | Description  |
+| :------- | :----- | :----------- |
+| `a`      | string | Description. |
 
 #### E inner function c
 

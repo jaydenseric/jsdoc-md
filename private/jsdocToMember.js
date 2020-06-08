@@ -12,7 +12,7 @@ const JSDOC_PARSER_OPTIONS = {
     commentParser.PARSERS.parse_tag,
     (unparsed, data) =>
       // JSDoc tags without a type.
-      ['ignore', 'kind', 'see'].includes(data.tag)
+      ['fires', 'ignore', 'kind', 'see'].includes(data.tag)
         ? null
         : commentParser.PARSERS.parse_type(unparsed, data),
     (unparsed, data) =>
@@ -22,7 +22,7 @@ const JSDOC_PARSER_OPTIONS = {
         : commentParser.PARSERS.parse_name(unparsed, data),
     (unparsed, data) =>
       // JSDoc tags without a description.
-      ['ignore', 'kind', 'name', 'type'].includes(data.tag)
+      ['fires', 'ignore', 'kind', 'name', 'type'].includes(data.tag)
         ? null
         : commentParser.PARSERS.parse_description(unparsed, data),
   ],

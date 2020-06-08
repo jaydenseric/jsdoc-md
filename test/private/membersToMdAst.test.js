@@ -1,5 +1,6 @@
 'use strict';
 
+const { throws } = require('assert');
 const { resolve } = require('path');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
@@ -8,7 +9,7 @@ const jsdocToMember = require('../../private/jsdocToMember');
 const membersToMdAst = require('../../private/membersToMdAst');
 
 module.exports = (tests) => {
-  tests.add('`membersToMdAst`.', async () => {
+  tests.add('`membersToMdAst` with various members.', async () => {
     const members = [
       `/**
  * Description.
@@ -57,11 +58,29 @@ module.exports = (tests) => {
 
       `/**
  * Description.
+ * @kind event
+ * @name E#event:a
+ * @type {object}
+ * @prop {string} a Description.
+ */`,
+
+      `/**
+ * Description.
+ * @kind event
+ * @name E#event:b
+ * @type {object}
+ * @prop {string} a Description.
+ */`,
+
+      `/**
+ * Description.
  * @kind function
  * @name E.a
  * @param {A} a Description.
  * @param {string} b Description.
  * @returns {boolean} Description.
+ * @fires E#event:a
+ * @fires E#b
  */`,
 
       `/**
@@ -122,5 +141,27 @@ module.exports = (tests) => {
       .stringify(mdAst);
 
     await snapshot(md, resolve(__dirname, '../snapshots', 'membersToMdAst.md'));
+  });
+
+  tests.add('`membersToMdAst` with a missing event namepath.', async () => {
+    const members = [
+      `/**
+ * @kind class
+ * @name A
+ */`,
+      `/**
+ * @kind function
+ * @name A#a
+ * @fires A#event:a
+ */`,
+    ].reduce((members, jsdoc) => {
+      const member = jsdocToMember(jsdoc);
+      if (member) members.push(member);
+      return members;
+    }, []);
+
+    throws(() => {
+      membersToMdAst(members);
+    }, new Error('Missing JSDoc member for event namepath “A#event:a”.'));
   });
 };

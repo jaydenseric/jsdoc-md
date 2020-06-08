@@ -9,6 +9,7 @@
   - [B static property b](#b-static-property-b)
   - [B instance method e](#b-instance-method-e)
   - [B instance property c](#b-instance-property-c)
+  - [B event a](#b-event-a)
   - [B inner typedef A](#b-inner-typedef-a)
 - [function c](#function-c)
 - [constant A](#constant-a)
@@ -60,6 +61,16 @@ Description.
 
 **Type:** string
 
+#### B event a
+
+Description.
+
+**Type:** object
+
+| Property | Type   | Description  |
+| :------- | :----- | :----------- |
+| `a`      | string | Description. |
+
 #### B inner typedef A
 
 Description.
@@ -80,6 +91,10 @@ Description.
 | Parameter | Type   | Description  |
 | :-------- | :----- | :----------- |
 | `a`       | string | Description. |
+
+#### Fires
+
+- [B event a](#b-event-a)
 
 #### See
 

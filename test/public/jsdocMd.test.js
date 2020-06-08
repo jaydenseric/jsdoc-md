@@ -48,6 +48,14 @@ class B {
 
   /**
    * Description.
+   * @kind event
+   * @name B#event:a
+   * @type {object}
+   * @prop {string} a Description.
+   */
+
+  /**
+   * Description.
    * @kind member
    * @name B.b
    * @type {string}
@@ -84,6 +92,7 @@ class B {
  * @kind function
  * @name c
  * @param {string} a Description.
+ * @fires B#event:a
  * @see [\`B\`]{@link B}.
  * @see [jsdoc-md on npm](https://npm.im/jsdoc-md).
  */

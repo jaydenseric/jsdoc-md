@@ -8,6 +8,13 @@
 - Updated dev dependencies, some of which require newer Node.js versions than previously supported.
 - Added a [package `exports` field](https://nodejs.org/api/esm.html#esm_package_entry_points) with [conditional exports](https://nodejs.org/api/esm.html#esm_conditional_exports) to support native ESM in Node.js and keep internal code private, [whilst avoiding the dual package hazard](https://nodejs.org/api/esm.html#esm_approach_1_use_an_es_module_wrapper). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
 
+### Minor
+
+- Support documenting events:
+  - Support the `event` [`@kind`](http://usejsdoc.org/tags-kind) value.
+  - Support the `event:` name prefix in [JSDoc namepaths](https://jsdoc.app/about-namepaths).
+  - Support the [`@fires`](http://usejsdoc.org/tags-fires) JSDoc tag.
+
 ### Patch
 
 - Updated dependencies.

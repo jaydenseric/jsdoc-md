@@ -21,13 +21,23 @@ module.exports = function typeJsdocStringToJsdocAst({
 }) {
   const unescapedType = unescapeJsdoc(type);
 
-  try {
-    var typeAst = parameter
-      ? parseParamType(unescapedType)
-      : parseType(unescapedType);
-  } catch (error) {
-    throw new Error(`Invalid JSDoc type “${unescapedType}”.`);
-  }
+  let typeAst;
+
+  // Workaround Doctrine erroring if there is an `event:` prefix in a namepath:
+  // https://github.com/eslint/doctrine/issues/221
+  if (unescapedType.includes('event:'))
+    typeAst = {
+      type: 'NameExpression',
+      name: unescapedType,
+    };
+  else
+    try {
+      typeAst = parameter
+        ? parseParamType(unescapedType)
+        : parseType(unescapedType);
+    } catch (error) {
+      throw new Error(`Invalid JSDoc type “${unescapedType}”.`);
+    }
 
   return optional &&
     // Account for the edge case where optionality is indicated both in the type

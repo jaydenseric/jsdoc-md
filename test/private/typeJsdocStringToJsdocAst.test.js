@@ -81,6 +81,19 @@ module.exports = (tests) => {
     }
   );
 
+  tests.add(
+    '`typeJsdocStringToJsdocAst` with parameter type, non-optional, event namepath.',
+    () => {
+      deepStrictEqual(
+        typeJsdocStringToJsdocAst({ type: 'A#event:a', parameter: true }),
+        {
+          type: 'NameExpression',
+          name: 'A#event:a',
+        }
+      );
+    }
+  );
+
   tests.add('`typeJsdocStringToJsdocAst` with invalid type.', () => {
     throws(() => {
       typeJsdocStringToJsdocAst({ type: '**' });

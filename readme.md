@@ -139,6 +139,7 @@ A JSDoc tag subset is supported:
 - [`@prop`](http://usejsdoc.org/tags-property)
 - [`@param`](http://usejsdoc.org/tags-param)
 - [`@returns`](http://usejsdoc.org/tags-returns)
+- [`@fires`](http://usejsdoc.org/tags-fires)
 - [`@see`](http://usejsdoc.org/tags-see)
 - [`@example`](http://usejsdoc.org/tags-example)
 - [`@ignore`](http://usejsdoc.org/tags-ignore)
@@ -178,11 +179,10 @@ const MyNamespace = {
 
 ### Namepath prefixes
 
-[JSDoc namepath prefixes](http://usejsdoc.org/about-namepaths) are not supported:
+Some [JSDoc namepath prefixes](http://usejsdoc.org/about-namepaths) are not supported:
 
 - [`module:`](http://usejsdoc.org/tags-module)
 - [`external:`](http://usejsdoc.org/tags-external)
-- [`event:`](http://usejsdoc.org/tags-event)
 
 ### Namepath special characters
 

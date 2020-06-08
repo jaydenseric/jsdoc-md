@@ -3,6 +3,7 @@
 const remarkBehead = require('remark-behead');
 const toc = require('remark-toc');
 const unified = require('unified');
+const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const getJsdocAstTag = require('./getJsdocAstTag');
 const getJsdocAstTags = require('./getJsdocAstTags');
 const mdToMdAst = require('./mdToMdAst');
@@ -248,6 +249,49 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
         mdast.children.push({ type: 'paragraph', children });
       }
 
+      const firesTags = getJsdocAstTags(member.tags, 'fires');
+      if (firesTags) {
+        mdast.children.push({
+          type: 'heading',
+          depth: depth + 1,
+          children: [{ type: 'text', value: 'Fires' }],
+        });
+
+        const firesTagsList = { type: 'list', ordered: false, children: [] };
+
+        for (const tag of firesTags) {
+          // The JSDoc `@fires` tag uniquely supports omitting the `event:`
+          // name prefix in the event namepath.
+          const { memberof, membership, name } = deconstructJsdocNamepath(
+            tag.name
+          );
+          const eventNamepath = name.startsWith('event:')
+            ? tag.name
+            : `${memberof}${membership}event:${name}`;
+          const eventMember = outlinedMembers.find(
+            ({ namepath }) => namepath === eventNamepath
+          );
+
+          if (!eventMember)
+            throw new Error(
+              `Missing JSDoc member for event namepath “${eventNamepath}”.`
+            );
+
+          firesTagsList.children.push({
+            type: 'listItem',
+            children: [
+              {
+                type: 'link',
+                url: `#${eventMember.slug}`,
+                children: [{ type: 'text', value: eventMember.heading }],
+              },
+            ],
+          });
+        }
+
+        mdast.children.push(firesTagsList);
+      }
+
       const seeTags = getJsdocAstTags(member.tags, 'see');
       if (seeTags) {
         mdast.children.push({
@@ -314,7 +358,7 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
     .use(toc, {
       // Prettier formatting.
       tight: true,
-      skip: 'See|Examples',
+      skip: 'Fires|See|Examples',
     })
     .runSync(mdast);
 };

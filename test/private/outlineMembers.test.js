@@ -19,6 +19,14 @@ module.exports = (tests) => {
 
       `/**
  * Description.
+ * @kind event
+ * @name A#event:a
+ * @type {object}
+ * @prop {string} a Description.
+ */`,
+
+      `/**
+ * Description.
  * @kind function
  * @name A.a
  * @param {B} a Description.
@@ -28,6 +36,7 @@ module.exports = (tests) => {
  * Description.
  * @kind function
  * @name A#b
+ * @fires A#event:a
  */`,
 
       `/**
