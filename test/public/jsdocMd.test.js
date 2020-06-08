@@ -121,7 +121,7 @@ Replace.
 
       await snapshot(
         await fs.promises.readFile(markdownPath, 'utf8'),
-        resolve(__dirname, '../snapshots', 'jsdocMd.md')
+        resolve(__dirname, '../snapshots/jsdocMd.md')
       );
     });
   });

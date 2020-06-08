@@ -67,7 +67,7 @@ module.exports = (tests) => {
 
     await snapshot(
       stringify(outlineMembers(members), null, 2),
-      resolve(__dirname, '../snapshots', 'outlineMembers.json')
+      resolve(__dirname, '../snapshots/outlineMembers.json')
     );
   });
 

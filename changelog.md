@@ -29,6 +29,7 @@
 - Update [`http://usejsdoc.org`](http://usejsdoc.org) links to [`https://jsdoc.app`](https://jsdoc.app).
 - Prettier format code examples.
 - Simplify ESLint config after correcting the minimum supported Node.js to v10.17.0.
+- Simplify snapshot paths in tests.
 
 ## 6.0.0
 

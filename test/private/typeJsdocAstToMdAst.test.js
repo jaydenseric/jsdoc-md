@@ -73,9 +73,7 @@ module.exports = (tests) => {
           JSON.stringify(typeMdAst, null, 2),
           resolve(
             __dirname,
-            '../snapshots',
-            'typeJsdocAstToMdAst',
-            `${snapshotFileName}.json`
+            `../snapshots/typeJsdocAstToMdAst/${snapshotFileName}.json`
           )
         );
 
@@ -85,9 +83,7 @@ module.exports = (tests) => {
             .stringify({ type: 'root', children: typeMdAst }),
           resolve(
             __dirname,
-            '../snapshots',
-            'typeJsdocAstToMdAst',
-            `${snapshotFileName}.md`
+            `../snapshots/typeJsdocAstToMdAst/${snapshotFileName}.md`
           )
         );
       });

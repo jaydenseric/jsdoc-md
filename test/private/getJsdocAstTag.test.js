@@ -12,7 +12,7 @@ module.exports = (tests) => {
 
     await snapshot(
       JSON.stringify(getJsdocAstTag(jsdocAst.tags, 'name'), null, 2),
-      resolve(__dirname, '../snapshots', 'getJsdocAstTag', 'with-a-tag.json')
+      resolve(__dirname, '../snapshots/getJsdocAstTag/with-a-tag.json')
     );
   });
 
@@ -24,12 +24,7 @@ module.exports = (tests) => {
 
     await snapshot(
       JSON.stringify(getJsdocAstTag(jsdocAst.tags, 'name'), null, 2),
-      resolve(
-        __dirname,
-        '../snapshots',
-        'getJsdocAstTag',
-        'with-a-tag-override.json'
-      )
+      resolve(__dirname, '../snapshots/getJsdocAstTag/with-a-tag-override.json')
     );
   });
 

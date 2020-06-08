@@ -20,7 +20,7 @@ module.exports = (tests) => {
         null,
         2
       ),
-      resolve(__dirname, '../snapshots', 'jsdocToMember', 'with-a-method.json')
+      resolve(__dirname, '../snapshots/jsdocToMember/with-a-method.json')
     );
   });
 

@@ -18,7 +18,7 @@ module.exports = (tests) => {
 
     await snapshot(
       JSON.stringify(getJsdocAstTags(jsdocAst.tags, 'param'), null, 2),
-      resolve(__dirname, '../snapshots', 'getJsdocAstTags', 'with-@param.json')
+      resolve(__dirname, '../snapshots/getJsdocAstTags/with-@param.json')
     );
   });
 

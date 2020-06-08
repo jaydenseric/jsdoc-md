@@ -130,7 +130,7 @@ module.exports = (tests) => {
 
     await snapshot(
       JSON.stringify(mdAst, null, 2),
-      resolve(__dirname, '../snapshots', 'membersToMdAst.json')
+      resolve(__dirname, '../snapshots/membersToMdAst.json')
     );
 
     const md = unified()
@@ -140,7 +140,7 @@ module.exports = (tests) => {
       })
       .stringify(mdAst);
 
-    await snapshot(md, resolve(__dirname, '../snapshots', 'membersToMdAst.md'));
+    await snapshot(md, resolve(__dirname, '../snapshots/membersToMdAst.md'));
   });
 
   tests.add('`membersToMdAst` with a missing event namepath.', async () => {
