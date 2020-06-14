@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Use `parseSync` from [`@babel/core`](https://npm.im/@babel/core) instead of `parse`, which may become async in a future major version of Babel.
 - Corrected a `jsdocMd` code example.
 
 ## 7.0.0

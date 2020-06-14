@@ -1,6 +1,6 @@
 'use strict';
 
-const { parse } = require('@babel/core');
+const { parseSync } = require('@babel/core');
 
 /**
  * Gets JSDoc comments from a code string.
@@ -12,7 +12,7 @@ const { parse } = require('@babel/core');
  * @ignore
  */
 module.exports = function jsdocCommentsFromCode(code, path) {
-  const { comments } = parse(code, {
+  const { comments } = parseSync(code, {
     filename: path,
     parserOpts: {
       plugins: [
