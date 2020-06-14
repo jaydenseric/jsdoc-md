@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Corrected a `jsdocMd` code example.
 
 ## 7.0.0
 

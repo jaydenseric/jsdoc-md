@@ -97,7 +97,7 @@ _Ways to `require`._
 > ```
 >
 > ```js
-> const jsdocMd = require('jsdoc-md/public/execute');
+> const jsdocMd = require('jsdoc-md/public/jsdocMd');
 > ```
 
 _Customizing all options._

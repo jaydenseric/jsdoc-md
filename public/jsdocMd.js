@@ -31,7 +31,7 @@ const membersToMdAst = require('../private/membersToMdAst');
  * ```
  *
  * ```js
- * const jsdocMd = require('jsdoc-md/public/execute');
+ * const jsdocMd = require('jsdoc-md/public/jsdocMd');
  * ```
  * @example <caption>Customizing all options.</caption>
  * ```js
