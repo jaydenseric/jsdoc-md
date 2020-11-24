@@ -7,6 +7,7 @@ const snapshot = require('snapshot-assertion');
 const unified = require('unified');
 const jsdocToMember = require('../../private/jsdocToMember');
 const membersToMdAst = require('../../private/membersToMdAst');
+const remarkStringifyOptions = require('../../private/remarkStringifyOptions');
 
 module.exports = (tests) => {
   tests.add('`membersToMdAst` with various members.', async () => {
@@ -134,10 +135,7 @@ module.exports = (tests) => {
     );
 
     const md = unified()
-      .use(stringify, {
-        // Prettier formatting.
-        listItemIndent: '1',
-      })
+      .use(stringify, remarkStringifyOptions)
       .stringify(mdAst);
 
     await snapshot(md, resolve(__dirname, '../snapshots/membersToMdAst.md'));

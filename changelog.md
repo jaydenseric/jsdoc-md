@@ -9,6 +9,7 @@
 - Use `parseSync` from [`@babel/core`](https://npm.im/@babel/core) instead of `parse`, which may become async in a future major version of Babel.
 - Corrected a `jsdocMd` code example.
 - Fixed incorrect MDAST used for `typeJsdocAstToMdAst` tests.
+- Use `remarkStringifyOptions` in the `membersToMdAst` tests.
 
 ## 7.0.0
 
