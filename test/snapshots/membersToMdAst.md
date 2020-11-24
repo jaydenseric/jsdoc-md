@@ -94,7 +94,7 @@ Description.
 | :-------- | :----- | :----------- |
 | `a`       | string | Description. |
 
-* * *
+---
 
 ### function d
 
@@ -104,7 +104,7 @@ Description, see [E](#class-e).
 | :-------- | :------------------------- | :----------- |
 | `a`       | string? = [C](#constant-c) | Description. |
 
-* * *
+---
 
 ### function f
 
@@ -117,7 +117,7 @@ Description.
 - [`E`](#class-e).
 - [`jsdoc-md` on npm](https://npm.im/jsdoc-md).
 
-* * *
+---
 
 ### constant C
 
@@ -125,7 +125,7 @@ Description.
 
 **Type:** string
 
-* * *
+---
 
 ### type A
 
@@ -137,7 +137,7 @@ Description.
 | :------- | :---------------- | :----------- |
 | `a`      | boolean? = `true` | Description. |
 
-* * *
+---
 
 ### type B
 

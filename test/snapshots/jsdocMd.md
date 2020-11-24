@@ -82,7 +82,7 @@ Description.
 | `a`      | string  | Description, here is a **bold** word. |
 | `b`      | boolean | Description.                          |
 
-* * *
+---
 
 ### function c
 
@@ -101,7 +101,7 @@ Description.
 - [`B`](#class-b).
 - [jsdoc-md on npm](https://npm.im/jsdoc-md).
 
-* * *
+---
 
 ### constant A
 
