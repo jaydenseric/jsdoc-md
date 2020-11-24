@@ -80,7 +80,15 @@ module.exports = (tests) => {
         await snapshot(
           unified()
             .use(stringify, remarkStringifyOptions)
-            .stringify({ type: 'root', children: typeMdAst }),
+            .stringify({
+              type: 'root',
+              children: [
+                {
+                  type: 'paragraph',
+                  children: typeMdAst,
+                },
+              ],
+            }),
           resolve(
             __dirname,
             `../snapshots/typeJsdocAstToMdAst/${snapshotFileName}.md`

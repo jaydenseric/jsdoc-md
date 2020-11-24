@@ -1,3 +1,1 @@
-function():
-
-`void`
+function():`void`

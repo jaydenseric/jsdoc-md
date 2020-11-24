@@ -8,6 +8,7 @@
 - Removed `npm-debug.log` from the `.gitignore` file as npm [v4.2.0](https://github.com/npm/npm/releases/tag/v4.2.0)+ doesn’t create it in the current working directory.
 - Use `parseSync` from [`@babel/core`](https://npm.im/@babel/core) instead of `parse`, which may become async in a future major version of Babel.
 - Corrected a `jsdocMd` code example.
+- Fixed incorrect MDAST used for `typeJsdocAstToMdAst` tests.
 
 ## 7.0.0
 
