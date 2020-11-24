@@ -9,13 +9,13 @@
 ### Patch
 
 - Updated dependencies.
-- Removed `npm-debug.log` from the `.gitignore` file as npm [v4.2.0](https://github.com/npm/npm/releases/tag/v4.2.0)+ doesn’t create it in the current working directory.
 - Use `parseSync` from [`@babel/core`](https://npm.im/@babel/core) instead of `parse`, which may become async in a future major version of Babel.
+- Updated the `remarkStringifyOptions` so that rules in generated markdown match Prettier formatting (`---`).
 - Corrected a `jsdocMd` code example.
 - Fixed incorrect MDAST used for `typeJsdocAstToMdAst` tests.
 - Use `remarkStringifyOptions` in the `membersToMdAst` tests.
 - Refactored an `mdToMdAst` test to use a snapshot.
-- Updated the `remarkStringifyOptions` so that rules in generated markdown match Prettier formatting (`---`).
+- Removed `npm-debug.log` from the `.gitignore` file as npm [v4.2.0](https://github.com/npm/npm/releases/tag/v4.2.0)+ doesn’t create it in the current working directory.
 
 ## 7.0.0
 
