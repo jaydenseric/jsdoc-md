@@ -15,6 +15,8 @@
 - Fixed incorrect MDAST used for `typeJsdocAstToMdAst` tests.
 - Use `remarkStringifyOptions` in the `membersToMdAst` tests.
 - Refactored an `mdToMdAst` test to use a snapshot.
+- Also run GitHub Actions CI with Node.js v15.
+- Simplified the GitHub Actions CI config with the [`npm install-test`](https://docs.npmjs.com/cli/v7/commands/npm-install-test) command.
 - Removed `npm-debug.log` from the `.gitignore` file as npm [v4.2.0](https://github.com/npm/npm/releases/tag/v4.2.0)+ doesn’t create it in the current working directory.
 
 ## 7.0.0
