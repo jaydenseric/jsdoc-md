@@ -1,47 +1,14 @@
 'use strict';
 
-const { deepStrictEqual } = require('assert');
+const { resolve } = require('path');
+const snapshot = require('snapshot-assertion');
 const mdToMdAst = require('../../private/mdToMdAst');
 
 module.exports = (tests) => {
-  tests.add('`mdToMdAst`.', () => {
-    deepStrictEqual(
+  tests.add('`mdToMdAst`.', async () => {
+    await snapshot(
       JSON.stringify(mdToMdAst('a'), null, 2),
-      `[
-  {
-    "type": "paragraph",
-    "children": [
-      {
-        "type": "text",
-        "value": "a",
-        "position": {
-          "start": {
-            "line": 1,
-            "column": 1,
-            "offset": 0
-          },
-          "end": {
-            "line": 1,
-            "column": 2,
-            "offset": 1
-          }
-        }
-      }
-    ],
-    "position": {
-      "start": {
-        "line": 1,
-        "column": 1,
-        "offset": 0
-      },
-      "end": {
-        "line": 1,
-        "column": 2,
-        "offset": 1
-      }
-    }
-  }
-]`
+      resolve(__dirname, '../snapshots/mdToMdAst.json')
     );
   });
 };

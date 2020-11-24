@@ -14,6 +14,7 @@
 - Corrected a `jsdocMd` code example.
 - Fixed incorrect MDAST used for `typeJsdocAstToMdAst` tests.
 - Use `remarkStringifyOptions` in the `membersToMdAst` tests.
+- Refactored an `mdToMdAst` test to use a snapshot.
 - Updated the `remarkStringifyOptions` so that rules in generated markdown match Prettier formatting (`---`).
 
 ## 7.0.0
