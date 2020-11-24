@@ -53,8 +53,9 @@
     "globby": "^11.0.1",
     "mdast-util-inject": "^1.1.0",
     "remark-behead": "^2.3.3",
-    "remark-parse": "^8.0.3",
-    "remark-stringify": "^8.1.1",
+    "remark-gfm": "^1.0.0",
+    "remark-parse": "^9.0.0",
+    "remark-stringify": "^9.0.0",
     "remark-toc": "^7.0.0",
     "unified": "^9.2.0"
   },

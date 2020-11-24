@@ -24,8 +24,7 @@ module.exports = (tests) => {
             "line": 1,
             "column": 2,
             "offset": 1
-          },
-          "indent": []
+          }
         }
       }
     ],
@@ -39,8 +38,7 @@ module.exports = (tests) => {
         "line": 1,
         "column": 2,
         "offset": 1
-      },
-      "indent": []
+      }
     }
   }
 ]`

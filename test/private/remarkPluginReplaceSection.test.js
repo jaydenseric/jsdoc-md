@@ -1,6 +1,7 @@
 'use strict';
 
 const { deepStrictEqual, throws } = require('assert');
+const gfm = require('remark-gfm');
 const unified = require('unified');
 const remarkPluginReplaceSection = require('../../private/remarkPluginReplaceSection');
 
@@ -8,6 +9,7 @@ module.exports = (tests) => {
   tests.add('`remarkPluginReplaceSection` with defaults.', () => {
     deepStrictEqual(
       unified()
+        .use(gfm)
         .use(remarkPluginReplaceSection)
         .runSync({
           type: 'root',
@@ -54,6 +56,7 @@ module.exports = (tests) => {
   tests.add('`remarkPluginReplaceSection` with options.', () => {
     deepStrictEqual(
       unified()
+        .use(gfm)
         .use(remarkPluginReplaceSection, {
           targetHeading: 'A',
           replacementAst: {
@@ -144,7 +147,7 @@ module.exports = (tests) => {
 
   tests.add('`remarkPluginReplaceSection` with a missing heading.', () => {
     throws(() => {
-      unified().use(remarkPluginReplaceSection).runSync({
+      unified().use(gfm).use(remarkPluginReplaceSection).runSync({
         type: 'root',
         children: [],
       });

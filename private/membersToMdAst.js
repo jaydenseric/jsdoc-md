@@ -1,6 +1,7 @@
 'use strict';
 
 const remarkBehead = require('remark-behead');
+const gfm = require('remark-gfm');
 const toc = require('remark-toc');
 const unified = require('unified');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
@@ -257,7 +258,12 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
           children: [{ type: 'text', value: 'Fires' }],
         });
 
-        const firesTagsList = { type: 'list', ordered: false, children: [] };
+        const firesTagsList = {
+          type: 'list',
+          ordered: false,
+          spread: false,
+          children: [],
+        };
 
         for (const tag of firesTags) {
           // The JSDoc `@fires` tag uniquely supports omitting the `event:`
@@ -279,6 +285,7 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
 
           firesTagsList.children.push({
             type: 'listItem',
+            spread: false,
             children: [
               {
                 type: 'link',
@@ -300,11 +307,17 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
           children: [{ type: 'text', value: 'See' }],
         });
 
-        const seeTagsList = { type: 'list', ordered: false, children: [] };
+        const seeTagsList = {
+          type: 'list',
+          ordered: false,
+          spread: false,
+          children: [],
+        };
 
         for (const tag of seeTags)
           seeTagsList.children.push({
             type: 'listItem',
+            spread: false,
             children: mdToMdAst(tag.description, outlinedMembers),
           });
 
@@ -355,6 +368,7 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
 
   // Return markdown AST.
   return unified()
+    .use(gfm)
     .use(toc, {
       // Prettier formatting.
       tight: true,

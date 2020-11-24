@@ -1,1 +1,1 @@
-Array&lt;\*>
+Array<\*>

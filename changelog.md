@@ -2,6 +2,10 @@
 
 ## Next
 
+### Major
+
+- Updated the [`remark-parse`](https://npm.im/remark-parse) and [`remark-stringify`](https://npm.im/remark-stringify) dependencies to v9.0.0, and implemented a new [`remark-gfm`](https://npm.im/remark-gfm) dependency. Markdown is now explicitly parsed and generated as [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm). Generated markdown may subtly change.
+
 ### Patch
 
 - Updated dependencies.

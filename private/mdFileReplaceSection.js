@@ -1,6 +1,7 @@
 'use strict';
 
 const { readFileSync, writeFileSync } = require('fs');
+const gfm = require('remark-gfm');
 const parse = require('remark-parse');
 const stringify = require('remark-stringify');
 const unified = require('unified');
@@ -25,6 +26,7 @@ module.exports = function mdFileReplaceSection({
   const fileContent = readFileSync(markdownPath, { encoding: 'utf8' });
   const newFileContent = unified()
     .use(parse)
+    .use(gfm)
     .use(stringify, remarkStringifyOptions)
     .use(remarkPluginReplaceSection, { targetHeading, replacementAst })
     .processSync(fileContent)

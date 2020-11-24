@@ -2,6 +2,7 @@
 
 const { throws } = require('assert');
 const { resolve } = require('path');
+const gfm = require('remark-gfm');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
@@ -79,6 +80,7 @@ module.exports = (tests) => {
 
         await snapshot(
           unified()
+            .use(gfm)
             .use(stringify, remarkStringifyOptions)
             .stringify({
               type: 'root',
