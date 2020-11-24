@@ -39,6 +39,9 @@ const JSDOC_PARSER_OPTIONS = {
 module.exports = function jsdocToMember(jsdoc) {
   const [jsdocAst] = commentParser(jsdoc, JSDOC_PARSER_OPTIONS);
 
+  // Ignore JSDoc without tags.
+  if (!jsdocAst || !jsdocAst.tags || !jsdocAst.tags.length) return;
+
   // Exclude ignored symbol.
   if (getJsdocAstTag(jsdocAst.tags, 'ignore')) return;
 

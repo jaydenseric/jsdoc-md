@@ -35,4 +35,12 @@ module.exports = (tests) => {
   tests.add('`jsdocToMember` with a missing name tag.', () => {
     strictEqual(jsdocToMember('/** @kind function */'), undefined);
   });
+
+  tests.add('`jsdocToMember` with no tags.', () => {
+    strictEqual(jsdocToMember('/** Description. */'), undefined);
+  });
+
+  tests.add('`jsdocToMember` with empty JSDoc.', () => {
+    strictEqual(jsdocToMember('/** */'), undefined);
+  });
 };

@@ -10,6 +10,7 @@
 
 - Updated dependencies.
 - Use `parseSync` from [`@babel/core`](https://npm.im/@babel/core) instead of `parse`, which may become async in a future major version of Babel.
+- Ensure JSDoc without tags is ignored instead of causing an error.
 - Updated the `remarkStringifyOptions` so that rules in generated markdown match Prettier formatting (`---`).
 - Corrected a `jsdocMd` code example.
 - Fixed incorrect MDAST used for `typeJsdocAstToMdAst` tests.
