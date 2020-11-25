@@ -6,7 +6,7 @@ const snapshot = require('snapshot-assertion');
 const jsdocToMember = require('../../private/jsdocToMember');
 
 module.exports = (tests) => {
-  tests.add('`jsdocToMember` with a method.', async () => {
+  tests.add('`jsdocToMember` with kind and name tags.', async () => {
     await snapshot(
       JSON.stringify(
         jsdocToMember(
@@ -20,9 +20,35 @@ module.exports = (tests) => {
         null,
         2
       ),
-      resolve(__dirname, '../snapshots/jsdocToMember/with-a-method.json')
+      resolve(__dirname, '../snapshots/jsdocToMember/kind-and-name-tags.json')
     );
   });
+
+  tests.add(
+    '`jsdocToMember` with kind and name tags, overridden.',
+    async () => {
+      await snapshot(
+        JSON.stringify(
+          jsdocToMember(
+            `/**
+ * Description.
+ * @kind constant
+ * @kind function
+ * @name B#c
+ * @name A#b
+ * @param {number} a Description.
+ */`
+          ),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocToMember/kind-and-name-tags-overridden.json'
+        )
+      );
+    }
+  );
 
   tests.add('`jsdocToMember` with @ignore.', () => {
     strictEqual(jsdocToMember('/** @ignore */'), undefined);
@@ -36,11 +62,11 @@ module.exports = (tests) => {
     strictEqual(jsdocToMember('/** @kind function */'), undefined);
   });
 
-  tests.add('`jsdocToMember` with no tags.', () => {
+  tests.add('`jsdocToMember` with description, no tags.', () => {
     strictEqual(jsdocToMember('/** Description. */'), undefined);
   });
 
-  tests.add('`jsdocToMember` with empty JSDoc.', () => {
+  tests.add('`jsdocToMember` with no description, no tags.', () => {
     strictEqual(jsdocToMember('/** */'), undefined);
   });
 };

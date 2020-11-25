@@ -41,7 +41,7 @@ class B {
    * Description.
    * @kind typedef
    * @name B~A
-   * @type {Object}
+   * @type {object}
    * @prop {string} a Description, here is a **bold** word.
    * @prop {boolean} b Description.
    */

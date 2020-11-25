@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Improved tests.
+
 ## 8.0.0
 
 ### Major

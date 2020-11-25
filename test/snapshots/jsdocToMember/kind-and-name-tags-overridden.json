@@ -1,0 +1,57 @@
+{
+  "kind": "function",
+  "namepath": "A#b",
+  "memberof": "A",
+  "membership": "#",
+  "name": "b",
+  "tags": [
+    {
+      "tag": "kind",
+      "name": "constant",
+      "optional": false,
+      "type": "",
+      "description": "",
+      "line": 2,
+      "source": "@kind constant"
+    },
+    {
+      "tag": "kind",
+      "name": "function",
+      "optional": false,
+      "type": "",
+      "description": "",
+      "line": 3,
+      "source": "@kind function"
+    },
+    {
+      "tag": "name",
+      "name": "B#c",
+      "optional": false,
+      "type": "",
+      "description": "",
+      "line": 4,
+      "source": "@name B#c"
+    },
+    {
+      "tag": "name",
+      "name": "A#b",
+      "optional": false,
+      "type": "",
+      "description": "",
+      "line": 5,
+      "source": "@name A#b"
+    },
+    {
+      "tag": "param",
+      "type": "number",
+      "name": "a",
+      "optional": false,
+      "description": "Description.",
+      "line": 6,
+      "source": "@param {number} a Description."
+    }
+  ],
+  "line": 0,
+  "description": "Description.",
+  "source": "Description.\n@kind constant\n@kind function\n@name B#c\n@name A#b\n@param {number} a Description."
+}

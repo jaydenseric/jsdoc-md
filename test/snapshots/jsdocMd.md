@@ -75,7 +75,7 @@ Description.
 
 Description.
 
-**Type:** Object
+**Type:** object
 
 | Property | Type    | Description                           |
 | :------- | :------ | :------------------------------------ |
