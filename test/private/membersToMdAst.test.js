@@ -143,7 +143,7 @@ module.exports = (tests) => {
     await snapshot(md, resolve(__dirname, '../snapshots/membersToMdAst.md'));
   });
 
-  tests.add('`membersToMdAst` with a missing event namepath.', async () => {
+  tests.add('`membersToMdAst` with a missing event namepath.', () => {
     const members = [
       `/**
  * @kind class
