@@ -1,19 +1,15 @@
 'use strict';
 
 const { throws } = require('assert');
-const { resolve } = require('path');
-const gfm = require('remark-gfm');
-const stringify = require('remark-stringify');
-const snapshot = require('snapshot-assertion');
-const unified = require('unified');
 const membersToMdAst = require('../../private/membersToMdAst');
-const remarkStringifyOptions = require('../../private/remarkStringifyOptions');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
+const membersToMdAstSnapshot = require('../membersToMdAstSnapshot');
 
 module.exports = (tests) => {
   tests.add('`membersToMdAst` with various members.', async () => {
-    const mdAst = membersToMdAst(
-      jsdocCommentsToMembers([
+    await membersToMdAstSnapshot(
+      'various-members',
+      [
         `/**
  * Description.
  * @kind typedef
@@ -111,21 +107,9 @@ module.exports = (tests) => {
  * @see [\`E\`]{@link E}.
  * @see [\`jsdoc-md\` on npm](https://npm.im/jsdoc-md).
  */`,
-      ]),
+      ],
       3
     );
-
-    await snapshot(
-      JSON.stringify(mdAst, null, 2),
-      resolve(__dirname, '../snapshots/membersToMdAst.json')
-    );
-
-    const md = unified()
-      .use(gfm)
-      .use(stringify, remarkStringifyOptions)
-      .stringify(mdAst);
-
-    await snapshot(md, resolve(__dirname, '../snapshots/membersToMdAst.md'));
   });
 
   tests.add('`membersToMdAst` with a missing event namepath.', () => {
