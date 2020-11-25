@@ -6,24 +6,24 @@ const gfm = require('remark-gfm');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
-const jsdocToMember = require('../../private/jsdocToMember');
 const outlineMembers = require('../../private/outlineMembers');
 const remarkStringifyOptions = require('../../private/remarkStringifyOptions');
 const typeJsdocAstToMdAst = require('../../private/typeJsdocAstToMdAst');
 const typeJsdocStringToJsdocAst = require('../../private/typeJsdocStringToJsdocAst');
+const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
 module.exports = (tests) => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {
-    const members = outlineMembers([
-      jsdocToMember(
+    const outlinedMembers = outlineMembers(
+      jsdocCommentsToMembers([
         `/**
  * Description.
  * @kind typedef
  * @name B
  * @type {boolean}
- */`
-      ),
-    ]);
+ */`,
+      ])
+    );
 
     for (const [name, typeJsdocString] of [
       ['AllLiteral', '*'],
@@ -65,7 +65,7 @@ module.exports = (tests) => {
             // parameters.
             parameter: true,
           }),
-          members
+          outlinedMembers
         );
 
         const snapshotFileName = name.replace(/ /g, '-');

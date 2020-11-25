@@ -6,44 +6,41 @@ const gfm = require('remark-gfm');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
-const jsdocToMember = require('../../private/jsdocToMember');
 const membersToMdAst = require('../../private/membersToMdAst');
 const remarkStringifyOptions = require('../../private/remarkStringifyOptions');
+const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
 module.exports = (tests) => {
   tests.add('`membersToMdAst` with various members.', async () => {
-    const members = [
-      `/**
+    const mdAst = membersToMdAst(
+      jsdocCommentsToMembers([
+        `/**
  * Description.
  * @kind typedef
  * @name A
  * @type {object}
  * @prop {boolean} [a=true] Description.
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind typedef
  * @name B
  * @type {Function}
  * @param {object} a Description.
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind constant
  * @name C
  * @type {string}
  */`,
-
-      `/**
+        `/**
  * Description, see [E]{@link E}.
  * @kind function
  * @name d
  * @param {string} [a=C] Description.
  */`,
-
-      `/**
+        `/**
  * Description.
  *
  * # Description heading
@@ -57,24 +54,21 @@ module.exports = (tests) => {
  * new E('a');
  * \`\`\`
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind event
  * @name E#event:a
  * @type {object}
  * @prop {string} a Description.
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind event
  * @name E#event:b
  * @type {object}
  * @prop {string} a Description.
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind function
  * @name E.a
@@ -84,37 +78,32 @@ module.exports = (tests) => {
  * @fires E#event:a
  * @fires E#b
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind function
  * @name E#b
  * @param {A} a Description.
  * @returns Description.
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind function
  * @name E~c
  * @param {string} a Description.
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind function
  * @name E~d
  * @ignore
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind member
  * @name E.e
  * @type {string}
  */`,
-
-      `/**
+        `/**
  * Description.
  * @kind function
  * @name f
@@ -122,13 +111,9 @@ module.exports = (tests) => {
  * @see [\`E\`]{@link E}.
  * @see [\`jsdoc-md\` on npm](https://npm.im/jsdoc-md).
  */`,
-    ].reduce((members, jsdoc) => {
-      const member = jsdocToMember(jsdoc);
-      if (member) members.push(member);
-      return members;
-    }, []);
-
-    const mdAst = membersToMdAst(members, 3);
+      ]),
+      3
+    );
 
     await snapshot(
       JSON.stringify(mdAst, null, 2),
@@ -144,24 +129,20 @@ module.exports = (tests) => {
   });
 
   tests.add('`membersToMdAst` with a missing event namepath.', () => {
-    const members = [
-      `/**
+    throws(() => {
+      membersToMdAst(
+        jsdocCommentsToMembers([
+          `/**
  * @kind class
  * @name A
  */`,
-      `/**
+          `/**
  * @kind function
  * @name A#a
  * @fires A#event:a
  */`,
-    ].reduce((members, jsdoc) => {
-      const member = jsdocToMember(jsdoc);
-      if (member) members.push(member);
-      return members;
-    }, []);
-
-    throws(() => {
-      membersToMdAst(members);
+        ])
+      );
     }, new Error('Missing JSDoc member for event namepath “A#event:a”.'));
   });
 };

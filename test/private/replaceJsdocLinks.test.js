@@ -1,31 +1,26 @@
 'use strict';
 
 const { strictEqual, throws } = require('assert');
-const jsdocToMember = require('../../private/jsdocToMember');
 const outlineMembers = require('../../private/outlineMembers');
 const replaceJsdocLinks = require('../../private/replaceJsdocLinks');
+const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
 module.exports = (tests) => {
   const outlinedMembers = outlineMembers(
-    [
+    jsdocCommentsToMembers([
       `/**
  * Description.
  * @kind typedef
  * @name A
  * @type {string}
  */`,
-
       `/**
  * Description.
  * @kind typedef
  * @name B
  * @type {string}
  */`,
-    ].reduce((members, jsdoc) => {
-      const member = jsdocToMember(jsdoc);
-      if (member) members.push(member);
-      return members;
-    }, [])
+    ])
   );
 
   tests.add('`replaceJsdocLinks` with a single link in a sentence.', () => {
