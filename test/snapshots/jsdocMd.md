@@ -10,7 +10,7 @@
   - [B instance method e](#b-instance-method-e)
   - [B instance property c](#b-instance-property-c)
   - [B event a](#b-event-a)
-  - [B inner typedef A](#b-inner-typedef-a)
+  - [B inner type A](#b-inner-type-a)
 - [function c](#function-c)
 - [constant A](#constant-a)
 
@@ -40,10 +40,10 @@ _Construct a new instance with options._
 
 Description.
 
-| Parameter | Type                      | Description  |
-| :-------- | :------------------------ | :----------- |
-| `a`       | [B~A](#b-inner-typedef-a) | Description. |
-| `b`       | boolean? = `true`         | Description. |
+| Parameter | Type                   | Description  |
+| :-------- | :--------------------- | :----------- |
+| `a`       | [B~A](#b-inner-type-a) | Description. |
+| `b`       | boolean? = `true`      | Description. |
 
 #### B static property b
 
@@ -71,7 +71,7 @@ Description.
 | :------- | :----- | :----------- |
 | `a`      | string | Description. |
 
-#### B inner typedef A
+#### B inner type A
 
 Description.
 

@@ -1,0 +1,206 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "Table of contents"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#class-a",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "class A"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "spread": false,
+              "children": [
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#a-instance-method-a",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A instance method a"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#a-event-b",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A event b"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#a-event-c",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A event c"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "class A"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "A instance method a"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 3,
+      "children": [
+        {
+          "type": "text",
+          "value": "Fires"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "link",
+              "url": "#a-event-b",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "A event b"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "link",
+              "url": "#a-event-c",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "A event c"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "A event b"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "A event c"
+        }
+      ]
+    }
+  ]
+}

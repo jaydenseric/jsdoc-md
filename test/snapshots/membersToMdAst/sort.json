@@ -1,0 +1,978 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "Table of contents"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#class-classa",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "class ClassA"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "spread": false,
+              "children": [
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-static-method-staticmethoda",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA static method staticMethodA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-static-method-staticmethodb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA static method staticMethodB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-static-property-staticpropertya",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA static property staticPropertyA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-static-property-staticpropertyb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA static property staticPropertyB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-instance-method-instancemethoda",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA instance method instanceMethodA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-instance-method-instancemethodb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA instance method instanceMethodB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-instance-property-instancepropertya",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA instance property instancePropertyA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-instance-property-instancepropertyb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA instance property instancePropertyB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-event-a",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA event a"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-event-b",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA event b"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-event-c",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA event c"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-class-innerclassa",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner class innerClassA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-class-innerclassb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner class innerClassB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-function-innerfunctiona",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner function innerFunctionA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-function-innerfunctionb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner function innerFunctionB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-member-innermembera",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner member innerMemberA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-member-innermemberb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner member innerMemberB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-constant-innerconstanta",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner constant innerConstantA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-constant-innerconstantb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner constant innerConstantB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-type-typea",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner type TypeA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "listItem",
+                  "spread": false,
+                  "children": [
+                    {
+                      "type": "paragraph",
+                      "children": [
+                        {
+                          "type": "link",
+                          "title": null,
+                          "url": "#classa-inner-type-typeb",
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "ClassA inner type TypeB"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#class-classb",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "class ClassB"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#function-functiona",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "function functionA"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#function-functionb",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "function functionB"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#constant-constanta",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "constant constantA"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#constant-constantb",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "constant constantB"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#type-typea",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "type TypeA"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#type-typeb",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "type TypeB"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "class ClassA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA static method staticMethodA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA static method staticMethodB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA static property staticPropertyA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA static property staticPropertyB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA instance method instanceMethodA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA instance method instanceMethodB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA instance property instancePropertyA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA instance property instancePropertyB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA event a"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA event b"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA event c"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner class innerClassA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner class innerClassB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner function innerFunctionA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner function innerFunctionB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner member innerMemberA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner member innerMemberB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner constant innerConstantA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner constant innerConstantB"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner type TypeA"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "children": [
+        {
+          "type": "text",
+          "value": "ClassA inner type TypeB"
+        }
+      ]
+    },
+    {
+      "type": "thematicBreak"
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "class ClassB"
+        }
+      ]
+    },
+    {
+      "type": "thematicBreak"
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "function functionA"
+        }
+      ]
+    },
+    {
+      "type": "thematicBreak"
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "function functionB"
+        }
+      ]
+    },
+    {
+      "type": "thematicBreak"
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "constant constantA"
+        }
+      ]
+    },
+    {
+      "type": "thematicBreak"
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "constant constantB"
+        }
+      ]
+    },
+    {
+      "type": "thematicBreak"
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "type TypeA"
+        }
+      ]
+    },
+    {
+      "type": "thematicBreak"
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "type TypeB"
+        }
+      ]
+    }
+  ]
+}
