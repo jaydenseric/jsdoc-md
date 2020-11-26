@@ -55,7 +55,10 @@ module.exports = function jsdocToMember(jsdoc) {
   // Ignore symbol without a name.
   if (!namepath) return;
 
-  const { memberof, membership, name } = deconstructJsdocNamepath(namepath);
+  let { memberof, membership, name } = deconstructJsdocNamepath(namepath);
+
+  // Automatically add a missing `event:` prefix to an event name.
+  if (kind === 'event' && !name.startsWith('event:')) name = `event:${name}`;
 
   return Object.assign(
     {

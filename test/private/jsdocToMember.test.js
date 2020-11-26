@@ -50,6 +50,28 @@ module.exports = (tests) => {
     }
   );
 
+  tests.add(
+    '`jsdocToMember` with an event without an `event:` name prefix.',
+    async () => {
+      await snapshot(
+        JSON.stringify(
+          jsdocToMember(
+            `/**
+ * @kind event
+ * @name A#b
+ */`
+          ),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocToMember/event-without-name-prefix.json'
+        )
+      );
+    }
+  );
+
   tests.add('`jsdocToMember` with @ignore.', () => {
     strictEqual(jsdocToMember('/** @ignore */'), undefined);
   });

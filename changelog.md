@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Fixed mixed absent and present `event:` prefixes in sibling event names in source JSDoc causing incorrect sorting of events in generated markdown.
 - Improved tests.
 
 ## 8.0.0
