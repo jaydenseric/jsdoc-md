@@ -18,8 +18,6 @@ module.exports = function jsdocCommentsFromCode(code, path) {
       plugins: [
         'classProperties',
         ['decorators', { decoratorsBeforeExport: false }],
-        'dynamicImport',
-        'objectRestSpread',
       ],
     },
   });
