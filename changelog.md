@@ -4,6 +4,10 @@
 
 ### Patch
 
+- Fixed the generated markdown headings for various kinds of nested members:
+  - Inner members of classes of kind `member` are now labeled `member` instead of `property`.
+  - Inner members of non-classes are now labeled `inner`.
+  - Inner typedefs are now labeled `type` instead of `typedef`, consistent with non-inner typedefs.
 - Fixed mixed absent and present `event:` prefixes in sibling event names in source JSDoc causing incorrect sorting of events in generated markdown.
 - Improved tests.
 

@@ -36,21 +36,33 @@ module.exports = function outlineMembers(members) {
     }
 
     // Set the heading property.
-    member.heading = `${member.memberof ? `${member.memberof} ` : ''}${
-      member.kind !== 'event' && member.parent && member.parent.kind === 'class'
-        ? `${MEMBERSHIPS[member.membership]} ${
-            member.kind === 'function' && member.membership !== '~'
-              ? 'method'
-              : member.kind === 'member'
-              ? 'property'
-              : member.kind
-          }`
+    member.heading = '';
+
+    if (member.memberof) {
+      member.heading += `${member.memberof} `;
+
+      if (member.kind !== 'event')
+        member.heading += `${MEMBERSHIPS[member.membership]} `;
+    }
+
+    member.heading +=
+      member.kind === 'function' &&
+      member.parent &&
+      member.parent.kind === 'class' &&
+      member.membership !== '~'
+        ? 'method '
+        : member.kind === 'member' &&
+          member.membership &&
+          member.membership !== '~'
+        ? 'property '
         : member.kind === 'typedef'
-        ? 'type'
-        : member.kind
-    } ${
-      member.kind === 'event' ? member.name.replace(/^event:/, '') : member.name
-    }`;
+        ? 'type '
+        : `${member.kind} `;
+
+    member.heading +=
+      member.kind === 'event'
+        ? member.name.replace(/^event:/, '')
+        : member.name;
 
     // Set the slug property.
     member.slug = slugger.slug(member.heading);
