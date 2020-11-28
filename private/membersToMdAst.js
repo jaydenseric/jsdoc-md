@@ -13,7 +13,11 @@ const parseJsdocExample = require('./parseJsdocExample');
 const typeJsdocAstToMdAst = require('./typeJsdocAstToMdAst');
 const typeJsdocStringToJsdocAst = require('./typeJsdocStringToJsdocAst');
 
-const MEMBERSHIP_ORDER = ['.', '#', '~'];
+const MEMBERSHIP_ORDER = [
+  '.', // Static.
+  '#', // Instance.
+  '~', // Inner.
+];
 const KIND_ORDER = [
   'external',
   'file',
