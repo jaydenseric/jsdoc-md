@@ -3,7 +3,7 @@
 /**
  * Replaces inline JSDoc member links with markdown links.
  * @param {string} md Markdown.
- * @param {object[]} [members] Outline members.
+ * @param {Array<object>} [members] Outline members.
  * @returns {string} Markdown.
  */
 module.exports = function replaceJsdocLinks(md, members) {

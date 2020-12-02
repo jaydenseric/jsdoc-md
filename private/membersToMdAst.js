@@ -36,7 +36,7 @@ const KIND_ORDER = [
  * Converts members to a markdown AST.
  * @kind function
  * @name membersToMdAst
- * @param {object[]} members Members.
+ * @param {Array<object>} members Members.
  * @param {number} topDepth Top heading level.
  * @returns {object} Markdown AST.
  * @ignore
@@ -58,7 +58,7 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
    * Recursively constructs the markdown AST.
    * @kind function
    * @name membersToMdAst~recurse
-   * @param {object[]} [members] Outline members.
+   * @param {Array<object>} [members] Outline members.
    * @param {number} depth Top heading level for the members.
    * @ignore
    */

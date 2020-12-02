@@ -12,8 +12,8 @@ const MEMBERSHIPS = {
  * Enriches a member list with outline metadata and relation references.
  * @kind function
  * @name outlineMembers
- * @param {object[]} members Members.
- * @returns {object[]} Outlined members.
+ * @param {Array<object>} members Members.
+ * @returns {Array<object>} Outlined members.
  * @ignore
  */
 module.exports = function outlineMembers(members) {

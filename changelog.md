@@ -13,6 +13,7 @@
 - Use the `SyntaxError` class instead of `Error` for when `deconstructJsdocNamepath` can’t deconstruct an invalid namepath.
 - Renamed the private `jsdocCommentsFromCode` function to `codeToJsdocComments`.
 - Renamed the private `jsdocToMember` function to `jsdocCommentToMember`.
+- Use `Array<>` JSDoc type syntax instead of `[]`.
 - Improved tests.
 
 ## 8.0.0

@@ -5,8 +5,8 @@
  * @kind function
  * @name typeJsdocAstToMdAst
  * @param {object} typeJsdocAst JSDoc type Doctrine AST node.
- * @param {object[]} [members] Outline members.
- * @returns {object[]} Markdown AST children list.
+ * @param {Array<object>} [members] Outline members.
+ * @returns {Array<object>} Markdown AST children list.
  * @ignore
  */
 module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {

@@ -8,7 +8,7 @@ const { parseSync } = require('@babel/core');
  * @name codeToJsdocComments
  * @param {string} code Code to search.
  * @param {string} [path] Code file path.
- * @returns {string[]} JSDoc comment values.
+ * @returns {Array<string>} JSDoc comment values.
  * @ignore
  */
 module.exports = function codeToJsdocComments(code, path) {

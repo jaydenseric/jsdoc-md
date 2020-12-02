@@ -4,7 +4,7 @@
  * Gets a JSDoc AST tag.
  * @kind function
  * @name getJsdocAstTag
- * @param {object[]} tags JSDoc AST tags.
+ * @param {Array<object>} tags JSDoc AST tags.
  * @param {string} tagType Type of tag to retrieve.
  * @returns {object|void} The tag, or void.
  * @ignore
