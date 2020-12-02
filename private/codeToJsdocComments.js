@@ -3,12 +3,12 @@
 const { parseSync } = require('@babel/core');
 
 /**
- * Gets JSDoc comments from a code string.
+ * Gets JSDoc comments from source code, using Babel.
  * @kind function
  * @name codeToJsdocComments
- * @param {string} code Code to search.
- * @param {string} [path] Code file path.
- * @returns {Array<string>} JSDoc comment values.
+ * @param {string} code Code containing the JSDoc comments.
+ * @param {string} [path] File path for the code containing the JSDoc comments.
+ * @returns {Array<string>} JSDoc comment values, from the Babel parse result.
  * @ignore
  */
 module.exports = function codeToJsdocComments(code, path) {

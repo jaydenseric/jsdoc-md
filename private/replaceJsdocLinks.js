@@ -2,9 +2,12 @@
 
 /**
  * Replaces inline JSDoc member links with markdown links.
+ * @kind function
+ * @name replaceJsdocLinks
  * @param {string} md Markdown.
- * @param {Array<object>} [members] Outline members.
+ * @param {Array<object>} [members] Outlined JSDoc members.
  * @returns {string} Markdown.
+ * @ignore
  */
 module.exports = function replaceJsdocLinks(md, members) {
   const regex = /{@link (.+?)}/g;

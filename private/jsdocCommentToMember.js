@@ -29,7 +29,7 @@ const JSDOC_PARSER_OPTIONS = {
 };
 
 /**
- * Converts a JSDoc comment string to an outline member object.
+ * Analyzes a JSDoc comment to produce JSDoc member details.
  * @kind function
  * @name jsdocCommentToMember
  * @param {string} jsdoc JSDoc comment string.

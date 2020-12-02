@@ -9,11 +9,11 @@ const MEMBERSHIPS = {
 };
 
 /**
- * Enriches a member list with outline metadata and relation references.
+ * Enhances a JSDoc member list with outline metadata and relation references.
  * @kind function
  * @name outlineMembers
- * @param {Array<object>} members Members.
- * @returns {Array<object>} Outlined members.
+ * @param {Array<object>} members JSDoc members.
+ * @returns {Array<object>} Outlined JSDoc members.
  * @ignore
  */
 module.exports = function outlineMembers(members) {

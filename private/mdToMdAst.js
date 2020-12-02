@@ -11,7 +11,7 @@ const unescapeJsdoc = require('./unescapeJsdoc');
  * @kind function
  * @name mdToMdAst
  * @param {string} md Markdown content.
- * @param {Array<object>} [members] Outline members.
+ * @param {Array<object>} [members] Outlined JSDoc members.
  * @returns {object} Markdown AST.
  * @ignore
  */
