@@ -10,6 +10,7 @@
   - Inner members of non-classes are now labeled `inner`.
   - Inner typedefs are now labeled `type` instead of `typedef`, consistent with non-inner typedefs.
 - Fixed mixed absent and present `event:` prefixes in sibling event names in source JSDoc causing incorrect sorting of events in generated markdown.
+- Use the `SyntaxError` class instead of `Error` for when `deconstructJsdocNamepath` can’t deconstruct an invalid namepath.
 - Improved tests.
 
 ## 8.0.0

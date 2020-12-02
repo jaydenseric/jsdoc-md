@@ -12,6 +12,6 @@
 module.exports = function deconstructJsdocNamepath(namepath) {
   const [match, memberof, membership, name] =
     namepath.match(/^(?:([^.#~]+(?:[.#~][^.#~]+)*)([.#~]))?([^.#~]+)$/) || [];
-  if (!match) throw new Error(`Invalid JSDoc namepath “${namepath}”.`);
+  if (!match) throw new SyntaxError(`Invalid JSDoc namepath “${namepath}”.`);
   return { memberof, membership, name };
 };

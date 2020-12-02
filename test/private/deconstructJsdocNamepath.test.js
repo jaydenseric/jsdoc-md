@@ -35,6 +35,6 @@ module.exports = (tests) => {
     for (const namepath of ['', 'a..b', 'a..b.c', 'a.'])
       throws(() => {
         deconstructJsdocNamepath(namepath);
-      }, new Error(`Invalid JSDoc namepath “${namepath}”.`));
+      }, new SyntaxError(`Invalid JSDoc namepath “${namepath}”.`));
   });
 };
