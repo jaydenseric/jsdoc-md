@@ -2,8 +2,8 @@
 
 const { readFileSync } = require('fs');
 const globby = require('globby');
+const jsdocCommentToMember = require('../private/jsdocCommentToMember');
 const jsdocCommentsFromCode = require('../private/jsdocCommentsFromCode');
-const jsdocToMember = require('../private/jsdocToMember');
 const mdFileReplaceSection = require('../private/mdFileReplaceSection');
 const membersToMdAst = require('../private/membersToMdAst');
 
@@ -58,7 +58,7 @@ module.exports = function jsdocMd({
       readFileSync(path, { encoding: 'utf8' }),
       path
     )) {
-      const member = jsdocToMember(jsdoc);
+      const member = jsdocCommentToMember(jsdoc);
       if (member) members.push(member);
     }
 

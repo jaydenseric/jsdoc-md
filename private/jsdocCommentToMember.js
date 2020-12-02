@@ -31,12 +31,12 @@ const JSDOC_PARSER_OPTIONS = {
 /**
  * Converts a JSDoc comment string to an outline member object.
  * @kind function
- * @name jsdocToMember
+ * @name jsdocCommentToMember
  * @param {string} jsdoc JSDoc comment string.
  * @returns {object|void} Outline member, if it is one.
  * @ignore
  */
-module.exports = function jsdocToMember(jsdoc) {
+module.exports = function jsdocCommentToMember(jsdoc) {
   const [jsdocAst] = commentParser(jsdoc, JSDOC_PARSER_OPTIONS);
 
   // Ignore JSDoc without tags.

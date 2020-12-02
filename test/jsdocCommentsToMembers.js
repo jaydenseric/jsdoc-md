@@ -1,6 +1,6 @@
 'use strict';
 
-const jsdocToMember = require('../private/jsdocToMember');
+const jsdocCommentToMember = require('../private/jsdocCommentToMember');
 
 /**
  * Converts JSDoc comments to members.
@@ -14,7 +14,7 @@ module.exports = function jsdocCommentsToMembers(jsdocComments) {
   const members = [];
 
   for (const jsdoc of jsdocComments) {
-    const member = jsdocToMember(jsdoc);
+    const member = jsdocCommentToMember(jsdoc);
     if (member) members.push(member);
   }
 

@@ -9,7 +9,7 @@ require('./private/deconstructJsdocNamepath.test')(tests);
 require('./private/getJsdocAstTag.test')(tests);
 require('./private/getJsdocAstTags.test')(tests);
 require('./private/jsdocCommentsFromCode.test')(tests);
-require('./private/jsdocToMember.test')(tests);
+require('./private/jsdocCommentToMember.test')(tests);
 require('./private/mdFileReplaceSection.test')(tests);
 require('./private/mdToMdAst.test')(tests);
 require('./private/membersToMdAst.test')(tests);
