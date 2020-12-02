@@ -1,12 +1,12 @@
 'use strict';
 
 const { deepStrictEqual } = require('assert');
-const jsdocCommentsFromCode = require('../../private/jsdocCommentsFromCode');
+const codeToJsdocComments = require('../../private/codeToJsdocComments');
 
 module.exports = (tests) => {
-  tests.add('`jsdocCommentsFromCode`.', () => {
+  tests.add('`codeToJsdocComments`.', () => {
     deepStrictEqual(
-      jsdocCommentsFromCode(
+      codeToJsdocComments(
         `/**
  * a
  */

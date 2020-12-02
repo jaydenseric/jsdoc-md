@@ -2,8 +2,8 @@
 
 const { readFileSync } = require('fs');
 const globby = require('globby');
+const codeToJsdocComments = require('../private/codeToJsdocComments');
 const jsdocCommentToMember = require('../private/jsdocCommentToMember');
-const jsdocCommentsFromCode = require('../private/jsdocCommentsFromCode');
 const mdFileReplaceSection = require('../private/mdFileReplaceSection');
 const membersToMdAst = require('../private/membersToMdAst');
 
@@ -54,7 +54,7 @@ module.exports = function jsdocMd({
   const members = [];
 
   for (const path of globby.sync(sourceGlob, { cwd, gitignore: true }))
-    for (const jsdoc of jsdocCommentsFromCode(
+    for (const jsdoc of codeToJsdocComments(
       readFileSync(path, { encoding: 'utf8' }),
       path
     )) {
