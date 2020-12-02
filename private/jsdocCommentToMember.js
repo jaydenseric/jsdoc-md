@@ -17,7 +17,7 @@ const JSDOC_PARSER_OPTIONS = {
         : commentParser.PARSERS.parse_type(unparsed, data),
     (unparsed, data) =>
       // JSDoc tags without a name.
-      ['example', 'ignore', 'returns', 'see'].includes(data.tag)
+      ['example', 'ignore', 'returns', 'see', 'type'].includes(data.tag)
         ? null
         : commentParser.PARSERS.parse_name(unparsed, data),
     (unparsed, data) =>
