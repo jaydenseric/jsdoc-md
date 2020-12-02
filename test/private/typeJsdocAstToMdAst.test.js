@@ -6,6 +6,7 @@ const gfm = require('remark-gfm');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
+const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const outlineMembers = require('../../private/outlineMembers');
 const remarkStringifyOptions = require('../../private/remarkStringifyOptions');
 const typeJsdocAstToMdAst = require('../../private/typeJsdocAstToMdAst');
@@ -14,16 +15,14 @@ const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
 module.exports = (tests) => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {
-    const outlinedMembers = outlineMembers(
-      jsdocCommentsToMembers([
-        `/**
- * Description.
+    const jsdocComments = codeToJsdocComments(
+      `/**
  * @kind typedef
  * @name B
- * @type {boolean}
- */`,
-      ])
+ */`
     );
+    const members = jsdocCommentsToMembers(jsdocComments);
+    const outlinedMembers = outlineMembers(members);
 
     for (const [name, typeJsdocString] of [
       ['AllLiteral', '*'],

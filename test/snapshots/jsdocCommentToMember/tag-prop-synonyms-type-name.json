@@ -1,0 +1,17 @@
+{
+  "namepath": "A",
+  "name": "A",
+  "kind": "member",
+  "properties": [
+    {
+      "name": "a",
+      "type": "boolean",
+      "optional": false
+    },
+    {
+      "name": "b",
+      "type": "boolean",
+      "optional": false
+    }
+  ]
+}

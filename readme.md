@@ -133,49 +133,19 @@ const ONE = 1;
 
 A JSDoc tag subset is supported:
 
+- [`@desc`/`@description`](https://jsdoc.app/tags-description)
 - [`@kind`](https://jsdoc.app/tags-kind)
 - [`@name`](https://jsdoc.app/tags-name)
+- [`@typedef`](https://jsdoc.app/tags-typedef)
+- [`@callback`](https://jsdoc.app/tags-callback)
 - [`@type`](https://jsdoc.app/tags-type)
-- [`@prop`](https://jsdoc.app/tags-property)
-- [`@param`](https://jsdoc.app/tags-param)
-- [`@returns`](https://jsdoc.app/tags-returns)
-- [`@fires`](https://jsdoc.app/tags-fires)
+- [`@prop`/`@property`](https://jsdoc.app/tags-property)
+- [`@arg`/`@argument`/`@param`](https://jsdoc.app/tags-param)
+- [`@return`/`@returns`](https://jsdoc.app/tags-returns)
+- [`@emits`/`@fires`](https://jsdoc.app/tags-fires)
 - [`@see`](https://jsdoc.app/tags-see)
 - [`@example`](https://jsdoc.app/tags-example)
 - [`@ignore`](https://jsdoc.app/tags-ignore)
-
-With the full set of JSDoc tags there is a confusing number of ways to document the same thing. Examples `TWO` and `THREE` use unsupported syntax:
-
-```js
-/**
- * My namespace.
- * @kind namespace
- * @name MyNamespace
- */
-const MyNamespace = {
-  /**
-   * The number 1.
-   * @kind constant
-   * @name MyNamespace.ONE
-   * @type {number}
-   */
-  ONE: 1,
-
-  /**
-   * The number 2 (unsupported).
-   * @constant {number} TWO
-   * @memberof MyNamespace
-   */
-  TWO: 2,
-
-  /**
-   * The number 3 (unsupported).
-   * @const MyNamespace.THREE
-   * @type {number}
-   */
-  THREE: 3,
-};
-```
 
 ### Namepath prefixes
 

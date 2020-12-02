@@ -2,6 +2,19 @@
 
 ## Next
 
+### Minor
+
+- Added support for more JSDoc tags (some are aliases for already supported tags):
+  - `@arg`
+  - `@argument`
+  - `@callback`
+  - `@desc`
+  - `@description`
+  - `@property`
+  - `@return`
+  - `@typedef`
+- Display the relevant file path and location in the source code for JSDoc namepath syntax error messages, using a new [`@babel/code-frame`](https://npm.im/@babel/code-frame) dependency.
+
 ### Patch
 
 - Removed `dynamicImport` and `objectRestSpread` plugins from the Babel parser config, as they are enabled by default nowadays.
@@ -14,7 +27,9 @@
 - Renamed the private `jsdocCommentsFromCode` function to `codeToJsdocComments`.
 - Renamed the private `jsdocToMember` function to `jsdocCommentToMember`.
 - Configured the JSDoc parser to not accept a name part for a `type` tag.
+- Rewrote a lot of the implementation for better performance.
 - Use `Array<>` JSDoc type syntax instead of `[]`.
+- Expanded the internal JSDoc.
 - Improved tests.
 
 ## 8.0.0

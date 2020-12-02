@@ -1,12 +1,12 @@
 'use strict';
 
 /**
- * A parsed JSDoc `example` tag.
+ * A JSDoc member’s example.
  * @kind typedef
- * @name ParsedJsdocExample
+ * @name jsdocMemberExample
  * @type {object}
- * @prop {string} [caption] The caption.
- * @prop {string} [content] The raw content.
+ * @prop {string} [caption] Example caption markdown.
+ * @prop {string} [content] Example content markdown.
  * @ignore
  */
 
@@ -15,7 +15,7 @@
  * @kind function
  * @name parseJsdocExample
  * @param {string} tagContent JSDoc `example` tag raw content.
- * @returns {ParsedJsdocExample} The parsed content.
+ * @returns {jsdocMemberExample} The parsed content.
  * @ignore
  */
 module.exports = function parseJsdocExample(tagContent) {

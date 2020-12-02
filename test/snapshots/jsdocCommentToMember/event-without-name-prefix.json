@@ -1,30 +1,7 @@
 {
-  "kind": "event",
   "namepath": "A#b",
   "memberof": "A",
   "membership": "#",
   "name": "event:b",
-  "tags": [
-    {
-      "tag": "kind",
-      "name": "event",
-      "optional": false,
-      "type": "",
-      "description": "",
-      "line": 1,
-      "source": "@kind event"
-    },
-    {
-      "tag": "name",
-      "name": "A#b",
-      "optional": false,
-      "type": "",
-      "description": "",
-      "line": 2,
-      "source": "@name A#b"
-    }
-  ],
-  "line": 0,
-  "description": "",
-  "source": "@kind event\n@name A#b"
+  "kind": "event"
 }

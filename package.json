@@ -45,6 +45,7 @@
     "node": "^10.17.0 || ^12.0.0 || >= 13.7.0"
   },
   "dependencies": {
+    "@babel/code-frame": "^7.10.4",
     "@babel/core": "^7.12.8",
     "arg": "^5.0.0",
     "comment-parser": "^0.7.6",

@@ -1,0 +1,9 @@
+{
+  "namepath": "A",
+  "name": "A",
+  "kind": "class",
+  "fires": [
+    "A#event:a",
+    "A#event:b"
+  ]
+}

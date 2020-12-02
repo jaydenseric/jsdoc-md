@@ -7,300 +7,112 @@
   "6",
   "7"
 ],{
-  "kind": "8",
-  "namepath": "9",
-  "name": "9",
-  "tags": "10",
-  "line": 0,
-  "description": "11",
-  "source": "12",
-  "heading": "13",
-  "slug": "14",
-  "children": "15"
+  "namepath": "8",
+  "name": "8",
+  "kind": "9",
+  "description": "10",
+  "parameters": "11",
+  "heading": "12",
+  "slug": "13",
+  "children": "14"
 },{
-  "kind": "16",
-  "namepath": "17",
-  "memberof": "9",
-  "membership": "18",
-  "name": "19",
-  "tags": "20",
-  "line": 0,
-  "description": "11",
-  "source": "21",
+  "namepath": "15",
+  "memberof": "8",
+  "membership": "16",
+  "name": "17",
+  "kind": "18",
+  "type": "19",
+  "description": "10",
+  "properties": "20",
   "parent": "1",
-  "heading": "22",
-  "slug": "23"
+  "heading": "21",
+  "slug": "22"
 },{
-  "kind": "24",
-  "namepath": "25",
-  "memberof": "9",
-  "membership": "26",
-  "name": "27",
-  "tags": "28",
-  "line": 0,
-  "description": "11",
-  "source": "29",
+  "namepath": "23",
+  "memberof": "8",
+  "membership": "24",
+  "name": "25",
+  "kind": "26",
+  "description": "10",
+  "parameters": "27",
   "parent": "1",
-  "heading": "30",
-  "slug": "31"
+  "heading": "28",
+  "slug": "29"
 },{
-  "kind": "24",
-  "namepath": "32",
-  "memberof": "9",
-  "membership": "18",
-  "name": "33",
-  "tags": "34",
-  "line": 0,
-  "description": "11",
-  "source": "35",
+  "namepath": "30",
+  "memberof": "8",
+  "membership": "16",
+  "name": "31",
+  "kind": "26",
+  "description": "10",
+  "fires": "32",
   "parent": "1",
-  "heading": "36",
-  "slug": "37"
+  "heading": "33",
+  "slug": "34"
 },{
-  "kind": "24",
-  "namepath": "38",
-  "memberof": "9",
-  "membership": "39",
-  "name": "40",
-  "tags": "41",
-  "line": 0,
-  "description": "11",
-  "source": "42",
+  "namepath": "35",
+  "memberof": "8",
+  "membership": "36",
+  "name": "37",
+  "kind": "26",
+  "description": "10",
+  "parent": "1",
+  "heading": "38",
+  "slug": "39"
+},{
+  "namepath": "40",
+  "memberof": "8",
+  "membership": "16",
+  "name": "41",
+  "kind": "42",
+  "type": "19",
+  "description": "10",
   "parent": "1",
   "heading": "43",
   "slug": "44"
 },{
-  "kind": "45",
-  "namepath": "46",
-  "memberof": "9",
-  "membership": "18",
-  "name": "47",
-  "tags": "48",
-  "line": 0,
-  "description": "11",
-  "source": "49",
-  "parent": "1",
-  "heading": "50",
-  "slug": "51"
-},{
-  "kind": "52",
-  "namepath": "53",
-  "name": "53",
-  "tags": "54",
-  "line": 0,
-  "description": "11",
-  "source": "55",
-  "heading": "56",
-  "slug": "57"
-},"class","A",[
-  "58",
-  "59",
-  "60"
-],"Description.","Description.\n@kind class\n@name A\n@param {string} a Description.","class A","class-a",[
+  "namepath": "45",
+  "name": "45",
+  "kind": "46",
+  "type": "19",
+  "description": "10",
+  "properties": "47",
+  "heading": "48",
+  "slug": "49"
+},"A","class","Description.",[
+  "50"
+],"class A","class-a",[
   "2",
   "3",
   "4",
   "5",
   "6"
-],"event","A#event:a","#","event:a",[
-  "61",
-  "62",
-  "63",
-  "64"
-],"Description.\n@kind event\n@name A#event:a\n@type {object}\n@prop {string} a Description.","A event a","a-event-a","function","A.a",".","a",[
-  "65",
-  "66",
-  "67"
-],"Description.\n@kind function\n@name A.a\n@param {B} a Description.","A static method a","a-static-method-a","A#b","b",[
-  "68",
-  "69",
-  "70"
-],"Description.\n@kind function\n@name A#b\n@fires A#event:a","A instance method b","a-instance-method-b","A~c","~","c",[
-  "71",
-  "72"
-],"Description.\n@kind function\n@name A~c","A inner function c","a-inner-function-c","member","A#d","d",[
-  "73",
-  "74",
-  "75"
-],"Description.\n@kind member\n@name A#d\n@type {object}","A instance property d","a-instance-property-d","typedef","B",[
-  "76",
-  "77",
-  "78",
-  "79"
-],"Description.\n@kind typedef\n@name B\n@type {object}\n@prop {string} a Description.","type B","type-b",{
-  "tag": "80",
-  "name": "8",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 2,
-  "source": "82"
-},{
-  "tag": "83",
-  "name": "9",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 3,
-  "source": "84"
-},{
-  "tag": "85",
-  "type": "86",
-  "name": "27",
-  "optional": false,
-  "description": "11",
-  "line": 4,
-  "source": "87"
-},{
-  "tag": "80",
-  "name": "16",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 2,
-  "source": "88"
-},{
-  "tag": "83",
-  "name": "17",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 3,
-  "source": "89"
-},{
-  "tag": "90",
-  "type": "91",
-  "name": "81",
-  "optional": false,
-  "description": "81",
-  "line": 4,
-  "source": "92"
-},{
-  "tag": "93",
-  "type": "86",
-  "name": "27",
-  "optional": false,
-  "description": "11",
-  "line": 5,
-  "source": "94"
-},{
-  "tag": "80",
-  "name": "24",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 2,
-  "source": "95"
-},{
-  "tag": "83",
+],"A#event:a","#","event:a","event","object",[
+  "51"
+],"A event a","a-event-a","A.a",".","a","function",[
+  "52"
+],"A static method a","a-static-method-a","A#b","b",[
+  "15"
+],"A instance method b","a-instance-method-b","A~c","~","c","A inner function c","a-inner-function-c","A#d","d","member","A instance property d","a-instance-property-d","B","typedef",[
+  "53"
+],"type B","type-b",{
   "name": "25",
+  "type": "54",
   "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 3,
-  "source": "96"
+  "description": "10"
 },{
-  "tag": "85",
-  "type": "53",
-  "name": "27",
+  "name": "25",
+  "type": "54",
   "optional": false,
-  "description": "11",
-  "line": 4,
-  "source": "97"
+  "description": "10"
 },{
-  "tag": "80",
-  "name": "24",
+  "name": "25",
+  "type": "45",
   "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 2,
-  "source": "95"
+  "description": "10"
 },{
-  "tag": "83",
-  "name": "32",
+  "name": "25",
+  "type": "54",
   "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 3,
-  "source": "98"
-},{
-  "tag": "99",
-  "name": "17",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 4,
-  "source": "100"
-},{
-  "tag": "80",
-  "name": "24",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 2,
-  "source": "95"
-},{
-  "tag": "83",
-  "name": "38",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 3,
-  "source": "101"
-},{
-  "tag": "80",
-  "name": "45",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 2,
-  "source": "102"
-},{
-  "tag": "83",
-  "name": "46",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 3,
-  "source": "103"
-},{
-  "tag": "90",
-  "type": "91",
-  "name": "81",
-  "optional": false,
-  "description": "81",
-  "line": 4,
-  "source": "92"
-},{
-  "tag": "80",
-  "name": "52",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 2,
-  "source": "104"
-},{
-  "tag": "83",
-  "name": "53",
-  "optional": false,
-  "type": "81",
-  "description": "81",
-  "line": 3,
-  "source": "105"
-},{
-  "tag": "90",
-  "type": "91",
-  "name": "81",
-  "optional": false,
-  "description": "81",
-  "line": 4,
-  "source": "92"
-},{
-  "tag": "93",
-  "type": "86",
-  "name": "27",
-  "optional": false,
-  "description": "11",
-  "line": 5,
-  "source": "94"
-},"kind","","@kind class","name","@name A","param","string","@param {string} a Description.","@kind event","@name A#event:a","type","object","@type {object}","prop","@prop {string} a Description.","@kind function","@name A.a","@param {B} a Description.","@name A#b","fires","@fires A#event:a","@name A~c","@kind member","@name A#d","@kind typedef","@name B"]
+  "description": "10"
+},"string"]

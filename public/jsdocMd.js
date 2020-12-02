@@ -53,14 +53,14 @@ module.exports = function jsdocMd({
 } = {}) {
   const members = [];
 
-  for (const path of globby.sync(sourceGlob, { cwd, gitignore: true }))
-    for (const jsdoc of codeToJsdocComments(
-      readFileSync(path, { encoding: 'utf8' }),
-      path
-    )) {
-      const member = jsdocCommentToMember(jsdoc);
+  for (const filePath of globby.sync(sourceGlob, { cwd, gitignore: true })) {
+    const code = readFileSync(filePath, { encoding: 'utf8' });
+
+    for (const jsdocComment of codeToJsdocComments(code, filePath)) {
+      const member = jsdocCommentToMember(jsdocComment, code, filePath);
       if (member) members.push(member);
     }
+  }
 
   mdFileReplaceSection({
     markdownPath,

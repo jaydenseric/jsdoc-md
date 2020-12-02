@@ -1,0 +1,8 @@
+{
+  "namepath": "A",
+  "name": "A",
+  "kind": "function",
+  "returns": {
+    "type": "boolean"
+  }
+}

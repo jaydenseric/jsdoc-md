@@ -5,6 +5,7 @@ const gfm = require('remark-gfm');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
+const codeToJsdocComments = require('../private/codeToJsdocComments');
 const membersToMdAst = require('../private/membersToMdAst');
 const remarkStringifyOptions = require('../private/remarkStringifyOptions');
 const jsdocCommentsToMembers = require('./jsdocCommentsToMembers');
@@ -16,16 +17,18 @@ const jsdocCommentsToMembers = require('./jsdocCommentsToMembers');
  * @kind function
  * @name membersToMdAstSnapshot
  * @param {string} snapshotName Name for the snapshot files (excluding file extension).
- * @param {Array<string>} jsdocComments JSDoc comments.
+ * @param {string} code Code containing JSDoc comments.
  * @param {number} [topDepth] Top heading level.
  * @ignore
  */
 module.exports = async function membersToMdAstSnapshot(
   snapshotName,
-  jsdocComments,
+  code,
   topDepth
 ) {
-  const mdAst = membersToMdAst(jsdocCommentsToMembers(jsdocComments), topDepth);
+  const jsdocComments = codeToJsdocComments(code);
+  const members = jsdocCommentsToMembers(jsdocComments);
+  const mdAst = membersToMdAst(members, topDepth);
 
   await snapshot(
     JSON.stringify(mdAst, null, 2),

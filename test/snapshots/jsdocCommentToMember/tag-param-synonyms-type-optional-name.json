@@ -1,0 +1,22 @@
+{
+  "namepath": "A",
+  "name": "A",
+  "kind": "function",
+  "parameters": [
+    {
+      "name": "a",
+      "type": "boolean",
+      "optional": true
+    },
+    {
+      "name": "b",
+      "type": "boolean",
+      "optional": true
+    },
+    {
+      "name": "c",
+      "type": "boolean",
+      "optional": true
+    }
+  ]
+}

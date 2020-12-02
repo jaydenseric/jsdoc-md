@@ -1,0 +1,9 @@
+{
+  "namepath": "A",
+  "name": "A",
+  "kind": "member",
+  "see": [
+    "See description A.",
+    "See description B."
+  ]
+}

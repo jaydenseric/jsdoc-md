@@ -12,7 +12,7 @@ const MEMBERSHIPS = {
  * Enhances a JSDoc member list with outline metadata and relation references.
  * @kind function
  * @name outlineMembers
- * @param {Array<object>} members JSDoc members.
+ * @param {Array<JsdocMember>} members JSDoc members.
  * @returns {Array<object>} Outlined JSDoc members.
  * @ignore
  */

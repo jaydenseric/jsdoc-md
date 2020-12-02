@@ -7,14 +7,14 @@ const { parseSync } = require('@babel/core');
  * @kind function
  * @name codeToJsdocComments
  * @param {string} code Code containing the JSDoc comments.
- * @param {string} [path] File path for the code containing the JSDoc comments.
- * @returns {Array<string>} JSDoc comment values, from the Babel parse result.
+ * @param {string} [filePath] File path for the code containing the JSDoc comments.
+ * @returns {Array<object>} JSDoc comments, from the Babel parse result.
  * @ignore
  */
-module.exports = function codeToJsdocComments(code, path) {
+module.exports = function codeToJsdocComments(code, filePath) {
   const { comments } = parseSync(code, {
     // Provide the code file path for more useful Babel parse errors.
-    filename: path,
+    filename: filePath,
 
     // Allow parsing code containing modern syntax even if a project doesn’t
     // have Babel config to handle it.
@@ -26,18 +26,13 @@ module.exports = function codeToJsdocComments(code, path) {
     },
   });
 
-  return comments.reduce((comments, { type, value }) => {
-    if (
+  return comments.filter(
+    ({ type, value }) =>
       // A comment block starts with `/*`, whereas a comment line starts with
       // `//`. JSDoc can only be a comment block.
       type === 'CommentBlock' &&
       // The value excludes the start `/*` and end `*/`. A JSDoc comment block
       // starts with `/**` followed by whitespace.
       value.match(/^\*\s/)
-    )
-      // Restore the start `/*` and end `*/` that Babel strips off, so that the
-      // JSDoc comment parser can accept it.
-      comments.push(`/*${value}*/`);
-    return comments;
-  }, []);
+  );
 };

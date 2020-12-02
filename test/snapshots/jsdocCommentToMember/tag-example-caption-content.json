@@ -1,0 +1,15 @@
+{
+  "namepath": "A",
+  "name": "A",
+  "kind": "member",
+  "examples": [
+    {
+      "caption": "Example A caption.",
+      "content": "Example A content."
+    },
+    {
+      "caption": "Example B caption.",
+      "content": "Example B content."
+    }
+  ]
+}

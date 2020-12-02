@@ -1,0 +1,22 @@
+{
+  "namepath": "A",
+  "name": "A",
+  "kind": "function",
+  "parameters": [
+    {
+      "name": "a",
+      "optional": false,
+      "description": "Parameter description A."
+    },
+    {
+      "name": "b",
+      "optional": false,
+      "description": "Parameter description A."
+    },
+    {
+      "name": "c",
+      "optional": false,
+      "description": "Parameter description A."
+    }
+  ]
+}
