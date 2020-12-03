@@ -7,14 +7,20 @@ const { parseSync } = require('@babel/core');
  * @kind function
  * @name codeToJsdocComments
  * @param {string} code Code containing the JSDoc comments.
- * @param {string} [filePath] File path for the code containing the JSDoc comments.
+ * @param {string} codeFilePath File path for the code containing the JSDoc comments.
  * @returns {Array<object>} JSDoc comments, from the Babel parse result.
  * @ignore
  */
-module.exports = function codeToJsdocComments(code, filePath) {
+module.exports = function codeToJsdocComments(code, codeFilePath) {
+  if (typeof code !== 'string')
+    throw new TypeError('First argument “code” must be a string.');
+
+  if (typeof codeFilePath !== 'string')
+    throw new TypeError('Second argument “codeFilePath” must be a string.');
+
   const { comments } = parseSync(code, {
     // Provide the code file path for more useful Babel parse errors.
-    filename: filePath,
+    filename: codeFilePath,
 
     // Allow parsing code containing modern syntax even if a project doesn’t
     // have Babel config to handle it.

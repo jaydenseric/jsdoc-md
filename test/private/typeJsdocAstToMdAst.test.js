@@ -19,7 +19,8 @@ module.exports = (tests) => {
       `/**
  * @kind typedef
  * @name B
- */`
+ */`,
+      '/a.js'
     );
     const members = jsdocCommentsToMembers(jsdocComments);
     const outlinedMembers = outlineMembers(members);

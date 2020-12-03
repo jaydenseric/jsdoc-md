@@ -8,6 +8,8 @@ const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const outlineMembers = require('../../private/outlineMembers');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
+const TEST_CODE_FILE_PATH = '/a.js';
+
 module.exports = (tests) => {
   tests.add('`outlineMembers` with no missing members.', async () => {
     const jsdocComments = codeToJsdocComments(
@@ -59,7 +61,8 @@ module.exports = (tests) => {
  * @name B
  * @type {object}
  * @prop {string} a Description.
- */`
+ */`,
+      TEST_CODE_FILE_PATH
     );
     const members = jsdocCommentsToMembers(jsdocComments);
 
@@ -70,10 +73,13 @@ module.exports = (tests) => {
   });
 
   tests.add('`outlineMembers` with missing members.', () => {
-    const jsdocComments = codeToJsdocComments(`/**
+    const jsdocComments = codeToJsdocComments(
+      `/**
  * @kind member
  * @name A.a
- */`);
+ */`,
+      TEST_CODE_FILE_PATH
+    );
     const members = jsdocCommentsToMembers(jsdocComments);
 
     throws(() => {

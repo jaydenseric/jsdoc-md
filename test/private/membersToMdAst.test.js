@@ -36,7 +36,7 @@ const jsdocTestExamples = ` * @example
 
 module.exports = (tests) => {
   tests.add('`membersToMdAst` with no members.', async () => {
-    await membersToMdAstSnapshot('no-members', []);
+    await membersToMdAstSnapshot('no-members', '');
   });
 
   tests.add(
@@ -714,7 +714,8 @@ ${jsdocTestExamples}
  * @kind function
  * @name A#a
  * @fires A#event:a
- */`
+ */`,
+      '/a.js'
     );
     const members = jsdocCommentsToMembers(jsdocComments);
 

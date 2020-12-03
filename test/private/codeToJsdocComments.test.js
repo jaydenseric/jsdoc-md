@@ -1,16 +1,34 @@
 'use strict';
 
-const { deepStrictEqual } = require('assert');
+const { deepStrictEqual, throws } = require('assert');
 const { resolve } = require('path');
 const snapshot = require('snapshot-assertion');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
 
+const TEST_CODE_FILE_PATH = '/a.js';
+
 module.exports = (tests) => {
+  tests.add('`codeToJsdocComments` with first `code` argument invalid.', () => {
+    throws(() => {
+      codeToJsdocComments(true, TEST_CODE_FILE_PATH);
+    }, new TypeError('First argument “code” must be a string.'));
+  });
+
+  tests.add(
+    '`codeToJsdocComments` with second `codeFilePath` argument invalid.',
+    () => {
+      throws(() => {
+        codeToJsdocComments('', true);
+      }, new TypeError('Second argument “codeFilePath” must be a string.'));
+    }
+  );
+
   tests.add('`codeToJsdocComments` with a comment, line.', () => {
     deepStrictEqual(
       codeToJsdocComments(
         `// a
-let a;`
+let a;`,
+        TEST_CODE_FILE_PATH
       ),
       []
     );
@@ -22,7 +40,8 @@ let a;`
       deepStrictEqual(
         codeToJsdocComments(
           `/* a */
-let a;`
+let a;`,
+          TEST_CODE_FILE_PATH
         ),
         []
       );
@@ -32,7 +51,10 @@ let a;`
   tests.add(
     '`codeToJsdocComments` with a code string containing JSDoc.',
     () => {
-      deepStrictEqual(codeToJsdocComments("const a = '/** a */';"), []);
+      deepStrictEqual(
+        codeToJsdocComments("const a = '/** a */';", TEST_CODE_FILE_PATH),
+        []
+      );
     }
   );
 
@@ -43,7 +65,8 @@ let a;`
         JSON.stringify(
           codeToJsdocComments(
             `/** a */
-let a;`
+let a;`,
+            TEST_CODE_FILE_PATH
           ),
           null,
           2
@@ -64,7 +87,8 @@ let a;`
           `/*
  * a
  */
-let a;`
+let a;`,
+          TEST_CODE_FILE_PATH
         ),
         []
       );
@@ -80,7 +104,8 @@ let a;`
             `/**
  * a
  */
-let a;`
+let a;`,
+            TEST_CODE_FILE_PATH
           ),
           null,
           2
@@ -107,7 +132,8 @@ let a;
 /**
  * b
  */
-let b;`
+let b;`,
+            TEST_CODE_FILE_PATH
           ),
           null,
           2

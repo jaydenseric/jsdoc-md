@@ -25,6 +25,7 @@
 - Fixed mixed absent and present `event:` prefixes in sibling event names in source JSDoc causing incorrect sorting of events in generated markdown.
 - Use the `SyntaxError` class instead of `Error` for when `deconstructJsdocNamepath` can’t deconstruct an invalid namepath.
 - Renamed the private `jsdocCommentsFromCode` function to `codeToJsdocComments`.
+- Added runtime argument type checks for `codeToJsdocComments`.
 - Renamed the private `jsdocToMember` function to `jsdocCommentToMember`.
 - Configured the JSDoc parser to not accept a name part for a `type` tag.
 - Rewrote a lot of the implementation for better performance.
