@@ -29,7 +29,7 @@
 - Configured the JSDoc parser to not accept a name part for a `type` tag.
 - Rewrote a lot of the implementation for better performance.
 - Use `Array<>` JSDoc type syntax instead of `[]`.
-- Expanded the internal JSDoc.
+- Improved the internal JSDoc.
 - Improved tests.
 
 ## 8.0.0

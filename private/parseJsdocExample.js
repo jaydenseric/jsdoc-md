@@ -1,16 +1,6 @@
 'use strict';
 
 /**
- * A JSDoc member’s example.
- * @kind typedef
- * @name jsdocMemberExample
- * @type {object}
- * @prop {string} [caption] Example caption markdown.
- * @prop {string} [content] Example content markdown.
- * @ignore
- */
-
-/**
  * Parses JSDoc `example` tag raw content.
  * @kind function
  * @name parseJsdocExample
