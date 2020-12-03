@@ -53,11 +53,14 @@ module.exports = function jsdocMd({
 } = {}) {
   const members = [];
 
-  for (const filePath of globby.sync(sourceGlob, { cwd, gitignore: true })) {
-    const code = readFileSync(filePath, { encoding: 'utf8' });
+  for (const codeFilePath of globby.sync(sourceGlob, {
+    cwd,
+    gitignore: true,
+  })) {
+    const code = readFileSync(codeFilePath, { encoding: 'utf8' });
 
-    for (const jsdocComment of codeToJsdocComments(code, filePath)) {
-      const member = jsdocCommentToMember(jsdocComment, code, filePath);
+    for (const jsdocComment of codeToJsdocComments(code, codeFilePath)) {
+      const member = jsdocCommentToMember(jsdocComment, code, codeFilePath);
       if (member) members.push(member);
     }
   }
