@@ -12,10 +12,10 @@ module.exports = (tests) => {
     }, new TypeError('First argument “markdown” must be a string.'));
   });
 
-  tests.add('`mdToMdAst`.', async () => {
+  tests.add('`mdToMdAst` with a paragraph.', async () => {
     await snapshot(
       JSON.stringify(mdToMdAst('a'), null, 2),
-      resolve(__dirname, '../snapshots/mdToMdAst.json')
+      resolve(__dirname, '../snapshots/mdToMdAst/paragraph.json')
     );
   });
 };
