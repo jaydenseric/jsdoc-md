@@ -112,7 +112,7 @@ Replace.
 `
       );
 
-      jsdocMd({
+      await jsdocMd({
         cwd: tempDirPath,
         sourceGlob: sourcePath,
         markdownPath,

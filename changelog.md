@@ -2,6 +2,10 @@
 
 ## Next
 
+### Major
+
+- The function `jsdocMd` is now async and should be faster.
+
 ### Minor
 
 - Added support for more JSDoc tags (some are aliases for already supported tags):

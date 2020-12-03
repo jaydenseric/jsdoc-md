@@ -78,6 +78,8 @@ Scrapes JSDoc from source files to populate a markdown file documentation sectio
 | `options.markdownPath` | string? = `readme.md` | Path to the markdown file for docs insertion. |
 | `options.targetHeading` | string? = `API` | Markdown file heading to insert docs under. |
 
+**Returns:** Promise\<void> — Resolves once the operation is complete.
+
 #### Examples
 
 _Ways to `import`._
@@ -110,6 +112,8 @@ _Customizing all options._
 >   sourceGlob: 'index.mjs',
 >   markdownPath: 'README.md',
 >   targetHeading: 'Docs',
+> }).then(() => {
+>   console.log('Done!');
 > });
 > ```
 
