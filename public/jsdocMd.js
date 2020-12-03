@@ -67,7 +67,7 @@ module.exports = async function jsdocMd({
       );
 
       // Get the JSDoc comments from the code.
-      const jsdocComments = codeToJsdocComments(
+      const jsdocComments = await codeToJsdocComments(
         codeFiles.get(codeFilePath),
         codeFilePath
       );

@@ -16,12 +16,12 @@ const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
-  tests.add('`typeJsdocAstToMdAst` with various types.', () => {
+  tests.add('`typeJsdocAstToMdAst` with various types.', async () => {
     const code = `/**
  * @kind typedef
  * @name B
  */`;
-    const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     const members = jsdocCommentsToMembers(
       jsdocComments,
       code,

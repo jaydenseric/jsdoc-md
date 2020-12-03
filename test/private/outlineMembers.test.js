@@ -61,7 +61,7 @@ module.exports = (tests) => {
  * @type {object}
  * @prop {string} a Description.
  */`;
-    const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     const members = jsdocCommentsToMembers(
       jsdocComments,
       code,
@@ -74,12 +74,12 @@ module.exports = (tests) => {
     );
   });
 
-  tests.add('`outlineMembers` with missing members.', () => {
+  tests.add('`outlineMembers` with missing members.', async () => {
     const code = `/**
  * @kind member
  * @name A.a
  */`;
-    const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     const members = jsdocCommentsToMembers(
       jsdocComments,
       code,

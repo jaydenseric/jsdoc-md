@@ -20,9 +20,12 @@ module.exports = (tests) => {
 
   tests.add(
     '`jsdocCommentToMember` with second argument `code` not a string.',
-    () => {
+    async () => {
       const code = '/** */';
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, true, TEST_CODE_FILE_PATH);
@@ -32,9 +35,12 @@ module.exports = (tests) => {
 
   tests.add(
     '`jsdocCommentToMember` with third argument `codeFilePath` not a string.',
-    () => {
+    async () => {
       const code = '/** */';
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, code, true);
@@ -44,9 +50,12 @@ module.exports = (tests) => {
 
   tests.add(
     '`jsdocCommentToMember` with third argument `codeFilePath` not a populated string.',
-    () => {
+    async () => {
       const code = '/** */';
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, code, '');
@@ -54,54 +63,60 @@ module.exports = (tests) => {
     }
   );
 
-  tests.add('`jsdocCommentToMember` with a JSDoc syntax error.', () => {
+  tests.add('`jsdocCommentToMember` with a JSDoc syntax error.', async () => {
     const code = '/** @tag [name */';
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
       jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
       undefined
     );
   });
 
-  tests.add('`jsdocCommentToMember` with no description, no tags.', () => {
-    const code = '/** */';
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
-    strictEqual(
-      jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
-      undefined
-    );
-  });
+  tests.add(
+    '`jsdocCommentToMember` with no description, no tags.',
+    async () => {
+      const code = '/** */';
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+      strictEqual(
+        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        undefined
+      );
+    }
+  );
 
-  tests.add('`jsdocCommentToMember` with description, no tags.', () => {
+  tests.add('`jsdocCommentToMember` with description, no tags.', async () => {
     const code = '/** Description. */';
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
       jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
       undefined
     );
   });
 
-  tests.add('`jsdocCommentToMember` with a missing kind.', () => {
+  tests.add('`jsdocCommentToMember` with a missing kind.', async () => {
     const code = '/** @name A */';
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
       jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
       undefined
     );
   });
 
-  tests.add('`jsdocCommentToMember` with a missing name.', () => {
+  tests.add('`jsdocCommentToMember` with a missing name.', async () => {
     const code = '/** @kind member */';
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
       jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
       undefined
     );
   });
 
-  tests.add('`jsdocCommentToMember` with tag ignore.', () => {
+  tests.add('`jsdocCommentToMember` with tag ignore.', async () => {
     const code = '/** @ignore */';
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
       jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
       undefined
@@ -119,7 +134,7 @@ const a = true;
 const b = true;
 
 // Code after…`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     let caughtError;
 
@@ -146,7 +161,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -166,7 +181,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -188,7 +206,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -209,7 +227,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -234,7 +255,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -259,7 +283,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -283,7 +310,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -305,7 +335,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -329,7 +359,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -354,7 +387,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -379,7 +415,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -401,7 +440,7 @@ const b = true;
  * @kind
  * @name A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -421,7 +460,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -441,7 +480,10 @@ const b = true;
  * @kind member
  * @name A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -464,7 +506,10 @@ const b = true;
  * @typedef A
  * @kind member
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -487,7 +532,10 @@ const b = true;
  * @callback A
  * @kind member
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -509,7 +557,7 @@ const b = true;
  * @name A
  * @name
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -529,7 +577,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -549,7 +597,10 @@ const b = true;
  * @name A
  * @name B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -572,7 +623,10 @@ const b = true;
  * @typedef A
  * @name B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -595,7 +649,10 @@ const b = true;
  * @callback A
  * @name B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -617,7 +674,7 @@ const b = true;
  * @name A
  * @type
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -638,7 +695,7 @@ const b = true;
  * @name A
  * @type {boolean}
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -659,7 +716,10 @@ const b = true;
  * @type {string}
  * @type {boolean}
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -682,7 +742,10 @@ const b = true;
  * @typedef {string} A
  * @type {boolean}
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -705,7 +768,10 @@ const b = true;
  * @callback A
  * @type {SpecialFunctionType}
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -729,7 +795,10 @@ const b = true;
  * @name A
  * @typedef
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -749,7 +818,7 @@ const b = true;
     const code = `/**
  * @typedef A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -770,7 +839,10 @@ const b = true;
       const code = `/**
  * @typedef {boolean} A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -793,7 +865,10 @@ const b = true;
  * @kind member
  * @typedef A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -816,7 +891,10 @@ const b = true;
  * @type {string}
  * @typedef {boolean} A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -839,7 +917,10 @@ const b = true;
  * @name A
  * @typedef B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -862,7 +943,10 @@ const b = true;
  * @typedef {string} A
  * @typedef {boolean} B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -885,7 +969,10 @@ const b = true;
  * @callback A
  * @typedef {boolean} B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -909,7 +996,10 @@ const b = true;
  * @name A
  * @callback
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -929,7 +1019,7 @@ const b = true;
     const code = `/**
  * @callback A
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -951,7 +1041,10 @@ const b = true;
  * @kind member
  * @callback A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -974,7 +1067,10 @@ const b = true;
  * @type {boolean}
  * @callback A
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -997,7 +1093,10 @@ const b = true;
  * @name A
  * @typedef B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1020,7 +1119,10 @@ const b = true;
  * @typedef {boolean} A
  * @callback B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1043,7 +1145,10 @@ const b = true;
  * @callback A
  * @callback B
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1066,7 +1171,10 @@ const b = true;
  * @kind event
  * @name A#b
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1092,7 +1200,10 @@ const b = true;
  * @argument
  * @param
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1118,7 +1229,10 @@ const b = true;
  * @argument b
  * @param c
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1144,7 +1258,10 @@ const b = true;
  * @argument {boolean} b
  * @param {boolean} c
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1170,7 +1287,10 @@ const b = true;
  * @argument {boolean} [b]
  * @param {boolean} [c]
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1196,7 +1316,10 @@ const b = true;
  * @argument {boolean} [b=true]
  * @param {boolean} [c=true]
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1222,7 +1345,10 @@ const b = true;
  * @argument b Parameter description A.
  * @param c Parameter description A.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1248,7 +1374,10 @@ const b = true;
  * @argument {boolean} b Parameter description A.
  * @param {boolean} c Parameter description A.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1274,7 +1403,10 @@ const b = true;
  * @argument {boolean} [b] Parameter description A.
  * @param {boolean} [c] Parameter description A.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1300,7 +1432,10 @@ const b = true;
  * @argument {boolean} [b=true] Parameter description A.
  * @param {boolean} [c=true] Parameter description A.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1325,7 +1460,10 @@ const b = true;
  * @prop
  * @property
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1350,7 +1488,10 @@ const b = true;
  * @prop a
  * @property b
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1375,7 +1516,10 @@ const b = true;
  * @prop {boolean} a
  * @property {boolean} b
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1400,7 +1544,10 @@ const b = true;
  * @prop {boolean} [a]
  * @property {boolean} [b]
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1425,7 +1572,10 @@ const b = true;
  * @prop {boolean} [a=true]
  * @property {boolean} [b=true]
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1450,7 +1600,10 @@ const b = true;
  * @prop a Property description A.
  * @property b Property description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1475,7 +1628,10 @@ const b = true;
  * @prop {boolean} a Property description A.
  * @property {boolean} b Property description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1500,7 +1656,10 @@ const b = true;
  * @prop {boolean} [a] Property description A.
  * @property {boolean} [b] Property description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1525,7 +1684,10 @@ const b = true;
  * @prop {boolean} [a=true] Property description A.
  * @property {boolean} [b=true] Property description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1549,7 +1711,10 @@ const b = true;
  * @name A
  * @return
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1571,7 +1736,7 @@ const b = true;
  * @name A
  * @return {boolean}
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -1595,7 +1760,10 @@ const b = true;
  * @returns {string} Description.
  * @return {boolean}
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1619,7 +1787,10 @@ const b = true;
  * @name A
  * @return Description.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1644,7 +1815,10 @@ const b = true;
  * @returns {boolean} Description A.
  * @return Description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1668,7 +1842,10 @@ const b = true;
  * @name A
  * @return {boolean} Description.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1693,7 +1870,10 @@ const b = true;
  * @return {string} Description A.
  * @return {boolean} Description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1718,7 +1898,10 @@ const b = true;
  * @returns {string} Description A.
  * @return {boolean} Description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1742,7 +1925,10 @@ const b = true;
  * @name A
  * @returns
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1764,7 +1950,7 @@ const b = true;
  * @name A
  * @returns {boolean}
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -1788,7 +1974,10 @@ const b = true;
  * @return {string} Description.
  * @returns {boolean}
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1813,7 +2002,10 @@ const b = true;
  * @returns {string} Description.
  * @returns {boolean}
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1837,7 +2029,10 @@ const b = true;
  * @name A
  * @returns Description.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1862,7 +2057,10 @@ const b = true;
  * @return {boolean} Description A.
  * @returns Description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1886,7 +2084,10 @@ const b = true;
  * @name A
  * @returns {boolean} Description.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1911,7 +2112,10 @@ const b = true;
  * @return {string} Description A.
  * @returns {boolean} Description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1936,7 +2140,10 @@ const b = true;
  * @returns {string} Description A.
  * @returns {boolean} Description B.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1961,7 +2168,10 @@ const b = true;
  * @emits
  * @fires
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -1984,7 +2194,7 @@ const b = true;
  * @emits A#event:a
  * @fires A#event:b
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -2010,7 +2220,10 @@ const b = true;
  * @fires A#event:b
  * @fires A#event:b
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -2034,7 +2247,10 @@ const b = true;
  * @name A
  * @see
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -2057,7 +2273,7 @@ const b = true;
  * @see See description A.
  * @see See description B.
  */`;
-    const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
@@ -2078,7 +2294,10 @@ const b = true;
  * @example
  * @example
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -2103,7 +2322,10 @@ const b = true;
  * @example <caption>Example A caption.</caption>
  * @example <caption>Example B caption.</caption>
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(
@@ -2130,7 +2352,10 @@ const b = true;
  * @example <caption>Example B caption.</caption>
  * Example B content.
  */`;
-      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
 
       await snapshot(
         JSON.stringify(

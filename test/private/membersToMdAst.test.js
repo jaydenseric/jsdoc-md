@@ -705,7 +705,7 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a missing event namepath.', () => {
+  tests.add('`membersToMdAst` with a missing event namepath.', async () => {
     const code = `/**
  * @kind class
  * @name A
@@ -716,7 +716,7 @@ ${jsdocTestExamples}
  * @name A#a
  * @fires A#event:a
  */`;
-    const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     const members = jsdocCommentsToMembers(
       jsdocComments,
       code,

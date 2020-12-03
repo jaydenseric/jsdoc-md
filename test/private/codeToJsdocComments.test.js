@@ -1,6 +1,6 @@
 'use strict';
 
-const { deepStrictEqual, throws } = require('assert');
+const { deepStrictEqual, rejects } = require('assert');
 const { resolve } = require('path');
 const snapshot = require('snapshot-assertion');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
@@ -10,34 +10,39 @@ const TEST_CODE_FILE_PATH = '/a.js';
 module.exports = (tests) => {
   tests.add(
     '`codeToJsdocComments` with first argument `code` not a string.',
-    () => {
-      throws(() => {
-        codeToJsdocComments(true, TEST_CODE_FILE_PATH);
-      }, new TypeError('First argument “code” must be a string.'));
+    async () => {
+      await rejects(
+        codeToJsdocComments(true, TEST_CODE_FILE_PATH),
+        new TypeError('First argument “code” must be a string.')
+      );
     }
   );
 
   tests.add(
     '`codeToJsdocComments` with second argument `codeFilePath` not a string.',
-    () => {
-      throws(() => {
-        codeToJsdocComments('', true);
-      }, new TypeError('Second argument “codeFilePath” must be a string.'));
+    async () => {
+      await rejects(
+        codeToJsdocComments('', true),
+        new TypeError('Second argument “codeFilePath” must be a string.')
+      );
     }
   );
 
   tests.add(
     '`codeToJsdocComments` with second argument `codeFilePath` not a populated string.',
-    () => {
-      throws(() => {
-        codeToJsdocComments('', '');
-      }, new TypeError('Second argument “codeFilePath” must be a populated string.'));
+    async () => {
+      await rejects(
+        codeToJsdocComments('', ''),
+        new TypeError(
+          'Second argument “codeFilePath” must be a populated string.'
+        )
+      );
     }
   );
 
-  tests.add('`codeToJsdocComments` with a comment, line.', () => {
+  tests.add('`codeToJsdocComments` with a comment, line.', async () => {
     deepStrictEqual(
-      codeToJsdocComments(
+      await codeToJsdocComments(
         `// a
 let a;`,
         TEST_CODE_FILE_PATH
@@ -48,9 +53,9 @@ let a;`,
 
   tests.add(
     '`codeToJsdocComments` with a comment, block, single line, not JSDoc.',
-    () => {
+    async () => {
       deepStrictEqual(
-        codeToJsdocComments(
+        await codeToJsdocComments(
           `/* a */
 let a;`,
           TEST_CODE_FILE_PATH
@@ -62,9 +67,9 @@ let a;`,
 
   tests.add(
     '`codeToJsdocComments` with a code string containing JSDoc.',
-    () => {
+    async () => {
       deepStrictEqual(
-        codeToJsdocComments("const a = '/** a */';", TEST_CODE_FILE_PATH),
+        await codeToJsdocComments("const a = '/** a */';", TEST_CODE_FILE_PATH),
         []
       );
     }
@@ -75,7 +80,7 @@ let a;`,
     async () => {
       await snapshot(
         JSON.stringify(
-          codeToJsdocComments(
+          await codeToJsdocComments(
             `/** a */
 let a;`,
             TEST_CODE_FILE_PATH
@@ -93,9 +98,9 @@ let a;`,
 
   tests.add(
     '`codeToJsdocComments` with a comment, block, multi line, not JSDoc.',
-    () => {
+    async () => {
       deepStrictEqual(
-        codeToJsdocComments(
+        await codeToJsdocComments(
           `/*
  * a
  */
@@ -112,7 +117,7 @@ let a;`,
     async () => {
       await snapshot(
         JSON.stringify(
-          codeToJsdocComments(
+          await codeToJsdocComments(
             `/**
  * a
  */
@@ -135,7 +140,7 @@ let a;`,
     async () => {
       await snapshot(
         JSON.stringify(
-          codeToJsdocComments(
+          await codeToJsdocComments(
             `/**
  * a
  */

@@ -28,7 +28,7 @@ module.exports = async function membersToMdAstSnapshot(
   code,
   topDepth
 ) {
-  const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+  const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
   const members = jsdocCommentsToMembers(
     jsdocComments,
     code,

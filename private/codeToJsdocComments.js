@@ -1,6 +1,6 @@
 'use strict';
 
-const { parseSync } = require('@babel/core');
+const { parseAsync } = require('@babel/core');
 
 /**
  * Gets JSDoc comments from source code, using Babel.
@@ -8,10 +8,10 @@ const { parseSync } = require('@babel/core');
  * @name codeToJsdocComments
  * @param {string} code Code containing the JSDoc comments.
  * @param {string} codeFilePath File path for the code containing the JSDoc comments.
- * @returns {Array<object>} JSDoc comments, from the Babel parse result.
+ * @returns {Promise<Array<object>>} Resolves JSDoc comments, from the Babel parse result.
  * @ignore
  */
-module.exports = function codeToJsdocComments(code, codeFilePath) {
+module.exports = async function codeToJsdocComments(code, codeFilePath) {
   if (typeof code !== 'string')
     throw new TypeError('First argument “code” must be a string.');
 
@@ -23,7 +23,7 @@ module.exports = function codeToJsdocComments(code, codeFilePath) {
       'Second argument “codeFilePath” must be a populated string.'
     );
 
-  const { comments } = parseSync(code, {
+  const { comments } = await parseAsync(code, {
     // Provide the code file path for more useful Babel parse errors.
     filename: codeFilePath,
 

@@ -28,9 +28,10 @@
   - Inner typedefs are now labeled `type` instead of `typedef`, consistent with non-inner typedefs.
 - Fixed mixed absent and present `event:` prefixes in sibling event names in source JSDoc causing incorrect sorting of events in generated markdown.
 - Use the `SyntaxError` class instead of `Error` for when `deconstructJsdocNamepath` can’t deconstruct an invalid namepath.
-- Renamed the private `jsdocCommentsFromCode` function to `codeToJsdocComments`.
+- Renamed the private function `jsdocCommentsFromCode` to `codeToJsdocComments`.
+- Made the private function `codeToJsdocComments` async.
 - Added runtime argument type checks for various private functions.
-- Renamed the private `jsdocToMember` function to `jsdocCommentToMember`.
+- Renamed the private function `jsdocToMember` to `jsdocCommentToMember`.
 - Configured the JSDoc parser to not accept a name part for a `type` tag.
 - Rewrote a lot of the implementation for better performance.
 - Use `Array<>` JSDoc type syntax instead of `[]`.

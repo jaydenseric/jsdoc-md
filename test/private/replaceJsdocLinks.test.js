@@ -9,23 +9,6 @@ const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
-  const code = `/**
- * @kind typedef
- * @name A
- */
-
-/**
- * @kind typedef
- * @name B
- */`;
-  const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
-  const members = jsdocCommentsToMembers(
-    jsdocComments,
-    code,
-    TEST_CODE_FILE_PATH
-  );
-  const outlinedMembers = outlineMembers(members);
-
   tests.add(
     '`replaceJsdocLinks` with first argument `markdown` not a string.',
     () => {
@@ -35,14 +18,49 @@ module.exports = (tests) => {
     }
   );
 
-  tests.add('`replaceJsdocLinks` with a single link in a sentence.', () => {
-    strictEqual(
-      replaceJsdocLinks('See [A]{@link A}.', outlinedMembers),
-      'See [A](#type-a).'
-    );
-  });
+  tests.add(
+    '`replaceJsdocLinks` with a single link in a sentence.',
+    async () => {
+      const code = `/**
+ * @kind typedef
+ * @name A
+ */`;
+      const jsdocComments = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+      const members = jsdocCommentsToMembers(
+        jsdocComments,
+        code,
+        TEST_CODE_FILE_PATH
+      );
+      const outlinedMembers = outlineMembers(members);
 
-  tests.add('`replaceJsdocLinks` with multiple links.', () => {
+      strictEqual(
+        replaceJsdocLinks('See [A]{@link A}.', outlinedMembers),
+        'See [A](#type-a).'
+      );
+    }
+  );
+
+  tests.add('`replaceJsdocLinks` with multiple links.', async () => {
+    const code = `/**
+ * @kind typedef
+ * @name A
+ */
+
+/**
+ * @kind typedef
+ * @name B
+ */`;
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const members = jsdocCommentsToMembers(
+      jsdocComments,
+      code,
+      TEST_CODE_FILE_PATH
+    );
+    const outlinedMembers = outlineMembers(members);
+
     strictEqual(
       replaceJsdocLinks('[A]{@link A} [B]{@link B}', outlinedMembers),
       '[A](#type-a) [B](#type-b)'
@@ -51,7 +69,7 @@ module.exports = (tests) => {
 
   tests.add('`replaceJsdocLinks` with a missing member.', () => {
     throws(() => {
-      replaceJsdocLinks('[C]{@link C}', outlinedMembers);
-    }, new Error('Missing JSDoc member for link namepath “C”.'));
+      replaceJsdocLinks('[A]{@link A}');
+    }, new Error('Missing JSDoc member for link namepath “A”.'));
   });
 };
