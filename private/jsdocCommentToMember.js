@@ -46,11 +46,24 @@ const JSDOC_PARSER_OPTIONS = {
  * @name jsdocCommentToMember
  * @param {object} jsdocComment JSDoc comment, from a Babel parse result.
  * @param {string} code Code containing the JSDoc comment.
- * @param {string} [filePath] File path for the code containing the JSDoc comment.
+ * @param {string} codeFilePath File path for the code containing the JSDoc comment.
  * @returns {JsdocMember|void} JSDoc member, if it’s valid and not ignored.
  * @ignore
  */
-module.exports = function jsdocCommentToMember(jsdocComment, code, filePath) {
+module.exports = function jsdocCommentToMember(
+  jsdocComment,
+  code,
+  codeFilePath
+) {
+  if (typeof jsdocComment !== 'object')
+    throw new TypeError('First argument “jsdocComment” must be an object.');
+
+  if (typeof code !== 'string')
+    throw new TypeError('Second argument “code” must be a string.');
+
+  if (typeof codeFilePath !== 'string')
+    throw new TypeError('Third argument “codeFilePath” must be a string.');
+
   const [jsdocAst] = commentParser(
     // Restore the start `/*` and end `*/` that the Babel parse result excludes,
     // so that the JSDoc comment parser can accept it.
@@ -208,7 +221,7 @@ module.exports = function jsdocCommentToMember(jsdocComment, code, filePath) {
         throw new SyntaxError(
           `Unable to deconstruct JSDoc namepath “${namepath}”:\n\n${
             error.message
-          }\n\n${filePath}:${jsdocComment.loc.start.line}:${
+          }\n\n${codeFilePath}:${jsdocComment.loc.start.line}:${
             jsdocComment.loc.start.column
           }\n\n${codeFrameColumns(code, jsdocComment.loc, {
             highlightCode: true,

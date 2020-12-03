@@ -6,6 +6,8 @@ const membersToMdAst = require('../../private/membersToMdAst');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 const membersToMdAstSnapshot = require('../membersToMdAstSnapshot');
 
+const TEST_CODE_FILE_PATH = '/a.js';
+
 const jsdocTestDescription = ` * Description linking [\`A\`]{@link A}.`;
 
 const jsdocTestParams = ` * @arg {object} a Param \`a\` description linking [\`A\`]{@link A}.
@@ -704,8 +706,7 @@ ${jsdocTestExamples}
   });
 
   tests.add('`membersToMdAst` with a missing event namepath.', () => {
-    const jsdocComments = codeToJsdocComments(
-      `/**
+    const code = `/**
  * @kind class
  * @name A
  */
@@ -714,10 +715,13 @@ ${jsdocTestExamples}
  * @kind function
  * @name A#a
  * @fires A#event:a
- */`,
-      '/a.js'
+ */`;
+    const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const members = jsdocCommentsToMembers(
+      jsdocComments,
+      code,
+      TEST_CODE_FILE_PATH
     );
-    const members = jsdocCommentsToMembers(jsdocComments);
 
     throws(() => {
       membersToMdAst(members);

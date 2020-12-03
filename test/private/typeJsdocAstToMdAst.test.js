@@ -13,16 +13,20 @@ const typeJsdocAstToMdAst = require('../../private/typeJsdocAstToMdAst');
 const typeJsdocStringToJsdocAst = require('../../private/typeJsdocStringToJsdocAst');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
+const TEST_CODE_FILE_PATH = '/a.js';
+
 module.exports = (tests) => {
   tests.add('`typeJsdocAstToMdAst` with various types.', () => {
-    const jsdocComments = codeToJsdocComments(
-      `/**
+    const code = `/**
  * @kind typedef
  * @name B
- */`,
-      '/a.js'
+ */`;
+    const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const members = jsdocCommentsToMembers(
+      jsdocComments,
+      code,
+      TEST_CODE_FILE_PATH
     );
-    const members = jsdocCommentsToMembers(jsdocComments);
     const outlinedMembers = outlineMembers(members);
 
     for (const [name, typeJsdocString] of [

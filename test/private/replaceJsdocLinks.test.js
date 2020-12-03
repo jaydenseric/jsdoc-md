@@ -6,9 +6,10 @@ const outlineMembers = require('../../private/outlineMembers');
 const replaceJsdocLinks = require('../../private/replaceJsdocLinks');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
+const TEST_CODE_FILE_PATH = '/a.js';
+
 module.exports = (tests) => {
-  const jsdocComments = codeToJsdocComments(
-    `/**
+  const code = `/**
  * @kind typedef
  * @name A
  */
@@ -16,10 +17,13 @@ module.exports = (tests) => {
 /**
  * @kind typedef
  * @name B
- */`,
-    '/a.js'
+ */`;
+  const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+  const members = jsdocCommentsToMembers(
+    jsdocComments,
+    code,
+    TEST_CODE_FILE_PATH
   );
-  const members = jsdocCommentsToMembers(jsdocComments);
   const outlinedMembers = outlineMembers(members);
 
   tests.add('`replaceJsdocLinks` with a single link in a sentence.', () => {

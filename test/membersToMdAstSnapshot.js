@@ -10,6 +10,8 @@ const membersToMdAst = require('../private/membersToMdAst');
 const remarkStringifyOptions = require('../private/remarkStringifyOptions');
 const jsdocCommentsToMembers = require('./jsdocCommentsToMembers');
 
+const TEST_CODE_FILE_PATH = '/a.js';
+
 /**
  * Snapshot tests the [`membersToMdAst`]{@link membersToMdAst} function. A
  * snapshot of the MDAST is created along with a snapshot of the MDAST rendered
@@ -26,8 +28,12 @@ module.exports = async function membersToMdAstSnapshot(
   code,
   topDepth
 ) {
-  const jsdocComments = codeToJsdocComments(code, '/a.js');
-  const members = jsdocCommentsToMembers(jsdocComments);
+  const jsdocComments = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+  const members = jsdocCommentsToMembers(
+    jsdocComments,
+    code,
+    TEST_CODE_FILE_PATH
+  );
   const mdAst = membersToMdAst(members, topDepth);
 
   await snapshot(
