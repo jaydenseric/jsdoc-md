@@ -26,6 +26,15 @@ module.exports = (tests) => {
   );
   const outlinedMembers = outlineMembers(members);
 
+  tests.add(
+    '`replaceJsdocLinks` with first argument `markdown` not a string.',
+    () => {
+      throws(() => {
+        replaceJsdocLinks(true);
+      }, new TypeError('First argument “markdown” must be a string.'));
+    }
+  );
+
   tests.add('`replaceJsdocLinks` with a single link in a sentence.', () => {
     strictEqual(
       replaceJsdocLinks('See [A]{@link A}.', outlinedMembers),

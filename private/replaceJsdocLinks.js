@@ -4,21 +4,28 @@
  * Replaces inline JSDoc member links with markdown links.
  * @kind function
  * @name replaceJsdocLinks
- * @param {string} md Markdown.
+ * @param {string} markdown Markdown.
  * @param {Array<object>} [members] Outlined JSDoc members.
  * @returns {string} Markdown.
  * @ignore
  */
-module.exports = function replaceJsdocLinks(md, members) {
+module.exports = function replaceJsdocLinks(markdown, members) {
+  if (typeof markdown !== 'string')
+    throw new TypeError('First argument “markdown” must be a string.');
+
   const regex = /{@link (.+?)}/g;
+
   let match;
-  while ((match = regex.exec(md))) {
+
+  while ((match = regex.exec(markdown))) {
     const [jsdocLink, namepath] = match;
     const linkedMember =
       members && members.find((member) => member.namepath === namepath);
-    if (linkedMember) md = md.replace(jsdocLink, `(#${linkedMember.slug})`);
+    if (linkedMember)
+      markdown = markdown.replace(jsdocLink, `(#${linkedMember.slug})`);
     else
       throw new Error(`Missing JSDoc member for link namepath “${namepath}”.`);
   }
-  return md;
+
+  return markdown;
 };
