@@ -8,14 +8,14 @@ const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
-  tests.add('`codeToJsdocComments` with first `code` argument invalid.', () => {
+  tests.add('`codeToJsdocComments` with first argument `code` invalid.', () => {
     throws(() => {
       codeToJsdocComments(true, TEST_CODE_FILE_PATH);
     }, new TypeError('First argument “code” must be a string.'));
   });
 
   tests.add(
-    '`codeToJsdocComments` with second `codeFilePath` argument invalid.',
+    '`codeToJsdocComments` with second argument `codeFilePath` invalid.',
     () => {
       throws(() => {
         codeToJsdocComments('', true);

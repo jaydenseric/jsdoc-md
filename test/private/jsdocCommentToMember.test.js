@@ -10,7 +10,7 @@ const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
   tests.add(
-    '`jsdocCommentToMember` with first `jsdocComment` argument invalid.',
+    '`jsdocCommentToMember` with first argument `jsdocComment` invalid.',
     () => {
       throws(() => {
         jsdocCommentToMember(true, '', TEST_CODE_FILE_PATH);
@@ -19,7 +19,7 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocCommentToMember` with second `code` argument invalid.',
+    '`jsdocCommentToMember` with second argument `code` invalid.',
     () => {
       const code = '/** */';
       const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
@@ -31,7 +31,7 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocCommentToMember` with third `codeFilePath` argument invalid.',
+    '`jsdocCommentToMember` with third argument `codeFilePath` invalid.',
     () => {
       const code = '/** */';
       const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
