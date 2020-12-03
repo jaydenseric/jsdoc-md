@@ -9,7 +9,7 @@ const jsdocCommentToMember = require('../private/jsdocCommentToMember');
  * @param {Array<string>} jsdocComments JSDoc comments.
  * @param {string} code Code containing the JSDoc comment.
  * @param {string} codeFilePath File path for the code containing the JSDoc comment.
- * @returns {Array<object>} Members.
+ * @returns {Array<JsdocMember>} JSDoc members.
  * @ignore
  */
 module.exports = function jsdocCommentsToMembers(

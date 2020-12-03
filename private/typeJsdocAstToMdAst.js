@@ -5,7 +5,7 @@
  * @kind function
  * @name typeJsdocAstToMdAst
  * @param {object} typeJsdocAst JSDoc type Doctrine AST node.
- * @param {Array<object>} [members] Outlined JSDoc members.
+ * @param {Array<JsdocMember>} [members] Outlined JSDoc members.
  * @returns {Array<object>} Markdown AST children list.
  * @ignore
  */

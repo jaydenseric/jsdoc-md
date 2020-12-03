@@ -5,7 +5,7 @@
  * @kind function
  * @name replaceJsdocLinks
  * @param {string} markdown Markdown.
- * @param {Array<object>} [members] Outlined JSDoc members.
+ * @param {Array<JsdocMember>} [members] Outlined JSDoc members.
  * @returns {string} Markdown.
  * @ignore
  */

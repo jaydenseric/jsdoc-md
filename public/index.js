@@ -27,6 +27,9 @@ exports.jsdocMd = require('./jsdocMd');
  * @prop {Array<JsdocMemberProperty>} [properties] List of properties, if the member is an object.
  * @prop {JsdocMemberReturns} [returns] Return signature, if the member is a function.
  * @prop {Array<string>} [fires] List of namepaths for events the member can fire.
+ * @prop {string} [heading] A description of the member suitable for use as a heading in API documentation. Available after the JSDoc member is outlined.
+ * @prop {string} [slug] A GitHub markdown heading ID for the member’s `heading`. Available after the JSDoc member is outlined.
+ * @prop {JsdocMember} [parent] Parent member, if this member has one. Available after the JSDoc member is outlined.
  * @ignore
  */
 

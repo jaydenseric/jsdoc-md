@@ -13,7 +13,7 @@ const MEMBERSHIPS = {
  * @kind function
  * @name outlineMembers
  * @param {Array<JsdocMember>} members JSDoc members.
- * @returns {Array<object>} Outlined JSDoc members.
+ * @returns {Array<JsdocMember>} Outlined JSDoc members.
  * @ignore
  */
 module.exports = function outlineMembers(members) {
