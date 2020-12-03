@@ -4,6 +4,15 @@ const { deepStrictEqual, throws } = require('assert');
 const deconstructJsdocNamepath = require('../../private/deconstructJsdocNamepath');
 
 module.exports = (tests) => {
+  tests.add(
+    '`deconstructJsdocNamepath` with first argument `namepath` invalid.',
+    () => {
+      throws(() => {
+        deconstructJsdocNamepath(undefined);
+      }, new TypeError('First argument “namepath” must be a string.'));
+    }
+  );
+
   tests.add('`deconstructJsdocNamepath` with no nested members.', () => {
     deepStrictEqual(deconstructJsdocNamepath('a'), {
       memberof: undefined,

@@ -10,6 +10,9 @@
  * @ignore
  */
 module.exports = function deconstructJsdocNamepath(namepath) {
+  if (typeof namepath !== 'string')
+    throw new TypeError('First argument “namepath” must be a string.');
+
   const [match, memberof, membership, name] =
     namepath.match(/^(?:([^.#~]+(?:[.#~][^.#~]+)*)([.#~]))?([^.#~]+)$/) || [];
   if (!match) throw new SyntaxError(`Invalid JSDoc namepath “${namepath}”.`);
