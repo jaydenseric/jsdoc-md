@@ -1,9 +1,18 @@
 'use strict';
 
-const { deepStrictEqual } = require('assert');
+const { deepStrictEqual, throws } = require('assert');
 const parseJsdocExample = require('../../private/parseJsdocExample');
 
 module.exports = (tests) => {
+  tests.add(
+    '`parseJsdocExample` with first argument `tagContent` not a string.',
+    () => {
+      throws(() => {
+        parseJsdocExample(true);
+      }, new TypeError('First argument “tagContent” must be a string.'));
+    }
+  );
+
   tests.add('`parseJsdocExample` with caption only.', () => {
     deepStrictEqual(parseJsdocExample('<caption>a</caption>'), {
       caption: 'a',
