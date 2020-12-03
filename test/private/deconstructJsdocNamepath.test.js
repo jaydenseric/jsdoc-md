@@ -5,7 +5,7 @@ const deconstructJsdocNamepath = require('../../private/deconstructJsdocNamepath
 
 module.exports = (tests) => {
   tests.add(
-    '`deconstructJsdocNamepath` with first argument `namepath` invalid.',
+    '`deconstructJsdocNamepath` with first argument `namepath` not a string.',
     () => {
       throws(() => {
         deconstructJsdocNamepath(undefined);

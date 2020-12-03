@@ -10,14 +10,17 @@ const unescapeJsdoc = require('./unescapeJsdoc');
  * Converts JSDoc markdown content to markdown AST.
  * @kind function
  * @name mdToMdAst
- * @param {string} md Markdown content.
+ * @param {string} markdown Markdown content.
  * @param {Array<object>} [members] Outlined JSDoc members.
  * @returns {object} Markdown AST.
  * @ignore
  */
-module.exports = function mdToMdAst(md, members) {
+module.exports = function mdToMdAst(markdown, members) {
+  if (typeof markdown !== 'string')
+    throw new TypeError('First argument “markdown” must be a string.');
+
   return unified()
     .use(parse)
     .use(gfm)
-    .parse(replaceJsdocLinks(unescapeJsdoc(md), members)).children;
+    .parse(replaceJsdocLinks(unescapeJsdoc(markdown), members)).children;
 };

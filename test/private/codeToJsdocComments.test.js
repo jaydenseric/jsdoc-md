@@ -8,18 +8,30 @@ const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
-  tests.add('`codeToJsdocComments` with first argument `code` invalid.', () => {
-    throws(() => {
-      codeToJsdocComments(true, TEST_CODE_FILE_PATH);
-    }, new TypeError('First argument “code” must be a string.'));
-  });
+  tests.add(
+    '`codeToJsdocComments` with first argument `code` not a string.',
+    () => {
+      throws(() => {
+        codeToJsdocComments(true, TEST_CODE_FILE_PATH);
+      }, new TypeError('First argument “code” must be a string.'));
+    }
+  );
 
   tests.add(
-    '`codeToJsdocComments` with second argument `codeFilePath` invalid.',
+    '`codeToJsdocComments` with second argument `codeFilePath` not a string.',
     () => {
       throws(() => {
         codeToJsdocComments('', true);
       }, new TypeError('Second argument “codeFilePath” must be a string.'));
+    }
+  );
+
+  tests.add(
+    '`codeToJsdocComments` with second argument `codeFilePath` not a populated string.',
+    () => {
+      throws(() => {
+        codeToJsdocComments('', '');
+      }, new TypeError('Second argument “codeFilePath” must be a populated string.'));
     }
   );
 

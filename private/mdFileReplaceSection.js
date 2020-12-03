@@ -23,6 +23,21 @@ module.exports = function mdFileReplaceSection({
   targetHeading,
   replacementAst,
 }) {
+  if (typeof markdownPath !== 'string')
+    throw new TypeError('Option “markdownPath” must be a string.');
+
+  if (markdownPath === '')
+    throw new TypeError('Option “markdownPath” must be a populated string.');
+
+  if (typeof targetHeading !== 'string')
+    throw new TypeError('Option “targetHeading” must be a string.');
+
+  if (targetHeading === '')
+    throw new TypeError('Option “targetHeading” must be a populated string.');
+
+  if (typeof replacementAst !== 'object')
+    throw new TypeError('Option “replacementAst” must be an object.');
+
   const fileContent = readFileSync(markdownPath, { encoding: 'utf8' });
   const newFileContent = unified()
     .use(parse)

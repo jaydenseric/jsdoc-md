@@ -18,6 +18,11 @@ module.exports = function codeToJsdocComments(code, codeFilePath) {
   if (typeof codeFilePath !== 'string')
     throw new TypeError('Second argument “codeFilePath” must be a string.');
 
+  if (codeFilePath === '')
+    throw new TypeError(
+      'Second argument “codeFilePath” must be a populated string.'
+    );
+
   const { comments } = parseSync(code, {
     // Provide the code file path for more useful Babel parse errors.
     filename: codeFilePath,

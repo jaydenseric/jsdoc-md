@@ -64,6 +64,11 @@ module.exports = function jsdocCommentToMember(
   if (typeof codeFilePath !== 'string')
     throw new TypeError('Third argument “codeFilePath” must be a string.');
 
+  if (codeFilePath === '')
+    throw new TypeError(
+      'Third argument “codeFilePath” must be a populated string.'
+    );
+
   const [jsdocAst] = commentParser(
     // Restore the start `/*` and end `*/` that the Babel parse result excludes,
     // so that the JSDoc comment parser can accept it.

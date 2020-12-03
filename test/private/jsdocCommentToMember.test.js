@@ -10,7 +10,7 @@ const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
   tests.add(
-    '`jsdocCommentToMember` with first argument `jsdocComment` invalid.',
+    '`jsdocCommentToMember` with first argument `jsdocComment` not an object.',
     () => {
       throws(() => {
         jsdocCommentToMember(true, '', TEST_CODE_FILE_PATH);
@@ -19,7 +19,7 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocCommentToMember` with second argument `code` invalid.',
+    '`jsdocCommentToMember` with second argument `code` not a string.',
     () => {
       const code = '/** */';
       const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
@@ -31,7 +31,7 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocCommentToMember` with third argument `codeFilePath` invalid.',
+    '`jsdocCommentToMember` with third argument `codeFilePath` not a string.',
     () => {
       const code = '/** */';
       const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
@@ -39,6 +39,18 @@ module.exports = (tests) => {
       throws(() => {
         jsdocCommentToMember(jsdocComment, code, true);
       }, new TypeError('Third argument “codeFilePath” must be a string.'));
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with third argument `codeFilePath` not a populated string.',
+    () => {
+      const code = '/** */';
+      const [jsdocComment] = codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+
+      throws(() => {
+        jsdocCommentToMember(jsdocComment, code, '');
+      }, new TypeError('Third argument “codeFilePath” must be a populated string.'));
     }
   );
 
