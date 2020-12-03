@@ -5,7 +5,7 @@
  * @kind function
  * @name parseJsdocExample
  * @param {string} tagContent JSDoc `example` tag raw content.
- * @returns {jsdocMemberExample} The parsed content.
+ * @returns {JsdocMemberExample} The parsed content.
  * @ignore
  */
 module.exports = function parseJsdocExample(tagContent) {

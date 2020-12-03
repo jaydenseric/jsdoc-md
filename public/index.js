@@ -5,7 +5,7 @@ exports.jsdocMd = require('./jsdocMd');
 /**
  * A JSDoc member’s kind.
  * @kind typedef
- * @name jsdocKind
+ * @name JsdocKind
  * @type {'class'|'constant'|'event'|'external'|'file'|'function'|'member'|'mixin'|'module'|'namespace'|'typedef'}
  * @ignore
  */
@@ -15,14 +15,14 @@ exports.jsdocMd = require('./jsdocMd');
  * @kind typedef
  * @name JsdocMember
  * @type {object}
- * @prop {string} kind Kind.
+ * @prop {JsdocKind} kind Kind.
  * @prop {string} namepath Namepath.
  * @prop {string} [memberof] Namepath for the parent member, derived from the `namepath`.
- * @prop {JsdocMembership} [membership] Relationship with the parent member, derived from the `namepath`.
+ * @prop {JsdocMembershipSymbol} [membership] Relationship with the parent member, derived from the `namepath`.
  * @prop {string} name Name, derived from the `namepath`.
  * @prop {string} [description] Description markdown.
  * @prop {Array<string>} [see] List of see also markdown.
- * @prop {Array<jsdocMemberExample>} [examples] List of examples.
+ * @prop {Array<JsdocMemberExample>} [examples] List of examples.
  * @prop {Array<JsdocMemberParameter>} [parameters] List of parameters, if the member is a function.
  * @prop {Array<JsdocMemberProperty>} [properties] List of properties, if the member is an object.
  * @prop {JsdocMemberReturns} [returns] Return signature, if the member is a function.
@@ -33,7 +33,7 @@ exports.jsdocMd = require('./jsdocMd');
 /**
  * A JSDoc member’s example.
  * @kind typedef
- * @name jsdocMemberExample
+ * @name JsdocMemberExample
  * @type {object}
  * @prop {string} [caption] Example caption markdown.
  * @prop {string} [content] Example content markdown.
@@ -41,13 +41,13 @@ exports.jsdocMd = require('./jsdocMd');
  */
 
 /**
- * A JSDoc member’s relationship with it’s parent member.
+ * A symbol representing a JSDoc member’s relationship with it’s parent member.
  *
  * - `.`: Static.
  * - `#`: Instance.
  * - `~`: Inner.
  * @kind typedef
- * @name JsdocMembership
+ * @name JsdocMembershipSymbol
  * @type {'.'|'#'|'~'}
  * @ignore
  */
