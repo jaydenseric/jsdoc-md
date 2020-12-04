@@ -1,7 +1,7 @@
 'use strict';
 
 const commentParser = require('comment-parser');
-const createCodeFrame = require('./createCodeFrame');
+const InvalidJsdocError = require('./InvalidJsdocError');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const parseJsdocExample = require('./parseJsdocExample');
 
@@ -223,15 +223,11 @@ module.exports = function jsdocCommentToMember(
       try {
         var { memberof, membership, name } = deconstructJsdocNamepath(namepath);
       } catch (error) {
-        throw new SyntaxError(
-          `Unable to deconstruct JSDoc namepath “${namepath}”:\n\n${
-            // coverage ignore next line
-            error instanceof Error ? error.message : error
-          }${createCodeFrame(
-            codeFilePath,
-            jsdocComment.loc,
-            codeFiles.get(codeFilePath)
-          )}`
+        throw new InvalidJsdocError(
+          error.message,
+          codeFilePath,
+          jsdocComment.loc,
+          codeFiles.get(codeFilePath)
         );
       }
 

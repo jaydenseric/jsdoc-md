@@ -130,4 +130,45 @@ const A = true
       );
     });
   });
+
+  tests.add('`jsdoc-md` CLI with an error.', async () => {
+    await disposableDirectory(async (tempDirPath) => {
+      const sourcePath = join(tempDirPath, 'index.js');
+      const markdownPath = join(tempDirPath, 'readme.md');
+      const markdownContent = '## API';
+
+      await fs.promises.writeFile(
+        sourcePath,
+        `/**
+ * @kind member
+ * @name A~a
+ */`
+      );
+
+      await fs.promises.writeFile(markdownPath, markdownContent);
+
+      const { stdout, stderr, status, error } = spawnSync('node', [cliPath], {
+        cwd: tempDirPath,
+        env: {
+          ...process.env,
+          FORCE_COLOR: 1,
+        },
+      });
+
+      if (error) throw error;
+
+      strictEqual(stdout.toString(), '');
+
+      await snapshot(
+        stderr.toString(),
+        resolve(__dirname, '../snapshots/jsdoc-md/with-an-error-stderr.ans')
+      );
+
+      strictEqual(status, 1);
+      strictEqual(
+        await fs.promises.readFile(markdownPath, 'utf8'),
+        markdownContent
+      );
+    });
+  });
 };

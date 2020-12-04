@@ -4,7 +4,7 @@ const remarkBehead = require('remark-behead');
 const gfm = require('remark-gfm');
 const toc = require('remark-toc');
 const unified = require('unified');
-const createCodeFrame = require('./createCodeFrame');
+const InvalidJsdocError = require('./InvalidJsdocError');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const mdToMdAst = require('./mdToMdAst');
 const outlineMembers = require('./outlineMembers');
@@ -269,15 +269,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
               namepath
             );
           } catch (error) {
-            throw new SyntaxError(
-              `Unable to deconstruct JSDoc namepath “${namepath}”:\n\n${
-                // coverage ignore next line
-                error instanceof Error ? error.message : error
-              }${createCodeFrame(
-                member.codeFilePath,
-                member.codeJsdocLocation,
-                codeFiles.get(member.codeFilePath)
-              )}`
+            throw new InvalidJsdocError(
+              error.message,
+              member.codeFilePath,
+              member.codeJsdocLocation,
+              codeFiles.get(member.codeFilePath)
             );
           }
 
@@ -291,12 +287,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           );
 
           if (!eventMember)
-            throw new Error(
-              `Missing JSDoc member for event namepath “${eventNamepath}”.${createCodeFrame(
-                member.codeFilePath,
-                member.codeJsdocLocation,
-                codeFiles.get(member.codeFilePath)
-              )}`
+            throw new InvalidJsdocError(
+              `Missing JSDoc member for event namepath “${eventNamepath}”.`,
+              member.codeFilePath,
+              member.codeJsdocLocation,
+              codeFiles.get(member.codeFilePath)
             );
 
           firesTagsList.children.push({

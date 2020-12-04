@@ -3,6 +3,7 @@
 const { strictEqual, throws } = require('assert');
 const { resolve } = require('path');
 const snapshot = require('snapshot-assertion');
+const InvalidJsdocError = require('../../private/InvalidJsdocError');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const jsdocCommentToMember = require('../../private/jsdocCommentToMember');
 
@@ -155,7 +156,7 @@ const b = true;
       caughtError = error;
     }
 
-    strictEqual(caughtError instanceof SyntaxError, true);
+    strictEqual(caughtError instanceof InvalidJsdocError, true);
 
     await snapshot(
       caughtError.message,

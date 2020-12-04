@@ -1,7 +1,7 @@
 'use strict';
 
 const GithubSlugger = require('github-slugger');
-const createCodeFrame = require('./createCodeFrame');
+const InvalidJsdocError = require('./InvalidJsdocError');
 
 const MEMBERSHIPS = {
   '.': 'static',
@@ -35,14 +35,11 @@ module.exports = function outlineMembers(members, codeFiles) {
       // Set the parent property.
       const parent = outline.find((mem) => mem.namepath === member.memberof);
       if (!parent)
-        throw new Error(
-          `Missing JSDoc member for namepath “${
-            member.memberof
-          }”.${createCodeFrame(
-            member.codeFilePath,
-            member.codeJsdocLocation,
-            codeFiles.get(member.codeFilePath)
-          )}`
+        throw new InvalidJsdocError(
+          `Missing JSDoc member for namepath “${member.memberof}”.`,
+          member.codeFilePath,
+          member.codeJsdocLocation,
+          codeFiles.get(member.codeFilePath)
         );
       member.parent = parent;
 
