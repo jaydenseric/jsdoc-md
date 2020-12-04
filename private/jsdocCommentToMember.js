@@ -1,7 +1,7 @@
 'use strict';
 
-const { codeFrameColumns } = require('@babel/code-frame');
 const commentParser = require('comment-parser');
+const createCodeFrame = require('./createCodeFrame');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const parseJsdocExample = require('./parseJsdocExample');
 
@@ -225,13 +225,12 @@ module.exports = function jsdocCommentToMember(
       } catch (error) {
         throw new SyntaxError(
           `Unable to deconstruct JSDoc namepath “${namepath}”:\n\n${
-            error.message
-          }\n\n${codeFilePath}:${jsdocComment.loc.start.line}:${
-            jsdocComment.loc.start.column
-          }\n\n${codeFrameColumns(
-            codeFiles.get(codeFilePath),
+            // coverage ignore next line
+            error instanceof Error ? error.message : error
+          }${createCodeFrame(
+            codeFilePath,
             jsdocComment.loc,
-            { highlightCode: true }
+            codeFiles.get(codeFilePath)
           )}`
         );
       }
@@ -244,6 +243,7 @@ module.exports = function jsdocCommentToMember(
       // properties that contain details.
       const member = {
         codeFilePath,
+        codeJsdocLocation: jsdocComment.loc,
       };
 
       member.namepath = namepath;

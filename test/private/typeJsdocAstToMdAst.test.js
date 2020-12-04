@@ -28,7 +28,7 @@ module.exports = (tests) => {
       codeFiles,
       TEST_CODE_FILE_PATH
     );
-    const outlinedMembers = outlineMembers(members);
+    const outlinedMembers = outlineMembers(members, codeFiles);
 
     for (const [name, typeJsdocString] of [
       ['AllLiteral', '*'],

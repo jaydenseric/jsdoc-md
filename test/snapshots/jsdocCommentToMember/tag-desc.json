@@ -1,5 +1,15 @@
 {
   "codeFilePath": "/a.js",
+  "codeJsdocLocation": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 5,
+      "column": 3
+    }
+  },
   "namepath": "A",
   "name": "A",
   "kind": "member",

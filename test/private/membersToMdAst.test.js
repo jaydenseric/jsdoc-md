@@ -1,6 +1,8 @@
 'use strict';
 
-const { throws } = require('assert');
+const { strictEqual } = require('assert');
+const { resolve } = require('path');
+const snapshot = require('snapshot-assertion');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const membersToMdAst = require('../../private/membersToMdAst');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
@@ -705,6 +707,39 @@ ${jsdocTestExamples}
     );
   });
 
+  tests.add('`membersToMdAst` with an invalid event namepath.', async () => {
+    const code = `/**
+ * @kind function
+ * @name A
+ * @fires .
+ */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const members = jsdocCommentsToMembers(
+      jsdocComments,
+      codeFiles,
+      TEST_CODE_FILE_PATH
+    );
+
+    let caughtError;
+
+    try {
+      membersToMdAst(members, codeFiles);
+    } catch (error) {
+      caughtError = error;
+    }
+
+    strictEqual(caughtError instanceof Error, true);
+
+    await snapshot(
+      caughtError.message,
+      resolve(
+        __dirname,
+        '../snapshots/membersToMdAst/error-event-namepath-invalid.ans'
+      )
+    );
+  });
+
   tests.add('`membersToMdAst` with a missing event namepath.', async () => {
     const code = `/**
  * @kind class
@@ -724,8 +759,22 @@ ${jsdocTestExamples}
       TEST_CODE_FILE_PATH
     );
 
-    throws(() => {
-      membersToMdAst(members);
-    }, new Error('Missing JSDoc member for event namepath “A#event:a”.'));
+    let caughtError;
+
+    try {
+      membersToMdAst(members, codeFiles);
+    } catch (error) {
+      caughtError = error;
+    }
+
+    strictEqual(caughtError instanceof Error, true);
+
+    await snapshot(
+      caughtError.message,
+      resolve(
+        __dirname,
+        '../snapshots/membersToMdAst/error-event-namepath-missing-jsdoc-member.ans'
+      )
+    );
   });
 };

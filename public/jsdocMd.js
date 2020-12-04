@@ -87,6 +87,6 @@ module.exports = async function jsdocMd({
   mdFileReplaceSection({
     markdownPath,
     targetHeading,
-    replacementAst: membersToMdAst(jsdocMembers),
+    replacementAst: membersToMdAst(jsdocMembers, codeFiles),
   });
 };

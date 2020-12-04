@@ -1,0 +1,195 @@
+[[
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7"
+],{
+  "codeFilePath": "8",
+  "codeJsdocLocation": "9",
+  "namepath": "10",
+  "name": "10",
+  "kind": "11",
+  "description": "12",
+  "parameters": "13",
+  "heading": "14",
+  "slug": "15",
+  "children": "16"
+},{
+  "codeFilePath": "8",
+  "codeJsdocLocation": "17",
+  "namepath": "18",
+  "memberof": "10",
+  "membership": "19",
+  "name": "20",
+  "kind": "21",
+  "type": "22",
+  "description": "12",
+  "properties": "23",
+  "parent": "1",
+  "heading": "24",
+  "slug": "25"
+},{
+  "codeFilePath": "8",
+  "codeJsdocLocation": "26",
+  "namepath": "27",
+  "memberof": "10",
+  "membership": "28",
+  "name": "29",
+  "kind": "30",
+  "description": "12",
+  "parameters": "31",
+  "parent": "1",
+  "heading": "32",
+  "slug": "33"
+},{
+  "codeFilePath": "8",
+  "codeJsdocLocation": "34",
+  "namepath": "35",
+  "memberof": "10",
+  "membership": "19",
+  "name": "36",
+  "kind": "30",
+  "description": "12",
+  "fires": "37",
+  "parent": "1",
+  "heading": "38",
+  "slug": "39"
+},{
+  "codeFilePath": "8",
+  "codeJsdocLocation": "40",
+  "namepath": "41",
+  "memberof": "10",
+  "membership": "42",
+  "name": "43",
+  "kind": "30",
+  "description": "12",
+  "parent": "1",
+  "heading": "44",
+  "slug": "45"
+},{
+  "codeFilePath": "8",
+  "codeJsdocLocation": "46",
+  "namepath": "47",
+  "memberof": "10",
+  "membership": "19",
+  "name": "48",
+  "kind": "49",
+  "type": "22",
+  "description": "12",
+  "parent": "1",
+  "heading": "50",
+  "slug": "51"
+},{
+  "codeFilePath": "8",
+  "codeJsdocLocation": "52",
+  "namepath": "53",
+  "name": "53",
+  "kind": "54",
+  "type": "22",
+  "description": "12",
+  "properties": "55",
+  "heading": "56",
+  "slug": "57"
+},"/a.js",{
+  "start": "58",
+  "end": "59"
+},"A","class","Description.",[
+  "60"
+],"class A","class-a",[
+  "2",
+  "3",
+  "4",
+  "5",
+  "6"
+],{
+  "start": "61",
+  "end": "62"
+},"A#event:a","#","event:a","event","object",[
+  "63"
+],"A event a","a-event-a",{
+  "start": "64",
+  "end": "65"
+},"A.a",".","a","function",[
+  "66"
+],"A static method a","a-static-method-a",{
+  "start": "67",
+  "end": "68"
+},"A#b","b",[
+  "18"
+],"A instance method b","a-instance-method-b",{
+  "start": "69",
+  "end": "70"
+},"A~c","~","c","A inner function c","a-inner-function-c",{
+  "start": "71",
+  "end": "72"
+},"A#d","d","member","A instance property d","a-instance-property-d",{
+  "start": "73",
+  "end": "74"
+},"B","typedef",[
+  "75"
+],"type B","type-b",{
+  "line": 1,
+  "column": 0
+},{
+  "line": 6,
+  "column": 3
+},{
+  "name": "29",
+  "type": "76",
+  "optional": false,
+  "description": "12"
+},{
+  "line": 8,
+  "column": 1
+},{
+  "line": 14,
+  "column": 3
+},{
+  "name": "29",
+  "type": "76",
+  "optional": false,
+  "description": "12"
+},{
+  "line": 16,
+  "column": 1
+},{
+  "line": 21,
+  "column": 3
+},{
+  "name": "29",
+  "type": "53",
+  "optional": false,
+  "description": "12"
+},{
+  "line": 23,
+  "column": 1
+},{
+  "line": 28,
+  "column": 3
+},{
+  "line": 30,
+  "column": 1
+},{
+  "line": 34,
+  "column": 3
+},{
+  "line": 36,
+  "column": 1
+},{
+  "line": 41,
+  "column": 3
+},{
+  "line": 43,
+  "column": 0
+},{
+  "line": 49,
+  "column": 3
+},{
+  "name": "29",
+  "type": "76",
+  "optional": false,
+  "description": "12"
+},"string"]

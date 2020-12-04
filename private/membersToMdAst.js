@@ -4,6 +4,7 @@ const remarkBehead = require('remark-behead');
 const gfm = require('remark-gfm');
 const toc = require('remark-toc');
 const unified = require('unified');
+const createCodeFrame = require('./createCodeFrame');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const mdToMdAst = require('./mdToMdAst');
 const outlineMembers = require('./outlineMembers');
@@ -34,12 +35,13 @@ const KIND_ORDER = [
  * @kind function
  * @name membersToMdAst
  * @param {Array<JsdocMember>} members JSDoc members.
+ * @param {CodeFilesMap} codeFiles Map of code file paths and their code.
  * @param {number} [topDepth=1] Top heading level.
  * @returns {object} Markdown AST.
  * @ignore
  */
-module.exports = function membersToMdAst(members, topDepth = 1) {
-  const outlinedMembers = outlineMembers(members);
+module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
+  const outlinedMembers = outlineMembers(members, codeFiles);
   const mdast = {
     type: 'root',
     children: [
@@ -262,11 +264,25 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
         };
 
         for (const namepath of member.fires) {
+          try {
+            var { memberof, membership, name } = deconstructJsdocNamepath(
+              namepath
+            );
+          } catch (error) {
+            throw new SyntaxError(
+              `Unable to deconstruct JSDoc namepath “${namepath}”:\n\n${
+                // coverage ignore next line
+                error instanceof Error ? error.message : error
+              }${createCodeFrame(
+                member.codeFilePath,
+                member.codeJsdocLocation,
+                codeFiles.get(member.codeFilePath)
+              )}`
+            );
+          }
+
           // The JSDoc `@fires` tag uniquely supports omitting the `event:`
           // name prefix in the event namepath.
-          const { memberof, membership, name } = deconstructJsdocNamepath(
-            namepath
-          );
           const eventNamepath = name.startsWith('event:')
             ? namepath
             : `${memberof}${membership}event:${name}`;
@@ -276,7 +292,11 @@ module.exports = function membersToMdAst(members, topDepth = 1) {
 
           if (!eventMember)
             throw new Error(
-              `Missing JSDoc member for event namepath “${eventNamepath}”.`
+              `Missing JSDoc member for event namepath “${eventNamepath}”.${createCodeFrame(
+                member.codeFilePath,
+                member.codeJsdocLocation,
+                codeFiles.get(member.codeFilePath)
+              )}`
             );
 
           firesTagsList.children.push({

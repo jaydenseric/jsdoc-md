@@ -24,6 +24,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @name JsdocMember
  * @type {object}
  * @prop {string} codeFilePath File path for the code containing the JSDoc comment defining this member.
+ * @prop {object} codeJsdocLocation Location in the code of the JSDoc comment defining this member.
  * @prop {JsdocKind} kind Kind.
  * @prop {string} namepath Namepath.
  * @prop {string} [memberof] Namepath for the parent member, derived from the `namepath`.

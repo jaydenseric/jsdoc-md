@@ -35,7 +35,7 @@ module.exports = async function membersToMdAstSnapshot(
     codeFiles,
     TEST_CODE_FILE_PATH
   );
-  const mdAst = membersToMdAst(members, topDepth);
+  const mdAst = membersToMdAst(members, codeFiles, topDepth);
 
   await snapshot(
     JSON.stringify(mdAst, null, 2),

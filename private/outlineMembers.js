@@ -1,6 +1,7 @@
 'use strict';
 
 const GithubSlugger = require('github-slugger');
+const createCodeFrame = require('./createCodeFrame');
 
 const MEMBERSHIPS = {
   '.': 'static',
@@ -13,12 +14,16 @@ const MEMBERSHIPS = {
  * @kind function
  * @name outlineMembers
  * @param {Array<JsdocMember>} members JSDoc members.
+ * @param {CodeFilesMap} codeFiles Map of code file paths and their code.
  * @returns {Array<JsdocMember>} Outlined JSDoc members.
  * @ignore
  */
-module.exports = function outlineMembers(members) {
+module.exports = function outlineMembers(members, codeFiles) {
   if (!Array.isArray(members))
     throw new TypeError('First argument “members” must be an array.');
+
+  if (!(codeFiles instanceof Map))
+    throw new TypeError('Second argument “codeFiles” must be a Map instance.');
 
   // Prevent modification of the input array.
   const outline = members.slice();
@@ -30,7 +35,15 @@ module.exports = function outlineMembers(members) {
       // Set the parent property.
       const parent = outline.find((mem) => mem.namepath === member.memberof);
       if (!parent)
-        throw new Error(`Missing JSDoc for namepath “${member.memberof}”.`);
+        throw new Error(
+          `Missing JSDoc member for namepath “${
+            member.memberof
+          }”.${createCodeFrame(
+            member.codeFilePath,
+            member.codeJsdocLocation,
+            codeFiles.get(member.codeFilePath)
+          )}`
+        );
       member.parent = parent;
 
       // Update the parent member’s children property.

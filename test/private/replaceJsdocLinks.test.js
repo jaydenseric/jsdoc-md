@@ -35,7 +35,7 @@ module.exports = (tests) => {
         codeFiles,
         TEST_CODE_FILE_PATH
       );
-      const outlinedMembers = outlineMembers(members);
+      const outlinedMembers = outlineMembers(members, codeFiles);
 
       strictEqual(
         replaceJsdocLinks('See [A]{@link A}.', outlinedMembers),
@@ -61,7 +61,7 @@ module.exports = (tests) => {
       codeFiles,
       TEST_CODE_FILE_PATH
     );
-    const outlinedMembers = outlineMembers(members);
+    const outlinedMembers = outlineMembers(members, codeFiles);
 
     strictEqual(
       replaceJsdocLinks('[A]{@link A} [B]{@link B}', outlinedMembers),
