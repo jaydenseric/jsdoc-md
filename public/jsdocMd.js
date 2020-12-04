@@ -17,7 +17,7 @@ const membersToMdAst = require('../private/membersToMdAst');
  * @param {string} [options.sourceGlob='**\/*.{mjs,js}'] JSDoc source file glob pattern.
  * @param {string} [options.markdownPath='readme.md'] Path to the markdown file for docs insertion.
  * @param {string} [options.targetHeading='API'] Markdown file heading to insert docs under.
- * @returns {Promise<void>} Resolves once the operation is complete.
+ * @returns {Promise<void>} Resolves once the operation is done.
  * @example <caption>Ways to `import`.</caption>
  * ```js
  * import { jsdocMd } from 'jsdoc-md';
