@@ -76,7 +76,7 @@ module.exports = async function jsdocMd({
       for (const jsdocComment of jsdocComments) {
         const jsdocMember = jsdocCommentToMember(
           jsdocComment,
-          codeFiles.get(codeFilePath),
+          codeFiles,
           codeFilePath
         );
         if (jsdocMember) jsdocMembers.push(jsdocMember);

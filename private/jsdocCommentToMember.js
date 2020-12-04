@@ -45,21 +45,21 @@ const JSDOC_PARSER_OPTIONS = {
  * @kind function
  * @name jsdocCommentToMember
  * @param {object} jsdocComment JSDoc comment, from a Babel parse result.
- * @param {string} code Code containing the JSDoc comment.
+ * @param {CodeFilesMap} codeFiles Map of code file paths and their code.
  * @param {string} codeFilePath File path for the code containing the JSDoc comment.
  * @returns {JsdocMember|void} JSDoc member, if it’s valid and not ignored.
  * @ignore
  */
 module.exports = function jsdocCommentToMember(
   jsdocComment,
-  code,
+  codeFiles,
   codeFilePath
 ) {
   if (typeof jsdocComment !== 'object')
     throw new TypeError('First argument “jsdocComment” must be an object.');
 
-  if (typeof code !== 'string')
-    throw new TypeError('Second argument “code” must be a string.');
+  if (!(codeFiles instanceof Map))
+    throw new TypeError('Second argument “codeFiles” must be a Map instance.');
 
   if (typeof codeFilePath !== 'string')
     throw new TypeError('Third argument “codeFilePath” must be a string.');
@@ -228,9 +228,11 @@ module.exports = function jsdocCommentToMember(
             error.message
           }\n\n${codeFilePath}:${jsdocComment.loc.start.line}:${
             jsdocComment.loc.start.column
-          }\n\n${codeFrameColumns(code, jsdocComment.loc, {
-            highlightCode: true,
-          })}`
+          }\n\n${codeFrameColumns(
+            codeFiles.get(codeFilePath),
+            jsdocComment.loc,
+            { highlightCode: true }
+          )}`
         );
       }
 
@@ -240,7 +242,9 @@ module.exports = function jsdocCommentToMember(
 
       // Define the JSDoc member with nicely ordered properties, and only add
       // properties that contain details.
-      const member = {};
+      const member = {
+        codeFilePath,
+      };
 
       member.namepath = namepath;
       if (memberof) member.memberof = memberof;

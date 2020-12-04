@@ -7,20 +7,20 @@ const jsdocCommentToMember = require('../private/jsdocCommentToMember');
  * @kind function
  * @name jsdocCommentsToMembers
  * @param {Array<string>} jsdocComments JSDoc comments.
- * @param {string} code Code containing the JSDoc comment.
+ * @param {CodeFilesMap} codeFiles Map of code file paths and their code.
  * @param {string} codeFilePath File path for the code containing the JSDoc comment.
  * @returns {Array<JsdocMember>} JSDoc members.
  * @ignore
  */
 module.exports = function jsdocCommentsToMembers(
   jsdocComments,
-  code,
+  codeFiles,
   codeFilePath
 ) {
   const members = [];
 
   for (const jsdocComment of jsdocComments) {
-    const member = jsdocCommentToMember(jsdocComment, code, codeFilePath);
+    const member = jsdocCommentToMember(jsdocComment, codeFiles, codeFilePath);
     if (member) members.push(member);
   }
 

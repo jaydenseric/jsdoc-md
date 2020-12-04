@@ -12,14 +12,16 @@ module.exports = (tests) => {
   tests.add(
     '`jsdocCommentToMember` with first argument `jsdocComment` not an object.',
     () => {
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, '']]);
+
       throws(() => {
-        jsdocCommentToMember(true, '', TEST_CODE_FILE_PATH);
+        jsdocCommentToMember(true, codeFiles, TEST_CODE_FILE_PATH);
       }, new TypeError('First argument “jsdocComment” must be an object.'));
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with second argument `code` not a string.',
+    '`jsdocCommentToMember` with second argument `codeFiles` not a Map instance.',
     async () => {
       const code = '/** */';
       const [jsdocComment] = await codeToJsdocComments(
@@ -29,7 +31,7 @@ module.exports = (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, true, TEST_CODE_FILE_PATH);
-      }, new TypeError('Second argument “code” must be a string.'));
+      }, new TypeError('Second argument “codeFiles” must be a Map instance.'));
     }
   );
 
@@ -37,13 +39,14 @@ module.exports = (tests) => {
     '`jsdocCommentToMember` with third argument `codeFilePath` not a string.',
     async () => {
       const code = '/** */';
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
       );
 
       throws(() => {
-        jsdocCommentToMember(jsdocComment, code, true);
+        jsdocCommentToMember(jsdocComment, codeFiles, true);
       }, new TypeError('Third argument “codeFilePath” must be a string.'));
     }
   );
@@ -52,22 +55,24 @@ module.exports = (tests) => {
     '`jsdocCommentToMember` with third argument `codeFilePath` not a populated string.',
     async () => {
       const code = '/** */';
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
       );
 
       throws(() => {
-        jsdocCommentToMember(jsdocComment, code, '');
+        jsdocCommentToMember(jsdocComment, codeFiles, '');
       }, new TypeError('Third argument “codeFilePath” must be a populated string.'));
     }
   );
 
   tests.add('`jsdocCommentToMember` with a JSDoc syntax error.', async () => {
     const code = '/** @tag [name */';
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
-      jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+      jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
       undefined
     );
   });
@@ -76,12 +81,13 @@ module.exports = (tests) => {
     '`jsdocCommentToMember` with no description, no tags.',
     async () => {
       const code = '/** */';
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
       );
       strictEqual(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         undefined
       );
     }
@@ -89,36 +95,40 @@ module.exports = (tests) => {
 
   tests.add('`jsdocCommentToMember` with description, no tags.', async () => {
     const code = '/** Description. */';
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
-      jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+      jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
       undefined
     );
   });
 
   tests.add('`jsdocCommentToMember` with a missing kind.', async () => {
     const code = '/** @name A */';
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
-      jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+      jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
       undefined
     );
   });
 
   tests.add('`jsdocCommentToMember` with a missing name.', async () => {
     const code = '/** @kind member */';
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
-      jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+      jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
       undefined
     );
   });
 
   tests.add('`jsdocCommentToMember` with tag ignore.', async () => {
     const code = '/** @ignore */';
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
-      jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+      jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
       undefined
     );
   });
@@ -134,12 +144,13 @@ const a = true;
 const b = true;
 
 // Code after…`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     let caughtError;
 
     try {
-      jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH);
+      jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH);
     } catch (error) {
       caughtError = error;
     }
@@ -161,11 +172,12 @@ const b = true;
  * @kind member
  * @name A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -181,6 +193,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -188,7 +201,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -206,11 +219,12 @@ const b = true;
  * @kind member
  * @name A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -227,6 +241,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -234,7 +249,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -255,6 +270,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -262,7 +278,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -283,6 +299,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -290,7 +307,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -310,6 +327,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -317,7 +335,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -335,11 +353,12 @@ const b = true;
  * @kind member
  * @name A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -359,6 +378,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -366,7 +386,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -387,6 +407,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -394,7 +415,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -415,6 +436,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -422,7 +444,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -440,11 +462,12 @@ const b = true;
  * @kind
  * @name A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -460,11 +483,12 @@ const b = true;
  * @kind member
  * @name A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -480,6 +504,7 @@ const b = true;
  * @kind member
  * @name A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -487,7 +512,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -506,6 +531,7 @@ const b = true;
  * @typedef A
  * @kind member
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -513,7 +539,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -532,6 +558,7 @@ const b = true;
  * @callback A
  * @kind member
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -539,7 +566,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -557,11 +584,12 @@ const b = true;
  * @name A
  * @name
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -577,11 +605,12 @@ const b = true;
  * @kind member
  * @name A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -597,6 +626,7 @@ const b = true;
  * @name A
  * @name B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -604,7 +634,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -623,6 +653,7 @@ const b = true;
  * @typedef A
  * @name B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -630,7 +661,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -649,6 +680,7 @@ const b = true;
  * @callback A
  * @name B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -656,7 +688,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -674,11 +706,12 @@ const b = true;
  * @name A
  * @type
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -695,11 +728,12 @@ const b = true;
  * @name A
  * @type {boolean}
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -716,6 +750,7 @@ const b = true;
  * @type {string}
  * @type {boolean}
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -723,7 +758,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -742,6 +777,7 @@ const b = true;
  * @typedef {string} A
  * @type {boolean}
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -749,7 +785,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -768,6 +804,7 @@ const b = true;
  * @callback A
  * @type {SpecialFunctionType}
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -775,7 +812,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -795,6 +832,7 @@ const b = true;
  * @name A
  * @typedef
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -802,7 +840,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -818,11 +856,12 @@ const b = true;
     const code = `/**
  * @typedef A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -839,6 +878,7 @@ const b = true;
       const code = `/**
  * @typedef {boolean} A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -846,7 +886,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -865,6 +905,7 @@ const b = true;
  * @kind member
  * @typedef A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -872,7 +913,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -891,6 +932,7 @@ const b = true;
  * @type {string}
  * @typedef {boolean} A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -898,7 +940,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -917,6 +959,7 @@ const b = true;
  * @name A
  * @typedef B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -924,7 +967,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -943,6 +986,7 @@ const b = true;
  * @typedef {string} A
  * @typedef {boolean} B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -950,7 +994,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -969,6 +1013,7 @@ const b = true;
  * @callback A
  * @typedef {boolean} B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -976,7 +1021,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -996,6 +1041,7 @@ const b = true;
  * @name A
  * @callback
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1003,7 +1049,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1019,11 +1065,12 @@ const b = true;
     const code = `/**
  * @callback A
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -1041,6 +1088,7 @@ const b = true;
  * @kind member
  * @callback A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1048,7 +1096,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1067,6 +1115,7 @@ const b = true;
  * @type {boolean}
  * @callback A
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1074,7 +1123,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1093,6 +1142,7 @@ const b = true;
  * @name A
  * @typedef B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1100,7 +1150,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1119,6 +1169,7 @@ const b = true;
  * @typedef {boolean} A
  * @callback B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1126,7 +1177,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1145,6 +1196,7 @@ const b = true;
  * @callback A
  * @callback B
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1152,7 +1204,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1171,6 +1223,7 @@ const b = true;
  * @kind event
  * @name A#b
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1178,7 +1231,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1200,6 +1253,7 @@ const b = true;
  * @argument
  * @param
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1207,7 +1261,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1229,6 +1283,7 @@ const b = true;
  * @argument b
  * @param c
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1236,7 +1291,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1258,6 +1313,7 @@ const b = true;
  * @argument {boolean} b
  * @param {boolean} c
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1265,7 +1321,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1287,6 +1343,7 @@ const b = true;
  * @argument {boolean} [b]
  * @param {boolean} [c]
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1294,7 +1351,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1316,6 +1373,7 @@ const b = true;
  * @argument {boolean} [b=true]
  * @param {boolean} [c=true]
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1323,7 +1381,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1345,6 +1403,7 @@ const b = true;
  * @argument b Parameter description A.
  * @param c Parameter description A.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1352,7 +1411,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1374,6 +1433,7 @@ const b = true;
  * @argument {boolean} b Parameter description A.
  * @param {boolean} c Parameter description A.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1381,7 +1441,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1403,6 +1463,7 @@ const b = true;
  * @argument {boolean} [b] Parameter description A.
  * @param {boolean} [c] Parameter description A.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1410,7 +1471,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1432,6 +1493,7 @@ const b = true;
  * @argument {boolean} [b=true] Parameter description A.
  * @param {boolean} [c=true] Parameter description A.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1439,7 +1501,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1460,6 +1522,7 @@ const b = true;
  * @prop
  * @property
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1467,7 +1530,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1488,6 +1551,7 @@ const b = true;
  * @prop a
  * @property b
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1495,7 +1559,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1516,6 +1580,7 @@ const b = true;
  * @prop {boolean} a
  * @property {boolean} b
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1523,7 +1588,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1544,6 +1609,7 @@ const b = true;
  * @prop {boolean} [a]
  * @property {boolean} [b]
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1551,7 +1617,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1572,6 +1638,7 @@ const b = true;
  * @prop {boolean} [a=true]
  * @property {boolean} [b=true]
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1579,7 +1646,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1600,6 +1667,7 @@ const b = true;
  * @prop a Property description A.
  * @property b Property description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1607,7 +1675,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1628,6 +1696,7 @@ const b = true;
  * @prop {boolean} a Property description A.
  * @property {boolean} b Property description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1635,7 +1704,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1656,6 +1725,7 @@ const b = true;
  * @prop {boolean} [a] Property description A.
  * @property {boolean} [b] Property description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1663,7 +1733,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1684,6 +1754,7 @@ const b = true;
  * @prop {boolean} [a=true] Property description A.
  * @property {boolean} [b=true] Property description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1691,7 +1762,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1711,6 +1782,7 @@ const b = true;
  * @name A
  * @return
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1718,7 +1790,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1736,11 +1808,12 @@ const b = true;
  * @name A
  * @return {boolean}
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -1760,6 +1833,7 @@ const b = true;
  * @returns {string} Description.
  * @return {boolean}
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1767,7 +1841,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1787,6 +1861,7 @@ const b = true;
  * @name A
  * @return Description.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1794,7 +1869,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1815,6 +1890,7 @@ const b = true;
  * @returns {boolean} Description A.
  * @return Description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1822,7 +1898,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1842,6 +1918,7 @@ const b = true;
  * @name A
  * @return {boolean} Description.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1849,7 +1926,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1870,6 +1947,7 @@ const b = true;
  * @return {string} Description A.
  * @return {boolean} Description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1877,7 +1955,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1898,6 +1976,7 @@ const b = true;
  * @returns {string} Description A.
  * @return {boolean} Description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1905,7 +1984,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1925,6 +2004,7 @@ const b = true;
  * @name A
  * @returns
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1932,7 +2012,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -1950,11 +2030,12 @@ const b = true;
  * @name A
  * @returns {boolean}
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -1974,6 +2055,7 @@ const b = true;
  * @return {string} Description.
  * @returns {boolean}
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -1981,7 +2063,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2002,6 +2084,7 @@ const b = true;
  * @returns {string} Description.
  * @returns {boolean}
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2009,7 +2092,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2029,6 +2112,7 @@ const b = true;
  * @name A
  * @returns Description.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2036,7 +2120,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2057,6 +2141,7 @@ const b = true;
  * @return {boolean} Description A.
  * @returns Description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2064,7 +2149,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2084,6 +2169,7 @@ const b = true;
  * @name A
  * @returns {boolean} Description.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2091,7 +2177,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2112,6 +2198,7 @@ const b = true;
  * @return {string} Description A.
  * @returns {boolean} Description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2119,7 +2206,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2140,6 +2227,7 @@ const b = true;
  * @returns {string} Description A.
  * @returns {boolean} Description B.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2147,7 +2235,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2168,6 +2256,7 @@ const b = true;
  * @emits
  * @fires
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2175,7 +2264,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2194,11 +2283,12 @@ const b = true;
  * @emits A#event:a
  * @fires A#event:b
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -2220,6 +2310,7 @@ const b = true;
  * @fires A#event:b
  * @fires A#event:b
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2227,7 +2318,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2247,6 +2338,7 @@ const b = true;
  * @name A
  * @see
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2254,7 +2346,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2273,11 +2365,12 @@ const b = true;
  * @see See description A.
  * @see See description B.
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
 
     await snapshot(
       JSON.stringify(
-        jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+        jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
         null,
         2
       ),
@@ -2294,6 +2387,7 @@ const b = true;
  * @example
  * @example
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2301,7 +2395,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2322,6 +2416,7 @@ const b = true;
  * @example <caption>Example A caption.</caption>
  * @example <caption>Example B caption.</caption>
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2329,7 +2424,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),
@@ -2352,6 +2447,7 @@ const b = true;
  * @example <caption>Example B caption.</caption>
  * Example B content.
  */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -2359,7 +2455,7 @@ const b = true;
 
       await snapshot(
         JSON.stringify(
-          jsdocCommentToMember(jsdocComment, code, TEST_CODE_FILE_PATH),
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
           null,
           2
         ),

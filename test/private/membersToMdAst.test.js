@@ -716,10 +716,11 @@ ${jsdocTestExamples}
  * @name A#a
  * @fires A#event:a
  */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     const members = jsdocCommentsToMembers(
       jsdocComments,
-      code,
+      codeFiles,
       TEST_CODE_FILE_PATH
     );
 

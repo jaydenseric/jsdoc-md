@@ -3,6 +3,14 @@
 exports.jsdocMd = require('./jsdocMd');
 
 /**
+ * A map of code file paths and the their code.
+ * @kind typedef
+ * @name CodeFilesMap
+ * @type {Map<string, string>}
+ * @ignore
+ */
+
+/**
  * A JSDoc member’s kind.
  * @kind typedef
  * @name JsdocKind
@@ -15,6 +23,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @kind typedef
  * @name JsdocMember
  * @type {object}
+ * @prop {string} codeFilePath File path for the code containing the JSDoc comment defining this member.
  * @prop {JsdocKind} kind Kind.
  * @prop {string} namepath Namepath.
  * @prop {string} [memberof] Namepath for the parent member, derived from the `namepath`.

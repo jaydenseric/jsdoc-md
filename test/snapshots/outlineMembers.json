@@ -7,80 +7,87 @@
   "6",
   "7"
 ],{
-  "namepath": "8",
-  "name": "8",
-  "kind": "9",
-  "description": "10",
-  "parameters": "11",
-  "heading": "12",
-  "slug": "13",
-  "children": "14"
+  "codeFilePath": "8",
+  "namepath": "9",
+  "name": "9",
+  "kind": "10",
+  "description": "11",
+  "parameters": "12",
+  "heading": "13",
+  "slug": "14",
+  "children": "15"
 },{
-  "namepath": "15",
-  "memberof": "8",
-  "membership": "16",
-  "name": "17",
-  "kind": "18",
-  "type": "19",
-  "description": "10",
-  "properties": "20",
+  "codeFilePath": "8",
+  "namepath": "16",
+  "memberof": "9",
+  "membership": "17",
+  "name": "18",
+  "kind": "19",
+  "type": "20",
+  "description": "11",
+  "properties": "21",
   "parent": "1",
-  "heading": "21",
-  "slug": "22"
+  "heading": "22",
+  "slug": "23"
 },{
-  "namepath": "23",
-  "memberof": "8",
-  "membership": "24",
-  "name": "25",
-  "kind": "26",
-  "description": "10",
-  "parameters": "27",
+  "codeFilePath": "8",
+  "namepath": "24",
+  "memberof": "9",
+  "membership": "25",
+  "name": "26",
+  "kind": "27",
+  "description": "11",
+  "parameters": "28",
   "parent": "1",
-  "heading": "28",
-  "slug": "29"
+  "heading": "29",
+  "slug": "30"
 },{
-  "namepath": "30",
-  "memberof": "8",
-  "membership": "16",
-  "name": "31",
-  "kind": "26",
-  "description": "10",
-  "fires": "32",
+  "codeFilePath": "8",
+  "namepath": "31",
+  "memberof": "9",
+  "membership": "17",
+  "name": "32",
+  "kind": "27",
+  "description": "11",
+  "fires": "33",
   "parent": "1",
-  "heading": "33",
-  "slug": "34"
+  "heading": "34",
+  "slug": "35"
 },{
-  "namepath": "35",
-  "memberof": "8",
-  "membership": "36",
-  "name": "37",
-  "kind": "26",
-  "description": "10",
+  "codeFilePath": "8",
+  "namepath": "36",
+  "memberof": "9",
+  "membership": "37",
+  "name": "38",
+  "kind": "27",
+  "description": "11",
   "parent": "1",
-  "heading": "38",
-  "slug": "39"
+  "heading": "39",
+  "slug": "40"
 },{
-  "namepath": "40",
-  "memberof": "8",
-  "membership": "16",
-  "name": "41",
-  "kind": "42",
-  "type": "19",
-  "description": "10",
+  "codeFilePath": "8",
+  "namepath": "41",
+  "memberof": "9",
+  "membership": "17",
+  "name": "42",
+  "kind": "43",
+  "type": "20",
+  "description": "11",
   "parent": "1",
-  "heading": "43",
-  "slug": "44"
+  "heading": "44",
+  "slug": "45"
 },{
-  "namepath": "45",
-  "name": "45",
-  "kind": "46",
-  "type": "19",
-  "description": "10",
-  "properties": "47",
-  "heading": "48",
-  "slug": "49"
-},"A","class","Description.",[
-  "50"
+  "codeFilePath": "8",
+  "namepath": "46",
+  "name": "46",
+  "kind": "47",
+  "type": "20",
+  "description": "11",
+  "properties": "48",
+  "heading": "49",
+  "slug": "50"
+},"/a.js","A","class","Description.",[
+  "51"
 ],"class A","class-a",[
   "2",
   "3",
@@ -88,31 +95,31 @@
   "5",
   "6"
 ],"A#event:a","#","event:a","event","object",[
-  "51"
-],"A event a","a-event-a","A.a",".","a","function",[
   "52"
-],"A static method a","a-static-method-a","A#b","b",[
-  "15"
-],"A instance method b","a-instance-method-b","A~c","~","c","A inner function c","a-inner-function-c","A#d","d","member","A instance property d","a-instance-property-d","B","typedef",[
+],"A event a","a-event-a","A.a",".","a","function",[
   "53"
+],"A static method a","a-static-method-a","A#b","b",[
+  "16"
+],"A instance method b","a-instance-method-b","A~c","~","c","A inner function c","a-inner-function-c","A#d","d","member","A instance property d","a-instance-property-d","B","typedef",[
+  "54"
 ],"type B","type-b",{
-  "name": "25",
-  "type": "54",
+  "name": "26",
+  "type": "55",
   "optional": false,
-  "description": "10"
+  "description": "11"
 },{
-  "name": "25",
-  "type": "54",
+  "name": "26",
+  "type": "55",
   "optional": false,
-  "description": "10"
+  "description": "11"
 },{
-  "name": "25",
-  "type": "45",
+  "name": "26",
+  "type": "46",
   "optional": false,
-  "description": "10"
+  "description": "11"
 },{
-  "name": "25",
-  "type": "54",
+  "name": "26",
+  "type": "55",
   "optional": false,
-  "description": "10"
+  "description": "11"
 },"string"]
