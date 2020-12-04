@@ -1,11 +1,11 @@
 'use strict';
 
 const { strictEqual } = require('assert');
+const { spawnSync } = require('child_process');
 const fs = require('fs');
 const { join, resolve } = require('path');
 const { disposableDirectory } = require('disposable-directory');
 const snapshot = require('snapshot-assertion');
-const execFilePromise = require('../execFilePromise');
 
 const cliPath = resolve(__dirname, '../../cli/jsdoc-md');
 
@@ -45,12 +45,19 @@ const A = true
 
       await fs.promises.writeFile(markdownPath, '## API');
 
-      const { stdout, stderr } = await execFilePromise('node', [cliPath], {
+      const { stdout, stderr, status, error } = spawnSync('node', [cliPath], {
         cwd: tempDirPath,
+        env: {
+          ...process.env,
+          FORCE_COLOR: 1,
+        },
       });
 
-      strictEqual(stdout, '');
-      strictEqual(stderr, '');
+      if (error) throw error;
+
+      strictEqual(stdout.toString(), '');
+      strictEqual(stderr.toString(), '');
+      strictEqual(status, 0);
 
       await snapshot(
         await fs.promises.readFile(markdownPath, 'utf8'),
@@ -94,7 +101,7 @@ const A = true
 
       await fs.promises.writeFile(markdownPath, '## Target');
 
-      const { stdout, stderr } = await execFilePromise(
+      const { stdout, stderr, status, error } = spawnSync(
         'node',
         [
           cliPath,
@@ -104,11 +111,18 @@ const A = true
         ],
         {
           cwd: tempDirPath,
+          env: {
+            ...process.env,
+            FORCE_COLOR: 1,
+          },
         }
       );
 
-      strictEqual(stdout, '');
-      strictEqual(stderr, '');
+      if (error) throw error;
+
+      strictEqual(stdout.toString(), '');
+      strictEqual(stderr.toString(), '');
+      strictEqual(status, 0);
 
       await snapshot(
         await fs.promises.readFile(markdownPath, 'utf8'),
