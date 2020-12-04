@@ -11,6 +11,15 @@ const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
+  tests.add(
+    '`outlineMembers` with first argument `members` not an array.',
+    () => {
+      throws(() => {
+        outlineMembers(true);
+      }, new TypeError('First argument “members” must be an array.'));
+    }
+  );
+
   tests.add('`outlineMembers` with no missing members.', async () => {
     const code = `/**
  * Description.

@@ -17,6 +17,9 @@ const MEMBERSHIPS = {
  * @ignore
  */
 module.exports = function outlineMembers(members) {
+  if (!Array.isArray(members))
+    throw new TypeError('First argument “members” must be an array.');
+
   // Prevent modification of the input array.
   const outline = members.slice();
   const slugger = new GithubSlugger();
