@@ -34,7 +34,7 @@ const KIND_ORDER = [
  * @kind function
  * @name membersToMdAst
  * @param {Array<JsdocMember>} members JSDoc members.
- * @param {number} topDepth Top heading level.
+ * @param {number} [topDepth=1] Top heading level.
  * @returns {object} Markdown AST.
  * @ignore
  */
