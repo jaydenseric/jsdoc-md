@@ -4,6 +4,7 @@ const { strictEqual } = require('assert');
 const fs = require('fs');
 const { join, resolve } = require('path');
 const { disposableDirectory } = require('disposable-directory');
+const snapshot = require('snapshot-assertion');
 const execFilePromise = require('../execFilePromise');
 
 const cliPath = resolve(__dirname, '../../cli/jsdoc-md');
@@ -51,20 +52,9 @@ const A = true
       strictEqual(stdout, '');
       strictEqual(stderr, '');
 
-      strictEqual(
+      await snapshot(
         await fs.promises.readFile(markdownPath, 'utf8'),
-        `## API
-
-### Table of contents
-
-- [constant A](#constant-a)
-
-### constant A
-
-Description.
-
-**Type:** boolean
-`
+        resolve(__dirname, '../snapshots/jsdoc-md/with-defaults.md')
       );
     });
   });
@@ -120,20 +110,9 @@ const A = true
       strictEqual(stdout, '');
       strictEqual(stderr, '');
 
-      strictEqual(
+      await snapshot(
         await fs.promises.readFile(markdownPath, 'utf8'),
-        `## Target
-
-### Table of contents
-
-- [constant A](#constant-a)
-
-### constant A
-
-Description.
-
-**Type:** boolean
-`
+        resolve(__dirname, '../snapshots/jsdoc-md/with-arguments.md')
       );
     });
   });
