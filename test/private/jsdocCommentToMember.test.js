@@ -161,7 +161,7 @@ const b = true;
       caughtError.message,
       resolve(
         __dirname,
-        '../snapshots/jsdocCommentToMember/error-invalid-namepath.txt'
+        '../snapshots/jsdocCommentToMember/error-invalid-namepath.ans'
       )
     );
   });
