@@ -61,7 +61,7 @@ const A = true
 
       await snapshot(
         await fs.promises.readFile(markdownPath, 'utf8'),
-        resolve(__dirname, '../snapshots/jsdoc-md/with-defaults.md')
+        resolve(__dirname, '../snapshots/jsdoc-md/with-defaults-markdown.md')
       );
     });
   });
@@ -126,7 +126,7 @@ const A = true
 
       await snapshot(
         await fs.promises.readFile(markdownPath, 'utf8'),
-        resolve(__dirname, '../snapshots/jsdoc-md/with-arguments.md')
+        resolve(__dirname, '../snapshots/jsdoc-md/with-arguments-markdown.md')
       );
     });
   });
