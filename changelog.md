@@ -4,6 +4,7 @@
 
 ### Major
 
+- The updated [`kleur`](https://npm.im/kleur) dependency causes subtle differences in which environments get colored console output.
 - The function `jsdocMd` is now async and should be faster.
 
 ### Minor
@@ -21,6 +22,7 @@
 
 ### Patch
 
+- Update dependencies.
 - Removed `dynamicImport` and `objectRestSpread` plugins from the Babel parser config, as they are enabled by default nowadays.
 - Fixed the generated markdown headings for various kinds of nested members:
   - Inner members of classes of kind `member` are now labeled `member` instead of `property`.
