@@ -36,7 +36,12 @@ module.exports = class InvalidJsdocError extends Error {
             column: codeLocation.start.column + 1,
           },
         },
-        { highlightCode: true }
+        {
+          // Allow color to be forced at runtime for tests, see:
+          // https://github.com/babel/babel/issues/12442
+          forceColor: process.env.FORCE_COLOR === '1',
+          highlightCode: true,
+        }
       )}`
     );
 

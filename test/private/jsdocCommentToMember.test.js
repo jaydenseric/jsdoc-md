@@ -2,6 +2,7 @@
 
 const { strictEqual, throws } = require('assert');
 const { resolve } = require('path');
+const revertableGlobals = require('revertable-globals');
 const snapshot = require('snapshot-assertion');
 const InvalidJsdocError = require('../../private/InvalidJsdocError');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
@@ -150,11 +151,15 @@ const b = true;
 
     let caughtError;
 
+    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+
     try {
       jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH);
     } catch (error) {
       caughtError = error;
     }
+
+    revertEnv();
 
     strictEqual(caughtError instanceof InvalidJsdocError, true);
 

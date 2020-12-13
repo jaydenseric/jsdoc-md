@@ -2,6 +2,7 @@
 
 const { strictEqual } = require('assert');
 const { resolve } = require('path');
+const revertableGlobals = require('revertable-globals');
 const snapshot = require('snapshot-assertion');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const membersToMdAst = require('../../private/membersToMdAst');
@@ -723,11 +724,15 @@ ${jsdocTestExamples}
 
     let caughtError;
 
+    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+
     try {
       membersToMdAst(members, codeFiles);
     } catch (error) {
       caughtError = error;
     }
+
+    revertEnv();
 
     strictEqual(caughtError instanceof Error, true);
 
@@ -761,11 +766,15 @@ ${jsdocTestExamples}
 
     let caughtError;
 
+    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+
     try {
       membersToMdAst(members, codeFiles);
     } catch (error) {
       caughtError = error;
     }
+
+    revertEnv();
 
     strictEqual(caughtError instanceof Error, true);
 
