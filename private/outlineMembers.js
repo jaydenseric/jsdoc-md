@@ -37,9 +37,9 @@ module.exports = function outlineMembers(members, codeFiles) {
       if (!parent)
         throw new InvalidJsdocError(
           `Missing JSDoc member for namepath “${member.memberof}”.`,
-          member.codeFilePath,
-          member.codeJsdocLocation,
-          codeFiles.get(member.codeFilePath)
+          member.codeFileLocation.filePath,
+          member.codeFileLocation.codeLocation,
+          codeFiles.get(member.codeFileLocation.filePath)
         );
       member.parent = parent;
 

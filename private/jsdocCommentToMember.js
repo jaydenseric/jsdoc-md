@@ -238,8 +238,10 @@ module.exports = function jsdocCommentToMember(
       // Define the JSDoc member with nicely ordered properties, and only add
       // properties that contain details.
       const member = {
-        codeFilePath,
-        codeJsdocLocation: jsdocComment.loc,
+        codeFileLocation: {
+          filePath: codeFilePath,
+          codeLocation: jsdocComment.loc,
+        },
       };
 
       member.namepath = namepath;

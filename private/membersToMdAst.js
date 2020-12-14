@@ -271,9 +271,9 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           } catch (error) {
             throw new InvalidJsdocError(
               error.message,
-              member.codeFilePath,
-              member.codeJsdocLocation,
-              codeFiles.get(member.codeFilePath)
+              member.codeFileLocation.filePath,
+              member.codeFileLocation.codeLocation,
+              codeFiles.get(member.codeFileLocation.filePath)
             );
           }
 
@@ -289,9 +289,9 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           if (!eventMember)
             throw new InvalidJsdocError(
               `Missing JSDoc member for event namepath “${eventNamepath}”.`,
-              member.codeFilePath,
-              member.codeJsdocLocation,
-              codeFiles.get(member.codeFilePath)
+              member.codeFileLocation.filePath,
+              member.codeFileLocation.codeLocation,
+              codeFiles.get(member.codeFileLocation.filePath)
             );
 
           firesTagsList.children.push({

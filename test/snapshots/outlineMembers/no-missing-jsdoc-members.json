@@ -7,97 +7,90 @@
   "6",
   "7"
 ],{
-  "codeFilePath": "8",
-  "codeJsdocLocation": "9",
-  "namepath": "10",
-  "name": "10",
-  "kind": "11",
-  "description": "12",
-  "parameters": "13",
-  "heading": "14",
-  "slug": "15",
-  "children": "16"
+  "codeFileLocation": "8",
+  "namepath": "9",
+  "name": "9",
+  "kind": "10",
+  "description": "11",
+  "parameters": "12",
+  "heading": "13",
+  "slug": "14",
+  "children": "15"
 },{
-  "codeFilePath": "8",
-  "codeJsdocLocation": "17",
-  "namepath": "18",
-  "memberof": "10",
-  "membership": "19",
-  "name": "20",
-  "kind": "21",
-  "type": "22",
-  "description": "12",
-  "properties": "23",
+  "codeFileLocation": "16",
+  "namepath": "17",
+  "memberof": "9",
+  "membership": "18",
+  "name": "19",
+  "kind": "20",
+  "type": "21",
+  "description": "11",
+  "properties": "22",
   "parent": "1",
-  "heading": "24",
-  "slug": "25"
+  "heading": "23",
+  "slug": "24"
 },{
-  "codeFilePath": "8",
-  "codeJsdocLocation": "26",
-  "namepath": "27",
-  "memberof": "10",
-  "membership": "28",
-  "name": "29",
-  "kind": "30",
-  "description": "12",
-  "parameters": "31",
+  "codeFileLocation": "25",
+  "namepath": "26",
+  "memberof": "9",
+  "membership": "27",
+  "name": "28",
+  "kind": "29",
+  "description": "11",
+  "parameters": "30",
   "parent": "1",
-  "heading": "32",
-  "slug": "33"
+  "heading": "31",
+  "slug": "32"
 },{
-  "codeFilePath": "8",
-  "codeJsdocLocation": "34",
-  "namepath": "35",
-  "memberof": "10",
-  "membership": "19",
-  "name": "36",
-  "kind": "30",
-  "description": "12",
-  "fires": "37",
+  "codeFileLocation": "33",
+  "namepath": "34",
+  "memberof": "9",
+  "membership": "18",
+  "name": "35",
+  "kind": "29",
+  "description": "11",
+  "fires": "36",
   "parent": "1",
-  "heading": "38",
-  "slug": "39"
+  "heading": "37",
+  "slug": "38"
 },{
-  "codeFilePath": "8",
-  "codeJsdocLocation": "40",
-  "namepath": "41",
-  "memberof": "10",
-  "membership": "42",
-  "name": "43",
-  "kind": "30",
-  "description": "12",
+  "codeFileLocation": "39",
+  "namepath": "40",
+  "memberof": "9",
+  "membership": "41",
+  "name": "42",
+  "kind": "29",
+  "description": "11",
   "parent": "1",
-  "heading": "44",
-  "slug": "45"
+  "heading": "43",
+  "slug": "44"
 },{
-  "codeFilePath": "8",
-  "codeJsdocLocation": "46",
-  "namepath": "47",
-  "memberof": "10",
-  "membership": "19",
-  "name": "48",
-  "kind": "49",
-  "type": "22",
-  "description": "12",
+  "codeFileLocation": "45",
+  "namepath": "46",
+  "memberof": "9",
+  "membership": "18",
+  "name": "47",
+  "kind": "48",
+  "type": "21",
+  "description": "11",
   "parent": "1",
-  "heading": "50",
-  "slug": "51"
+  "heading": "49",
+  "slug": "50"
 },{
-  "codeFilePath": "8",
-  "codeJsdocLocation": "52",
-  "namepath": "53",
-  "name": "53",
-  "kind": "54",
-  "type": "22",
-  "description": "12",
-  "properties": "55",
-  "heading": "56",
-  "slug": "57"
-},"/a.js",{
-  "start": "58",
-  "end": "59"
+  "codeFileLocation": "51",
+  "namepath": "52",
+  "name": "52",
+  "kind": "53",
+  "type": "21",
+  "description": "11",
+  "properties": "54",
+  "heading": "55",
+  "slug": "56"
+},{
+  "filePath": "57",
+  "codeLocation": "58"
 },"A","class","Description.",[
-  "60"
+  "59"
 ],"class A","class-a",[
   "2",
   "3",
@@ -105,64 +98,90 @@
   "5",
   "6"
 ],{
-  "start": "61",
-  "end": "62"
+  "filePath": "57",
+  "codeLocation": "60"
 },"A#event:a","#","event:a","event","object",[
-  "63"
+  "61"
 ],"A event a","a-event-a",{
-  "start": "64",
-  "end": "65"
+  "filePath": "57",
+  "codeLocation": "62"
 },"A.a",".","a","function",[
-  "66"
+  "63"
 ],"A static method a","a-static-method-a",{
-  "start": "67",
-  "end": "68"
+  "filePath": "57",
+  "codeLocation": "64"
 },"A#b","b",[
-  "18"
+  "17"
 ],"A instance method b","a-instance-method-b",{
+  "filePath": "57",
+  "codeLocation": "65"
+},"A~c","~","c","A inner function c","a-inner-function-c",{
+  "filePath": "57",
+  "codeLocation": "66"
+},"A#d","d","member","A instance property d","a-instance-property-d",{
+  "filePath": "57",
+  "codeLocation": "67"
+},"B","typedef",[
+  "68"
+],"type B","type-b","/a.js",{
   "start": "69",
   "end": "70"
-},"A~c","~","c","A inner function c","a-inner-function-c",{
-  "start": "71",
-  "end": "72"
-},"A#d","d","member","A instance property d","a-instance-property-d",{
-  "start": "73",
-  "end": "74"
-},"B","typedef",[
-  "75"
-],"type B","type-b",{
+},{
+  "name": "28",
+  "type": "71",
+  "optional": false,
+  "description": "11"
+},{
+  "start": "72",
+  "end": "73"
+},{
+  "name": "28",
+  "type": "71",
+  "optional": false,
+  "description": "11"
+},{
+  "start": "74",
+  "end": "75"
+},{
+  "name": "28",
+  "type": "52",
+  "optional": false,
+  "description": "11"
+},{
+  "start": "76",
+  "end": "77"
+},{
+  "start": "78",
+  "end": "79"
+},{
+  "start": "80",
+  "end": "81"
+},{
+  "start": "82",
+  "end": "83"
+},{
+  "name": "28",
+  "type": "71",
+  "optional": false,
+  "description": "11"
+},{
   "line": 1,
   "column": 0
 },{
   "line": 6,
   "column": 3
-},{
-  "name": "29",
-  "type": "76",
-  "optional": false,
-  "description": "12"
-},{
+},"string",{
   "line": 8,
   "column": 1
 },{
   "line": 14,
   "column": 3
 },{
-  "name": "29",
-  "type": "76",
-  "optional": false,
-  "description": "12"
-},{
   "line": 16,
   "column": 1
 },{
   "line": 21,
   "column": 3
-},{
-  "name": "29",
-  "type": "53",
-  "optional": false,
-  "description": "12"
 },{
   "line": 23,
   "column": 1
@@ -187,9 +206,4 @@
 },{
   "line": 49,
   "column": 3
-},{
-  "name": "29",
-  "type": "76",
-  "optional": false,
-  "description": "12"
-},"string"]
+}]

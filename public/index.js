@@ -3,6 +3,16 @@
 exports.jsdocMd = require('./jsdocMd');
 
 /**
+ * A location in a code file.
+ * @kind typedef
+ * @name CodeFileLocation
+ * @type {object}
+ * @prop {string} filePath File path for the code.
+ * @prop {object} codeLocation Location in the code.
+ * @ignore
+ */
+
+/**
  * A map of code file paths and the their code.
  * @kind typedef
  * @name CodeFilesMap
@@ -23,8 +33,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @kind typedef
  * @name JsdocMember
  * @type {object}
- * @prop {string} codeFilePath File path for the code containing the JSDoc comment defining this member.
- * @prop {object} codeJsdocLocation Location in the code of the JSDoc comment defining this member.
+ * @prop {CodeFileLocation} codeFileLocation Location of the code containing the JSDoc comment defining this member.
  * @prop {JsdocKind} kind Kind.
  * @prop {string} namepath Namepath.
  * @prop {string} [memberof] Namepath for the parent member, derived from the `namepath`.

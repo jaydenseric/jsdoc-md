@@ -1,13 +1,15 @@
 {
-  "codeFilePath": "/a.js",
-  "codeJsdocLocation": {
-    "start": {
-      "line": 1,
-      "column": 0
-    },
-    "end": {
-      "line": 5,
-      "column": 3
+  "codeFileLocation": {
+    "filePath": "/a.js",
+    "codeLocation": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 5,
+        "column": 3
+      }
     }
   },
   "namepath": "B",
