@@ -4,7 +4,6 @@
 
 ### Major
 
-- The updated [`kleur`](https://npm.im/kleur) dependency causes subtle differences in which environments get colored console output.
 - The function `jsdocMd` is now async and should be faster.
 
 ### Minor
