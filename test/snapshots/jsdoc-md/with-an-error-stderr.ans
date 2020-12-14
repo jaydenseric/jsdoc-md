@@ -1,13 +1,13 @@
-[1m[31m
-Error running jsdoc-md:
-[22m[39m
-  [31mMissing JSDoc member for namepath “A”.
+
+[1m[31mError running jsdoc-md:[22m[39m
+
+  [31m[31mMissing JSDoc member for namepath “A”.
   
-  [4mindex.js:1:1[24m[39m
+  [4mindex.js:1:1[24m[39m[31m
   
-  [0m[31m[1m>[22m[39m[90m 1 | [39m[90m/**[39m[0m
-  [0m [90m   | [39m[31m[1m^[22m[39m[0m
-  [0m [90m 2 | [39m[90m * @kind member[39m[0m
-  [0m [90m 3 | [39m[90m * @name A~a[39m[0m
-  [0m [90m 4 | [39m[90m */[39m[0m
+  [0m[31m[1m>[22m[39m[31m[90m 1 | [39m[31m[90m/**[39m[31m[0m
+  [0m [90m   | [39m[31m[31m[1m^[22m[39m[31m[0m
+  [0m [90m 2 | [39m[31m[90m * @kind member[39m[31m[0m
+  [0m [90m 3 | [39m[31m[90m * @name A~a[39m[31m[0m
+  [0m [90m 4 | [39m[31m[90m */[39m[31m[0m[39m
 

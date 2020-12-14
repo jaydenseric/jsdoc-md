@@ -2,11 +2,8 @@
 
 'use strict';
 
-const { inspect } = require('util');
 const arg = require('arg');
-const kleur = require('kleur');
-const InvalidJsdocError = require('../private/InvalidJsdocError');
-const errorConsole = require('../private/errorConsole');
+const reportCliError = require('../private/reportCliError');
 const jsdocMd = require('../public/jsdocMd');
 
 /**
@@ -33,15 +30,8 @@ async function jsdocMdCli() {
 
     await jsdocMd({ sourceGlob, markdownPath, targetHeading });
   } catch (error) {
-    errorConsole.group(kleur.bold().red('\nError running jsdoc-md:\n'));
-    errorConsole.error(
-      error instanceof InvalidJsdocError
-        ? error.message // coverage ignore next line
-        : kleur.red(error instanceof Error ? error : inspect(error))
-    );
-    errorConsole.groupEnd();
-    // Add a blank line for whitespace, without redundant indentation or color.
-    errorConsole.error();
+    reportCliError('jsdoc-md', error);
+
     process.exitCode = 1;
   }
 }

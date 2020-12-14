@@ -2,6 +2,7 @@
 
 const { codeFrameColumns } = require('@babel/code-frame');
 const kleur = require('kleur');
+const CliError = require('./CliError');
 
 /**
  * An invalid JSDoc error. The constructed error `message` property will contain
@@ -19,7 +20,7 @@ const kleur = require('kleur');
  * @param {string} code The code.
  * @ignore
  */
-module.exports = class InvalidJsdocError extends Error {
+module.exports = class InvalidJsdocError extends CliError {
   constructor(message, codeFilePath, codeLocation, code) {
     super(
       `${kleur.red(

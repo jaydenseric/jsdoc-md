@@ -18,6 +18,7 @@
   - `@return`
   - `@typedef`
 - Display the relevant source code file path and location in JSDoc namepath related error messages, using new [`kleur`](https://npm.im/kleur) and [`@babel/code-frame`](https://npm.im/@babel/code-frame) dependencies.
+- Improved console output for `jsdoc-md` CLI errors.
 
 ### Patch
 
