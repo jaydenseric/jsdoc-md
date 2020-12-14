@@ -3,6 +3,7 @@
 const { strictEqual, throws } = require('assert');
 const { resolve } = require('path');
 const { stringify } = require('flatted');
+const kleur = require('kleur');
 const revertableGlobals = require('revertable-globals');
 const snapshot = require('snapshot-assertion');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
@@ -122,6 +123,7 @@ class A {
     let caughtError;
 
     const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
     try {
       outlineMembers(members, codeFiles);
@@ -130,6 +132,7 @@ class A {
     }
 
     revertEnv();
+    revertKleur();
 
     strictEqual(caughtError instanceof Error, true);
 
