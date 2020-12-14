@@ -70,7 +70,7 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsdoc": "^30.7.8",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "flatted": "^3.1.0",
     "hard-rejection": "^2.1.0",
     "prettier": "^2.2.1",
