@@ -40,6 +40,10 @@
 - Use `Array<>` JSDoc type syntax instead of `[]`.
 - Improved the internal JSDoc.
 - Improved tests.
+- Updated GitHub Actions CI config:
+  - Updated `actions/checkout` to v2.
+  - Updated `actions/setup-node` to v2.
+  - Don’t specify the `CI` environment variable as it’s set by default.
 
 ## 8.0.0
 
