@@ -40,6 +40,7 @@
 - Use `Array<>` JSDoc type syntax instead of `[]`.
 - Improved the internal JSDoc.
 - Improved tests.
+- Stop using [`hard-rejection`](https://npm.im/hard-rejection) to detect unhandled `Promise` rejections in tests, as Node.js v15+ does this natively.
 - Updated GitHub Actions CI config:
   - Updated `actions/checkout` to v2.
   - Updated `actions/setup-node` to v2.
