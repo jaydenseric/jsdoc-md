@@ -988,14 +988,14 @@
               "value": "Example 1 para linking ",
               "position": {
                 "start": {
-                  "line": 1,
+                  "line": 2,
                   "column": 1,
-                  "offset": 0
+                  "offset": 1
                 },
                 "end": {
-                  "line": 1,
+                  "line": 2,
                   "column": 24,
-                  "offset": 23
+                  "offset": 24
                 }
               }
             },
@@ -1009,28 +1009,28 @@
                   "value": "A",
                   "position": {
                     "start": {
-                      "line": 1,
+                      "line": 2,
                       "column": 25,
-                      "offset": 24
+                      "offset": 25
                     },
                     "end": {
-                      "line": 1,
+                      "line": 2,
                       "column": 28,
-                      "offset": 27
+                      "offset": 28
                     }
                   }
                 }
               ],
               "position": {
                 "start": {
-                  "line": 1,
+                  "line": 2,
                   "column": 24,
-                  "offset": 23
+                  "offset": 24
                 },
                 "end": {
-                  "line": 1,
+                  "line": 2,
                   "column": 39,
-                  "offset": 38
+                  "offset": 39
                 }
               }
             },
@@ -1039,28 +1039,28 @@
               "value": ".",
               "position": {
                 "start": {
-                  "line": 1,
+                  "line": 2,
                   "column": 39,
-                  "offset": 38
+                  "offset": 39
                 },
                 "end": {
-                  "line": 1,
+                  "line": 2,
                   "column": 40,
-                  "offset": 39
+                  "offset": 40
                 }
               }
             }
           ],
           "position": {
             "start": {
-              "line": 1,
+              "line": 2,
               "column": 1,
-              "offset": 0
+              "offset": 1
             },
             "end": {
-              "line": 1,
+              "line": 2,
               "column": 40,
-              "offset": 39
+              "offset": 40
             }
           }
         }

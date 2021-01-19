@@ -1,24 +1,44 @@
 'use strict';
 
-const commentParser = require('comment-parser');
+const { default: getCommentParser } = require('comment-parser/lib/parser');
+const {
+  default: getCommentParserTokenizerDescription,
+} = require('comment-parser/lib/parser/tokenizers/description');
+const {
+  default: getCommentParserTokenizerName,
+} = require('comment-parser/lib/parser/tokenizers/name');
+const {
+  default: getCommentParserTokenizerTag,
+} = require('comment-parser/lib/parser/tokenizers/tag');
+const {
+  default: getCommentParserTokenizerType,
+} = require('comment-parser/lib/parser/tokenizers/type');
 const InvalidJsdocError = require('./InvalidJsdocError');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const parseJsdocExample = require('./parseJsdocExample');
 
+const JSDOC_SPACING_STRATEGY = 'preserve';
 const JSDOC_PARSER_OPTIONS = {
+  // Used for parsing the main description (before block tags).
+  spacing: JSDOC_SPACING_STRATEGY,
+
   // Configure what parts (tag, type, name, description) are expected for
-  // jsdoc-md supported JSDoc tags. See:
-  // https://github.com/syavorsky/comment-parser/issues/82
-  parsers: [
-    commentParser.PARSERS.parse_tag,
-    (unparsed, data) =>
+  // jsdoc-md supported JSDoc tags.
+  tokenizers: [
+    // Tag tokenizer.
+    getCommentParserTokenizerTag(),
+
+    // Type tokenizer.
+    (spec) =>
       // JSDoc tags without a type.
       ['desc', 'description', 'fires', 'ignore', 'kind', 'see'].includes(
-        data.tag
+        spec.tag
       )
-        ? null
-        : commentParser.PARSERS.parse_type(unparsed, data),
-    (unparsed, data) =>
+        ? spec
+        : getCommentParserTokenizerType(JSDOC_SPACING_STRATEGY)(spec),
+
+    // Name tokenizer.
+    (spec) =>
       // JSDoc tags without a name.
       [
         'desc',
@@ -29,14 +49,16 @@ const JSDOC_PARSER_OPTIONS = {
         'returns',
         'see',
         'type',
-      ].includes(data.tag)
-        ? null
-        : commentParser.PARSERS.parse_name(unparsed, data),
-    (unparsed, data) =>
+      ].includes(spec.tag)
+        ? spec
+        : getCommentParserTokenizerName()(spec),
+
+    // Description tokenizer.
+    (spec) =>
       // JSDoc tags without a description.
-      ['fires', 'ignore', 'kind', 'name', 'type', 'typedef'].includes(data.tag)
-        ? null
-        : commentParser.PARSERS.parse_description(unparsed, data),
+      ['fires', 'ignore', 'kind', 'name', 'type', 'typedef'].includes(spec.tag)
+        ? spec
+        : getCommentParserTokenizerDescription(JSDOC_SPACING_STRATEGY)(spec),
   ],
 };
 
@@ -69,11 +91,10 @@ module.exports = function jsdocCommentToMember(
       'Third argument “codeFilePath” must be a populated string.'
     );
 
-  const [jsdocAst] = commentParser(
+  const [jsdocAst] = getCommentParser(JSDOC_PARSER_OPTIONS)(
     // Restore the start `/*` and end `*/` that the Babel parse result excludes,
     // so that the JSDoc comment parser can accept it.
-    `/*${jsdocComment.value}*/`,
-    JSDOC_PARSER_OPTIONS
+    `/*${jsdocComment.value}*/`
   );
 
   // Ignore JSDoc without tags.
