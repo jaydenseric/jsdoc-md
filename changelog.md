@@ -23,6 +23,7 @@
 ### Patch
 
 - Update dependencies.
+- Use [`unist-util-remove-position`](https://npm.im/unist-util-remove-position) to remove undesirable [`position`](https://github.com/syntax-tree/unist#position) data from the markdown AST that the private function `mdToMdAst` returns.
 - Removed `dynamicImport` and `objectRestSpread` plugins from the Babel parser config, as they are enabled by default nowadays.
 - Fixed the generated markdown headings for various kinds of nested members:
   - Inner members of classes of kind `member` are now labeled `member` instead of `property`.

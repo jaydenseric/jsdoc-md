@@ -116,33 +116,9 @@
       "children": [
         {
           "type": "text",
-          "value": "Method description.",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 20,
-              "offset": 19
-            }
-          }
+          "value": "Method description."
         }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 20,
-          "offset": 19
-        }
-      }
+      ]
     },
     {
       "type": "heading",
@@ -159,33 +135,9 @@
       "children": [
         {
           "type": "text",
-          "value": "Event description.",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 19,
-              "offset": 18
-            }
-          }
+          "value": "Event description."
         }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 19,
-          "offset": 18
-        }
-      }
+      ]
     }
   ]
 }

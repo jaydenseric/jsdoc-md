@@ -55,19 +55,7 @@
       "children": [
         {
           "type": "text",
-          "value": "Description linking ",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 21,
-              "offset": 20
-            }
-          }
+          "value": "Description linking "
         },
         {
           "type": "link",
@@ -76,63 +64,15 @@
           "children": [
             {
               "type": "inlineCode",
-              "value": "A",
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 22,
-                  "offset": 21
-                },
-                "end": {
-                  "line": 1,
-                  "column": 25,
-                  "offset": 24
-                }
-              }
+              "value": "A"
             }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 21,
-              "offset": 20
-            },
-            "end": {
-              "line": 1,
-              "column": 37,
-              "offset": 36
-            }
-          }
+          ]
         },
         {
           "type": "text",
-          "value": ".",
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 37,
-              "offset": 36
-            },
-            "end": {
-              "line": 1,
-              "column": 38,
-              "offset": 37
-            }
-          }
+          "value": "."
         }
-      ],
-      "position": {
-        "start": {
-          "line": 1,
-          "column": 1,
-          "offset": 0
-        },
-        "end": {
-          "line": 1,
-          "column": 38,
-          "offset": 37
-        }
-      }
+      ]
     },
     {
       "type": "paragraph",
@@ -225,51 +165,15 @@
                   "children": [
                     {
                       "type": "text",
-                      "value": "Prop ",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        }
-                      }
+                      "value": "Prop "
                     },
                     {
                       "type": "inlineCode",
-                      "value": "a",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 9,
-                          "offset": 8
-                        }
-                      }
+                      "value": "a"
                     },
                     {
                       "type": "text",
-                      "value": " description linking ",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 9,
-                          "offset": 8
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 30,
-                          "offset": 29
-                        }
-                      }
+                      "value": " description linking "
                     },
                     {
                       "type": "link",
@@ -278,63 +182,15 @@
                       "children": [
                         {
                           "type": "inlineCode",
-                          "value": "A",
-                          "position": {
-                            "start": {
-                              "line": 1,
-                              "column": 31,
-                              "offset": 30
-                            },
-                            "end": {
-                              "line": 1,
-                              "column": 34,
-                              "offset": 33
-                            }
-                          }
+                          "value": "A"
                         }
-                      ],
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 30,
-                          "offset": 29
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 46,
-                          "offset": 45
-                        }
-                      }
+                      ]
                     },
                     {
                       "type": "text",
-                      "value": ".",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 46,
-                          "offset": 45
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 47,
-                          "offset": 46
-                        }
-                      }
+                      "value": "."
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 47,
-                      "offset": 46
-                    }
-                  }
+                  ]
                 }
               ]
             }
@@ -369,65 +225,17 @@
                   "children": [
                     {
                       "type": "text",
-                      "value": "Prop ",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        }
-                      }
+                      "value": "Prop "
                     },
                     {
                       "type": "inlineCode",
-                      "value": "a.a",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 11,
-                          "offset": 10
-                        }
-                      }
+                      "value": "a.a"
                     },
                     {
                       "type": "text",
-                      "value": " description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 11,
-                          "offset": 10
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 24,
-                          "offset": 23
-                        }
-                      }
+                      "value": " description."
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 24,
-                      "offset": 23
-                    }
-                  }
+                  ]
                 }
               ]
             }
@@ -466,65 +274,17 @@
                   "children": [
                     {
                       "type": "text",
-                      "value": "Prop ",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        }
-                      }
+                      "value": "Prop "
                     },
                     {
                       "type": "inlineCode",
-                      "value": "b",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 9,
-                          "offset": 8
-                        }
-                      }
+                      "value": "b"
                     },
                     {
                       "type": "text",
-                      "value": " description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 9,
-                          "offset": 8
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 22,
-                          "offset": 21
-                        }
-                      }
+                      "value": " description."
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 22,
-                      "offset": 21
-                    }
-                  }
+                  ]
                 }
               ]
             }
@@ -571,65 +331,17 @@
                   "children": [
                     {
                       "type": "text",
-                      "value": "Prop ",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 1,
-                          "offset": 0
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        }
-                      }
+                      "value": "Prop "
                     },
                     {
                       "type": "inlineCode",
-                      "value": "c",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 6,
-                          "offset": 5
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 9,
-                          "offset": 8
-                        }
-                      }
+                      "value": "c"
                     },
                     {
                       "type": "text",
-                      "value": " description.",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 9,
-                          "offset": 8
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 22,
-                          "offset": 21
-                        }
-                      }
+                      "value": " description."
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 22,
-                      "offset": 21
-                    }
-                  }
+                  ]
                 }
               ]
             }
@@ -666,63 +378,15 @@
                   "children": [
                     {
                       "type": "inlineCode",
-                      "value": "A",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 2,
-                          "offset": 1
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 5,
-                          "offset": 4
-                        }
-                      }
+                      "value": "A"
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 17,
-                      "offset": 16
-                    }
-                  }
+                  ]
                 },
                 {
                   "type": "text",
-                  "value": ".",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 17,
-                      "offset": 16
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 18,
-                      "offset": 17
-                    }
-                  }
+                  "value": "."
                 }
-              ],
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 1,
-                  "column": 18,
-                  "offset": 17
-                }
-              }
+              ]
             }
           ]
         },
@@ -740,79 +404,19 @@
                   "children": [
                     {
                       "type": "inlineCode",
-                      "value": "jsdoc-md",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 2,
-                          "offset": 1
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 12,
-                          "offset": 11
-                        }
-                      }
+                      "value": "jsdoc-md"
                     },
                     {
                       "type": "text",
-                      "value": " on npm",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 12,
-                          "offset": 11
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 19,
-                          "offset": 18
-                        }
-                      }
+                      "value": " on npm"
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 45,
-                      "offset": 44
-                    }
-                  }
+                  ]
                 },
                 {
                   "type": "text",
-                  "value": ".",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 45,
-                      "offset": 44
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 46,
-                      "offset": 45
-                    }
-                  }
+                  "value": "."
                 }
-              ],
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 1,
-                  "column": 46,
-                  "offset": 45
-                }
-              }
+              ]
             }
           ]
         }
@@ -836,19 +440,7 @@
           "children": [
             {
               "type": "text",
-              "value": "Example 1 para linking ",
-              "position": {
-                "start": {
-                  "line": 2,
-                  "column": 1,
-                  "offset": 1
-                },
-                "end": {
-                  "line": 2,
-                  "column": 24,
-                  "offset": 24
-                }
-              }
+              "value": "Example 1 para linking "
             },
             {
               "type": "link",
@@ -857,63 +449,15 @@
               "children": [
                 {
                   "type": "inlineCode",
-                  "value": "A",
-                  "position": {
-                    "start": {
-                      "line": 2,
-                      "column": 25,
-                      "offset": 25
-                    },
-                    "end": {
-                      "line": 2,
-                      "column": 28,
-                      "offset": 28
-                    }
-                  }
+                  "value": "A"
                 }
-              ],
-              "position": {
-                "start": {
-                  "line": 2,
-                  "column": 24,
-                  "offset": 24
-                },
-                "end": {
-                  "line": 2,
-                  "column": 40,
-                  "offset": 40
-                }
-              }
+              ]
             },
             {
               "type": "text",
-              "value": ".",
-              "position": {
-                "start": {
-                  "line": 2,
-                  "column": 40,
-                  "offset": 40
-                },
-                "end": {
-                  "line": 2,
-                  "column": 41,
-                  "offset": 41
-                }
-              }
+              "value": "."
             }
-          ],
-          "position": {
-            "start": {
-              "line": 2,
-              "column": 1,
-              "offset": 1
-            },
-            "end": {
-              "line": 2,
-              "column": 41,
-              "offset": 41
-            }
-          }
+          ]
         }
       ]
     },
@@ -928,19 +472,7 @@
               "children": [
                 {
                   "type": "text",
-                  "value": "Example 2 caption linking ",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 1,
-                      "offset": 0
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 27,
-                      "offset": 26
-                    }
-                  }
+                  "value": "Example 2 caption linking "
                 },
                 {
                   "type": "link",
@@ -949,63 +481,15 @@
                   "children": [
                     {
                       "type": "inlineCode",
-                      "value": "A",
-                      "position": {
-                        "start": {
-                          "line": 1,
-                          "column": 28,
-                          "offset": 27
-                        },
-                        "end": {
-                          "line": 1,
-                          "column": 31,
-                          "offset": 30
-                        }
-                      }
+                      "value": "A"
                     }
-                  ],
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 27,
-                      "offset": 26
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 43,
-                      "offset": 42
-                    }
-                  }
+                  ]
                 },
                 {
                   "type": "text",
-                  "value": ".",
-                  "position": {
-                    "start": {
-                      "line": 1,
-                      "column": 43,
-                      "offset": 42
-                    },
-                    "end": {
-                      "line": 1,
-                      "column": 44,
-                      "offset": 43
-                    }
-                  }
+                  "value": "."
                 }
-              ],
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 1,
-                  "offset": 0
-                },
-                "end": {
-                  "line": 1,
-                  "column": 44,
-                  "offset": 43
-                }
-              }
+              ]
             }
           ]
         }
@@ -1020,84 +504,24 @@
           "children": [
             {
               "type": "text",
-              "value": "Example 2 heading",
-              "position": {
-                "start": {
-                  "line": 1,
-                  "column": 3,
-                  "offset": 2
-                },
-                "end": {
-                  "line": 1,
-                  "column": 20,
-                  "offset": 19
-                }
-              }
+              "value": "Example 2 heading"
             }
-          ],
-          "position": {
-            "start": {
-              "line": 1,
-              "column": 1,
-              "offset": 0
-            },
-            "end": {
-              "line": 1,
-              "column": 20,
-              "offset": 19
-            }
-          }
+          ]
         },
         {
           "type": "paragraph",
           "children": [
             {
               "type": "text",
-              "value": "Example 2 para.",
-              "position": {
-                "start": {
-                  "line": 3,
-                  "column": 1,
-                  "offset": 21
-                },
-                "end": {
-                  "line": 3,
-                  "column": 16,
-                  "offset": 36
-                }
-              }
+              "value": "Example 2 para."
             }
-          ],
-          "position": {
-            "start": {
-              "line": 3,
-              "column": 1,
-              "offset": 21
-            },
-            "end": {
-              "line": 3,
-              "column": 16,
-              "offset": 36
-            }
-          }
+          ]
         },
         {
           "type": "code",
           "lang": "js",
           "meta": null,
-          "value": "// Example 2 JS code block.",
-          "position": {
-            "start": {
-              "line": 5,
-              "column": 1,
-              "offset": 38
-            },
-            "end": {
-              "line": 7,
-              "column": 4,
-              "offset": 75
-            }
-          }
+          "value": "// Example 2 JS code block."
         }
       ]
     }

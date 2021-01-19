@@ -59,7 +59,8 @@
     "remark-parse": "^9.0.0",
     "remark-stringify": "^9.0.1",
     "remark-toc": "^7.0.0",
-    "unified": "^9.2.0"
+    "unified": "^9.2.0",
+    "unist-util-remove-position": "^3.0.0"
   },
   "devDependencies": {
     "coverage-node": "^4.0.0",
