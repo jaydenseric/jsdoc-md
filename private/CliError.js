@@ -10,8 +10,12 @@
  * @ignore
  */
 module.exports = class CliError extends Error {
-  constructor(...args) {
-    super(...args);
+  constructor(message) {
+    if (typeof message !== 'string')
+      throw new TypeError('First argument “message” must be a string.');
+
+    super(message);
+
     this.name = this.constructor.name;
   }
 };

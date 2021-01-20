@@ -6,6 +6,7 @@ const tests = new TestDirector();
 
 require('./replaceStackTraces.test')(tests);
 require('./cli/jsdoc-md.test')(tests);
+require('./private/CliError.test')(tests);
 require('./private/codeToJsdocComments.test')(tests);
 require('./private/deconstructJsdocNamepath.test')(tests);
 require('./private/jsdocCommentToMember.test')(tests);
