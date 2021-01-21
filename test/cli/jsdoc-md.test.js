@@ -12,28 +12,17 @@ const cliPath = resolve(__dirname, '../../cli/jsdoc-md');
 module.exports = (tests) => {
   tests.add('`jsdoc-md` CLI with defaults.', async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const gitignorePath = join(tempDirPath, '.gitignore');
-      const ignoredSourcePath = join(tempDirPath, 'ignored.js');
-      const sourcePath = join(tempDirPath, 'index.js');
-      const markdownPath = join(tempDirPath, 'readme.md');
+      const pathGitignore = join(tempDirPath, '.gitignore');
+      const pathMd = join(tempDirPath, 'readme.md');
+      const pathSource = join(tempDirPath, 'index.js');
+      const pathSourceIgnored = join(tempDirPath, 'ignored.js');
 
-      await fs.promises.writeFile(gitignorePath, 'ignored.js');
-
-      await fs.promises.writeFile(
-        ignoredSourcePath,
-        `/**
- * Description.
- * @kind constant
- * @name B
- * @type {boolean}
- */
-const B = true
-`
-      );
-
-      await fs.promises.writeFile(
-        sourcePath,
-        `/**
+      await Promise.all([
+        fs.promises.writeFile(pathGitignore, 'ignored.js'),
+        fs.promises.writeFile(pathMd, '## API'),
+        fs.promises.writeFile(
+          pathSource,
+          `/**
  * Description.
  * @kind constant
  * @name A
@@ -41,9 +30,19 @@ const B = true
  */
 const A = true
 `
-      );
-
-      await fs.promises.writeFile(markdownPath, '## API');
+        ),
+        fs.promises.writeFile(
+          pathSourceIgnored,
+          `/**
+ * Description.
+ * @kind constant
+ * @name B
+ * @type {boolean}
+ */
+const B = true
+`
+        ),
+      ]);
 
       const { stdout, stderr, status, error } = spawnSync('node', [cliPath], {
         cwd: tempDirPath,
@@ -60,7 +59,7 @@ const A = true
       strictEqual(status, 0);
 
       await snapshot(
-        await fs.promises.readFile(markdownPath, 'utf8'),
+        await fs.promises.readFile(pathMd, 'utf8'),
         resolve(__dirname, '../snapshots/jsdoc-md/with-defaults-markdown.md')
       );
     });
@@ -68,28 +67,17 @@ const A = true
 
   tests.add('`jsdoc-md` CLI with arguments.', async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const gitignorePath = join(tempDirPath, '.gitignore');
-      const ignoredSourcePath = join(tempDirPath, 'ignored.txt');
-      const sourcePath = join(tempDirPath, 'index.txt');
-      const markdownPath = join(tempDirPath, 'markdown.md');
+      const pathGitignore = join(tempDirPath, '.gitignore');
+      const pathMd = join(tempDirPath, 'markdown.md');
+      const pathSource = join(tempDirPath, 'index.txt');
+      const pathSourceIgnored = join(tempDirPath, 'ignored.txt');
 
-      await fs.promises.writeFile(gitignorePath, 'ignored.txt');
-
-      await fs.promises.writeFile(
-        ignoredSourcePath,
-        `/**
- * Description.
- * @kind constant
- * @name B
- * @type {boolean}
- */
-const B = true
-`
-      );
-
-      await fs.promises.writeFile(
-        sourcePath,
-        `/**
+      await Promise.all([
+        fs.promises.writeFile(pathGitignore, 'ignored.txt'),
+        fs.promises.writeFile(pathMd, '## Target'),
+        fs.promises.writeFile(
+          pathSource,
+          `/**
  * Description.
  * @kind constant
  * @name A
@@ -97,9 +85,19 @@ const B = true
  */
 const A = true
 `
-      );
-
-      await fs.promises.writeFile(markdownPath, '## Target');
+        ),
+        fs.promises.writeFile(
+          pathSourceIgnored,
+          `/**
+ * Description.
+ * @kind constant
+ * @name B
+ * @type {boolean}
+ */
+const B = true
+`
+        ),
+      ]);
 
       const { stdout, stderr, status, error } = spawnSync(
         'node',
@@ -125,7 +123,7 @@ const A = true
       strictEqual(status, 0);
 
       await snapshot(
-        await fs.promises.readFile(markdownPath, 'utf8'),
+        await fs.promises.readFile(pathMd, 'utf8'),
         resolve(__dirname, '../snapshots/jsdoc-md/with-arguments-markdown.md')
       );
     });
@@ -133,19 +131,20 @@ const A = true
 
   tests.add('`jsdoc-md` CLI with an error.', async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const sourcePath = join(tempDirPath, 'index.js');
-      const markdownPath = join(tempDirPath, 'readme.md');
-      const markdownContent = '## API';
+      const pathMd = join(tempDirPath, 'readme.md');
+      const pathSource = join(tempDirPath, 'index.js');
+      const mdContent = '## API';
 
-      await fs.promises.writeFile(
-        sourcePath,
-        `/**
+      await Promise.all([
+        fs.promises.writeFile(pathMd, mdContent),
+        fs.promises.writeFile(
+          pathSource,
+          `/**
  * @kind member
  * @name A~a
  */`
-      );
-
-      await fs.promises.writeFile(markdownPath, markdownContent);
+        ),
+      ]);
 
       const { stdout, stderr, status, error } = spawnSync('node', [cliPath], {
         cwd: tempDirPath,
@@ -165,10 +164,7 @@ const A = true
       );
 
       strictEqual(status, 1);
-      strictEqual(
-        await fs.promises.readFile(markdownPath, 'utf8'),
-        markdownContent
-      );
+      strictEqual(await fs.promises.readFile(pathMd, 'utf8'), mdContent);
     });
   });
 };

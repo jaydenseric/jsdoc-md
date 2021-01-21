@@ -75,12 +75,24 @@ module.exports = (tests) => {
 
   tests.add('`jsdocMd`.', async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const sourcePath = join(tempDirPath, 'index.js');
-      const markdownPath = join(tempDirPath, 'readme.md');
+      const pathMd = join(tempDirPath, 'readme.md');
+      const pathSource = join(tempDirPath, 'index.js');
 
-      await fs.promises.writeFile(
-        sourcePath,
-        `/**
+      await Promise.all([
+        fs.promises.writeFile(
+          pathMd,
+          `# Preserve
+
+## Target
+
+Replace.
+
+## Preserve
+`
+        ),
+        fs.promises.writeFile(
+          pathSource,
+          `/**
  * Description.
  * @kind constant
  * @name A
@@ -164,29 +176,18 @@ class B {
  */
 function c(a) {}
 `
-      );
-
-      await fs.promises.writeFile(
-        markdownPath,
-        `# Preserve
-
-## Target
-
-Replace.
-
-## Preserve
-`
-      );
+        ),
+      ]);
 
       await jsdocMd({
         cwd: tempDirPath,
-        sourceGlob: sourcePath,
-        markdownPath,
+        sourceGlob: pathSource,
+        markdownPath: pathMd,
         targetHeading: 'Target',
       });
 
       await snapshot(
-        await fs.promises.readFile(markdownPath, 'utf8'),
+        await fs.promises.readFile(pathMd, 'utf8'),
         resolve(__dirname, '../snapshots/jsdocMd.md')
       );
     });
