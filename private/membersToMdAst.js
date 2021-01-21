@@ -42,7 +42,7 @@ const KIND_ORDER = [
  */
 module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
   const outlinedMembers = outlineMembers(members, codeFiles);
-  const mdast = {
+  const mdAst = {
     type: 'root',
     children: [
       {
@@ -70,9 +70,9 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         ? KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind)
         : a.name.localeCompare(b.name)
     )) {
-      if (depth === topDepth) mdast.children.push({ type: 'thematicBreak' });
+      if (depth === topDepth) mdAst.children.push({ type: 'thematicBreak' });
 
-      mdast.children.push({
+      mdAst.children.push({
         type: 'heading',
         depth,
         children: [{ type: 'text', value: member.heading }],
@@ -82,11 +82,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         const children = mdToMdAst(member.description, outlinedMembers);
         const transformHeadingLevel = remarkBehead({ depth });
         for (const node of children) transformHeadingLevel(node);
-        mdast.children.push(...children);
+        mdAst.children.push(...children);
       }
 
       if (member.type)
-        mdast.children.push({
+        mdAst.children.push({
           type: 'paragraph',
           children: [
             { type: 'strong', children: [{ type: 'text', value: 'Type:' }] },
@@ -157,7 +157,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           });
         }
 
-        mdast.children.push(propTable);
+        mdAst.children.push(propTable);
       }
 
       if (member.parameters) {
@@ -220,7 +220,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           });
         }
 
-        mdast.children.push(paramTable);
+        mdAst.children.push(paramTable);
       }
 
       if (member.returns) {
@@ -246,11 +246,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
             ...mdToMdAst(member.returns.description, outlinedMembers)
           );
 
-        mdast.children.push({ type: 'paragraph', children });
+        mdAst.children.push({ type: 'paragraph', children });
       }
 
       if (member.fires) {
-        mdast.children.push({
+        mdAst.children.push({
           type: 'heading',
           depth: depth + 1,
           children: [{ type: 'text', value: 'Fires' }],
@@ -305,11 +305,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           });
         }
 
-        mdast.children.push(firesTagsList);
+        mdAst.children.push(firesTagsList);
       }
 
       if (member.see) {
-        mdast.children.push({
+        mdAst.children.push({
           type: 'heading',
           depth: depth + 1,
           children: [{ type: 'text', value: 'See' }],
@@ -329,13 +329,13 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
             children: mdToMdAst(see, outlinedMembers),
           });
 
-        mdast.children.push(seeTagsList);
+        mdAst.children.push(seeTagsList);
       }
 
       if (member.examples) {
         const headingDepth = depth + 1;
 
-        mdast.children.push({
+        mdAst.children.push({
           type: 'heading',
           depth: headingDepth,
           children: [{ type: 'text', value: 'Examples' }],
@@ -343,7 +343,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
 
         for (const { caption, content } of member.examples) {
           if (caption)
-            mdast.children.push({
+            mdAst.children.push({
               type: 'paragraph',
               children: [
                 {
@@ -359,7 +359,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
 
             for (const node of children) transformHeadingLevel(node);
 
-            mdast.children.push({ type: 'blockquote', children });
+            mdAst.children.push({ type: 'blockquote', children });
           }
         }
       }
@@ -379,5 +379,5 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
       tight: true,
       skip: 'Fires|See|Examples',
     })
-    .runSync(mdast);
+    .runSync(mdAst);
 };
