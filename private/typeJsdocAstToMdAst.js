@@ -137,7 +137,9 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
     case 'NameExpression': {
       const linkedMember =
         members &&
-        members.find(({ namepath }) => namepath === typeJsdocAst.name);
+        members.find(
+          ({ namepath: { namepath } }) => namepath === typeJsdocAst.name
+        );
 
       children.push(
         linkedMember

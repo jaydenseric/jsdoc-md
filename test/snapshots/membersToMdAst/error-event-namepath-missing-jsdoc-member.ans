@@ -1,11 +1,9 @@
-[31mMissing JSDoc member for event namepath “A#event:a”.
+Missing JSDoc member for event namepath “A#event:a”.
 
-[4m/a.js:6:1[24m[39m
+/a.js:9:11 → 9:19
 
-[0m [90m 4 | [39m[90m */[39m[0m
-[0m [90m 5 | [39m[0m
-[0m[31m[1m>[22m[39m[90m 6 | [39m[90m/**[39m[0m
-[0m [90m   | [39m[31m[1m^[22m[39m[0m
-[0m [90m 7 | [39m[90m * @kind function[39m[0m
-[0m [90m 8 | [39m[90m * @name A#a[39m[0m
-[0m [90m 9 | [39m[90m * @fires A#event:a[39m[0m
+[0m[0m[0m [90m  7 | [39m[90m * @kind function[39m[0m[0m
+[0m[0m [90m  8 | [39m[90m * @name A#a[39m[0m[0m
+[0m[0m[31m[1m>[22m[39m[90m  9 | [39m[90m * @fires A#event:a[39m[0m[0m
+[0m[0m [90m    | [39m          [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m[0m
+[0m[0m [90m 10 | [39m[90m */[39m[0m[0m[0m

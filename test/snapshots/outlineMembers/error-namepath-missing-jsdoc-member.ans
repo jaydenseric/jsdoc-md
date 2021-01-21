@@ -1,11 +1,11 @@
-[31mMissing JSDoc member for namepath “A”.
+Missing JSDoc member for namepath “A”.
 
-[4m/a.js:4:3[24m[39m
+/a.js:6:12
 
-[0m [90m 2 | [39m[0m
-[0m [90m 3 | [39m[36mclass[39m [33mA[39m {[0m
-[0m[31m[1m>[22m[39m[90m 4 | [39m  [90m/**[39m[0m
-[0m [90m   | [39m  [31m[1m^[22m[39m[0m
-[0m [90m 5 | [39m[90m   * @kind function[39m[0m
-[0m [90m 6 | [39m[90m   * @name A#a[39m[0m
-[0m [90m 7 | [39m[90m   */[39m[0m
+[0m[0m[0m [90m 4 | [39m  [90m/**[39m[0m[0m
+[0m[0m [90m 5 | [39m[90m   * @kind function[39m[0m[0m
+[0m[0m[31m[1m>[22m[39m[90m 6 | [39m[90m   * @name A#a[39m[0m[0m
+[0m[0m [90m   | [39m           [31m[1m^[22m[39m[0m[0m
+[0m[0m [90m 7 | [39m[90m   */[39m[0m[0m
+[0m[0m [90m 8 | [39m  a() {}[0m[0m
+[0m[0m [90m 9 | [39m}[0m[0m[0m

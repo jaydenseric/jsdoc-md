@@ -20,7 +20,8 @@ module.exports = function replaceJsdocLinks(markdown, members) {
   while ((match = regex.exec(markdown))) {
     const [jsdocLink, namepath] = match;
     const linkedMember =
-      members && members.find((member) => member.namepath === namepath);
+      members &&
+      members.find((member) => member.namepath.namepath === namepath);
     if (linkedMember)
       markdown = markdown.replace(jsdocLink, `(#${linkedMember.slug})`);
     else

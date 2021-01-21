@@ -142,7 +142,7 @@ const a = true;
 
 /**
  * @kind member
- * @name .
+ * @name ....
  */
 const b = true;
 

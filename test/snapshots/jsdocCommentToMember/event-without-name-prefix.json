@@ -4,16 +4,46 @@
     "codeLocation": {
       "start": {
         "line": 1,
-        "column": 0
+        "column": 1
       },
       "end": {
         "line": 4,
-        "column": 3
+        "column": 4
       }
     }
   },
-  "namepath": "A#b",
-  "memberof": "A",
+  "namepath": {
+    "codeFileLocation": {
+      "filePath": "/a.js",
+      "codeLocation": {
+        "start": {
+          "line": 3,
+          "column": 10
+        },
+        "end": {
+          "line": 3,
+          "column": 12
+        }
+      }
+    },
+    "namepath": "A#b"
+  },
+  "memberof": {
+    "codeFileLocation": {
+      "filePath": "/a.js",
+      "codeLocation": {
+        "start": {
+          "line": 3,
+          "column": 10
+        },
+        "end": {
+          "line": 3,
+          "column": 10
+        }
+      }
+    },
+    "namepath": "A"
+  },
   "membership": "#",
   "name": "event:b",
   "kind": "event"

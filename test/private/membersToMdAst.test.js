@@ -713,7 +713,7 @@ ${jsdocTestExamples}
     const code = `/**
  * @kind function
  * @name A
- * @fires .
+ * @fires ....
  */`;
     const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);

@@ -4,15 +4,30 @@
     "codeLocation": {
       "start": {
         "line": 1,
-        "column": 0
+        "column": 1
       },
       "end": {
         "line": 4,
-        "column": 3
+        "column": 4
       }
     }
   },
-  "namepath": "B",
+  "namepath": {
+    "codeFileLocation": {
+      "filePath": "/a.js",
+      "codeLocation": {
+        "start": {
+          "line": 3,
+          "column": 10
+        },
+        "end": {
+          "line": 3,
+          "column": 10
+        }
+      }
+    },
+    "namepath": "B"
+  },
   "name": "B",
   "kind": "typedef"
 }

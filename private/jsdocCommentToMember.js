@@ -1,66 +1,13 @@
 'use strict';
 
 const { default: getCommentParser } = require('comment-parser/lib/parser');
-const {
-  default: getCommentParserTokenizerDescription,
-} = require('comment-parser/lib/parser/tokenizers/description');
-const {
-  default: getCommentParserTokenizerName,
-} = require('comment-parser/lib/parser/tokenizers/name');
-const {
-  default: getCommentParserTokenizerTag,
-} = require('comment-parser/lib/parser/tokenizers/tag');
-const {
-  default: getCommentParserTokenizerType,
-} = require('comment-parser/lib/parser/tokenizers/type');
+const COMMENT_PARSER_OPTIONS = require('./COMMENT_PARSER_OPTIONS');
+const CodeLocation = require('./CodeLocation');
+const CodePosition = require('./CodePosition');
 const InvalidJsdocError = require('./InvalidJsdocError');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
+const getJsdocBlockTagSpanCodeLocation = require('./getJsdocBlockTagSpanCodeLocation');
 const parseJsdocExample = require('./parseJsdocExample');
-
-const JSDOC_SPACING_STRATEGY = 'preserve';
-const JSDOC_PARSER_OPTIONS = {
-  // Used for parsing the main description (before block tags).
-  spacing: JSDOC_SPACING_STRATEGY,
-
-  // Configure what parts (tag, type, name, description) are expected for
-  // jsdoc-md supported JSDoc tags.
-  tokenizers: [
-    // Tag tokenizer.
-    getCommentParserTokenizerTag(),
-
-    // Type tokenizer.
-    (spec) =>
-      // JSDoc tags without a type.
-      ['desc', 'description', 'fires', 'ignore', 'kind', 'see'].includes(
-        spec.tag
-      )
-        ? spec
-        : getCommentParserTokenizerType(JSDOC_SPACING_STRATEGY)(spec),
-
-    // Name tokenizer.
-    (spec) =>
-      // JSDoc tags without a name.
-      [
-        'desc',
-        'description',
-        'example',
-        'ignore',
-        'return',
-        'returns',
-        'see',
-        'type',
-      ].includes(spec.tag)
-        ? spec
-        : getCommentParserTokenizerName()(spec),
-
-    // Description tokenizer.
-    (spec) =>
-      // JSDoc tags without a description.
-      ['fires', 'ignore', 'kind', 'name', 'type', 'typedef'].includes(spec.tag)
-        ? spec
-        : getCommentParserTokenizerDescription(JSDOC_SPACING_STRATEGY)(spec),
-  ],
-};
 
 /**
  * Analyzes a JSDoc comment to produce JSDoc member details.
@@ -91,7 +38,10 @@ module.exports = function jsdocCommentToMember(
       'Third argument “codeFilePath” must be a populated string.'
     );
 
-  const [jsdocAst] = getCommentParser(JSDOC_PARSER_OPTIONS)(
+  const [jsdocAst] = getCommentParser({
+    ...COMMENT_PARSER_OPTIONS,
+    startLine: jsdocComment.loc.start.line,
+  })(
     // Restore the start `/*` and end `*/` that the Babel parse result excludes,
     // so that the JSDoc comment parser can accept it.
     `/*${jsdocComment.value}*/`
@@ -101,6 +51,7 @@ module.exports = function jsdocCommentToMember(
   if (jsdocAst && jsdocAst.tags && jsdocAst.tags.length) {
     let kind;
     let namepath;
+    let memberof;
     let type;
     let description;
 
@@ -131,13 +82,35 @@ module.exports = function jsdocCommentToMember(
             // Ignore an invalid tag missing a name.
             tag.name
           )
-            namepath = tag.name;
+            namepath = {
+              codeFileLocation: {
+                filePath: codeFilePath,
+                codeLocation: getJsdocBlockTagSpanCodeLocation(
+                  tag,
+                  'name',
+                  jsdocComment.loc.start.column + 1
+                ),
+              },
+              namepath: tag.name,
+            };
+
           break;
         case 'typedef':
           // Ignore an invalid tag missing a name.
           if (tag.name) {
             if (!kind) kind = 'typedef';
-            if (!namepath) namepath = tag.name;
+            if (!namepath)
+              namepath = {
+                codeFileLocation: {
+                  filePath: codeFilePath,
+                  codeLocation: getJsdocBlockTagSpanCodeLocation(
+                    tag,
+                    'name',
+                    jsdocComment.loc.start.column + 1
+                  ),
+                },
+                namepath: tag.name,
+              };
             if (!type && tag.type) ({ type } = tag);
           }
           break;
@@ -146,7 +119,18 @@ module.exports = function jsdocCommentToMember(
           // Ignore an invalid tag missing a name.
           if (tag.name) {
             if (!kind) kind = 'typedef';
-            if (!namepath) namepath = tag.name;
+            if (!namepath)
+              namepath = {
+                codeFileLocation: {
+                  filePath: codeFilePath,
+                  codeLocation: getJsdocBlockTagSpanCodeLocation(
+                    tag,
+                    'name',
+                    jsdocComment.loc.start.column + 1
+                  ),
+                },
+                namepath: tag.name,
+              };
             if (!type) type = 'Function';
           }
           break;
@@ -217,9 +201,19 @@ module.exports = function jsdocCommentToMember(
             // Ignore an invalid tag missing a name.
             tag.name &&
             // Ignore a duplicate name.
-            !fires.includes(tag.name)
+            !fires.some(({ namepath }) => namepath === tag.name)
           )
-            fires.unshift(tag.name);
+            fires.unshift({
+              codeFileLocation: {
+                filePath: codeFilePath,
+                codeLocation: getJsdocBlockTagSpanCodeLocation(
+                  tag,
+                  'name',
+                  jsdocComment.loc.start.column + 1
+                ),
+              },
+              namepath: tag.name,
+            });
           break;
         }
         case 'see':
@@ -242,15 +236,35 @@ module.exports = function jsdocCommentToMember(
     // Ignore JSDoc without a kind or namepath.
     if (kind && namepath) {
       try {
-        var { memberof, membership, name } = deconstructJsdocNamepath(namepath);
+        var {
+          memberof: memberofNamepath,
+          membership,
+          name,
+        } = deconstructJsdocNamepath(namepath.namepath);
       } catch (error) {
         throw new InvalidJsdocError(
           error.message,
-          codeFilePath,
-          jsdocComment.loc,
+          namepath.codeFileLocation,
           codeFiles.get(codeFilePath)
         );
       }
+
+      if (memberofNamepath)
+        memberof = {
+          codeFileLocation: {
+            filePath: codeFilePath,
+            codeLocation: new CodeLocation(
+              namepath.codeFileLocation.codeLocation.start,
+              new CodePosition(
+                namepath.codeFileLocation.codeLocation.end.line,
+                namepath.codeFileLocation.codeLocation.end.column -
+                  membership.length -
+                  name.length
+              )
+            ),
+          },
+          namepath: memberofNamepath,
+        };
 
       // Automatically add a missing `event:` prefix to an event name.
       if (kind === 'event' && !name.startsWith('event:'))
@@ -261,7 +275,18 @@ module.exports = function jsdocCommentToMember(
       const member = {
         codeFileLocation: {
           filePath: codeFilePath,
-          codeLocation: jsdocComment.loc,
+          codeLocation: new CodeLocation(
+            new CodePosition(
+              jsdocComment.loc.start.line,
+              // Babel starts columns at 0, not 1.
+              jsdocComment.loc.start.column + 1
+            ),
+            new CodePosition(
+              jsdocComment.loc.end.line,
+              // Babel starts columns at 0, not 1.
+              jsdocComment.loc.end.column + 1
+            )
+          ),
         },
       };
 

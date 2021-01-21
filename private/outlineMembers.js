@@ -33,13 +33,14 @@ module.exports = function outlineMembers(members, codeFiles) {
     // Is the member top-level, or nested?
     if (member.memberof) {
       // Set the parent property.
-      const parent = outline.find((mem) => mem.namepath === member.memberof);
+      const parent = outline.find(
+        ({ namepath: { namepath } }) => namepath === member.memberof.namepath
+      );
       if (!parent)
         throw new InvalidJsdocError(
-          `Missing JSDoc member for namepath “${member.memberof}”.`,
-          member.codeFileLocation.filePath,
-          member.codeFileLocation.codeLocation,
-          codeFiles.get(member.codeFileLocation.filePath)
+          `Missing JSDoc member for namepath “${member.memberof.namepath}”.`,
+          member.memberof.codeFileLocation,
+          codeFiles.get(member.memberof.codeFileLocation.filePath)
         );
       member.parent = parent;
 
@@ -52,7 +53,7 @@ module.exports = function outlineMembers(members, codeFiles) {
     member.heading = '';
 
     if (member.memberof) {
-      member.heading += `${member.memberof} `;
+      member.heading += `${member.memberof.namepath} `;
 
       if (member.kind !== 'event')
         member.heading += `${MEMBERSHIPS[member.membership]} `;

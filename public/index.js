@@ -8,7 +8,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @name CodeFileLocation
  * @type {object}
  * @prop {string} filePath File path for the code.
- * @prop {object} codeLocation Location in the code.
+ * @prop {CodeLocation} codeLocation Location in the code.
  * @ignore
  */
 
@@ -33,10 +33,10 @@ exports.jsdocMd = require('./jsdocMd');
  * @kind typedef
  * @name JsdocMember
  * @type {object}
- * @prop {CodeFileLocation} codeFileLocation Location of the code containing the JSDoc comment defining this member.
+ * @prop {CodeFileLocation} codeFileLocation Where the JSDoc comment defines this member.
  * @prop {JsdocKind} kind Kind.
- * @prop {string} namepath Namepath.
- * @prop {string} [memberof] Namepath for the parent member, derived from the `namepath`.
+ * @prop {JsdocNamepathReference} namepath Namepath.
+ * @prop {JsdocNamepathReference} [memberof] Namepath for the parent member, derived from the `namepath`.
  * @prop {JsdocMembershipSymbol} [membership] Relationship with the parent member, derived from the `namepath`.
  * @prop {string} name Name, derived from the `namepath`.
  * @prop {string} [description] Description markdown.
@@ -45,7 +45,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @prop {Array<JsdocMemberParameter>} [parameters] List of parameters, if the member is a function.
  * @prop {Array<JsdocMemberProperty>} [properties] List of properties, if the member is an object.
  * @prop {JsdocMemberReturns} [returns] Return signature, if the member is a function.
- * @prop {Array<string>} [fires] List of namepaths for events the member can fire.
+ * @prop {Array<JsdocNamepathReference>} [fires] List of namepaths for events the member can fire.
  * @prop {string} [heading] A description of the member suitable for use as a heading in API documentation. Available after the JSDoc member is outlined.
  * @prop {string} [slug] A GitHub markdown heading ID for the member’s `heading`. Available after the JSDoc member is outlined.
  * @prop {JsdocMember} [parent] Parent member, if this member has one. Available after the JSDoc member is outlined.
@@ -105,5 +105,16 @@ exports.jsdocMd = require('./jsdocMd');
  * @type {object}
  * @prop {string} [type] Return type.
  * @prop {string} [description] Return description markdown.
+ * @ignore
+ */
+
+/**
+ * A JSDoc namepath, referenced in a JSDoc comment.
+ * @see [JSDoc namepath docs](https://jsdoc.app/about-namepaths).
+ * @kind typedef
+ * @name JsdocNamepathReference
+ * @type {object}
+ * @prop {CodeFileLocation} codeFileLocation Where the namepath is referenced in a JSDoc comment.
+ * @prop {string} namepath The JSDoc namepath.
  * @ignore
  */

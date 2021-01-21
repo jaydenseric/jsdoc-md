@@ -266,32 +266,30 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         for (const namepath of member.fires) {
           try {
             var { memberof, membership, name } = deconstructJsdocNamepath(
-              namepath
+              namepath.namepath
             );
           } catch (error) {
             throw new InvalidJsdocError(
               error.message,
-              member.codeFileLocation.filePath,
-              member.codeFileLocation.codeLocation,
-              codeFiles.get(member.codeFileLocation.filePath)
+              namepath.codeFileLocation,
+              codeFiles.get(namepath.codeFileLocation.filePath)
             );
           }
 
           // The JSDoc `@fires` tag uniquely supports omitting the `event:`
           // name prefix in the event namepath.
           const eventNamepath = name.startsWith('event:')
-            ? namepath
+            ? namepath.namepath
             : `${memberof}${membership}event:${name}`;
           const eventMember = outlinedMembers.find(
-            ({ namepath }) => namepath === eventNamepath
+            ({ namepath: { namepath } }) => namepath === eventNamepath
           );
 
           if (!eventMember)
             throw new InvalidJsdocError(
               `Missing JSDoc member for event namepath “${eventNamepath}”.`,
-              member.codeFileLocation.filePath,
-              member.codeFileLocation.codeLocation,
-              codeFiles.get(member.codeFileLocation.filePath)
+              namepath.codeFileLocation,
+              codeFiles.get(namepath.codeFileLocation.filePath)
             );
 
           firesTagsList.children.push({
