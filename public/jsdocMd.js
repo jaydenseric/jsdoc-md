@@ -63,7 +63,7 @@ module.exports = async function jsdocMd({
       // Update the code files map.
       codeFiles.set(
         codeFilePath,
-        await fs.promises.readFile(codeFilePath, { encoding: 'utf8' })
+        await fs.promises.readFile(codeFilePath, 'utf8')
       );
 
       // Get the JSDoc comments from the code.
@@ -84,7 +84,7 @@ module.exports = async function jsdocMd({
     })
   );
 
-  mdFileReplaceSection({
+  await mdFileReplaceSection({
     markdownPath,
     targetHeading,
     replacementAst: membersToMdAst(jsdocMembers, codeFiles),

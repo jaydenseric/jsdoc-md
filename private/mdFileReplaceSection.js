@@ -1,6 +1,6 @@
 'use strict';
 
-const { readFileSync, writeFileSync } = require('fs');
+const fs = require('fs');
 const gfm = require('remark-gfm');
 const parse = require('remark-parse');
 const stringify = require('remark-stringify');
@@ -16,9 +16,10 @@ const remarkStringifyOptions = require('./remarkStringifyOptions');
  * @param {string} options.markdownPath Markdown file path.
  * @param {string} options.targetHeading Heading text of the section to replace.
  * @param {object} options.replacementAst Replacement markdown AST (with a [`root`](https://github.com/syntax-tree/mdast#root) top level type), defaulting to empty.
+ * @returns {Promise<void>} Resolves once the operation is done.
  * @ignore
  */
-module.exports = function mdFileReplaceSection({
+module.exports = async function mdFileReplaceSection({
   markdownPath,
   targetHeading,
   replacementAst,
@@ -38,7 +39,7 @@ module.exports = function mdFileReplaceSection({
   if (typeof replacementAst !== 'object')
     throw new TypeError('Option `replacementAst` must be an object.');
 
-  const fileContent = readFileSync(markdownPath, { encoding: 'utf8' });
+  const fileContent = await fs.promises.readFile(markdownPath, 'utf8');
   const newFileContent = unified()
     .use(parse)
     .use(gfm)
@@ -47,5 +48,5 @@ module.exports = function mdFileReplaceSection({
     .processSync(fileContent)
     .toString();
 
-  writeFileSync(markdownPath, newFileContent);
+  await fs.promises.writeFile(markdownPath, newFileContent);
 };

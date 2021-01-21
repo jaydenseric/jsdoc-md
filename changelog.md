@@ -33,6 +33,7 @@
 - Use the `SyntaxError` class instead of `Error` for when `deconstructJsdocNamepath` can’t deconstruct an invalid namepath.
 - Renamed the private function `jsdocCommentsFromCode` to `codeToJsdocComments`.
 - Made the private function `codeToJsdocComments` async.
+- Made the private function `mdFileReplaceSection` async.
 - Added runtime argument type checks for various private functions.
 - Renamed the private function `jsdocToMember` to `jsdocCommentToMember`.
 - Configured the JSDoc parser to not accept a name part for a `type` tag.

@@ -1,6 +1,6 @@
 'use strict';
 
-const { strictEqual, throws } = require('assert');
+const { rejects, strictEqual } = require('assert');
 const fs = require('fs');
 const { join } = require('path');
 const { disposableDirectory } = require('disposable-directory');
@@ -9,8 +9,8 @@ const mdFileReplaceSection = require('../../private/mdFileReplaceSection');
 module.exports = (tests) => {
   tests.add(
     '`mdFileReplaceSection` with option `markdownPath` not a string.',
-    () => {
-      throws(() => {
+    async () => {
+      await rejects(
         mdFileReplaceSection({
           markdownPath: true,
           targetHeading: 'Target',
@@ -18,15 +18,16 @@ module.exports = (tests) => {
             type: 'root',
             children: [],
           },
-        });
-      }, new TypeError('Option `markdownPath` must be a string.'));
+        }),
+        new TypeError('Option `markdownPath` must be a string.')
+      );
     }
   );
 
   tests.add(
     '`mdFileReplaceSection` with option `markdownPath` not a populated string.',
-    () => {
-      throws(() => {
+    async () => {
+      await rejects(
         mdFileReplaceSection({
           markdownPath: '',
           targetHeading: 'Target',
@@ -34,15 +35,16 @@ module.exports = (tests) => {
             type: 'root',
             children: [],
           },
-        });
-      }, new TypeError('Option `markdownPath` must be a populated string.'));
+        }),
+        new TypeError('Option `markdownPath` must be a populated string.')
+      );
     }
   );
 
   tests.add(
     '`mdFileReplaceSection` with option `targetHeading` not a string.',
-    () => {
-      throws(() => {
+    async () => {
+      await rejects(
         mdFileReplaceSection({
           markdownPath: '/a.md',
           targetHeading: true,
@@ -50,15 +52,16 @@ module.exports = (tests) => {
             type: 'root',
             children: [],
           },
-        });
-      }, new TypeError('Option `targetHeading` must be a string.'));
+        }),
+        new TypeError('Option `targetHeading` must be a string.')
+      );
     }
   );
 
   tests.add(
     '`mdFileReplaceSection` with option `targetHeading` not a populated string.',
-    () => {
-      throws(() => {
+    async () => {
+      await rejects(
         mdFileReplaceSection({
           markdownPath: '/a.md',
           targetHeading: '',
@@ -66,21 +69,23 @@ module.exports = (tests) => {
             type: 'root',
             children: [],
           },
-        });
-      }, new TypeError('Option `targetHeading` must be a populated string.'));
+        }),
+        new TypeError('Option `targetHeading` must be a populated string.')
+      );
     }
   );
 
   tests.add(
     '`mdFileReplaceSection` with option `replacementAst` not an object.',
-    () => {
-      throws(() => {
+    async () => {
+      await rejects(
         mdFileReplaceSection({
           markdownPath: '/a.md',
           targetHeading: 'Target',
           replacementAst: true,
-        });
-      }, new TypeError('Option `replacementAst` must be an object.'));
+        }),
+        new TypeError('Option `replacementAst` must be an object.')
+      );
     }
   );
 
@@ -100,7 +105,7 @@ Replace.
 `
       );
 
-      mdFileReplaceSection({
+      await mdFileReplaceSection({
         markdownPath,
         targetHeading: 'Target',
         replacementAst: {
