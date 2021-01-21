@@ -23,17 +23,15 @@ module.exports = function reportCliError(cliDescription, error) {
   );
 
   errorConsole.error(
-    kleur.red(
-      error instanceof CliError
-        ? error.message
-        : error instanceof Error
-        ? // Rarely, an error doesn’t have a stack. In that case, the standard
-          // `toString` method returns the error’s `name` + `: ` + the `message`.
-          // This is consistent with the first part of a standard Node.js
-          // error’s `stack`.
-          error.stack || error
-        : inspect(error)
-    )
+    error instanceof CliError
+      ? error.message
+      : error instanceof Error
+      ? // Rarely, an error doesn’t have a stack. In that case, the standard
+        // `toString` method returns the error’s `name` + `: ` + the `message`.
+        // This is consistent with the first part of a standard Node.js
+        // error’s `stack`.
+        error.stack || error
+      : inspect(error)
   );
 
   errorConsole.groupEnd();

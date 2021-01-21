@@ -1,7 +1,6 @@
 'use strict';
 
 const { codeFrameColumns } = require('@babel/code-frame');
-const kleur = require('kleur');
 const CliError = require('./CliError');
 const CodeLocation = require('./CodeLocation');
 
@@ -76,18 +75,12 @@ module.exports = class InvalidJsdocError extends CliError {
         displayEnd
           ? ` → ${codeFileLocation.codeLocation.end.line}:${codeFileLocation.codeLocation.end.column}`
           : ''
-      }\n\n${
-        // Prevent any earlier colorization from interfering with the syntax
-        // highlighting.
-        kleur.reset(
-          codeFrameColumns(code, codeFrameLoc, {
-            // Allow color to be forced at runtime for tests, see:
-            // https://github.com/babel/babel/issues/12442
-            forceColor: process.env.FORCE_COLOR === '1',
-            highlightCode: true,
-          })
-        )
-      }`
+      }\n\n${codeFrameColumns(code, codeFrameLoc, {
+        // Allow color to be forced at runtime for tests, see:
+        // https://github.com/babel/babel/issues/12442
+        forceColor: process.env.FORCE_COLOR === '1',
+        highlightCode: true,
+      })}`
     );
 
     this.name = this.constructor.name;
