@@ -20,6 +20,12 @@ module.exports = function remarkPluginReplaceSection({
     children: [],
   },
 } = {}) {
+  if (typeof targetHeading !== 'string')
+    throw new TypeError('Option `targetHeading` must be a string.');
+
+  if (typeof replacementAst !== 'object')
+    throw new TypeError('Option `replacementAst` must be an object.');
+
   return (targetAst, file, next) => {
     mdastInject(targetHeading, targetAst, replacementAst)
       ? next()

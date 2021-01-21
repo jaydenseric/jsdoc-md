@@ -17,6 +17,17 @@ module.exports = function jsdocCommentsToMembers(
   codeFiles,
   codeFilePath
 ) {
+  if (!Array.isArray(jsdocComments))
+    throw new TypeError('First argument `jsdocComments` must be an array.');
+
+  if (!(codeFiles instanceof Map))
+    throw new TypeError(
+      'Second argument `codeFiles` must be a `Map` instance.'
+    );
+
+  if (typeof codeFilePath !== 'string')
+    throw new TypeError('Third argument `codeFilePath` must be a string.');
+
   const members = [];
 
   for (const jsdocComment of jsdocComments) {

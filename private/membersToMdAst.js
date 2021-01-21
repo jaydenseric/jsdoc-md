@@ -41,6 +41,20 @@ const KIND_ORDER = [
  * @ignore
  */
 module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
+  if (!Array.isArray(members))
+    throw new TypeError('First argument `members` must be an array.');
+
+  if (!(codeFiles instanceof Map))
+    throw new TypeError(
+      'Second argument `codeFiles` must be a `Map` instance.'
+    );
+
+  if (typeof topDepth !== 'number')
+    throw new TypeError('Third argument `topDepth` must be a number.');
+
+  if (topDepth < 1)
+    throw new RangeError('Third argument `topDepth` must be >= 1.');
+
   const outlinedMembers = outlineMembers(members, codeFiles);
   const mdAst = {
     type: 'root',
@@ -57,7 +71,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
    * Recursively constructs the markdown AST.
    * @kind function
    * @name membersToMdAst~recurse
-   * @param {Array<JsdocMember>} [members] Outlined JSDoc members.
+   * @param {Array<JsdocMember>} members Outlined JSDoc members.
    * @param {number} depth Top heading level for the members.
    * @ignore
    */

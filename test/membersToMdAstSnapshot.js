@@ -28,6 +28,20 @@ module.exports = async function membersToMdAstSnapshot(
   code,
   topDepth
 ) {
+  if (typeof snapshotName !== 'string')
+    throw new TypeError('First argument `snapshotName` must be a string.');
+
+  if (typeof code !== 'string')
+    throw new TypeError('Second argument `code` must be a string.');
+
+  if (arguments.length > 2) {
+    if (typeof topDepth !== 'number')
+      throw new TypeError('Third argument `topDepth` must be a number.');
+
+    if (topDepth < 1)
+      throw new RangeError('Third argument `topDepth` must be >= 1.');
+  }
+
   const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
   const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
   const members = jsdocCommentsToMembers(

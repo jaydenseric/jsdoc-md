@@ -12,9 +12,15 @@ module.exports = (tests) => {
     }, new TypeError('First argument `markdown` must be a string.'));
   });
 
+  tests.add('`mdToMdAst` with second argument `members` not an array.', () => {
+    throws(() => {
+      mdToMdAst('a', true);
+    }, new TypeError('Second argument `members` must be an array.'));
+  });
+
   tests.add('`mdToMdAst` with a paragraph.', async () => {
     await snapshot(
-      JSON.stringify(mdToMdAst('a'), null, 2),
+      JSON.stringify(mdToMdAst('a', []), null, 2),
       resolve(__dirname, '../snapshots/mdToMdAst/paragraph.json')
     );
   });

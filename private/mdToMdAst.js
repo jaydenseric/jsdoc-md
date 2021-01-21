@@ -12,13 +12,16 @@ const unescapeJsdoc = require('./unescapeJsdoc');
  * @kind function
  * @name mdToMdAst
  * @param {string} markdown Markdown content.
- * @param {Array<JsdocMember>} [members] Outlined JSDoc members.
+ * @param {Array<JsdocMember>} members Outlined JSDoc members.
  * @returns {object} Markdown AST.
  * @ignore
  */
 module.exports = function mdToMdAst(markdown, members) {
   if (typeof markdown !== 'string')
     throw new TypeError('First argument `markdown` must be a string.');
+
+  if (!Array.isArray(members))
+    throw new TypeError('Second argument `members` must be an array.');
 
   // The AST nodes from a parsed markdown string contain `position` data
   // (https://github.com/syntax-tree/unist#position). This data should be

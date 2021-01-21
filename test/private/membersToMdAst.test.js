@@ -1,6 +1,6 @@
 'use strict';
 
-const { strictEqual } = require('assert');
+const { strictEqual, throws } = require('assert');
 const { resolve } = require('path');
 const kleur = require('kleur');
 const revertableGlobals = require('revertable-globals');
@@ -41,6 +41,39 @@ const jsdocTestExamples = ` * @example
  * \`\`\``;
 
 module.exports = (tests) => {
+  tests.add(
+    '`membersToMdAst` with first argument `members` not an array.',
+    () => {
+      throws(() => {
+        membersToMdAst(true);
+      }, new TypeError('First argument `members` must be an array.'));
+    }
+  );
+
+  tests.add(
+    '`membersToMdAst` with second argument `codeFiles` not a `Map` instance.',
+    () => {
+      throws(() => {
+        membersToMdAst([], true);
+      }, new TypeError('Second argument `codeFiles` must be a `Map` instance.'));
+    }
+  );
+
+  tests.add(
+    '`membersToMdAst` with third argument `topDepth` not a number.',
+    () => {
+      throws(() => {
+        membersToMdAst([], new Map(), true);
+      }, new TypeError('Third argument `topDepth` must be a number.'));
+    }
+  );
+
+  tests.add('`membersToMdAst` with third argument `topDepth` < 1.', () => {
+    throws(() => {
+      membersToMdAst([], new Map(), 0);
+    }, new RangeError('Third argument `topDepth` must be >= 1.'));
+  });
+
   tests.add('`membersToMdAst` with no members.', async () => {
     await membersToMdAstSnapshot('no-members', '');
   });

@@ -16,6 +16,24 @@ const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
+  tests.add(
+    '`typeJsdocAstToMdAst` with first argument `typeJsdocAst` not an object.',
+    () => {
+      throws(() => {
+        typeJsdocAstToMdAst(true);
+      }, new TypeError('First argument `typeJsdocAst` must be an object.'));
+    }
+  );
+
+  tests.add(
+    '`typeJsdocAstToMdAst` with second argument `members` not an array.',
+    () => {
+      throws(() => {
+        typeJsdocAstToMdAst({}, true);
+      }, new TypeError('Second argument `members` must be an array.'));
+    }
+  );
+
   tests.add('`typeJsdocAstToMdAst` with various types.', async () => {
     const code = `/**
  * @kind typedef
@@ -106,7 +124,7 @@ module.exports = (tests) => {
 
   tests.add('`typeJsdocAstToMdAst` with an unknown type.', () => {
     throws(() => {
-      typeJsdocAstToMdAst({ type: 'MadeUp' });
+      typeJsdocAstToMdAst({ type: 'MadeUp' }, []);
     }, new Error('Unknown JSDoc type `MadeUp`.'));
   });
 };

@@ -5,11 +5,17 @@
  * @kind function
  * @name typeJsdocAstToMdAst
  * @param {object} typeJsdocAst JSDoc type Doctrine AST node.
- * @param {Array<JsdocMember>} [members] Outlined JSDoc members.
+ * @param {Array<JsdocMember>} members Outlined JSDoc members.
  * @returns {Array<object>} Markdown AST children list.
  * @ignore
  */
 module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
+  if (typeof typeJsdocAst !== 'object')
+    throw new TypeError('First argument `typeJsdocAst` must be an object.');
+
+  if (!Array.isArray(members))
+    throw new TypeError('Second argument `members` must be an array.');
+
   const children = [];
 
   switch (typeJsdocAst.type) {
@@ -75,7 +81,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
       break;
     }
     case 'TypeApplication': {
-      children.push(...typeJsdocAstToMdAst(typeJsdocAst.expression), {
+      children.push(...typeJsdocAstToMdAst(typeJsdocAst.expression, members), {
         type: 'text',
         value: '<',
       });
@@ -135,11 +141,9 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
       break;
     }
     case 'NameExpression': {
-      const linkedMember =
-        members &&
-        members.find(
-          ({ namepath: { namepath } }) => namepath === typeJsdocAst.name
-        );
+      const linkedMember = members.find(
+        ({ namepath: { namepath } }) => namepath === typeJsdocAst.name
+      );
 
       children.push(
         linkedMember

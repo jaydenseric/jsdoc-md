@@ -19,6 +19,15 @@ module.exports = (tests) => {
   );
 
   tests.add(
+    '`replaceJsdocLinks` with second argument `members` not an array.',
+    () => {
+      throws(() => {
+        replaceJsdocLinks('a', true);
+      }, new TypeError('Second argument `members` must be an array.'));
+    }
+  );
+
+  tests.add(
     '`replaceJsdocLinks` with a single link in a sentence.',
     async () => {
       const code = `/**
@@ -71,7 +80,7 @@ module.exports = (tests) => {
 
   tests.add('`replaceJsdocLinks` with a missing member.', () => {
     throws(() => {
-      replaceJsdocLinks('[A]{@link A}');
+      replaceJsdocLinks('[A]{@link A}', []);
     }, new Error('Missing JSDoc member for link namepath `A`.'));
   });
 };

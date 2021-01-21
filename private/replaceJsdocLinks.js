@@ -5,7 +5,7 @@
  * @kind function
  * @name replaceJsdocLinks
  * @param {string} markdown Markdown.
- * @param {Array<JsdocMember>} [members] Outlined JSDoc members.
+ * @param {Array<JsdocMember>} members Outlined JSDoc members.
  * @returns {string} Markdown.
  * @ignore
  */
@@ -13,15 +13,18 @@ module.exports = function replaceJsdocLinks(markdown, members) {
   if (typeof markdown !== 'string')
     throw new TypeError('First argument `markdown` must be a string.');
 
+  if (!Array.isArray(members))
+    throw new TypeError('Second argument `members` must be an array.');
+
   const regex = /{@link (.+?)}/g;
 
   let match;
 
   while ((match = regex.exec(markdown))) {
     const [jsdocLink, namepath] = match;
-    const linkedMember =
-      members &&
-      members.find((member) => member.namepath.namepath === namepath);
+    const linkedMember = members.find(
+      (member) => member.namepath.namepath === namepath
+    );
     if (linkedMember)
       markdown = markdown.replace(jsdocLink, `(#${linkedMember.slug})`);
     else

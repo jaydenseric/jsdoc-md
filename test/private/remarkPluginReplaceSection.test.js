@@ -6,6 +6,24 @@ const unified = require('unified');
 const remarkPluginReplaceSection = require('../../private/remarkPluginReplaceSection');
 
 module.exports = (tests) => {
+  tests.add(
+    '`remarkPluginReplaceSection` with option `targetHeading` not a string.',
+    () => {
+      throws(() => {
+        remarkPluginReplaceSection({ targetHeading: true });
+      }, new TypeError('Option `targetHeading` must be a string.'));
+    }
+  );
+
+  tests.add(
+    '`remarkPluginReplaceSection` with option `replacementAst` not an object.',
+    () => {
+      throws(() => {
+        remarkPluginReplaceSection({ replacementAst: true });
+      }, new TypeError('Option `replacementAst` must be an object.'));
+    }
+  );
+
   tests.add('`remarkPluginReplaceSection` with defaults.', () => {
     deepStrictEqual(
       unified()
