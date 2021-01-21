@@ -73,7 +73,7 @@ module.exports = (tests) => {
     }
   );
 
-  tests.add('`jsdocMd`.', async () => {
+  tests.add('`jsdocMd` with options.', async () => {
     await disposableDirectory(async (tempDirPath) => {
       const pathMd = join(tempDirPath, 'readme.md');
       const pathSource = join(tempDirPath, 'index.js');
@@ -188,7 +188,7 @@ function c(a) {}
 
       await snapshot(
         await fs.promises.readFile(pathMd, 'utf8'),
-        resolve(__dirname, '../snapshots/jsdocMd.md')
+        resolve(__dirname, '../snapshots/jsdocMd/options.md')
       );
     });
   });
