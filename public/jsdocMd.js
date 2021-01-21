@@ -54,6 +54,30 @@ module.exports = async function jsdocMd({
   markdownPath = 'readme.md',
   targetHeading = 'API',
 } = {}) {
+  if (typeof cwd !== 'string')
+    throw new TypeError('Option `cwd` must be a string.');
+
+  if (cwd === '')
+    throw new TypeError('Option `cwd` must be a populated string.');
+
+  if (typeof sourceGlob !== 'string')
+    throw new TypeError('Option `sourceGlob` must be a string.');
+
+  if (sourceGlob === '')
+    throw new TypeError('Option `sourceGlob` must be a populated string.');
+
+  if (typeof markdownPath !== 'string')
+    throw new TypeError('Option `markdownPath` must be a string.');
+
+  if (markdownPath === '')
+    throw new TypeError('Option `markdownPath` must be a populated string.');
+
+  if (typeof targetHeading !== 'string')
+    throw new TypeError('Option `targetHeading` must be a string.');
+
+  if (targetHeading === '')
+    throw new TypeError('Option `targetHeading` must be a populated string.');
+
   const codeFilePaths = await globby(sourceGlob, { cwd, gitignore: true });
   const codeFiles = new Map();
   const jsdocMembers = [];

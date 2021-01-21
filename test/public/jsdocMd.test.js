@@ -1,5 +1,6 @@
 'use strict';
 
+const { rejects } = require('assert');
 const fs = require('fs');
 const { join, resolve } = require('path');
 const { disposableDirectory } = require('disposable-directory');
@@ -7,6 +8,71 @@ const snapshot = require('snapshot-assertion');
 const jsdocMd = require('../../public/jsdocMd');
 
 module.exports = (tests) => {
+  tests.add('`jsdocMd` with option `cwd` not a string.', async () => {
+    await rejects(
+      jsdocMd({ cwd: true }),
+      new TypeError('Option `cwd` must be a string.')
+    );
+  });
+
+  tests.add('`jsdocMd` with option `cwd` not a populated string.', async () => {
+    await rejects(
+      jsdocMd({ cwd: '' }),
+      new TypeError('Option `cwd` must be a populated string.')
+    );
+  });
+
+  tests.add('`jsdocMd` with option `sourceGlob` not a string.', async () => {
+    await rejects(
+      jsdocMd({ sourceGlob: true }),
+      new TypeError('Option `sourceGlob` must be a string.')
+    );
+  });
+
+  tests.add(
+    '`jsdocMd` with option `sourceGlob` not a populated string.',
+    async () => {
+      await rejects(
+        jsdocMd({ sourceGlob: '' }),
+        new TypeError('Option `sourceGlob` must be a populated string.')
+      );
+    }
+  );
+
+  tests.add('`jsdocMd` with option `markdownPath` not a string.', async () => {
+    await rejects(
+      jsdocMd({ markdownPath: true }),
+      new TypeError('Option `markdownPath` must be a string.')
+    );
+  });
+
+  tests.add(
+    '`jsdocMd` with option `markdownPath` not a populated string.',
+    async () => {
+      await rejects(
+        jsdocMd({ markdownPath: '' }),
+        new TypeError('Option `markdownPath` must be a populated string.')
+      );
+    }
+  );
+
+  tests.add('`jsdocMd` with option `targetHeading` not a string.', async () => {
+    await rejects(
+      jsdocMd({ targetHeading: true }),
+      new TypeError('Option `targetHeading` must be a string.')
+    );
+  });
+
+  tests.add(
+    '`jsdocMd` with option `targetHeading` not a populated string.',
+    async () => {
+      await rejects(
+        jsdocMd({ targetHeading: '' }),
+        new TypeError('Option `targetHeading` must be a populated string.')
+      );
+    }
+  );
+
   tests.add('`jsdocMd`.', async () => {
     await disposableDirectory(async (tempDirPath) => {
       const sourcePath = join(tempDirPath, 'index.js');
