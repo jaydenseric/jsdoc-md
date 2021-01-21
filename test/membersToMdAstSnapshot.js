@@ -21,6 +21,7 @@ const TEST_CODE_FILE_PATH = '/a.js';
  * @param {string} snapshotName Name for the snapshot files (excluding file extension).
  * @param {string} code Code containing JSDoc comments.
  * @param {number} [topDepth] Top heading level.
+ * @returns {Promise<void>} Resolves once the operation is done.
  * @ignore
  */
 module.exports = async function membersToMdAstSnapshot(
