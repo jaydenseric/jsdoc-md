@@ -25,11 +25,11 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`outlineMembers` with second argument `codeFiles` not a Map instance.',
+    '`outlineMembers` with second argument `codeFiles` not a `Map` instance.',
     () => {
       throws(() => {
         outlineMembers([], true);
-      }, new TypeError('Second argument `codeFiles` must be a Map instance.'));
+      }, new TypeError('Second argument `codeFiles` must be a `Map` instance.'));
     }
   );
 

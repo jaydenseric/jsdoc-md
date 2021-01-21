@@ -28,7 +28,9 @@ module.exports = function jsdocCommentToMember(
     throw new TypeError('First argument `jsdocComment` must be an object.');
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Second argument `codeFiles` must be a Map instance.');
+    throw new TypeError(
+      'Second argument `codeFiles` must be a `Map` instance.'
+    );
 
   if (typeof codeFilePath !== 'string')
     throw new TypeError('Third argument `codeFilePath` must be a string.');

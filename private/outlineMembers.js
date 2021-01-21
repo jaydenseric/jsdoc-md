@@ -23,7 +23,9 @@ module.exports = function outlineMembers(members, codeFiles) {
     throw new TypeError('First argument `members` must be an array.');
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Second argument `codeFiles` must be a Map instance.');
+    throw new TypeError(
+      'Second argument `codeFiles` must be a `Map` instance.'
+    );
 
   // Prevent modification of the input array.
   const outline = members.slice();

@@ -24,7 +24,7 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocCommentToMember` with second argument `codeFiles` not a Map instance.',
+    '`jsdocCommentToMember` with second argument `codeFiles` not a `Map` instance.',
     async () => {
       const code = '/** */';
       const [jsdocComment] = await codeToJsdocComments(
@@ -34,7 +34,7 @@ module.exports = (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, true, TEST_CODE_FILE_PATH);
-      }, new TypeError('Second argument `codeFiles` must be a Map instance.'));
+      }, new TypeError('Second argument `codeFiles` must be a `Map` instance.'));
     }
   );
 
