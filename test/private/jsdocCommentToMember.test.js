@@ -19,7 +19,7 @@ module.exports = (tests) => {
 
       throws(() => {
         jsdocCommentToMember(true, codeFiles, TEST_CODE_FILE_PATH);
-      }, new TypeError('First argument “jsdocComment” must be an object.'));
+      }, new TypeError('First argument `jsdocComment` must be an object.'));
     }
   );
 
@@ -34,7 +34,7 @@ module.exports = (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, true, TEST_CODE_FILE_PATH);
-      }, new TypeError('Second argument “codeFiles” must be a Map instance.'));
+      }, new TypeError('Second argument `codeFiles` must be a Map instance.'));
     }
   );
 
@@ -50,7 +50,7 @@ module.exports = (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, codeFiles, true);
-      }, new TypeError('Third argument “codeFilePath” must be a string.'));
+      }, new TypeError('Third argument `codeFilePath` must be a string.'));
     }
   );
 
@@ -66,7 +66,7 @@ module.exports = (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, codeFiles, '');
-      }, new TypeError('Third argument “codeFilePath” must be a populated string.'));
+      }, new TypeError('Third argument `codeFilePath` must be a populated string.'));
     }
   );
 

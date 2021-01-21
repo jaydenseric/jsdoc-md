@@ -16,7 +16,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         new InvalidJsdocError(true);
-      }, new TypeError('First argument “message” must be a string.'));
+      }, new TypeError('First argument `message` must be a string.'));
     }
   );
 
@@ -25,7 +25,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         new InvalidJsdocError('a', true);
-      }, new TypeError('Second argument “codeFileLocation” must be an object.'));
+      }, new TypeError('Second argument `codeFileLocation` must be an object.'));
     }
   );
 
@@ -34,7 +34,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         new InvalidJsdocError('a', {});
-      }, new TypeError('Second argument “codeFileLocation” property “filePath” must be a string.'));
+      }, new TypeError('Second argument `codeFileLocation` property `filePath` must be a string.'));
     }
   );
 
@@ -45,7 +45,7 @@ module.exports = (tests) => {
         new InvalidJsdocError('a', {
           filePath: '/a.js',
         });
-      }, new TypeError('Second argument “codeFileLocation” property “codeLocation” must be a `CodeLocation` instance.'));
+      }, new TypeError('Second argument `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'));
     }
   );
 
@@ -61,7 +61,7 @@ module.exports = (tests) => {
           },
           true
         );
-      }, new TypeError('Third argument “code” must be a string.'));
+      }, new TypeError('Third argument `code` must be a string.'));
     }
   );
 

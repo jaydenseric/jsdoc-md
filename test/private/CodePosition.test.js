@@ -7,13 +7,13 @@ module.exports = (tests) => {
   tests.add('`CodePosition` with first argument `line` not a number.', () => {
     throws(() => {
       new CodePosition(true);
-    }, new TypeError('First argument “line” must be a number.'));
+    }, new TypeError('First argument `line` must be a number.'));
   });
 
   tests.add('`CodePosition` with first argument `line` < 1.', () => {
     throws(() => {
       new CodePosition(0);
-    }, new RangeError('First argument “line” must be >= 1.'));
+    }, new RangeError('First argument `line` must be >= 1.'));
   });
 
   tests.add(
@@ -21,14 +21,14 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         new CodePosition(1, true);
-      }, new TypeError('Second argument “column” must be a number.'));
+      }, new TypeError('Second argument `column` must be a number.'));
     }
   );
 
   tests.add('`CodePosition` with second argument `column` < 1.', () => {
     throws(() => {
       new CodePosition(1, 0);
-    }, new RangeError('Second argument “column” must be >= 1.'));
+    }, new RangeError('Second argument `column` must be >= 1.'));
   });
 
   tests.add('`CodePosition` with arguments valid.', () => {

@@ -19,7 +19,7 @@ module.exports = (tests) => {
             children: [],
           },
         });
-      }, new TypeError('Option “markdownPath” must be a string.'));
+      }, new TypeError('Option `markdownPath` must be a string.'));
     }
   );
 
@@ -35,7 +35,7 @@ module.exports = (tests) => {
             children: [],
           },
         });
-      }, new TypeError('Option “markdownPath” must be a populated string.'));
+      }, new TypeError('Option `markdownPath` must be a populated string.'));
     }
   );
 
@@ -51,7 +51,7 @@ module.exports = (tests) => {
             children: [],
           },
         });
-      }, new TypeError('Option “targetHeading” must be a string.'));
+      }, new TypeError('Option `targetHeading` must be a string.'));
     }
   );
 
@@ -67,7 +67,7 @@ module.exports = (tests) => {
             children: [],
           },
         });
-      }, new TypeError('Option “targetHeading” must be a populated string.'));
+      }, new TypeError('Option `targetHeading` must be a populated string.'));
     }
   );
 
@@ -80,7 +80,7 @@ module.exports = (tests) => {
           targetHeading: 'Target',
           replacementAst: true,
         });
-      }, new TypeError('Option “replacementAst” must be an object.'));
+      }, new TypeError('Option `replacementAst` must be an object.'));
     }
   );
 

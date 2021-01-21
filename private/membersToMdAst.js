@@ -287,7 +287,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
 
           if (!eventMember)
             throw new InvalidJsdocError(
-              `Missing JSDoc member for event namepath “${eventNamepath}”.`,
+              `Missing JSDoc member for event namepath \`${eventNamepath}\`.`,
               namepath.codeFileLocation,
               codeFiles.get(namepath.codeFileLocation.filePath)
             );

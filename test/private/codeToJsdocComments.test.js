@@ -13,7 +13,7 @@ module.exports = (tests) => {
     async () => {
       await rejects(
         codeToJsdocComments(true, TEST_CODE_FILE_PATH),
-        new TypeError('First argument “code” must be a string.')
+        new TypeError('First argument `code` must be a string.')
       );
     }
   );
@@ -23,7 +23,7 @@ module.exports = (tests) => {
     async () => {
       await rejects(
         codeToJsdocComments('', true),
-        new TypeError('Second argument “codeFilePath” must be a string.')
+        new TypeError('Second argument `codeFilePath` must be a string.')
       );
     }
   );
@@ -34,7 +34,7 @@ module.exports = (tests) => {
       await rejects(
         codeToJsdocComments('', ''),
         new TypeError(
-          'Second argument “codeFilePath” must be a populated string.'
+          'Second argument `codeFilePath` must be a populated string.'
         )
       );
     }

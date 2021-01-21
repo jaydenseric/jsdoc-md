@@ -14,7 +14,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         replaceJsdocLinks(true);
-      }, new TypeError('First argument “markdown” must be a string.'));
+      }, new TypeError('First argument `markdown` must be a string.'));
     }
   );
 
@@ -72,6 +72,6 @@ module.exports = (tests) => {
   tests.add('`replaceJsdocLinks` with a missing member.', () => {
     throws(() => {
       replaceJsdocLinks('[A]{@link A}');
-    }, new Error('Missing JSDoc member for link namepath “A”.'));
+    }, new Error('Missing JSDoc member for link namepath `A`.'));
   });
 };

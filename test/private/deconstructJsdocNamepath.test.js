@@ -9,7 +9,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         deconstructJsdocNamepath(undefined);
-      }, new TypeError('First argument “namepath” must be a string.'));
+      }, new TypeError('First argument `namepath` must be a string.'));
     }
   );
 
@@ -44,6 +44,6 @@ module.exports = (tests) => {
     for (const namepath of ['', 'a..b', 'a..b.c', 'a.'])
       throws(() => {
         deconstructJsdocNamepath(namepath);
-      }, new SyntaxError(`Invalid JSDoc namepath “${namepath}”.`));
+      }, new SyntaxError(`Invalid JSDoc namepath \`${namepath}\`.`));
   });
 };

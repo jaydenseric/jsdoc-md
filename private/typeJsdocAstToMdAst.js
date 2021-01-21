@@ -188,7 +188,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
       break;
     }
     default:
-      throw new Error(`Unknown JSDoc type “${typeJsdocAst.type}”.`);
+      throw new Error(`Unknown JSDoc type \`${typeJsdocAst.type}\`.`);
   }
 
   return children;

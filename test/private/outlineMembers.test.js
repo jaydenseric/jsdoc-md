@@ -20,7 +20,7 @@ module.exports = (tests) => {
 
       throws(() => {
         outlineMembers(true, codeFiles);
-      }, new TypeError('First argument “members” must be an array.'));
+      }, new TypeError('First argument `members` must be an array.'));
     }
   );
 
@@ -29,7 +29,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         outlineMembers([], true);
-      }, new TypeError('Second argument “codeFiles” must be a Map instance.'));
+      }, new TypeError('Second argument `codeFiles` must be a Map instance.'));
     }
   );
 

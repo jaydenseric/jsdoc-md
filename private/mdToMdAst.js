@@ -18,7 +18,7 @@ const unescapeJsdoc = require('./unescapeJsdoc');
  */
 module.exports = function mdToMdAst(markdown, members) {
   if (typeof markdown !== 'string')
-    throw new TypeError('First argument “markdown” must be a string.');
+    throw new TypeError('First argument `markdown` must be a string.');
 
   // The AST nodes from a parsed markdown string contain `position` data
   // (https://github.com/syntax-tree/unist#position). This data should be

@@ -13,7 +13,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         getJsdocBlockTagSpanCodeLocation(true);
-      }, new TypeError('First argument “blockTag” must be an object.'));
+      }, new TypeError('First argument `blockTag` must be an object.'));
     }
   );
 
@@ -31,7 +31,7 @@ module.exports = (tests) => {
 
       throws(() => {
         getJsdocBlockTagSpanCodeLocation(blockTag, true);
-      }, new TypeError('Second argument “spanTokenName” must be a string.'));
+      }, new TypeError('Second argument `spanTokenName` must be a string.'));
     }
   );
 
@@ -49,7 +49,7 @@ module.exports = (tests) => {
 
       throws(() => {
         getJsdocBlockTagSpanCodeLocation(blockTag, 'notavalidtokenname');
-      }, new TypeError('Second argument “spanTokenName” must be a JSDoc block tag span token name.'));
+      }, new TypeError('Second argument `spanTokenName` must be a JSDoc block tag span token name.'));
     }
   );
 
@@ -67,7 +67,7 @@ module.exports = (tests) => {
 
       throws(() => {
         getJsdocBlockTagSpanCodeLocation(blockTag, 'name', true);
-      }, new TypeError('Third argument “firstLineStartColumnNumber” must be a number.'));
+      }, new TypeError('Third argument `firstLineStartColumnNumber` must be a number.'));
     }
   );
 

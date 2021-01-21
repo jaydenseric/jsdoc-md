@@ -151,6 +151,6 @@ module.exports = (tests) => {
         type: 'root',
         children: [],
       });
-    }, new Error('Missing target heading “API”.'));
+    }, new Error('Missing target heading `API`.'));
   });
 };

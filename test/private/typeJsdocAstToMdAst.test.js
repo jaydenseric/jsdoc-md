@@ -107,6 +107,6 @@ module.exports = (tests) => {
   tests.add('`typeJsdocAstToMdAst` with an unknown type.', () => {
     throws(() => {
       typeJsdocAstToMdAst({ type: 'MadeUp' });
-    }, new Error('Unknown JSDoc type “MadeUp”.'));
+    }, new Error('Unknown JSDoc type `MadeUp`.'));
   });
 };

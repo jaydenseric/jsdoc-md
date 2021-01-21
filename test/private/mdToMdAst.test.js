@@ -9,7 +9,7 @@ module.exports = (tests) => {
   tests.add('`mdToMdAst` with first argument `markdown` not a string.', () => {
     throws(() => {
       mdToMdAst(true);
-    }, new TypeError('First argument “markdown” must be a string.'));
+    }, new TypeError('First argument `markdown` must be a string.'));
   });
 
   tests.add('`mdToMdAst` with a paragraph.', async () => {

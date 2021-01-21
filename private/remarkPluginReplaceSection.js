@@ -23,6 +23,6 @@ module.exports = function remarkPluginReplaceSection({
   return (targetAst, file, next) => {
     mdastInject(targetHeading, targetAst, replacementAst)
       ? next()
-      : next(new Error(`Missing target heading “${targetHeading}”.`));
+      : next(new Error(`Missing target heading \`${targetHeading}\`.`));
   };
 };

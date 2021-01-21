@@ -35,19 +35,19 @@ module.exports = function getJsdocBlockTagSpanCodeLocation(
   firstLineStartColumnNumber
 ) {
   if (typeof blockTag !== 'object')
-    throw new TypeError('First argument “blockTag” must be an object.');
+    throw new TypeError('First argument `blockTag` must be an object.');
 
   if (typeof spanTokenName !== 'string')
-    throw new TypeError('Second argument “spanTokenName” must be a string.');
+    throw new TypeError('Second argument `spanTokenName` must be a string.');
 
   if (!JSDOC_BLOCK_TAG_SPAN_TOKENS.includes(spanTokenName))
     throw new TypeError(
-      'Second argument “spanTokenName” must be a JSDoc block tag span token name.'
+      'Second argument `spanTokenName` must be a JSDoc block tag span token name.'
     );
 
   if (typeof firstLineStartColumnNumber !== 'number')
     throw new TypeError(
-      'Third argument “firstLineStartColumnNumber” must be a number.'
+      'Third argument `firstLineStartColumnNumber` must be a number.'
     );
 
   let start;

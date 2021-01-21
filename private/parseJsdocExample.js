@@ -10,7 +10,7 @@
  */
 module.exports = function parseJsdocExample(tagContent) {
   if (typeof tagContent !== 'string')
-    throw new TypeError('First argument “tagContent” must be a string.');
+    throw new TypeError('First argument `tagContent` must be a string.');
 
   const tagData = {};
   const [, caption, content] = tagContent.match(

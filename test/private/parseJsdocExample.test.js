@@ -9,7 +9,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         parseJsdocExample(true);
-      }, new TypeError('First argument “tagContent” must be a string.'));
+      }, new TypeError('First argument `tagContent` must be a string.'));
     }
   );
 

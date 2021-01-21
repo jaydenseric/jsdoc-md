@@ -7,7 +7,7 @@ module.exports = (tests) => {
   tests.add('`CliError` with first argument `message` not a string.', () => {
     throws(() => {
       new CliError(true);
-    }, new TypeError('First argument “message” must be a string.'));
+    }, new TypeError('First argument `message` must be a string.'));
   });
 
   tests.add('`CliError` with arguments valid.', () => {

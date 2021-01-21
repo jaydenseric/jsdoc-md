@@ -9,7 +9,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         unescapeJsdoc(true);
-      }, new TypeError('First argument “content” must be a string.'));
+      }, new TypeError('First argument `content` must be a string.'));
     }
   );
 

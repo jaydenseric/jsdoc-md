@@ -1,7 +1,7 @@
 
 [1m[31mError running jsdoc-md:[22m[39m
 
-  [31mMissing JSDoc member for namepath “A”.
+  [31mMissing JSDoc member for namepath `A`.
   
   index.js:3:10
   

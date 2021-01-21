@@ -10,7 +10,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         new CodeLocation(true);
-      }, new TypeError('First argument “start” must be a `CodePosition` instance.'));
+      }, new TypeError('First argument `start` must be a `CodePosition` instance.'));
     }
   );
 
@@ -19,7 +19,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         new CodeLocation(new CodePosition(1, 1), true);
-      }, new TypeError('Second argument “end” must be a `CodePosition` instance.'));
+      }, new TypeError('Second argument `end` must be a `CodePosition` instance.'));
     }
   );
 
@@ -30,7 +30,7 @@ module.exports = (tests) => {
 
       throws(() => {
         new CodeLocation(new CodePosition(1, 1), end);
-      }, new TypeError('Second argument “end” must be a `CodePosition` instance.'));
+      }, new TypeError('Second argument `end` must be a `CodePosition` instance.'));
     }
   );
 
@@ -39,7 +39,7 @@ module.exports = (tests) => {
     () => {
       throws(() => {
         new CodeLocation(new CodePosition(2, 1), new CodePosition(1, 1));
-      }, new TypeError('Second argument “end” must be a code position at or beyond the start code position.'));
+      }, new TypeError('Second argument `end` must be a code position at or beyond the start code position.'));
     }
   );
 

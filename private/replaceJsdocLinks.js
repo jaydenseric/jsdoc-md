@@ -11,7 +11,7 @@
  */
 module.exports = function replaceJsdocLinks(markdown, members) {
   if (typeof markdown !== 'string')
-    throw new TypeError('First argument “markdown” must be a string.');
+    throw new TypeError('First argument `markdown` must be a string.');
 
   const regex = /{@link (.+?)}/g;
 
@@ -25,7 +25,9 @@ module.exports = function replaceJsdocLinks(markdown, members) {
     if (linkedMember)
       markdown = markdown.replace(jsdocLink, `(#${linkedMember.slug})`);
     else
-      throw new Error(`Missing JSDoc member for link namepath “${namepath}”.`);
+      throw new Error(
+        `Missing JSDoc member for link namepath \`${namepath}\`.`
+      );
   }
 
   return markdown;

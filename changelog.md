@@ -37,6 +37,7 @@
 - Renamed the private function `jsdocToMember` to `jsdocCommentToMember`.
 - Configured the JSDoc parser to not accept a name part for a `type` tag.
 - Rewrote a lot of the implementation for better performance.
+- Use backticks (`` ` ``) to quote values in error messages instead of typographic double quotes (`“`/`”`).
 - Use `Array<>` JSDoc type syntax instead of `[]`.
 - Improved the internal JSDoc.
 - Improved tests.
