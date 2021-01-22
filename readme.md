@@ -73,7 +73,7 @@ Scrapes JSDoc from source files to populate a markdown file documentation sectio
 | Parameter | Type | Description |
 | :-- | :-- | :-- |
 | `options` | object? | Options. |
-| `options.cwd` | string? | A directory path to scope the search for source and .gitignore files, defaulting to `process.cwd()`. |
+| `options.cwd` | string? | A directory path to scope the search for source and `.gitignore` files, defaulting to `process.cwd()`. |
 | `options.sourceGlob` | string? = `**/*.{mjs,js}` | JSDoc source file glob pattern. |
 | `options.markdownPath` | string? = `readme.md` | Path to the markdown file for docs insertion. |
 | `options.targetHeading` | string? = `API` | Markdown file heading to insert docs under. |

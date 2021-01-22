@@ -14,7 +14,7 @@ const membersToMdAst = require('../private/membersToMdAst');
  * @kind function
  * @name jsdocMd
  * @param {object} [options] Options.
- * @param {string} [options.cwd] A directory path to scope the search for source and .gitignore files, defaulting to `process.cwd()`.
+ * @param {string} [options.cwd] A directory path to scope the search for source and `.gitignore` files, defaulting to `process.cwd()`.
  * @param {string} [options.sourceGlob='**\/*.{mjs,js}'] JSDoc source file glob pattern.
  * @param {string} [options.markdownPath='readme.md'] Path to the markdown file for docs insertion.
  * @param {string} [options.targetHeading='API'] Markdown file heading to insert docs under.
