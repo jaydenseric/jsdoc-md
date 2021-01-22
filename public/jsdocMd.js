@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const { resolve } = require('path');
 const globby = require('globby');
 const codeToJsdocComments = require('../private/codeToJsdocComments');
 const jsdocCommentToMember = require('../private/jsdocCommentToMember');
@@ -87,7 +88,7 @@ module.exports = async function jsdocMd({
       // Update the code files map.
       codeFiles.set(
         codeFilePath,
-        await fs.promises.readFile(codeFilePath, 'utf8')
+        await fs.promises.readFile(resolve(cwd, codeFilePath), 'utf8')
       );
 
       // Get the JSDoc comments from the code.
@@ -109,7 +110,7 @@ module.exports = async function jsdocMd({
   );
 
   await mdFileReplaceSection({
-    markdownPath,
+    markdownPath: resolve(cwd, markdownPath),
     targetHeading,
     replacementAst: membersToMdAst(jsdocMembers, codeFiles),
   });

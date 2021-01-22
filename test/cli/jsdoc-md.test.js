@@ -12,34 +12,54 @@ const cliPath = resolve(__dirname, '../../cli/jsdoc-md');
 module.exports = (tests) => {
   tests.add('`jsdoc-md` CLI with defaults.', async () => {
     await disposableDirectory(async (tempDirPath) => {
+      const fileNameSourceIgnored = 'C.js';
       const pathGitignore = join(tempDirPath, '.gitignore');
       const pathMd = join(tempDirPath, 'readme.md');
-      const pathSource = join(tempDirPath, 'index.js');
-      const pathSourceIgnored = join(tempDirPath, 'ignored.js');
+      const pathSourceJs = join(tempDirPath, 'A.js');
+      const pathSourceMjs = join(tempDirPath, 'B.mjs');
+      const pathSourceIgnored = join(tempDirPath, fileNameSourceIgnored);
 
       await Promise.all([
-        fs.promises.writeFile(pathGitignore, 'ignored.js'),
-        fs.promises.writeFile(pathMd, '## API'),
+        fs.promises.writeFile(pathGitignore, fileNameSourceIgnored),
         fs.promises.writeFile(
-          pathSource,
+          pathMd,
+          `# Preserve
+
+## API
+
+Replace.
+
+## Preserve
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceJs,
           `/**
- * Description.
  * @kind constant
  * @name A
- * @type {boolean}
+ * @type {string}
  */
-const A = true
+module.exports = 'A';
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceMjs,
+          `/**
+ * @kind constant
+ * @name B
+ * @type {string}
+ */
+export default 'B';
 `
         ),
         fs.promises.writeFile(
           pathSourceIgnored,
           `/**
- * Description.
  * @kind constant
- * @name B
- * @type {boolean}
+ * @name C
+ * @type {string}
  */
-const B = true
+module.exports = 'C';
 `
         ),
       ]);
@@ -60,41 +80,52 @@ const B = true
 
       await snapshot(
         await fs.promises.readFile(pathMd, 'utf8'),
-        resolve(__dirname, '../snapshots/jsdoc-md/with-defaults-markdown.md')
+        resolve(__dirname, '../snapshots/jsdoc-md/defaults.md')
       );
     });
   });
 
   tests.add('`jsdoc-md` CLI with arguments.', async () => {
     await disposableDirectory(async (tempDirPath) => {
+      const targetHeading = 'Target';
+      const fileNameSourceIgnored = 'B.jsx';
+      const fileNameMd = 'markdown.md';
       const pathGitignore = join(tempDirPath, '.gitignore');
-      const pathMd = join(tempDirPath, 'markdown.md');
-      const pathSource = join(tempDirPath, 'index.txt');
-      const pathSourceIgnored = join(tempDirPath, 'ignored.txt');
+      const pathMd = join(tempDirPath, fileNameMd);
+      const pathSource = join(tempDirPath, 'A.jsx');
+      const pathSourceIgnored = join(tempDirPath, fileNameSourceIgnored);
 
       await Promise.all([
-        fs.promises.writeFile(pathGitignore, 'ignored.txt'),
-        fs.promises.writeFile(pathMd, '## Target'),
+        fs.promises.writeFile(pathGitignore, fileNameSourceIgnored),
+        fs.promises.writeFile(
+          pathMd,
+          `# Preserve
+
+## ${targetHeading}
+
+Replace.
+
+## Preserve
+`
+        ),
         fs.promises.writeFile(
           pathSource,
           `/**
- * Description.
  * @kind constant
  * @name A
- * @type {boolean}
+ * @type {string}
  */
-const A = true
+export default 'A';
 `
         ),
         fs.promises.writeFile(
           pathSourceIgnored,
           `/**
- * Description.
  * @kind constant
  * @name B
- * @type {boolean}
+ * @type {string}
  */
-const B = true
+export default 'B';
 `
         ),
       ]);
@@ -103,9 +134,9 @@ const B = true
         'node',
         [
           cliPath,
-          '--source-glob=**/*.txt',
-          '--markdown-path=markdown.md',
-          '--target-heading=Target',
+          '--source-glob=**/*.jsx',
+          `--markdown-path=${fileNameMd}`,
+          `--target-heading=${targetHeading}`,
         ],
         {
           cwd: tempDirPath,
@@ -124,7 +155,7 @@ const B = true
 
       await snapshot(
         await fs.promises.readFile(pathMd, 'utf8'),
-        resolve(__dirname, '../snapshots/jsdoc-md/with-arguments-markdown.md')
+        resolve(__dirname, '../snapshots/jsdoc-md/arguments.md')
       );
     });
   });
@@ -132,7 +163,7 @@ const B = true
   tests.add('`jsdoc-md` CLI with an error.', async () => {
     await disposableDirectory(async (tempDirPath) => {
       const pathMd = join(tempDirPath, 'readme.md');
-      const pathSource = join(tempDirPath, 'index.js');
+      const pathSource = join(tempDirPath, 'A.js');
       const mdContent = '## API';
 
       await Promise.all([
@@ -160,7 +191,7 @@ const B = true
 
       await snapshot(
         stderr.toString(),
-        resolve(__dirname, '../snapshots/jsdoc-md/with-an-error-stderr.ans')
+        resolve(__dirname, '../snapshots/jsdoc-md/error-stderr.ans')
       );
 
       strictEqual(status, 1);

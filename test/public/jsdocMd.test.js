@@ -1,6 +1,7 @@
 'use strict';
 
-const { rejects } = require('assert');
+const { rejects, strictEqual } = require('assert');
+const { spawnSync } = require('child_process');
 const fs = require('fs');
 const { join, resolve } = require('path');
 const { disposableDirectory } = require('disposable-directory');
@@ -73,17 +74,106 @@ module.exports = (tests) => {
     }
   );
 
-  tests.add('`jsdocMd` with options.', async () => {
+  tests.add('`jsdocMd` with defaults.', async () => {
     await disposableDirectory(async (tempDirPath) => {
+      const fileNameSourceIgnored = 'C.js';
+      const pathGitignore = join(tempDirPath, '.gitignore');
       const pathMd = join(tempDirPath, 'readme.md');
-      const pathSource = join(tempDirPath, 'index.js');
+      const pathSourceJs = join(tempDirPath, 'A.js');
+      const pathSourceMjs = join(tempDirPath, 'B.mjs');
+      const pathSourceIgnored = join(tempDirPath, fileNameSourceIgnored);
+      // `test` in the file name so `coverage-node` will automatically ignore it
+      // for the code coverage report.
+      const pathScript = join(tempDirPath, 'test.js');
+      const pathJsdocMd = resolve(__dirname, '../../public/jsdocMd');
 
       await Promise.all([
+        fs.promises.writeFile(pathGitignore, fileNameSourceIgnored),
         fs.promises.writeFile(
           pathMd,
           `# Preserve
 
-## Target
+## API
+
+Replace.
+
+## Preserve
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceJs,
+          `/**
+ * @kind constant
+ * @name A
+ * @type {string}
+ */
+module.exports = 'A';
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceMjs,
+          `/**
+ * @kind constant
+ * @name B
+ * @type {string}
+ */
+export default 'B';
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceIgnored,
+          `/**
+ * @kind constant
+ * @name C
+ * @type {string}
+ */
+module.exports = 'C';
+`
+        ),
+        fs.promises.writeFile(
+          pathScript,
+          `const jsdocMd = require('${pathJsdocMd}');
+jsdocMd();
+`
+        ),
+      ]);
+
+      const { stdout, stderr, status, error } = spawnSync(
+        'node',
+        [pathScript],
+        { cwd: tempDirPath }
+      );
+
+      if (error) throw error;
+
+      strictEqual(stdout.toString(), '');
+      strictEqual(stderr.toString(), '');
+      strictEqual(status, 0);
+
+      await snapshot(
+        await fs.promises.readFile(pathMd, 'utf8'),
+        resolve(__dirname, '../snapshots/jsdocMd/defaults.md')
+      );
+    });
+  });
+
+  tests.add('`jsdocMd` with options.', async () => {
+    await disposableDirectory(async (tempDirPath) => {
+      const targetHeading = 'Target';
+      const fileNameSourceIgnored = 'B.jsx';
+      const fileNameMd = 'markdown.md';
+      const pathGitignore = join(tempDirPath, '.gitignore');
+      const pathMd = join(tempDirPath, fileNameMd);
+      const pathSource = join(tempDirPath, 'A.jsx');
+      const pathSourceIgnored = join(tempDirPath, fileNameSourceIgnored);
+
+      await Promise.all([
+        fs.promises.writeFile(pathGitignore, fileNameSourceIgnored),
+        fs.promises.writeFile(
+          pathMd,
+          `# Preserve
+
+## ${targetHeading}
 
 Replace.
 
@@ -93,97 +183,30 @@ Replace.
         fs.promises.writeFile(
           pathSource,
           `/**
- * Description.
  * @kind constant
  * @name A
- * @type {boolean}
+ * @type {string}
  */
-const A = true
-
-/**
- * Description, here is a **bold** word.
- * @kind class
+export default 'A';
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceIgnored,
+          `/**
+ * @kind constant
  * @name B
- * @param {boolean} [a] Description, here is a **bold** word.
- * @example <caption>Construct a new instance, here is a **bold** word.</caption>
- * \`\`\`js
- * const b = new B();
- * \`\`\`
- * @example <caption>Construct a new instance with options.</caption>
- * \`\`\`js
- * const b = new B(true);
- * \`\`\`
+ * @type {string}
  */
-class B {
-  /**
-   * Description.
-   * @kind typedef
-   * @name B~A
-   * @type {object}
-   * @prop {string} a Description, here is a **bold** word.
-   * @prop {boolean} b Description.
-   */
-
-  /**
-   * Description.
-   * @kind event
-   * @name B#event:a
-   * @type {object}
-   * @prop {string} a Description.
-   */
-
-  /**
-   * Description.
-   * @kind member
-   * @name B.b
-   * @type {string}
-   */
-  static b = ''
-
-  /**
-   * Description.
-   * @kind member
-   * @name B#c
-   * @type {string}
-   */
-  c = ''
-
-  /**
-   * Description.
-   * @kind function
-   * @name B.d
-   * @param {B~A} a Description.
-   * @param {boolean} [b=true] Description.
-   */
-  static d(a, b = true) {}
-
-  /**
-   * Description.
-   * @kind function
-   * @name B#e
-   */
-  e() {}
-}
-
-/**
- * Description.
- * @kind function
- * @name c
- * @param {string} a Description.
- * @fires B#event:a
- * @see [\`B\`]{@link B}.
- * @see [jsdoc-md on npm](https://npm.im/jsdoc-md).
- */
-function c(a) {}
+export default 'B';
 `
         ),
       ]);
 
       await jsdocMd({
         cwd: tempDirPath,
-        sourceGlob: pathSource,
-        markdownPath: pathMd,
-        targetHeading: 'Target',
+        sourceGlob: '**/*.jsx',
+        markdownPath: fileNameMd,
+        targetHeading,
       });
 
       await snapshot(
