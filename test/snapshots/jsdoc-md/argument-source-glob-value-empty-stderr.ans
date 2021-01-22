@@ -1,0 +1,5 @@
+
+[1m[31mError running jsdoc-md:[22m[39m
+
+  Command `jsdoc-md` argument `--source-glob` requires a value.
+
