@@ -6,9 +6,9 @@ const gfm = require('remark-gfm');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
+const REMARK_STRINGIFY_OPTIONS = require('../../private/REMARK_STRINGIFY_OPTIONS');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const outlineMembers = require('../../private/outlineMembers');
-const remarkStringifyOptions = require('../../private/remarkStringifyOptions');
 const typeJsdocAstToMdAst = require('../../private/typeJsdocAstToMdAst');
 const typeJsdocStringToJsdocAst = require('../../private/typeJsdocStringToJsdocAst');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
@@ -104,7 +104,7 @@ module.exports = (tests) => {
         await snapshot(
           unified()
             .use(gfm)
-            .use(stringify, remarkStringifyOptions)
+            .use(stringify, REMARK_STRINGIFY_OPTIONS)
             .stringify({
               type: 'root',
               children: [

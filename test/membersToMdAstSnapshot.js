@@ -5,9 +5,9 @@ const gfm = require('remark-gfm');
 const stringify = require('remark-stringify');
 const snapshot = require('snapshot-assertion');
 const unified = require('unified');
+const REMARK_STRINGIFY_OPTIONS = require('../private/REMARK_STRINGIFY_OPTIONS');
 const codeToJsdocComments = require('../private/codeToJsdocComments');
 const membersToMdAst = require('../private/membersToMdAst');
-const remarkStringifyOptions = require('../private/remarkStringifyOptions');
 const jsdocCommentsToMembers = require('./jsdocCommentsToMembers');
 
 const TEST_CODE_FILE_PATH = '/a.js';
@@ -59,7 +59,7 @@ module.exports = async function membersToMdAstSnapshot(
 
   const md = unified()
     .use(gfm)
-    .use(stringify, remarkStringifyOptions)
+    .use(stringify, REMARK_STRINGIFY_OPTIONS)
     .stringify(mdAst);
 
   await snapshot(

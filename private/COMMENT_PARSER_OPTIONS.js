@@ -15,6 +15,13 @@ const {
 
 const JSDOC_SPACING_STRATEGY = 'preserve';
 
+/**
+ * [`comment-parser`](https://npm.im/comment-parser) parser options for parsing
+ * JSDoc comment block tags relevant to `jsdoc-md`.
+ * @kind constant
+ * @name COMMENT_PARSER_OPTIONS
+ * @ignore
+ */
 module.exports = {
   // Used for parsing the main description (before block tags).
   spacing: JSDOC_SPACING_STRATEGY,

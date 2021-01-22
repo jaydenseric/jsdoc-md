@@ -5,8 +5,8 @@ const gfm = require('remark-gfm');
 const parse = require('remark-parse');
 const stringify = require('remark-stringify');
 const unified = require('unified');
+const REMARK_STRINGIFY_OPTIONS = require('./REMARK_STRINGIFY_OPTIONS');
 const remarkPluginReplaceSection = require('./remarkPluginReplaceSection');
-const remarkStringifyOptions = require('./remarkStringifyOptions');
 
 /**
  * Replaces the content of a section in a markdown file.
@@ -43,7 +43,7 @@ module.exports = async function mdFileReplaceSection({
   const newFileContent = unified()
     .use(parse)
     .use(gfm)
-    .use(stringify, remarkStringifyOptions)
+    .use(stringify, REMARK_STRINGIFY_OPTIONS)
     .use(remarkPluginReplaceSection, { targetHeading, replacementAst })
     .processSync(fileContent)
     .toString();

@@ -41,6 +41,7 @@
 - Configured the JSDoc parser to not accept a name part for a `type` tag.
 - Rewrote a lot of the implementation for better performance.
 - Use backticks (`` ` ``) to quote values in error messages instead of typographic double quotes (`“`/`”`).
+- Renamed the private `remarkStringifyOptions` module to `REMARK_STRINGIFY_OPTIONS` and added JSDoc.
 - Use `Array<>` JSDoc type syntax instead of `[]`.
 - Improved the internal JSDoc.
 - Improved tests.
