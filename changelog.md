@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Internal JSDoc fixes.
+
 ## 9.0.0
 
 ### Major

@@ -5,7 +5,7 @@
  * @see [JSDoc namepath docs](https://jsdoc.app/about-namepaths).
  * @kind function
  * @name deconstructJsdocNamepath
- * @param {JsdocNamepathReference} namepath A JSDoc namepath.
+ * @param {string} namepath A JSDoc namepath.
  * @returns {object} Namepath parts.
  * @ignore
  */

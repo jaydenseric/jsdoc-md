@@ -41,6 +41,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @prop {string} name Name, derived from the `namepath`.
  * @prop {string} [description] Description markdown.
  * @prop {Array<string>} [see] List of see also markdown.
+ * @prop {string} [type] Type.
  * @prop {Array<JsdocMemberExample>} [examples] List of examples.
  * @prop {Array<JsdocMemberParameter>} [parameters] List of parameters, if the member is a function.
  * @prop {Array<JsdocMemberProperty>} [properties] List of properties, if the member is an object.
@@ -81,7 +82,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @type {object}
  * @prop {string} [type] Parameter type.
  * @prop {string} [name] Parameter namepath.
- * @prop {string} [optional=false] Is the parameter optional.
+ * @prop {boolean} [optional=false] Is the parameter optional.
  * @prop {string} [description] Parameter description markdown.
  * @ignore
  */
@@ -93,7 +94,7 @@ exports.jsdocMd = require('./jsdocMd');
  * @type {object}
  * @prop {string} [type] Property type.
  * @prop {string} [name] Property namepath.
- * @prop {string} [optional=false] Is the property optional.
+ * @prop {boolean} [optional=false] Is the property optional.
  * @prop {string} [description] Property description markdown.
  * @ignore
  */
