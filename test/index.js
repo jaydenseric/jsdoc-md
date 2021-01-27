@@ -22,8 +22,8 @@ require('./private/outlineMembers.test')(tests);
 require('./private/parseJsdocExample.test')(tests);
 require('./private/remarkPluginReplaceSection.test')(tests);
 require('./private/reportCliError.test')(tests);
-require('./private/typeJsdocAstToMdAst.test')(tests);
-require('./private/typeJsdocStringToJsdocAst.test')(tests);
+require('./private/typeAstToMdAst.test')(tests);
+require('./private/typeToTypeAst.test')(tests);
 require('./private/unescapeJsdoc.test')(tests);
 require('./public/jsdocMd.test')(tests);
 

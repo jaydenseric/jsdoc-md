@@ -9,32 +9,32 @@ const unified = require('unified');
 const REMARK_STRINGIFY_OPTIONS = require('../../private/REMARK_STRINGIFY_OPTIONS');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
 const outlineMembers = require('../../private/outlineMembers');
-const typeJsdocAstToMdAst = require('../../private/typeJsdocAstToMdAst');
-const typeJsdocStringToJsdocAst = require('../../private/typeJsdocStringToJsdocAst');
+const typeAstToMdAst = require('../../private/typeAstToMdAst');
+const typeToTypeAst = require('../../private/typeToTypeAst');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
 const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
   tests.add(
-    '`typeJsdocAstToMdAst` with first argument `typeJsdocAst` not an object.',
+    '`typeAstToMdAst` with first argument `typeJsdocAst` not an object.',
     () => {
       throws(() => {
-        typeJsdocAstToMdAst(true);
+        typeAstToMdAst(true);
       }, new TypeError('First argument `typeJsdocAst` must be an object.'));
     }
   );
 
   tests.add(
-    '`typeJsdocAstToMdAst` with second argument `members` not an array.',
+    '`typeAstToMdAst` with second argument `members` not an array.',
     () => {
       throws(() => {
-        typeJsdocAstToMdAst({}, true);
+        typeAstToMdAst({}, true);
       }, new TypeError('Second argument `members` must be an array.'));
     }
   );
 
-  tests.add('`typeJsdocAstToMdAst` with various types.', async () => {
+  tests.add('`typeAstToMdAst` with various types.', async () => {
     const code = `/**
  * @kind typedef
  * @name B
@@ -80,9 +80,9 @@ module.exports = (tests) => {
       ['FunctionType with this', 'function(this:A)'],
       ['FunctionType with this and param', 'function(this:A, *)'],
     ])
-      tests.add(`\`typeJsdocAstToMdAst\` with type ${name}.`, async () => {
-        const typeMdAst = typeJsdocAstToMdAst(
-          typeJsdocStringToJsdocAst({
+      tests.add(`\`typeAstToMdAst\` with type ${name}.`, async () => {
+        const typeMdAst = typeAstToMdAst(
+          typeToTypeAst({
             type: typeJsdocString,
             // Allow all features, including optional (`*=`) and rest (`...*`)
             // parameters.
@@ -97,7 +97,7 @@ module.exports = (tests) => {
           JSON.stringify(typeMdAst, null, 2),
           resolve(
             __dirname,
-            `../snapshots/typeJsdocAstToMdAst/${snapshotFileName}.json`
+            `../snapshots/typeAstToMdAst/${snapshotFileName}.json`
           )
         );
 
@@ -116,15 +116,15 @@ module.exports = (tests) => {
             }),
           resolve(
             __dirname,
-            `../snapshots/typeJsdocAstToMdAst/${snapshotFileName}.md`
+            `../snapshots/typeAstToMdAst/${snapshotFileName}.md`
           )
         );
       });
   });
 
-  tests.add('`typeJsdocAstToMdAst` with an unknown type.', () => {
+  tests.add('`typeAstToMdAst` with an unknown type.', () => {
     throws(() => {
-      typeJsdocAstToMdAst({ type: 'MadeUp' }, []);
+      typeAstToMdAst({ type: 'MadeUp' }, []);
     }, new Error('Unknown JSDoc type `MadeUp`.'));
   });
 };

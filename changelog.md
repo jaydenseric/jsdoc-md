@@ -13,6 +13,7 @@
 - Tweaked some tests.
 - Internal JSDoc fixes.
 - Use regex `u` mode when parsing JSDoc examples or scanning for JSDoc inline links in description markdown.
+- Renamed several private functions.
 
 ## 9.0.0
 

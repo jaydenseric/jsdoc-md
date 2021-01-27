@@ -3,13 +3,13 @@
 /**
  * Converts a JSDoc type Doctrine AST node to markdown AST children list.
  * @kind function
- * @name typeJsdocAstToMdAst
+ * @name typeAstToMdAst
  * @param {object} typeJsdocAst JSDoc type Doctrine AST node.
  * @param {Array<JsdocMember>} members Outlined JSDoc members.
  * @returns {Array<object>} Markdown AST children list.
  * @ignore
  */
-module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
+module.exports = function typeAstToMdAst(typeJsdocAst, members) {
   if (typeof typeJsdocAst !== 'object')
     throw new TypeError('First argument `typeJsdocAst` must be an object.');
 
@@ -55,11 +55,11 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
     case 'RestType':
       children.push(
         { type: 'text', value: '…' },
-        ...typeJsdocAstToMdAst(typeJsdocAst.expression, members)
+        ...typeAstToMdAst(typeJsdocAst.expression, members)
       );
       break;
     case 'OptionalType':
-      children.push(...typeJsdocAstToMdAst(typeJsdocAst.expression, members), {
+      children.push(...typeAstToMdAst(typeJsdocAst.expression, members), {
         type: 'text',
         value: '?',
       });
@@ -76,12 +76,12 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
               // These are special no-break space Unicode characters.
               ' | ',
           });
-        children.push(...typeJsdocAstToMdAst(elementTypeJsdocAst, members));
+        children.push(...typeAstToMdAst(elementTypeJsdocAst, members));
       }
       break;
     }
     case 'TypeApplication': {
-      children.push(...typeJsdocAstToMdAst(typeJsdocAst.expression, members), {
+      children.push(...typeAstToMdAst(typeJsdocAst.expression, members), {
         type: 'text',
         value: '<',
       });
@@ -96,7 +96,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
               // This is a special no-break space Unicode character.
               ', ',
           });
-        children.push(...typeJsdocAstToMdAst(applicationTypeJsdocAst, members));
+        children.push(...typeAstToMdAst(applicationTypeJsdocAst, members));
       }
       children.push({ type: 'text', value: '>' });
       break;
@@ -114,7 +114,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
               // These are special no-break space Unicode characters.
               ', ',
           });
-        children.push(...typeJsdocAstToMdAst(elementTypeJsdocAst, members));
+        children.push(...typeAstToMdAst(elementTypeJsdocAst, members));
       }
       children.push({ type: 'text', value: ']' });
       break;
@@ -122,7 +122,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
     case 'FieldType':
       children.push(
         { type: 'text', value: `${typeJsdocAst.key}: ` },
-        ...typeJsdocAstToMdAst(typeJsdocAst.value, members)
+        ...typeAstToMdAst(typeJsdocAst.value, members)
       );
       break;
     case 'RecordType': {
@@ -135,7 +135,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
               // This is a special no-break space Unicode character.
               ', ',
           });
-        children.push(...typeJsdocAstToMdAst(fieldTypeJsdocAst, members));
+        children.push(...typeAstToMdAst(fieldTypeJsdocAst, members));
       }
       children.push({ type: 'text', value: '}' });
       break;
@@ -163,7 +163,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
       if (typeJsdocAst.this)
         children.push(
           { type: 'text', value: `${typeJsdocAst.new ? 'new' : 'this'}:` },
-          ...typeJsdocAstToMdAst(typeJsdocAst.this, members)
+          ...typeAstToMdAst(typeJsdocAst.this, members)
         );
 
       if (typeJsdocAst.params.length)
@@ -178,7 +178,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
                 // This is a special no-break space Unicode character.
                 ', ',
             });
-          children.push(...typeJsdocAstToMdAst(paramTypeJsdocAst, members));
+          children.push(...typeAstToMdAst(paramTypeJsdocAst, members));
         }
 
       children.push({ type: 'text', value: ')' });
@@ -186,7 +186,7 @@ module.exports = function typeJsdocAstToMdAst(typeJsdocAst, members) {
       if (typeJsdocAst.result)
         children.push(
           { type: 'text', value: ':' },
-          ...typeJsdocAstToMdAst(typeJsdocAst.result, members)
+          ...typeAstToMdAst(typeJsdocAst.result, members)
         );
 
       break;
