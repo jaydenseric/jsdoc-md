@@ -44,6 +44,7 @@ module.exports = (tests) => {
       throws(() => {
         new InvalidJsdocError('a', {
           filePath: '/a.js',
+          codeLocation: true,
         });
       }, new TypeError('Second argument `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'));
     }

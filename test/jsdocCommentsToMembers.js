@@ -28,6 +28,11 @@ module.exports = function jsdocCommentsToMembers(
   if (typeof codeFilePath !== 'string')
     throw new TypeError('Third argument `codeFilePath` must be a string.');
 
+  if (codeFilePath === '')
+    throw new TypeError(
+      'Third argument `codeFilePath` must be a populated string.'
+    );
+
   const members = [];
 
   for (const jsdocComment of jsdocComments) {

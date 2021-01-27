@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Tweaked some tests.
 - Internal JSDoc fixes.
 
 ## 9.0.0
