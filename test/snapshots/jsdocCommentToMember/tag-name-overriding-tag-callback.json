@@ -26,9 +26,24 @@
         }
       }
     },
-    "namepath": "B"
+    "data": "B"
   },
   "name": "B",
   "kind": "typedef",
-  "type": "Function"
+  "type": {
+    "codeFileLocation": {
+      "filePath": "/a.js",
+      "codeLocation": {
+        "start": {
+          "line": 2,
+          "column": 4
+        },
+        "end": {
+          "line": 2,
+          "column": 12
+        }
+      }
+    },
+    "data": "Function"
+  }
 }

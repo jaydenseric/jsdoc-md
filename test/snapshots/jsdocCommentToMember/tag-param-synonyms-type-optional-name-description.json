@@ -26,28 +26,118 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "function",
   "parameters": [
     {
       "name": "a",
-      "type": "boolean",
+      "type": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 9
+            },
+            "end": {
+              "line": 4,
+              "column": 17
+            }
+          }
+        },
+        "data": "boolean"
+      },
       "optional": true,
-      "description": "Parameter description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 23
+            },
+            "end": {
+              "line": 4,
+              "column": 46
+            }
+          }
+        },
+        "data": "Parameter description A."
+      }
     },
     {
       "name": "b",
-      "type": "boolean",
+      "type": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 14
+            },
+            "end": {
+              "line": 5,
+              "column": 22
+            }
+          }
+        },
+        "data": "boolean"
+      },
       "optional": true,
-      "description": "Parameter description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 28
+            },
+            "end": {
+              "line": 5,
+              "column": 51
+            }
+          }
+        },
+        "data": "Parameter description A."
+      }
     },
     {
       "name": "c",
-      "type": "boolean",
+      "type": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 6,
+              "column": 11
+            },
+            "end": {
+              "line": 6,
+              "column": 19
+            }
+          }
+        },
+        "data": "boolean"
+      },
       "optional": true,
-      "description": "Parameter description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 6,
+              "column": 25
+            },
+            "end": {
+              "line": 6,
+              "column": 48
+            }
+          }
+        },
+        "data": "Parameter description A."
+      }
     }
   ]
 }

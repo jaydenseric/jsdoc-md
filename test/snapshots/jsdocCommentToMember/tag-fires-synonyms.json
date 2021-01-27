@@ -26,7 +26,7 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "class",
@@ -45,7 +45,7 @@
           }
         }
       },
-      "namepath": "A#event:a"
+      "data": "A#event:a"
     },
     {
       "codeFileLocation": {
@@ -61,7 +61,7 @@
           }
         }
       },
-      "namepath": "A#event:b"
+      "data": "A#event:b"
     }
   ]
 }

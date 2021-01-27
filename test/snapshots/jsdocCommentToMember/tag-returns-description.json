@@ -26,11 +26,26 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "function",
   "returns": {
-    "description": "Description."
+    "description": {
+      "codeFileLocation": {
+        "filePath": "/a.js",
+        "codeLocation": {
+          "start": {
+            "line": 4,
+            "column": 13
+          },
+          "end": {
+            "line": 4,
+            "column": 24
+          }
+        }
+      },
+      "data": "Description."
+    }
   }
 }

@@ -26,12 +26,42 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "function",
   "returns": {
-    "type": "boolean",
-    "description": "Description."
+    "type": {
+      "codeFileLocation": {
+        "filePath": "/a.js",
+        "codeLocation": {
+          "start": {
+            "line": 5,
+            "column": 13
+          },
+          "end": {
+            "line": 5,
+            "column": 21
+          }
+        }
+      },
+      "data": "boolean"
+    },
+    "description": {
+      "codeFileLocation": {
+        "filePath": "/a.js",
+        "codeLocation": {
+          "start": {
+            "line": 4,
+            "column": 22
+          },
+          "end": {
+            "line": 4,
+            "column": 33
+          }
+        }
+      },
+      "data": "Description."
+    }
   }
 }

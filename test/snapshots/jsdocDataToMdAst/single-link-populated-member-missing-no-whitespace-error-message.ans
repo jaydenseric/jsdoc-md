@@ -1,0 +1,10 @@
+Missing JSDoc member for JSDoc inline link namepath `Abc`.
+
+/a.js:2:18 → 2:20
+
+[0m [90m 1 | [39m[90m/**[39m[0m
+[0m[31m[1m>[22m[39m[90m 2 | [39m[90m * [`Abc`]{@link Abc}[39m[0m
+[0m [90m   | [39m                 [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[0m
+[0m [90m 3 | [39m[90m * @kind member[39m[0m
+[0m [90m 4 | [39m[90m * @name A[39m[0m
+[0m [90m 5 | [39m[90m */[39m[0m

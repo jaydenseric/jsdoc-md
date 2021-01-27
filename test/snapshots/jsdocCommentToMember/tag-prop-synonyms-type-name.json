@@ -26,19 +26,49 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "member",
   "properties": [
     {
       "name": "a",
-      "type": "boolean",
+      "type": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 10
+            },
+            "end": {
+              "line": 4,
+              "column": 18
+            }
+          }
+        },
+        "data": "boolean"
+      },
       "optional": false
     },
     {
       "name": "b",
-      "type": "boolean",
+      "type": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 14
+            },
+            "end": {
+              "line": 5,
+              "column": 22
+            }
+          }
+        },
+        "data": "boolean"
+      },
       "optional": false
     }
   ]

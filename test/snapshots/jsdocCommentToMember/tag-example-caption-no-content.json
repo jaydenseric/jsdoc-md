@@ -26,16 +26,46 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "member",
   "examples": [
     {
-      "caption": "Example A caption."
+      "caption": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 22
+            },
+            "end": {
+              "line": 4,
+              "column": 39
+            }
+          }
+        },
+        "data": "Example A caption."
+      }
     },
     {
-      "caption": "Example B caption."
+      "caption": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 22
+            },
+            "end": {
+              "line": 5,
+              "column": 39
+            }
+          }
+        },
+        "data": "Example B caption."
+      }
     }
   ]
 }

@@ -26,12 +26,42 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "member",
   "see": [
-    "See description A.",
-    "See description B."
+    {
+      "codeFileLocation": {
+        "filePath": "/a.js",
+        "codeLocation": {
+          "start": {
+            "line": 4,
+            "column": 9
+          },
+          "end": {
+            "line": 4,
+            "column": 26
+          }
+        }
+      },
+      "data": "See description A."
+    },
+    {
+      "codeFileLocation": {
+        "filePath": "/a.js",
+        "codeLocation": {
+          "start": {
+            "line": 5,
+            "column": 9
+          },
+          "end": {
+            "line": 5,
+            "column": 26
+          }
+        }
+      },
+      "data": "See description B."
+    }
   ]
 }

@@ -1,0 +1,19 @@
+[
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "See ["
+      },
+      {
+        "type": "inlineCode",
+        "value": "B"
+      },
+      {
+        "type": "text",
+        "value": "]{ \t@link \t}."
+      }
+    ]
+  }
+]

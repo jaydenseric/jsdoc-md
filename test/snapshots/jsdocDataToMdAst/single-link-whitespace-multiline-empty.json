@@ -1,0 +1,37 @@
+[
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "See ["
+      },
+      {
+        "type": "inlineCode",
+        "value": "B"
+      },
+      {
+        "type": "text",
+        "value": "]{"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "@link"
+      }
+    ]
+  },
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "}."
+      }
+    ]
+  }
+]

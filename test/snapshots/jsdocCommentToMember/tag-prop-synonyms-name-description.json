@@ -26,7 +26,7 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "member",
@@ -34,12 +34,42 @@
     {
       "name": "a",
       "optional": false,
-      "description": "Property description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 12
+            },
+            "end": {
+              "line": 4,
+              "column": 34
+            }
+          }
+        },
+        "data": "Property description A."
+      }
     },
     {
       "name": "b",
       "optional": false,
-      "description": "Property description B."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 16
+            },
+            "end": {
+              "line": 5,
+              "column": 38
+            }
+          }
+        },
+        "data": "Property description B."
+      }
     }
   ]
 }

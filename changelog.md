@@ -2,10 +2,16 @@
 
 ## Next
 
+### Minor
+
+- Display the relevant source code file path and location in more JSDoc related error messages.
+- Allow whitespace between JSDoc inline tag `@link` parts.
+
 ### Patch
 
 - Tweaked some tests.
 - Internal JSDoc fixes.
+- Use regex `u` mode when parsing JSDoc examples or scanning for JSDoc inline links in description markdown.
 
 ## 9.0.0
 

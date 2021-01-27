@@ -26,7 +26,7 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "function",
@@ -34,17 +34,62 @@
     {
       "name": "a",
       "optional": false,
-      "description": "Parameter description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 11
+            },
+            "end": {
+              "line": 4,
+              "column": 34
+            }
+          }
+        },
+        "data": "Parameter description A."
+      }
     },
     {
       "name": "b",
       "optional": false,
-      "description": "Parameter description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 16
+            },
+            "end": {
+              "line": 5,
+              "column": 39
+            }
+          }
+        },
+        "data": "Parameter description A."
+      }
     },
     {
       "name": "c",
       "optional": false,
-      "description": "Parameter description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 6,
+              "column": 13
+            },
+            "end": {
+              "line": 6,
+              "column": 36
+            }
+          }
+        },
+        "data": "Parameter description A."
+      }
     }
   ]
 }

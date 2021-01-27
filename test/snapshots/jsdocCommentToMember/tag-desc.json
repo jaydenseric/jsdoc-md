@@ -26,9 +26,24 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "member",
-  "description": "Description."
+  "description": {
+    "codeFileLocation": {
+      "filePath": "/a.js",
+      "codeLocation": {
+        "start": {
+          "line": 2,
+          "column": 10
+        },
+        "end": {
+          "line": 2,
+          "column": 21
+        }
+      }
+    },
+    "data": "Description."
+  }
 }

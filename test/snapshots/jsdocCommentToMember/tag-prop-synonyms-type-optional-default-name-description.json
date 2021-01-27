@@ -26,24 +26,84 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "member",
   "properties": [
     {
       "name": "a",
-      "type": "boolean",
+      "type": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 10
+            },
+            "end": {
+              "line": 4,
+              "column": 18
+            }
+          }
+        },
+        "data": "boolean"
+      },
       "optional": true,
       "default": "true",
-      "description": "Property description A."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 29
+            },
+            "end": {
+              "line": 4,
+              "column": 51
+            }
+          }
+        },
+        "data": "Property description A."
+      }
     },
     {
       "name": "b",
-      "type": "boolean",
+      "type": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 14
+            },
+            "end": {
+              "line": 5,
+              "column": 22
+            }
+          }
+        },
+        "data": "boolean"
+      },
       "optional": true,
       "default": "true",
-      "description": "Property description B."
+      "description": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 33
+            },
+            "end": {
+              "line": 5,
+              "column": 55
+            }
+          }
+        },
+        "data": "Property description B."
+      }
     }
   ]
 }

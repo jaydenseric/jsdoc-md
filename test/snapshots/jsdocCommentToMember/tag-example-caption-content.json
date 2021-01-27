@@ -26,18 +26,78 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "member",
   "examples": [
     {
-      "caption": "Example A caption.",
-      "content": "Example A content."
+      "caption": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 22
+            },
+            "end": {
+              "line": 4,
+              "column": 39
+            }
+          }
+        },
+        "data": "Example A caption."
+      },
+      "content": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 1
+            },
+            "end": {
+              "line": 5,
+              "column": 18
+            }
+          }
+        },
+        "data": "Example A content."
+      }
     },
     {
-      "caption": "Example B caption.",
-      "content": "Example B content."
+      "caption": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 6,
+              "column": 22
+            },
+            "end": {
+              "line": 6,
+              "column": 39
+            }
+          }
+        },
+        "data": "Example B caption."
+      },
+      "content": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 7,
+              "column": 1
+            },
+            "end": {
+              "line": 7,
+              "column": 18
+            }
+          }
+        },
+        "data": "Example B content."
+      }
     }
   ]
 }

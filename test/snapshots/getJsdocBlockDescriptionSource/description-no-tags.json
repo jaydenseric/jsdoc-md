@@ -1,0 +1,70 @@
+[
+  {
+    "number": 1,
+    "source": "/**",
+    "tokens": {
+      "start": "",
+      "delimiter": "/**",
+      "postDelimiter": "",
+      "tag": "",
+      "postTag": "",
+      "name": "",
+      "postName": "",
+      "type": "",
+      "postType": "",
+      "description": "",
+      "end": ""
+    }
+  },
+  {
+    "number": 2,
+    "source": " * Line 1.",
+    "tokens": {
+      "start": " ",
+      "delimiter": "*",
+      "postDelimiter": " ",
+      "tag": "",
+      "postTag": "",
+      "name": "",
+      "postName": "",
+      "type": "",
+      "postType": "",
+      "description": "Line 1.",
+      "end": ""
+    }
+  },
+  {
+    "number": 3,
+    "source": " * Line 2.",
+    "tokens": {
+      "start": " ",
+      "delimiter": "*",
+      "postDelimiter": " ",
+      "tag": "",
+      "postTag": "",
+      "name": "",
+      "postName": "",
+      "type": "",
+      "postType": "",
+      "description": "Line 2.",
+      "end": ""
+    }
+  },
+  {
+    "number": 4,
+    "source": " */",
+    "tokens": {
+      "start": " ",
+      "delimiter": "",
+      "postDelimiter": "",
+      "tag": "",
+      "postTag": "",
+      "name": "",
+      "postName": "",
+      "type": "",
+      "postType": "",
+      "description": "",
+      "end": "*/"
+    }
+  }
+]

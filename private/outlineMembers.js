@@ -36,11 +36,11 @@ module.exports = function outlineMembers(members, codeFiles) {
     if (member.memberof) {
       // Set the parent property.
       const parent = outline.find(
-        ({ namepath: { namepath } }) => namepath === member.memberof.namepath
+        ({ namepath: { data } }) => data === member.memberof.data
       );
       if (!parent)
         throw new InvalidJsdocError(
-          `Missing JSDoc member for namepath \`${member.memberof.namepath}\`.`,
+          `Missing JSDoc member for namepath \`${member.memberof.data}\`.`,
           member.memberof.codeFileLocation,
           codeFiles.get(member.memberof.codeFileLocation.filePath)
         );
@@ -55,7 +55,7 @@ module.exports = function outlineMembers(members, codeFiles) {
     member.heading = '';
 
     if (member.memberof) {
-      member.heading += `${member.memberof.namepath} `;
+      member.heading += `${member.memberof.data} `;
 
       if (member.kind !== 'event')
         member.heading += `${MEMBERSHIPS[member.membership]} `;

@@ -6,7 +6,7 @@ const toc = require('remark-toc');
 const unified = require('unified');
 const InvalidJsdocError = require('./InvalidJsdocError');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
-const mdToMdAst = require('./mdToMdAst');
+const jsdocDataToMdAst = require('./jsdocDataToMdAst');
 const outlineMembers = require('./outlineMembers');
 const typeJsdocAstToMdAst = require('./typeJsdocAstToMdAst');
 const typeJsdocStringToJsdocAst = require('./typeJsdocStringToJsdocAst');
@@ -93,7 +93,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
       });
 
       if (member.description) {
-        const children = mdToMdAst(member.description, outlinedMembers);
+        const children = jsdocDataToMdAst(
+          member.description,
+          outlinedMembers,
+          codeFiles
+        );
         const transformHeadingLevel = remarkBehead({ depth });
         for (const node of children) transformHeadingLevel(node);
         mdAst.children.push(...children);
@@ -106,7 +110,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
             { type: 'strong', children: [{ type: 'text', value: 'Type:' }] },
             { type: 'text', value: ' ' },
             ...typeJsdocAstToMdAst(
-              typeJsdocStringToJsdocAst({ type: member.type }),
+              typeJsdocStringToJsdocAst({ type: member.type.data }),
               outlinedMembers
             ),
           ],
@@ -140,7 +144,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         for (const property of member.properties) {
           const typeCellChildren = typeJsdocAstToMdAst(
             typeJsdocStringToJsdocAst({
-              type: property.type,
+              type: property.type.data,
               optional: property.optional,
             }),
             outlinedMembers
@@ -165,7 +169,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
               { type: 'tableCell', children: typeCellChildren },
               {
                 type: 'tableCell',
-                children: mdToMdAst(property.description, outlinedMembers),
+                children: jsdocDataToMdAst(
+                  property.description,
+                  outlinedMembers,
+                  codeFiles
+                ),
               },
             ],
           });
@@ -202,7 +210,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         for (const parameter of member.parameters) {
           const typeCellChildren = typeJsdocAstToMdAst(
             typeJsdocStringToJsdocAst({
-              type: parameter.type,
+              type: parameter.type.data,
               parameter: true,
               optional: parameter.optional,
             }),
@@ -228,7 +236,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
               { type: 'tableCell', children: typeCellChildren },
               {
                 type: 'tableCell',
-                children: mdToMdAst(parameter.description, outlinedMembers),
+                children: jsdocDataToMdAst(
+                  parameter.description,
+                  outlinedMembers,
+                  codeFiles
+                ),
               },
             ],
           });
@@ -249,7 +261,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           children.push(
             { type: 'text', value: ' ' },
             ...typeJsdocAstToMdAst(
-              typeJsdocStringToJsdocAst({ type: member.returns.type }),
+              typeJsdocStringToJsdocAst({ type: member.returns.type.data }),
               outlinedMembers
             )
           );
@@ -257,7 +269,11 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         if (member.returns.description)
           children.push(
             { type: 'text', value: member.returns.type ? ' — ' : ' ' },
-            ...mdToMdAst(member.returns.description, outlinedMembers)
+            ...jsdocDataToMdAst(
+              member.returns.description,
+              outlinedMembers,
+              codeFiles
+            )
           );
 
         mdAst.children.push({ type: 'paragraph', children });
@@ -280,7 +296,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         for (const namepath of member.fires) {
           try {
             var { memberof, membership, name } = deconstructJsdocNamepath(
-              namepath.namepath
+              namepath.data
             );
           } catch (error) {
             throw new InvalidJsdocError(
@@ -293,10 +309,10 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           // The JSDoc `@fires` tag uniquely supports omitting the `event:`
           // name prefix in the event namepath.
           const eventNamepath = name.startsWith('event:')
-            ? namepath.namepath
+            ? namepath.data
             : `${memberof}${membership}event:${name}`;
           const eventMember = outlinedMembers.find(
-            ({ namepath: { namepath } }) => namepath === eventNamepath
+            ({ namepath: { data } }) => data === eventNamepath
           );
 
           if (!eventMember)
@@ -340,7 +356,7 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           seeTagsList.children.push({
             type: 'listItem',
             spread: false,
-            children: mdToMdAst(see, outlinedMembers),
+            children: jsdocDataToMdAst(see, outlinedMembers, codeFiles),
           });
 
         mdAst.children.push(seeTagsList);
@@ -362,13 +378,21 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
               children: [
                 {
                   type: 'emphasis',
-                  children: mdToMdAst(caption, outlinedMembers),
+                  children: jsdocDataToMdAst(
+                    caption,
+                    outlinedMembers,
+                    codeFiles
+                  ),
                 },
               ],
             });
 
           if (content) {
-            const children = mdToMdAst(content, outlinedMembers);
+            const children = jsdocDataToMdAst(
+              content,
+              outlinedMembers,
+              codeFiles
+            );
             const transformHeadingLevel = remarkBehead({ depth: headingDepth });
 
             for (const node of children) transformHeadingLevel(node);

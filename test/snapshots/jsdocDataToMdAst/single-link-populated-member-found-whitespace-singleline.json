@@ -1,0 +1,26 @@
+[
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "See "
+      },
+      {
+        "type": "link",
+        "title": null,
+        "url": "#member-b",
+        "children": [
+          {
+            "type": "inlineCode",
+            "value": "B"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": "."
+      }
+    ]
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "type": "paragraph",
+    "children": [
+      {
+        "type": "text",
+        "value": "See "
+      },
+      {
+        "type": "link",
+        "title": null,
+        "url": "#member-b",
+        "children": [
+          {
+            "type": "inlineCode",
+            "value": "B"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": " and "
+      },
+      {
+        "type": "link",
+        "title": null,
+        "url": "#member-c",
+        "children": [
+          {
+            "type": "inlineCode",
+            "value": "C"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "value": "."
+      }
+    ]
+  }
+]

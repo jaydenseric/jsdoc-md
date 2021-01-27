@@ -26,9 +26,24 @@
         }
       }
     },
-    "namepath": "A"
+    "data": "A"
   },
   "name": "A",
   "kind": "typedef",
-  "type": "boolean"
+  "type": {
+    "codeFileLocation": {
+      "filePath": "/a.js",
+      "codeLocation": {
+        "start": {
+          "line": 2,
+          "column": 13
+        },
+        "end": {
+          "line": 2,
+          "column": 21
+        }
+      }
+    },
+    "data": "boolean"
+  }
 }
