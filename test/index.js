@@ -16,7 +16,7 @@ require('./private/CodePosition.test')(tests);
 require('./private/InvalidJsdocError.test')(tests);
 require('./private/jsdocCommentToMember.test')(tests);
 require('./private/mdFileReplaceSection.test')(tests);
-require('./private/jsdocDataToMdAst.test')(tests);
+require('./private/jsdocDataMdToMdAst.test')(tests);
 require('./private/membersToMdAst.test')(tests);
 require('./private/outlineMembers.test')(tests);
 require('./private/parseJsdocExample.test')(tests);

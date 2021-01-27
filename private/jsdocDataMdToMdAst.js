@@ -10,17 +10,17 @@ const InvalidJsdocError = require('./InvalidJsdocError');
 const unescapeJsdoc = require('./unescapeJsdoc');
 
 /**
- * Converts JSDoc markdown content to markdown AST, replacing inline JSDoc
- * `link` tags with markdown links.
+ * Converts JSDoc data containing markdown to a markdown AST, replacing inline
+ * JSDoc `link` tags with markdown links.
  * @kind function
- * @name jsdocDataToMdAst
+ * @name jsdocDataMdToMdAst
  * @param {JsdocData} jsdocData JSDoc data containing markdown.
  * @param {Array<JsdocMember>} members Outlined JSDoc members.
  * @param {CodeFilesMap} codeFiles Map of code file paths and their code.
  * @returns {object} Markdown AST.
  * @ignore
  */
-module.exports = function jsdocDataToMdAst(jsdocData, members, codeFiles) {
+module.exports = function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
   if (typeof jsdocData !== 'object')
     throw new TypeError('First argument `jsdocData` must be an object.');
 

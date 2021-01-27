@@ -9,7 +9,7 @@ const CodeLocation = require('../../private/CodeLocation');
 const CodePosition = require('../../private/CodePosition');
 const InvalidJsdocError = require('../../private/InvalidJsdocError');
 const codeToJsdocComments = require('../../private/codeToJsdocComments');
-const jsdocDataToMdAst = require('../../private/jsdocDataToMdAst');
+const jsdocDataMdToMdAst = require('../../private/jsdocDataMdToMdAst');
 const outlineMembers = require('../../private/outlineMembers');
 const jsdocCommentsToMembers = require('../jsdocCommentsToMembers');
 
@@ -17,19 +17,19 @@ const TEST_CODE_FILE_PATH = '/a.js';
 
 module.exports = (tests) => {
   tests.add(
-    '`jsdocDataToMdAst` with first argument `jsdocData` not an object.',
+    '`jsdocDataMdToMdAst` with first argument `jsdocData` not an object.',
     () => {
       throws(() => {
-        jsdocDataToMdAst(true);
+        jsdocDataMdToMdAst(true);
       }, new TypeError('First argument `jsdocData` must be an object.'));
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with first argument `jsdocData` property `codeFileLocation` not an object.',
+    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `codeFileLocation` not an object.',
     () => {
       throws(() => {
-        jsdocDataToMdAst({
+        jsdocDataMdToMdAst({
           codeFileLocation: true,
         });
       }, new TypeError('First argument `jsdocData` property `codeFileLocation` must be an object.'));
@@ -37,10 +37,10 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with first argument `jsdocData` property `codeFileLocation` property `filePath` not a string.',
+    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `codeFileLocation` property `filePath` not a string.',
     () => {
       throws(() => {
-        jsdocDataToMdAst({
+        jsdocDataMdToMdAst({
           codeFileLocation: {
             filePath: true,
           },
@@ -50,10 +50,10 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with first argument `jsdocData` property `codeFileLocation` property `codeLocation` not a `CodeLocation` instance.',
+    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `codeFileLocation` property `codeLocation` not a `CodeLocation` instance.',
     () => {
       throws(() => {
-        jsdocDataToMdAst({
+        jsdocDataMdToMdAst({
           codeFileLocation: {
             filePath: TEST_CODE_FILE_PATH,
             codeLocation: true,
@@ -64,10 +64,10 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with first argument `jsdocData` property `data` not a string.',
+    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `data` not a string.',
     () => {
       throws(() => {
-        jsdocDataToMdAst({
+        jsdocDataMdToMdAst({
           codeFileLocation: {
             filePath: TEST_CODE_FILE_PATH,
             codeLocation: new CodeLocation(new CodePosition(2, 4)),
@@ -79,10 +79,10 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with second argument `members` not an array.',
+    '`jsdocDataMdToMdAst` with second argument `members` not an array.',
     () => {
       throws(() => {
-        jsdocDataToMdAst(
+        jsdocDataMdToMdAst(
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
@@ -97,10 +97,10 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with third argument `codeFiles` not a `Map` instance.',
+    '`jsdocDataMdToMdAst` with third argument `codeFiles` not a `Map` instance.',
     () => {
       throws(() => {
-        jsdocDataToMdAst(
+        jsdocDataMdToMdAst(
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
@@ -115,7 +115,7 @@ module.exports = (tests) => {
     }
   );
 
-  tests.add('`jsdocDataToMdAst` with a paragraph.', async () => {
+  tests.add('`jsdocDataMdToMdAst` with a paragraph.', async () => {
     const descriptionContent = 'a';
     const code = `/**
  * ${descriptionContent}
@@ -133,7 +133,7 @@ module.exports = (tests) => {
 
     await snapshot(
       JSON.stringify(
-        jsdocDataToMdAst(
+        jsdocDataMdToMdAst(
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
@@ -147,12 +147,12 @@ module.exports = (tests) => {
         null,
         2
       ),
-      resolve(__dirname, '../snapshots/jsdocDataToMdAst/paragraph.json')
+      resolve(__dirname, '../snapshots/jsdocDataMdToMdAst/paragraph.json')
     );
   });
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, empty, no whitespace.',
+    '`jsdocDataMdToMdAst` with a single link, empty, no whitespace.',
     async () => {
       const descriptionContent = 'See [`B`]{@link}.';
       const code = `/**
@@ -179,7 +179,7 @@ module.exports = (tests) => {
 
       await snapshot(
         JSON.stringify(
-          jsdocDataToMdAst(
+          jsdocDataMdToMdAst(
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
@@ -195,14 +195,14 @@ module.exports = (tests) => {
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-empty-no-whitespace.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-empty-no-whitespace.json'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, empty, whitespace, singleline.',
+    '`jsdocDataMdToMdAst` with a single link, empty, whitespace, singleline.',
     async () => {
       const descriptionContent = 'See [`B`]{ 	@link 	}.';
       const code = `/**
@@ -229,7 +229,7 @@ module.exports = (tests) => {
 
       await snapshot(
         JSON.stringify(
-          jsdocDataToMdAst(
+          jsdocDataMdToMdAst(
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
@@ -245,14 +245,14 @@ module.exports = (tests) => {
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-empty-whitespace-singleline.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-empty-whitespace-singleline.json'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, empty, whitespace, multiline.',
+    '`jsdocDataMdToMdAst` with a single link, empty, whitespace, multiline.',
     async () => {
       const descriptionContent = `See [\`B\`]{
 
@@ -283,7 +283,7 @@ module.exports = (tests) => {
 
       await snapshot(
         JSON.stringify(
-          jsdocDataToMdAst(
+          jsdocDataMdToMdAst(
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
@@ -299,14 +299,14 @@ module.exports = (tests) => {
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-whitespace-multiline-empty.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-whitespace-multiline-empty.json'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, populated, member found, no whitespace.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member found, no whitespace.',
     async () => {
       const descriptionContent = 'See [`B`]{@link B}.';
       const code = `/**
@@ -333,7 +333,7 @@ module.exports = (tests) => {
 
       await snapshot(
         JSON.stringify(
-          jsdocDataToMdAst(
+          jsdocDataMdToMdAst(
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
@@ -349,14 +349,14 @@ module.exports = (tests) => {
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-populated-member-found-no-whitespace.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-no-whitespace.json'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, populated, member found, whitespace, singleline.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member found, whitespace, singleline.',
     async () => {
       const descriptionContent = 'See [`B`]{ 	@link 	B 	}.';
       const code = `/**
@@ -383,7 +383,7 @@ module.exports = (tests) => {
 
       await snapshot(
         JSON.stringify(
-          jsdocDataToMdAst(
+          jsdocDataMdToMdAst(
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
@@ -399,14 +399,14 @@ module.exports = (tests) => {
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-populated-member-found-whitespace-singleline.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-whitespace-singleline.json'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, populated, member found, whitespace, multiline.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member found, whitespace, multiline.',
     async () => {
       const descriptionContent = `See [\`B\`]{
 @link
@@ -438,7 +438,7 @@ B
 
       await snapshot(
         JSON.stringify(
-          jsdocDataToMdAst(
+          jsdocDataMdToMdAst(
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
@@ -454,14 +454,14 @@ B
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-populated-member-found-whitespace-multiline.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-whitespace-multiline.json'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, populated, member missing, no whitespace.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member missing, no whitespace.',
     async () => {
       const descriptionContent = '[`Abc`]{@link Abc}';
       const code = `/**
@@ -487,7 +487,7 @@ B
       const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
       try {
-        jsdocDataToMdAst(
+        jsdocDataMdToMdAst(
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
@@ -511,14 +511,14 @@ B
         caughtError.message,
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-populated-member-missing-no-whitespace-error-message.ans'
+          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-missing-no-whitespace-error-message.ans'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, populated, member missing, whitespace, singleline.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member missing, whitespace, singleline.',
     async () => {
       const descriptionContent = '[`Abc`]{ 	@link 	Abc 	}';
       const code = `/**
@@ -544,7 +544,7 @@ B
       const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
       try {
-        jsdocDataToMdAst(
+        jsdocDataMdToMdAst(
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
@@ -573,7 +573,7 @@ B
   );
 
   tests.add(
-    '`jsdocDataToMdAst` with a single link, populated, member missing, whitespace, multiline.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member missing, whitespace, multiline.',
     async () => {
       const descriptionContent = `[\`Abc\`]{
 @link
@@ -604,7 +604,7 @@ Abc
       const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
       try {
-        jsdocDataToMdAst(
+        jsdocDataMdToMdAst(
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
@@ -628,13 +628,13 @@ Abc
         caughtError.message,
         resolve(
           __dirname,
-          '../snapshots/jsdocDataToMdAst/single-link-populated-member-missing-whitespace-multiline-error-message.ans'
+          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-missing-whitespace-multiline-error-message.ans'
         )
       );
     }
   );
 
-  tests.add('`jsdocDataToMdAst` with multiple links.', async () => {
+  tests.add('`jsdocDataMdToMdAst` with multiple links.', async () => {
     const descriptionContent = 'See [`B`]{@link B} and [`C`]{@link C}.';
     const code = `/**
  * ${descriptionContent}
@@ -662,7 +662,7 @@ Abc
 
     await snapshot(
       JSON.stringify(
-        jsdocDataToMdAst(
+        jsdocDataMdToMdAst(
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
@@ -676,7 +676,7 @@ Abc
         null,
         2
       ),
-      resolve(__dirname, '../snapshots/jsdocDataToMdAst/multiple-links.json')
+      resolve(__dirname, '../snapshots/jsdocDataMdToMdAst/multiple-links.json')
     );
   });
 };
