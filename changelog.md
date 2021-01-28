@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Reordered tests.
+
 ## 9.1.0
 
 ### Minor
