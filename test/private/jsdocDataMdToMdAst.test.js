@@ -116,9 +116,9 @@ module.exports = (tests) => {
   );
 
   tests.add('`jsdocDataMdToMdAst` with a paragraph.', async () => {
-    const descriptionContent = 'a';
+    const mdData = 'a';
     const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */`;
@@ -154,9 +154,9 @@ module.exports = (tests) => {
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, empty, no whitespace.',
     async () => {
-      const descriptionContent = 'See [`B`]{@link}.';
+      const mdData = 'See [`B`]{@link}.';
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */
@@ -185,7 +185,7 @@ module.exports = (tests) => {
                 filePath: TEST_CODE_FILE_PATH,
                 codeLocation: new CodeLocation(new CodePosition(2, 4)),
               },
-              data: descriptionContent,
+              data: mdData,
             },
             outlinedMembers,
             codeFiles
@@ -204,9 +204,9 @@ module.exports = (tests) => {
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, empty, whitespace, singleline.',
     async () => {
-      const descriptionContent = 'See [`B`]{ 	@link 	}.';
+      const mdData = 'See [`B`]{ 	@link 	}.';
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */
@@ -235,7 +235,7 @@ module.exports = (tests) => {
                 filePath: TEST_CODE_FILE_PATH,
                 codeLocation: new CodeLocation(new CodePosition(2, 4)),
               },
-              data: descriptionContent,
+              data: mdData,
             },
             outlinedMembers,
             codeFiles
@@ -254,13 +254,13 @@ module.exports = (tests) => {
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, empty, whitespace, multiline.',
     async () => {
-      const descriptionContent = `See [\`B\`]{
+      const mdData = `See [\`B\`]{
 
 @link
 
 }.`;
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */
@@ -289,7 +289,7 @@ module.exports = (tests) => {
                 filePath: TEST_CODE_FILE_PATH,
                 codeLocation: new CodeLocation(new CodePosition(2, 4)),
               },
-              data: descriptionContent,
+              data: mdData,
             },
             outlinedMembers,
             codeFiles
@@ -308,9 +308,9 @@ module.exports = (tests) => {
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, populated, member found, no whitespace.',
     async () => {
-      const descriptionContent = 'See [`B`]{@link B}.';
+      const mdData = 'See [`B`]{@link B}.';
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */
@@ -339,7 +339,7 @@ module.exports = (tests) => {
                 filePath: TEST_CODE_FILE_PATH,
                 codeLocation: new CodeLocation(new CodePosition(2, 4)),
               },
-              data: descriptionContent,
+              data: mdData,
             },
             outlinedMembers,
             codeFiles
@@ -358,9 +358,9 @@ module.exports = (tests) => {
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, populated, member found, whitespace, singleline.',
     async () => {
-      const descriptionContent = 'See [`B`]{ 	@link 	B 	}.';
+      const mdData = 'See [`B`]{ 	@link 	B 	}.';
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */
@@ -389,7 +389,7 @@ module.exports = (tests) => {
                 filePath: TEST_CODE_FILE_PATH,
                 codeLocation: new CodeLocation(new CodePosition(2, 4)),
               },
-              data: descriptionContent,
+              data: mdData,
             },
             outlinedMembers,
             codeFiles
@@ -408,14 +408,14 @@ module.exports = (tests) => {
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, populated, member found, whitespace, multiline.',
     async () => {
-      const descriptionContent = `See [\`B\`]{
+      const mdData = `See [\`B\`]{
 @link
 
 B
 
 }.`;
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */
@@ -444,7 +444,7 @@ B
                 filePath: TEST_CODE_FILE_PATH,
                 codeLocation: new CodeLocation(new CodePosition(2, 4)),
               },
-              data: descriptionContent,
+              data: mdData,
             },
             outlinedMembers,
             codeFiles
@@ -463,9 +463,9 @@ B
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, populated, member missing, no whitespace.',
     async () => {
-      const descriptionContent = '[`Abc`]{@link Abc}';
+      const mdData = '[`Abc`]{@link Abc}';
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */`;
@@ -493,7 +493,7 @@ B
               filePath: TEST_CODE_FILE_PATH,
               codeLocation: new CodeLocation(new CodePosition(2, 4)),
             },
-            data: descriptionContent,
+            data: mdData,
           },
           outlinedMembers,
           codeFiles
@@ -520,9 +520,9 @@ B
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, populated, member missing, whitespace, singleline.',
     async () => {
-      const descriptionContent = '[`Abc`]{ 	@link 	Abc 	}';
+      const mdData = '[`Abc`]{ 	@link 	Abc 	}';
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */`;
@@ -550,7 +550,7 @@ B
               filePath: TEST_CODE_FILE_PATH,
               codeLocation: new CodeLocation(new CodePosition(2, 4)),
             },
-            data: descriptionContent,
+            data: mdData,
           },
           outlinedMembers,
           codeFiles
@@ -575,14 +575,14 @@ B
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, populated, member missing, whitespace, multiline.',
     async () => {
-      const descriptionContent = `[\`Abc\`]{
+      const mdData = `[\`Abc\`]{
 @link
 
 Abc
 
 }`;
       const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */`;
@@ -610,7 +610,7 @@ Abc
               filePath: TEST_CODE_FILE_PATH,
               codeLocation: new CodeLocation(new CodePosition(2, 4)),
             },
-            data: descriptionContent,
+            data: mdData,
           },
           outlinedMembers,
           codeFiles
@@ -635,9 +635,9 @@ Abc
   );
 
   tests.add('`jsdocDataMdToMdAst` with multiple links.', async () => {
-    const descriptionContent = 'See [`B`]{@link B} and [`C`]{@link C}.';
+    const mdData = 'See [`B`]{@link B} and [`C`]{@link C}.';
     const code = `/**
- * ${descriptionContent}
+ * ${mdData}
  * @kind member
  * @name A
  */
@@ -668,7 +668,7 @@ Abc
               filePath: TEST_CODE_FILE_PATH,
               codeLocation: new CodeLocation(new CodePosition(2, 4)),
             },
-            data: descriptionContent,
+            data: mdData,
           },
           outlinedMembers,
           codeFiles
