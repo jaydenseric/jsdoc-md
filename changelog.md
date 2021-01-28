@@ -4,7 +4,7 @@
 
 ### Minor
 
-- Display the relevant source code file path and location in more JSDoc related error messages.
+- Display the relevant source code file path and location in more JSDoc related error messages, fixing [#19](https://github.com/jaydenseric/jsdoc-md/issues/19).
 - Allow whitespace between JSDoc inline tag `@link` parts.
 
 ### Patch
