@@ -14,6 +14,7 @@
 - Internal JSDoc fixes.
 - Use regex `u` mode when parsing JSDoc examples or scanning for JSDoc inline links in description markdown.
 - Renamed several private functions.
+- Internally, throw `TypeError` instead of `Error` for JSDoc type related errors.
 
 ## 9.0.0
 

@@ -32,7 +32,7 @@ module.exports = function typeToTypeAst({ type, parameter, optional }) {
         ? parseParamType(unescapedType)
         : parseType(unescapedType);
     } catch (error) {
-      throw new Error(`Invalid JSDoc type \`${unescapedType}\`.`);
+      throw new TypeError(`Invalid JSDoc type \`${unescapedType}\`.`);
     }
 
   return optional &&

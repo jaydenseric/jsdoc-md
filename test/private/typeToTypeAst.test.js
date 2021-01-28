@@ -79,6 +79,6 @@ module.exports = (tests) => {
   tests.add('`typeToTypeAst` with invalid type.', () => {
     throws(() => {
       typeToTypeAst({ type: '**' });
-    }, new Error('Invalid JSDoc type `**`.'));
+    }, new TypeError('Invalid JSDoc type `**`.'));
   });
 };
