@@ -7,9 +7,8 @@ const unified = require('unified');
 const InvalidJsdocError = require('./InvalidJsdocError');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const jsdocDataMdToMdAst = require('./jsdocDataMdToMdAst');
+const jsdocDataTypeToMdAst = require('./jsdocDataTypeToMdAst');
 const outlineMembers = require('./outlineMembers');
-const typeAstToMdAst = require('./typeAstToMdAst');
-const typeToTypeAst = require('./typeToTypeAst');
 
 const MEMBERSHIP_ORDER = [
   '.', // Static.
@@ -109,9 +108,12 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
           children: [
             { type: 'strong', children: [{ type: 'text', value: 'Type:' }] },
             { type: 'text', value: ' ' },
-            ...typeAstToMdAst(
-              typeToTypeAst({ type: member.type.data }),
-              outlinedMembers
+            ...jsdocDataTypeToMdAst(
+              member.type,
+              outlinedMembers,
+              codeFiles,
+              false,
+              false
             ),
           ],
         });
@@ -142,20 +144,26 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         };
 
         for (const property of member.properties) {
-          const typeCellChildren = typeAstToMdAst(
-            typeToTypeAst({
-              type: property.type.data,
-              optional: property.optional,
-            }),
-            outlinedMembers
+          const typeCellChildren = jsdocDataTypeToMdAst(
+            property.type,
+            outlinedMembers,
+            codeFiles,
+            property.optional,
+            false
           );
 
           if ('default' in property)
             typeCellChildren.push(
               { type: 'text', value: ' = ' },
-              ...typeAstToMdAst(
-                typeToTypeAst({ type: property.default }),
-                outlinedMembers
+              ...jsdocDataTypeToMdAst(
+                {
+                  ...property.type,
+                  data: property.default,
+                },
+                outlinedMembers,
+                codeFiles,
+                false,
+                false
               )
             );
 
@@ -208,21 +216,26 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         };
 
         for (const parameter of member.parameters) {
-          const typeCellChildren = typeAstToMdAst(
-            typeToTypeAst({
-              type: parameter.type.data,
-              parameter: true,
-              optional: parameter.optional,
-            }),
-            outlinedMembers
+          const typeCellChildren = jsdocDataTypeToMdAst(
+            parameter.type,
+            outlinedMembers,
+            codeFiles,
+            parameter.optional,
+            true
           );
 
           if ('default' in parameter)
             typeCellChildren.push(
               { type: 'text', value: ' = ' },
-              ...typeAstToMdAst(
-                typeToTypeAst({ type: parameter.default }),
-                outlinedMembers
+              ...jsdocDataTypeToMdAst(
+                {
+                  ...parameter.type,
+                  data: parameter.default,
+                },
+                outlinedMembers,
+                codeFiles,
+                false,
+                false
               )
             );
 
@@ -260,9 +273,12 @@ module.exports = function membersToMdAst(members, codeFiles, topDepth = 1) {
         if (member.returns.type)
           children.push(
             { type: 'text', value: ' ' },
-            ...typeAstToMdAst(
-              typeToTypeAst({ type: member.returns.type.data }),
-              outlinedMembers
+            ...jsdocDataTypeToMdAst(
+              member.returns.type,
+              outlinedMembers,
+              codeFiles,
+              false,
+              false
             )
           );
 
