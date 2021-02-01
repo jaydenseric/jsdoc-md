@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Updated dev dependencies.
 - Account for the JSDoc comment fence when deriving the code locations for inline tag `@link` namepath error messages, fixing [#20](https://github.com/jaydenseric/jsdoc-md/issues/20).
 - Exclude multiple newlines from the start and end of JSDoc markdown content.
 - Exclude multiple newlines following a JSDoc tag `@example` caption from the content start.
