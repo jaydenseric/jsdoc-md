@@ -1,6 +1,6 @@
 {
   "name": "jsdoc-md",
-  "version": "9.1.0",
+  "version": "9.1.1",
   "description": "A CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
   "license": "MIT",
   "author": {

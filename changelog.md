@@ -1,6 +1,6 @@
 # jsdoc-md changelog
 
-## Next
+## 9.1.1
 
 ### Patch
 
