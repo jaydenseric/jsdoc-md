@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Corrected JSDoc member code location end column numbers.
 - Reordered tests.
 
 ## 9.1.0

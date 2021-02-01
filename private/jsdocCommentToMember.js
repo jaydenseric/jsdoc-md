@@ -445,8 +445,9 @@ module.exports = function jsdocCommentToMember(
             jsdocBlockStartCodePosition,
             new CodePosition(
               jsdocComment.loc.end.line,
-              // Babel starts columns at 0, not 1.
-              jsdocComment.loc.end.column + 1
+              // Although Babel starts columns at 0, not 1, it considers the end
+              // character the one after the actual end.
+              jsdocComment.loc.end.column
             )
           ),
         },
