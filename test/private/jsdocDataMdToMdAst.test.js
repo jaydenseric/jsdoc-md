@@ -70,7 +70,10 @@ module.exports = (tests) => {
         jsdocDataMdToMdAst({
           codeFileLocation: {
             filePath: TEST_CODE_FILE_PATH,
-            codeLocation: new CodeLocation(new CodePosition(2, 4)),
+            codeLocation: new CodeLocation(
+              new CodePosition(2, 4),
+              new CodePosition(2, 4)
+            ),
           },
           data: true,
         });
@@ -86,7 +89,10 @@ module.exports = (tests) => {
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
-              codeLocation: new CodeLocation(new CodePosition(2, 4)),
+              codeLocation: new CodeLocation(
+                new CodePosition(2, 4),
+                new CodePosition(2, 4)
+              ),
             },
             data: '',
           },
@@ -104,7 +110,10 @@ module.exports = (tests) => {
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
-              codeLocation: new CodeLocation(new CodePosition(2, 4)),
+              codeLocation: new CodeLocation(
+                new CodePosition(2, 4),
+                new CodePosition(2, 4)
+              ),
             },
             data: '',
           },
@@ -116,7 +125,7 @@ module.exports = (tests) => {
   );
 
   tests.add('`jsdocDataMdToMdAst` with a paragraph.', async () => {
-    const mdData = 'a';
+    const mdData = 'abc';
     const code = `/**
  * ${mdData}
  * @kind member
@@ -137,9 +146,12 @@ module.exports = (tests) => {
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
-              codeLocation: new CodeLocation(new CodePosition(2, 4)),
+              codeLocation: new CodeLocation(
+                new CodePosition(2, 4),
+                new CodePosition(2, 6)
+              ),
             },
-            data: 'a',
+            data: mdData,
           },
           outlinedMembers,
           codeFiles
@@ -183,7 +195,10 @@ module.exports = (tests) => {
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
-                codeLocation: new CodeLocation(new CodePosition(2, 4)),
+                codeLocation: new CodeLocation(
+                  new CodePosition(2, 4),
+                  new CodePosition(2, 20)
+                ),
               },
               data: mdData,
             },
@@ -202,7 +217,7 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with a single link, empty, whitespace, singleline.',
+    '`jsdocDataMdToMdAst` with a single link, empty, whitespace.',
     async () => {
       const mdData = 'See [`B`]{ 	@link 	}.';
       const code = `/**
@@ -233,7 +248,10 @@ module.exports = (tests) => {
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
-                codeLocation: new CodeLocation(new CodePosition(2, 4)),
+                codeLocation: new CodeLocation(
+                  new CodePosition(2, 4),
+                  new CodePosition(2, 24)
+                ),
               },
               data: mdData,
             },
@@ -245,61 +263,7 @@ module.exports = (tests) => {
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataMdToMdAst/single-link-empty-whitespace-singleline.json'
-        )
-      );
-    }
-  );
-
-  tests.add(
-    '`jsdocDataMdToMdAst` with a single link, empty, whitespace, multiline.',
-    async () => {
-      const mdData = `See [\`B\`]{
-
-@link
-
-}.`;
-      const code = `/**
- * ${mdData}
- * @kind member
- * @name A
- */
-
-/**
- * @kind member
- * @name B
- */`;
-      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
-      const jsdocComments = await codeToJsdocComments(
-        code,
-        TEST_CODE_FILE_PATH
-      );
-      const members = jsdocCommentsToMembers(
-        jsdocComments,
-        codeFiles,
-        TEST_CODE_FILE_PATH
-      );
-      const outlinedMembers = outlineMembers(members, codeFiles);
-
-      await snapshot(
-        JSON.stringify(
-          jsdocDataMdToMdAst(
-            {
-              codeFileLocation: {
-                filePath: TEST_CODE_FILE_PATH,
-                codeLocation: new CodeLocation(new CodePosition(2, 4)),
-              },
-              data: mdData,
-            },
-            outlinedMembers,
-            codeFiles
-          ),
-          null,
-          2
-        ),
-        resolve(
-          __dirname,
-          '../snapshots/jsdocDataMdToMdAst/single-link-whitespace-multiline-empty.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-empty-whitespace.json'
         )
       );
     }
@@ -337,7 +301,10 @@ module.exports = (tests) => {
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
-                codeLocation: new CodeLocation(new CodePosition(2, 4)),
+                codeLocation: new CodeLocation(
+                  new CodePosition(2, 4),
+                  new CodePosition(2, 22)
+                ),
               },
               data: mdData,
             },
@@ -356,7 +323,7 @@ module.exports = (tests) => {
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with a single link, populated, member found, whitespace, singleline.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member found, whitespace.',
     async () => {
       const mdData = 'See [`B`]{ 	@link 	B 	}.';
       const code = `/**
@@ -387,7 +354,10 @@ module.exports = (tests) => {
             {
               codeFileLocation: {
                 filePath: TEST_CODE_FILE_PATH,
-                codeLocation: new CodeLocation(new CodePosition(2, 4)),
+                codeLocation: new CodeLocation(
+                  new CodePosition(2, 4),
+                  new CodePosition(2, 27)
+                ),
               },
               data: mdData,
             },
@@ -399,62 +369,7 @@ module.exports = (tests) => {
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-whitespace-singleline.json'
-        )
-      );
-    }
-  );
-
-  tests.add(
-    '`jsdocDataMdToMdAst` with a single link, populated, member found, whitespace, multiline.',
-    async () => {
-      const mdData = `See [\`B\`]{
-@link
-
-B
-
-}.`;
-      const code = `/**
- * ${mdData}
- * @kind member
- * @name A
- */
-
-/**
- * @kind member
- * @name B
- */`;
-      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
-      const jsdocComments = await codeToJsdocComments(
-        code,
-        TEST_CODE_FILE_PATH
-      );
-      const members = jsdocCommentsToMembers(
-        jsdocComments,
-        codeFiles,
-        TEST_CODE_FILE_PATH
-      );
-      const outlinedMembers = outlineMembers(members, codeFiles);
-
-      await snapshot(
-        JSON.stringify(
-          jsdocDataMdToMdAst(
-            {
-              codeFileLocation: {
-                filePath: TEST_CODE_FILE_PATH,
-                codeLocation: new CodeLocation(new CodePosition(2, 4)),
-              },
-              data: mdData,
-            },
-            outlinedMembers,
-            codeFiles
-          ),
-          null,
-          2
-        ),
-        resolve(
-          __dirname,
-          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-whitespace-multiline.json'
+          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-whitespace.json'
         )
       );
     }
@@ -463,9 +378,9 @@ B
   tests.add(
     '`jsdocDataMdToMdAst` with a single link, populated, member missing, no whitespace.',
     async () => {
-      const mdData = '[`Abc`]{@link Abc}';
       const code = `/**
- * ${mdData}
+ * Description.
+ * [\`Abc\`]{@link Abc}
  * @kind member
  * @name A
  */`;
@@ -491,9 +406,13 @@ B
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
-              codeLocation: new CodeLocation(new CodePosition(2, 4)),
+              codeLocation: new CodeLocation(
+                new CodePosition(2, 4),
+                new CodePosition(3, 21)
+              ),
             },
-            data: mdData,
+            data: `Description.
+[\`Abc\`]{@link Abc}`,
           },
           outlinedMembers,
           codeFiles
@@ -518,11 +437,11 @@ B
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with a single link, populated, member missing, whitespace, singleline.',
+    '`jsdocDataMdToMdAst` with a single link, populated, member missing, whitespace.',
     async () => {
-      const mdData = '[`Abc`]{ 	@link 	Abc 	}';
       const code = `/**
- * ${mdData}
+ * Description.
+ * [\`Abc\`]{ 	@link 	Abc 	}
  * @kind member
  * @name A
  */`;
@@ -548,9 +467,13 @@ B
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
-              codeLocation: new CodeLocation(new CodePosition(2, 4)),
+              codeLocation: new CodeLocation(
+                new CodePosition(2, 4),
+                new CodePosition(3, 26)
+              ),
             },
-            data: mdData,
+            data: `Description.
+[\`Abc\`]{ 	@link 	Abc 	}`,
           },
           outlinedMembers,
           codeFiles
@@ -567,70 +490,8 @@ B
       // The error message can’t be snapshot tested due to a `@babel/code-frame`
       // bug, see:
       // https://github.com/babel/babel/issues/12696
-      strictEqual(caughtError.message.includes('/a.js:2:21 → 2:23'), true);
+      strictEqual(caughtError.message.includes('/a.js:3:21 → 3:23'), true);
       strictEqual(caughtError.message.includes('[`Abc`]{ 	@link 	Abc 	}'), true);
-    }
-  );
-
-  tests.add(
-    '`jsdocDataMdToMdAst` with a single link, populated, member missing, whitespace, multiline.',
-    async () => {
-      const mdData = `[\`Abc\`]{
-@link
-
-Abc
-
-}`;
-      const code = `/**
- * ${mdData}
- * @kind member
- * @name A
- */`;
-      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
-      const jsdocComments = await codeToJsdocComments(
-        code,
-        TEST_CODE_FILE_PATH
-      );
-      const members = jsdocCommentsToMembers(
-        jsdocComments,
-        codeFiles,
-        TEST_CODE_FILE_PATH
-      );
-      const outlinedMembers = outlineMembers(members, codeFiles);
-
-      let caughtError;
-
-      const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
-      const revertKleur = revertableGlobals({ enabled: true }, kleur);
-
-      try {
-        jsdocDataMdToMdAst(
-          {
-            codeFileLocation: {
-              filePath: TEST_CODE_FILE_PATH,
-              codeLocation: new CodeLocation(new CodePosition(2, 4)),
-            },
-            data: mdData,
-          },
-          outlinedMembers,
-          codeFiles
-        );
-      } catch (error) {
-        caughtError = error;
-      }
-
-      revertEnv();
-      revertKleur();
-
-      strictEqual(caughtError instanceof InvalidJsdocError, true);
-
-      await snapshot(
-        caughtError.message,
-        resolve(
-          __dirname,
-          '../snapshots/jsdocDataMdToMdAst/single-link-populated-member-missing-whitespace-multiline-error-message.ans'
-        )
-      );
     }
   );
 
@@ -666,7 +527,10 @@ Abc
           {
             codeFileLocation: {
               filePath: TEST_CODE_FILE_PATH,
-              codeLocation: new CodeLocation(new CodePosition(2, 4)),
+              codeLocation: new CodeLocation(
+                new CodePosition(2, 4),
+                new CodePosition(2, 41)
+              ),
             },
             data: mdData,
           },

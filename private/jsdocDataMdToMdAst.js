@@ -7,6 +7,7 @@ const removePositionData = require('unist-util-remove-position');
 const CodeLocation = require('./CodeLocation');
 const CodePosition = require('./CodePosition');
 const InvalidJsdocError = require('./InvalidJsdocError');
+const codePositionToIndex = require('./codePositionToIndex');
 const unescapeJsdoc = require('./unescapeJsdoc');
 
 /**
@@ -50,13 +51,26 @@ module.exports = function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
   if (!(codeFiles instanceof Map))
     throw new TypeError('Third argument `codeFiles` must be a `Map` instance.');
 
-  let replacedMarkdown = jsdocData.data;
+  // The JSDoc data comes from `comment-parser`, which strips the JSDoc comment
+  // fences (e.g. ` * `) from each line. These need to be present when searching
+  // for JSDoc inline links, so their regex match indexes can be used to derive
+  // code locations for namepath error messages. The relevant source code region
+  // is extracted for the search.
+  const code = codeFiles.get(jsdocData.codeFileLocation.filePath);
+  const jsdocDataCode = code.substring(
+    codePositionToIndex(jsdocData.codeFileLocation.codeLocation.start, code),
+    codePositionToIndex(jsdocData.codeFileLocation.codeLocation.end, code) + 1
+  );
 
-  const regex = /(?<beforeNamepath>\{\s*@link\s+)(?<namepathData>\S+?)\s*\}/gu;
+  // Within each JSDoc inline link match, group what comes before the JSDoc
+  // namepath so it’s length can be added to the match index to get the namepath
+  // offset, so a code location can be derived for a namepath error message.
+  const regex = /(?<beforeNamepath>\{[ \t]*@link[ \t]+)(?<namepathData>\S+?)[ \t]*\}/gu;
 
+  let replacedMd = jsdocData.data;
   let match;
 
-  while ((match = regex.exec(jsdocData.data))) {
+  while ((match = regex.exec(jsdocDataCode))) {
     const {
       0: jsdocInlineLinkData,
       index: jsdocInlineLinkOffsetStart,
@@ -68,16 +82,16 @@ module.exports = function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
     );
 
     if (linkedMember)
-      replacedMarkdown = replacedMarkdown.replace(
+      replacedMd = replacedMd.replace(
         jsdocInlineLinkData,
         `(#${linkedMember.slug})`
       );
     else {
-      let charIndex = 0;
       let { line, column } = jsdocData.codeFileLocation.codeLocation.start;
+      let charIndex = 0;
 
       const nextChar = () => {
-        if (jsdocData.data[charIndex] === '\n') {
+        if (jsdocDataCode[charIndex] === '\n') {
           line++;
           column = 1;
         } else column++;
@@ -104,7 +118,7 @@ module.exports = function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
             new CodePosition(line, column)
           ),
         },
-        codeFiles.get(jsdocData.codeFileLocation.filePath)
+        code
       );
     }
   }
@@ -116,7 +130,7 @@ module.exports = function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
   // technically more efficient and harmless to the public API, it bloats
   // private test snapshots.
   return removePositionData(
-    unified().use(parse).use(gfm).parse(unescapeJsdoc(replacedMarkdown)),
+    unified().use(parse).use(gfm).parse(unescapeJsdoc(replacedMd)),
 
     // Delete the `position` properties from nodes instead of only replacing
     // their values with `undefined`.

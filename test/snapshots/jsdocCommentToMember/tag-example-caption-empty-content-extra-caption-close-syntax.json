@@ -32,39 +32,39 @@
   "kind": "member",
   "examples": [
     {
-      "caption": {
+      "content": {
         "codeFileLocation": {
           "filePath": "/a.js",
           "codeLocation": {
             "start": {
               "line": 4,
-              "column": 22
+              "column": 32
             },
             "end": {
               "line": 4,
-              "column": 39
+              "column": 41
             }
           }
         },
-        "data": "Example A caption."
+        "data": "</caption>"
       }
     },
     {
-      "caption": {
+      "content": {
         "codeFileLocation": {
           "filePath": "/a.js",
           "codeLocation": {
             "start": {
               "line": 5,
-              "column": 22
+              "column": 32
             },
             "end": {
               "line": 5,
-              "column": 39
+              "column": 41
             }
           }
         },
-        "data": "Example B caption."
+        "data": "</caption>"
       }
     }
   ]

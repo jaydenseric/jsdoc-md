@@ -2417,13 +2417,17 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption, no content.',
+    '`jsdocCommentToMember` with tag example, no caption, newline, content.',
     async () => {
       const code = `/**
  * @kind member
  * @name A
- * @example <caption>Example A caption.</caption>
- * @example <caption>Example B caption.</caption>
+ * @example
+ * Example A
+ * content.
+ * @example
+ * Example B
+ * content.
  */`;
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
@@ -2439,22 +2443,26 @@ const b = true;
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocCommentToMember/tag-example-caption-no-content.json'
+          '../snapshots/jsdocCommentToMember/tag-example-no-caption-newline-content.json'
         )
       );
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption, content.',
+    '`jsdocCommentToMember` with tag example, no caption, multiple newlines, content.',
     async () => {
       const code = `/**
  * @kind member
  * @name A
- * @example <caption>Example A caption.</caption>
- * Example A content.
- * @example <caption>Example B caption.</caption>
- * Example B content.
+ * @example
+ *
+ * Example A
+ * content.
+ * @example
+ *
+ * Example B
+ * content.
  */`;
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
@@ -2470,7 +2478,329 @@ const b = true;
         ),
         resolve(
           __dirname,
-          '../snapshots/jsdocCommentToMember/tag-example-caption-content.json'
+          '../snapshots/jsdocCommentToMember/tag-example-no-caption-multiple-newlines-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, no caption, space, content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example Example A
+ * content.
+ * @example Example B
+ * content.
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-no-caption-space-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, no caption, spaces and tabs, content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example  		Example A
+ * content.
+ * @example  		Example B
+ * content.
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-no-caption-spaces-and-tabs-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption empty, no content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption></caption>
+ * @example <caption></caption>
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-empty-no-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption empty, content extra caption close syntax.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption></caption></caption>
+ * @example <caption></caption></caption>
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-empty-content-extra-caption-close-syntax.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption populated, no content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption>Example A
+ * caption.</caption>
+ * @example <caption>Example B
+ * caption.</caption>
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-no-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption populated, content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption>Example A
+ * caption.</caption>Example A
+ * content.
+ * @example <caption>Example B
+ * caption.</caption>Example B
+ * content.
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption populated, newline, content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption>Example A
+ * caption.</caption>
+ * Example A
+ * content.
+ * @example <caption>Example B
+ * caption.</caption>
+ * Example B
+ * content.
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-newline-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption populated, multiple newlines, content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption>Example A
+ * caption.</caption>
+ *
+ * Example A
+ * content.
+ * @example <caption>Example B
+ * caption.</caption>
+ *
+ * Example B
+ * content.
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-multiple-newlines-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption populated, space, content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption>Example A
+ * caption.</caption> Example A
+ * content.
+ * @example <caption>Example B
+ * caption.</caption> Example B
+ * content.
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-space-content.json'
+        )
+      );
+    }
+  );
+
+  tests.add(
+    '`jsdocCommentToMember` with tag example, caption populated, spaces and tabs, content.',
+    async () => {
+      const code = `/**
+ * @kind member
+ * @name A
+ * @example <caption>Example A
+ * caption.</caption>  		Example A
+ * content.
+ * @example <caption>Example B
+ * caption.</caption>  		Example B
+ * content.
+ */`;
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+      const [jsdocComment] = await codeToJsdocComments(
+        code,
+        TEST_CODE_FILE_PATH
+      );
+
+      await snapshot(
+        JSON.stringify(
+          jsdocCommentToMember(jsdocComment, codeFiles, TEST_CODE_FILE_PATH),
+          null,
+          2
+        ),
+        resolve(
+          __dirname,
+          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-spaces-and-tabs-content.json'
         )
       );
     }

@@ -21,7 +21,8 @@ const JSDOC_SOURCE_INFO_TOKENS = ['tag', 'name', 'type', 'description'];
 
 /**
  * Gets a JSDoc comment code location a span of data, given parsed JSDoc
- * source from `comment-parser` and a source token name.
+ * source from `comment-parser` and a source token name. Empty lines at the
+ * start and end are excluded; particularly for descriptions.
  * @kind function
  * @name getJsdocSourceTokenCodeLocation
  * @param {Array<object>} jsdocSource Parsed JSDoc source.

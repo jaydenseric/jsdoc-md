@@ -1,6 +1,7 @@
 'use strict';
 
 const { default: getCommentParser } = require('comment-parser/lib/parser');
+const trimNewlines = require('trim-newlines');
 const COMMENT_PARSER_OPTIONS = require('./COMMENT_PARSER_OPTIONS');
 const CodeLocation = require('./CodeLocation');
 const CodePosition = require('./CodePosition');
@@ -8,7 +9,6 @@ const InvalidJsdocError = require('./InvalidJsdocError');
 const deconstructJsdocNamepath = require('./deconstructJsdocNamepath');
 const getJsdocBlockDescriptionSource = require('./getJsdocBlockDescriptionSource');
 const getJsdocSourceTokenCodeLocation = require('./getJsdocSourceTokenCodeLocation');
-const parseJsdocExample = require('./parseJsdocExample');
 
 /**
  * Analyzes a JSDoc comment to produce JSDoc member details.
@@ -194,25 +194,27 @@ module.exports = function jsdocCommentToMember(
 
           break;
         case 'desc':
-        case 'description':
-          if (
-            !description &&
+        case 'description': {
+          if (!description) {
+            const tagDescriptionTrimmed = trimNewlines(tag.description);
+
             // Ignore an invalid tag missing a description.
-            tag.description
-          )
-            description = {
-              codeFileLocation: {
-                filePath: codeFilePath,
-                codeLocation: getJsdocSourceTokenCodeLocation(
-                  tag.source,
-                  'description',
-                  jsdocBlockStartCodePosition
-                ),
-              },
-              data: tag.description,
-            };
+            if (tagDescriptionTrimmed)
+              description = {
+                codeFileLocation: {
+                  filePath: codeFilePath,
+                  codeLocation: getJsdocSourceTokenCodeLocation(
+                    tag.source,
+                    'description',
+                    jsdocBlockStartCodePosition
+                  ),
+                },
+                data: tagDescriptionTrimmed,
+              };
+          }
 
           break;
+        }
         case 'arg':
         case 'argument':
         case 'param': {
@@ -240,7 +242,9 @@ module.exports = function jsdocCommentToMember(
 
             if (tag.default) parameter.default = tag.default;
 
-            if (tag.description)
+            const tagDescriptionTrimmed = trimNewlines(tag.description);
+
+            if (tagDescriptionTrimmed)
               parameter.description = {
                 codeFileLocation: {
                   filePath: codeFilePath,
@@ -250,7 +254,7 @@ module.exports = function jsdocCommentToMember(
                     jsdocBlockStartCodePosition
                   ),
                 },
-                data: tag.description,
+                data: tagDescriptionTrimmed,
               };
 
             parameters.unshift(parameter);
@@ -284,7 +288,9 @@ module.exports = function jsdocCommentToMember(
 
             if (tag.default) property.default = tag.default;
 
-            if (tag.description)
+            const tagDescriptionTrimmed = trimNewlines(tag.description);
+
+            if (tagDescriptionTrimmed)
               property.description = {
                 codeFileLocation: {
                   filePath: codeFilePath,
@@ -294,7 +300,7 @@ module.exports = function jsdocCommentToMember(
                     jsdocBlockStartCodePosition
                   ),
                 },
-                data: tag.description,
+                data: tagDescriptionTrimmed,
               };
 
             properties.unshift(property);
@@ -318,18 +324,22 @@ module.exports = function jsdocCommentToMember(
               data: tag.type,
             };
 
-          if (!returns.description && tag.description)
-            returns.description = {
-              codeFileLocation: {
-                filePath: codeFilePath,
-                codeLocation: getJsdocSourceTokenCodeLocation(
-                  tag.source,
-                  'description',
-                  jsdocBlockStartCodePosition
-                ),
-              },
-              data: tag.description,
-            };
+          if (!returns.description) {
+            const tagDescriptionTrimmed = trimNewlines(tag.description);
+
+            if (tagDescriptionTrimmed)
+              returns.description = {
+                codeFileLocation: {
+                  filePath: codeFilePath,
+                  codeLocation: getJsdocSourceTokenCodeLocation(
+                    tag.source,
+                    'description',
+                    jsdocBlockStartCodePosition
+                  ),
+                },
+                data: tagDescriptionTrimmed,
+              };
+          }
 
           break;
         }
@@ -355,9 +365,11 @@ module.exports = function jsdocCommentToMember(
 
           break;
         }
-        case 'see':
+        case 'see': {
+          const tagDescriptionTrimmed = trimNewlines(tag.description);
+
           // Ignore an invalid tag missing a description.
-          if (tag.description)
+          if (tagDescriptionTrimmed)
             see.unshift({
               codeFileLocation: {
                 filePath: codeFilePath,
@@ -367,27 +379,112 @@ module.exports = function jsdocCommentToMember(
                   jsdocBlockStartCodePosition
                 ),
               },
-              data: tag.description,
+              data: tagDescriptionTrimmed,
             });
 
           break;
+        }
         case 'example': {
-          // Ignore an invalid tag missing a description.
-          if (tag.description) {
-            const example = parseJsdocExample({
-              codeFileLocation: {
-                filePath: codeFilePath,
-                codeLocation: getJsdocSourceTokenCodeLocation(
-                  tag.source,
-                  'description',
-                  jsdocBlockStartCodePosition
-                ),
-              },
-              data: tag.description,
-            });
+          const tagDescriptionTrimmed = trimNewlines(tag.description);
 
-            // The example could be void if it only contains an empty caption.
-            if (example) examples.unshift(example);
+          // Ignore an invalid tag missing a description.
+          if (tagDescriptionTrimmed) {
+            const {
+              groups: {
+                beforeCaption,
+                captionData,
+                beforeContent,
+                contentData,
+              },
+            } = tagDescriptionTrimmed.match(
+              // Group what comes before the caption and content so their
+              // lengths can be used to derive offsets and then code locations
+              // for both.
+              /^(?<beforeContent>(?:(?<beforeCaption>\s*<caption>)(?<captionData>[^]*?)<\/caption>(?:\n+|[ \t])?)?)(?<contentData>[^]+)?/u
+            );
+
+            if (captionData || contentData) {
+              let { line, column } = getJsdocSourceTokenCodeLocation(
+                tag.source,
+                'description',
+                jsdocBlockStartCodePosition
+              ).start;
+              let charIndex = 0;
+
+              const nextChar = () => {
+                if (tagDescriptionTrimmed[charIndex] === '\n') {
+                  line++;
+
+                  // Because the tag description characters being looped have
+                  // the JSDoc comment fence stripped by `comment-parser`, the
+                  // line column start must account for the length of the
+                  // possible fence (e.g. ` * `).
+
+                  const {
+                    start,
+                    delimiter,
+                    postDelimiter,
+                  } = jsdocBlock.source.find(
+                    ({ number }) => number === line
+                  ).tokens;
+
+                  column =
+                    start.length + delimiter.length + postDelimiter.length + 1;
+                } else column++;
+
+                charIndex++;
+              };
+
+              const example = {};
+
+              if (captionData) {
+                const captionOffsetStart = beforeCaption.length;
+                const captionOffsetEnd =
+                  captionOffsetStart + captionData.length - 1;
+
+                while (charIndex < captionOffsetStart) nextChar();
+
+                const captionStart = new CodePosition(line, column);
+
+                while (charIndex < captionOffsetEnd) nextChar();
+
+                example.caption = {
+                  codeFileLocation: {
+                    filePath: codeFilePath,
+                    codeLocation: new CodeLocation(
+                      captionStart,
+                      new CodePosition(line, column)
+                    ),
+                  },
+                  data: captionData,
+                };
+              }
+
+              if (contentData) {
+                const contentOffsetStart = beforeContent.length;
+                const contentOffsetEnd =
+                  contentOffsetStart + contentData.length - 1;
+
+                while (charIndex < contentOffsetStart) nextChar();
+
+                const contentStart = new CodePosition(line, column);
+
+                while (charIndex < contentOffsetEnd) nextChar();
+
+                example.content = {
+                  codeFileLocation: {
+                    filePath: codeFilePath,
+                    codeLocation: new CodeLocation(
+                      contentStart,
+                      new CodePosition(line, column)
+                    ),
+                  },
+                  data: contentData,
+                };
+              }
+
+              examples.unshift(example);
+            }
           }
 
           break;
@@ -461,19 +558,28 @@ module.exports = function jsdocCommentToMember(
       if (type) member.type = type;
 
       // The description is special as it can be specified without a tag.
+      // Description tags override a JSDoc block description as they come later.
       if (description) member.description = description;
-      else if (jsdocBlock.description)
-        member.description = {
-          codeFileLocation: {
-            filePath: codeFilePath,
-            codeLocation: getJsdocSourceTokenCodeLocation(
-              getJsdocBlockDescriptionSource(jsdocBlock),
-              'description',
-              jsdocBlockStartCodePosition
-            ),
-          },
-          data: jsdocBlock.description,
-        };
+      else {
+        // Description was not populated from tags, so try to get it from the
+        // JSDoc block.
+        const jsdocBlockDescriptionTrimmed = trimNewlines(
+          jsdocBlock.description
+        );
+
+        if (jsdocBlockDescriptionTrimmed)
+          member.description = {
+            codeFileLocation: {
+              filePath: codeFilePath,
+              codeLocation: getJsdocSourceTokenCodeLocation(
+                getJsdocBlockDescriptionSource(jsdocBlock),
+                'description',
+                jsdocBlockStartCodePosition
+              ),
+            },
+            data: jsdocBlockDescriptionTrimmed,
+          };
+      }
 
       if (parameters.length) member.parameters = parameters;
       if (properties.length) member.properties = properties;

@@ -4,6 +4,10 @@
 
 ### Patch
 
+- Account for the JSDoc comment fence when deriving the code locations for inline tag `@link` namepath error messages, fixing [#20](https://github.com/jaydenseric/jsdoc-md/issues/20).
+- Exclude multiple newlines from the start and end of JSDoc markdown content.
+- Exclude multiple newlines following an `@example` caption from the content start.
+- Removed the private function `parseJsdocExample`, moving functionality to the private function `jsdocCommentToMember`.
 - Corrected JSDoc member code location end column numbers.
 - Reordered tests.
 
