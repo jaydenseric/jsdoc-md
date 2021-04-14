@@ -6,6 +6,7 @@
 
 - Updated dependencies.
 - Use regex `u` mode.
+- JSDoc comment ends (`*/`) escaped with a backslash (`*\/`) can now be escaped using additional backslashes (e.g. `*\\/` unescapes to `*\/`).
 - v9.1.1 changelog entry tweak.
 
 ## 9.1.1

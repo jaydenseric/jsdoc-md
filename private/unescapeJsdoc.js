@@ -20,5 +20,5 @@ module.exports = function unescapeJsdoc(content) {
   if (typeof content !== 'string')
     throw new TypeError('First argument `content` must be a string.');
 
-  return content.replace(/\*\\\//gu, '*/');
+  return content.replace(/(?<=\*)\\(?=\\*\/)/gu, '');
 };
