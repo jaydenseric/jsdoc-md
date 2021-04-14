@@ -22,7 +22,7 @@ module.exports = function replaceStackTraces(
     );
 
   return string.replace(
-    /(^ {2,})at (?:(?! {$).)+(?:\r?\n\1at (?:(?! {$).)+)*/gm,
+    /(^ {2,})at (?:(?! \{$).)+(?:\r?\n\1at (?:(?! \{$).)+)*/gmu,
     replacer
   );
 };

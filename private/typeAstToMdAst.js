@@ -47,7 +47,7 @@ module.exports = function typeAstToMdAst(typeJsdocAst, members) {
           // about what the value is exactly. Quotes are necessary if the string
           // is empty or only contains whitespace to avoid resulting empty
           // inline code and markdown rendering issues.
-          typeJsdocAst.value.match(/^\s*$/)
+          typeJsdocAst.value.match(/^\s*$/u)
             ? `'${typeJsdocAst.value}'`
             : typeJsdocAst.value,
       });

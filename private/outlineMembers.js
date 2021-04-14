@@ -77,7 +77,7 @@ module.exports = function outlineMembers(members, codeFiles) {
 
     member.heading +=
       member.kind === 'event'
-        ? member.name.replace(/^event:/, '')
+        ? member.name.replace(/^event:/u, '')
         : member.name;
 
     // Set the slug property.

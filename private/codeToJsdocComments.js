@@ -44,6 +44,6 @@ module.exports = async function codeToJsdocComments(code, codeFilePath) {
       type === 'CommentBlock' &&
       // The value excludes the start `/*` and end `*/`. A JSDoc comment block
       // starts with `/**` followed by whitespace.
-      value.match(/^\*\s/)
+      value.match(/^\*\s/u)
   );
 };

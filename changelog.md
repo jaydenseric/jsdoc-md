@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Use regex `u` mode.
 - v9.1.1 changelog entry tweak.
 
 ## 9.1.1

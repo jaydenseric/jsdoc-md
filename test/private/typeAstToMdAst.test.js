@@ -91,7 +91,7 @@ module.exports = (tests) => {
           outlinedMembers
         );
 
-        const snapshotFileName = name.replace(/ /g, '-');
+        const snapshotFileName = name.replace(/ /gu, '-');
 
         await snapshot(
           JSON.stringify(typeMdAst, null, 2),
