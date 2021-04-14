@@ -4,6 +4,7 @@
 
 ### Patch
 
+- Updated dependencies.
 - Use regex `u` mode.
 - v9.1.1 changelog entry tweak.
 
