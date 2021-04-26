@@ -75,11 +75,12 @@ export default (tests) => {
 
   tests.add('`jsdocMd` with defaults.', async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const fileNameSourceIgnored = 'C.js';
+      const fileNameSourceIgnored = 'D.js';
       const pathGitignore = join(tempDirPath, '.gitignore');
       const pathMd = join(tempDirPath, 'readme.md');
-      const pathSourceJs = join(tempDirPath, 'A.js');
-      const pathSourceMjs = join(tempDirPath, 'B.mjs');
+      const pathSourceMjs = join(tempDirPath, 'A.mjs');
+      const pathSourceCjs = join(tempDirPath, 'B.cjs');
+      const pathSourceJs = join(tempDirPath, 'C.js');
       const pathSourceIgnored = join(tempDirPath, fileNameSourceIgnored);
       // `test` in the file name so `coverage-node` will automatically ignore it
       // for the code coverage report.
@@ -102,33 +103,43 @@ Replace.
 `
         ),
         fs.promises.writeFile(
-          pathSourceJs,
+          pathSourceMjs,
           `/**
  * @kind constant
  * @name A
  * @type {string}
  */
-module.exports = 'A';
+export default 'A';
 `
         ),
         fs.promises.writeFile(
-          pathSourceMjs,
+          pathSourceCjs,
           `/**
  * @kind constant
  * @name B
  * @type {string}
  */
-export default 'B';
+module.exports = 'B';
 `
         ),
         fs.promises.writeFile(
-          pathSourceIgnored,
+          pathSourceJs,
           `/**
  * @kind constant
  * @name C
  * @type {string}
  */
 module.exports = 'C';
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceIgnored,
+          `/**
+ * @kind constant
+ * @name D
+ * @type {string}
+ */
+module.exports = 'D';
 `
         ),
         fs.promises.writeFile(

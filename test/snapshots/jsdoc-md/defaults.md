@@ -6,6 +6,7 @@
 
 - [constant A](#constant-a)
 - [constant B](#constant-b)
+- [constant C](#constant-c)
 
 ### constant A
 
@@ -14,6 +15,12 @@
 ---
 
 ### constant B
+
+**Type:** string
+
+---
+
+### constant C
 
 **Type:** string
 

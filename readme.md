@@ -36,7 +36,7 @@ It implements the [function `jsdocMd`](#function-jsdocmd) and has the following 
 
 | Option | Alias | Default | Description |
 | :-- | :-- | :-- | :-- |
-| `--source-glob` | `-s` | `**/*.{mjs,js}` | JSDoc source file glob pattern. |
+| `--source-glob` | `-s` | `**/*.{mjs,cjs,js}` | JSDoc source file glob pattern. |
 | `--markdown-path` | `-m` | `readme.md` | Path to the markdown file for docs insertion. |
 | `--target-heading` | `-t` | `API` | Markdown file heading to insert docs under. |
 
@@ -47,7 +47,7 @@ npx jsdoc-md
 ```
 
 ```sh
-npx jsdoc-md --source-glob **/*.{mjs,js} --markdown-path readme.md --target-heading API
+npx jsdoc-md --source-glob **/*.{mjs,cjs,js} --markdown-path readme.md --target-heading API
 ```
 
 Example [`package.json` scripts](https://docs.npmjs.com/files/package.json#scripts) for a project that uses [Prettier](https://prettier.io) to format the readme:
@@ -74,7 +74,7 @@ Scrapes JSDoc from source files to populate a markdown file documentation sectio
 | :-- | :-- | :-- |
 | `options` | object? | Options. |
 | `options.cwd` | string? | A directory path to scope the search for source and `.gitignore` files, defaulting to `process.cwd()`. |
-| `options.sourceGlob` | string? = `**/*.{mjs,js}` | JSDoc source file glob pattern. |
+| `options.sourceGlob` | string? = `**/*.{mjs,cjs,js}` | JSDoc source file glob pattern. |
 | `options.markdownPath` | string? = `readme.md` | Path to the markdown file for docs insertion. |
 | `options.targetHeading` | string? = `API` | Markdown file heading to insert docs under. |
 
