@@ -95,8 +95,6 @@ _Ways to `import`._
 _Customizing all options._
 
 > ```js
-> import { jsdocMd } from 'jsdoc-md';
->
 > jsdocMd({
 >   cwd: '/path/to/project',
 >   sourceGlob: 'index.mjs',

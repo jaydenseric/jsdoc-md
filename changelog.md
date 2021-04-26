@@ -15,6 +15,7 @@
 - Also run GitHub Actions CI with Node.js v16.
 - Use regex `u` mode.
 - JSDoc comment ends (`*/`) escaped with a backslash (`*\/`) can now be escaped using additional backslashes (e.g. `*\\/` unescapes to `*\/`).
+- Tweaked a code example for the public function `jsdocMd`.
 - v9.1.1 changelog entry tweak.
 
 ## 9.1.1

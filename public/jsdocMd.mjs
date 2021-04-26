@@ -27,8 +27,6 @@ import membersToMdAst from '../private/membersToMdAst.mjs';
  * ```
  * @example <caption>Customizing all options.</caption>
  * ```js
- * import { jsdocMd } from 'jsdoc-md';
- *
  * jsdocMd({
  *   cwd: '/path/to/project',
  *   sourceGlob: 'index.mjs',
