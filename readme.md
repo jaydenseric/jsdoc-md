@@ -89,23 +89,13 @@ _Ways to `import`._
 > ```
 >
 > ```js
-> import jsdocMd from 'jsdoc-md/public/jsdocMd.js';
-> ```
-
-_Ways to `require`._
-
-> ```js
-> const { jsdocMd } = require('jsdoc-md');
-> ```
->
-> ```js
-> const jsdocMd = require('jsdoc-md/public/jsdocMd');
+> import jsdocMd from 'jsdoc-md/public/jsdocMd.mjs';
 > ```
 
 _Customizing all options._
 
 > ```js
-> const { jsdocMd } = require('jsdoc-md');
+> import { jsdocMd } from 'jsdoc-md';
 >
 > jsdocMd({
 >   cwd: '/path/to/project',

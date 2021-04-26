@@ -1,1 +1,1 @@
-export { default as jsdocMd } from './jsdocMd.js';
+export { default as jsdocMd } from './jsdocMd.mjs';
