@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { disposableDirectory } from 'disposable-directory';
 import snapshot from 'snapshot-assertion';
 
-const cliPath = fileURLToPath(
+const JSDOC_MD_CLI_PATH = fileURLToPath(
   new URL('../../cli/jsdoc-md.mjs', import.meta.url)
 );
 
@@ -17,7 +17,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '--source-glob='],
+          [JSDOC_MD_CLI_PATH, '--source-glob='],
           {
             cwd: tempDirPath,
             env: {
@@ -50,7 +50,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '--source-glob'],
+          [JSDOC_MD_CLI_PATH, '--source-glob'],
           {
             cwd: tempDirPath,
             env: {
@@ -81,7 +81,7 @@ export default (tests) => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
         'node',
-        [cliPath, '-s'],
+        [JSDOC_MD_CLI_PATH, '-s'],
         {
           cwd: tempDirPath,
           env: {
@@ -113,7 +113,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '-ss'],
+          [JSDOC_MD_CLI_PATH, '-ss'],
           {
             cwd: tempDirPath,
             env: {
@@ -146,7 +146,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '--markdown-path='],
+          [JSDOC_MD_CLI_PATH, '--markdown-path='],
           {
             cwd: tempDirPath,
             env: {
@@ -179,7 +179,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '--markdown-path'],
+          [JSDOC_MD_CLI_PATH, '--markdown-path'],
           {
             cwd: tempDirPath,
             env: {
@@ -210,7 +210,7 @@ export default (tests) => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
         'node',
-        [cliPath, '-m'],
+        [JSDOC_MD_CLI_PATH, '-m'],
         {
           cwd: tempDirPath,
           env: {
@@ -242,7 +242,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '-mm'],
+          [JSDOC_MD_CLI_PATH, '-mm'],
           {
             cwd: tempDirPath,
             env: {
@@ -275,7 +275,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '--target-heading='],
+          [JSDOC_MD_CLI_PATH, '--target-heading='],
           {
             cwd: tempDirPath,
             env: {
@@ -308,7 +308,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '--target-heading'],
+          [JSDOC_MD_CLI_PATH, '--target-heading'],
           {
             cwd: tempDirPath,
             env: {
@@ -339,7 +339,7 @@ export default (tests) => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
         'node',
-        [cliPath, '-t'],
+        [JSDOC_MD_CLI_PATH, '-t'],
         {
           cwd: tempDirPath,
           env: {
@@ -371,7 +371,7 @@ export default (tests) => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
           'node',
-          [cliPath, '-mm'],
+          [JSDOC_MD_CLI_PATH, '-mm'],
           {
             cwd: tempDirPath,
             env: {
@@ -402,7 +402,7 @@ export default (tests) => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
         'node',
-        [cliPath, '--unexpected-a'],
+        [JSDOC_MD_CLI_PATH, '--unexpected-a'],
         {
           cwd: tempDirPath,
           env: {
@@ -432,7 +432,12 @@ export default (tests) => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
         'node',
-        [cliPath, '--unexpected-a', '--unexpected-b=', '--unexpected-c=abc'],
+        [
+          JSDOC_MD_CLI_PATH,
+          '--unexpected-a',
+          '--unexpected-b=',
+          '--unexpected-c=abc',
+        ],
         {
           cwd: tempDirPath,
           env: {
@@ -523,13 +528,17 @@ export default 'D';
         ),
       ]);
 
-      const { stdout, stderr, status, error } = spawnSync('node', [cliPath], {
-        cwd: tempDirPath,
-        env: {
-          ...process.env,
-          FORCE_COLOR: 1,
-        },
-      });
+      const { stdout, stderr, status, error } = spawnSync(
+        'node',
+        [JSDOC_MD_CLI_PATH],
+        {
+          cwd: tempDirPath,
+          env: {
+            ...process.env,
+            FORCE_COLOR: 1,
+          },
+        }
+      );
 
       if (error) throw error;
 
@@ -592,7 +601,7 @@ export default 'B';
       const { stdout, stderr, status, error } = spawnSync(
         'node',
         [
-          cliPath,
+          JSDOC_MD_CLI_PATH,
           '--source-glob=**/*.jsx',
           `--markdown-path=${fileNameMd}`,
           `--target-heading=${targetHeading}`,
@@ -636,13 +645,17 @@ export default 'B';
         ),
       ]);
 
-      const { stdout, stderr, status, error } = spawnSync('node', [cliPath], {
-        cwd: tempDirPath,
-        env: {
-          ...process.env,
-          FORCE_COLOR: 1,
-        },
-      });
+      const { stdout, stderr, status, error } = spawnSync(
+        'node',
+        [JSDOC_MD_CLI_PATH],
+        {
+          cwd: tempDirPath,
+          env: {
+            ...process.env,
+            FORCE_COLOR: 1,
+          },
+        }
+      );
 
       if (error) throw error;
 
