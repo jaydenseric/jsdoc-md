@@ -32,7 +32,7 @@ npm run prepare
 
 ### Command `jsdoc-md`
 
-Scrapes JSDoc from source files nested in the current working directory to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
+Analyzes JSDoc from source files nested in the current working directory to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
 
 It implements the function [`jsdocMd`](#function-jsdocmd).
 
@@ -74,7 +74,7 @@ _A [`package.json` `prepare` script](https://docs.npmjs.com/cli/v7/using-npm/scr
 
 ### function jsdocMd
 
-Scrapes JSDoc from source files to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
+Analyzes JSDoc from source files to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
 
 | Parameter | Type | Description |
 | :-- | :-- | :-- |
