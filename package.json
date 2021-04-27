@@ -85,11 +85,11 @@
     "test-director": "^6.0.0"
   },
   "scripts": {
-    "prepare": "node cli/jsdoc-md.mjs",
+    "jsdoc": "node cli/jsdoc-md.mjs",
     "test": "npm run test:eslint && npm run test:prettier && npm run test:api",
     "test:eslint": "eslint --ext mjs,js .",
     "test:prettier": "prettier -c .",
     "test:api": "coverage-node test/index.mjs",
-    "prepublishOnly": "npm test"
+    "prepublishOnly": "npm run jsdoc && npm test"
   }
 }

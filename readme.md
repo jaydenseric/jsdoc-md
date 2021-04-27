@@ -17,7 +17,7 @@ Add a [`package.json` script](https://docs.npmjs.com/cli/v7/using-npm/scripts) u
 ```json
 {
   "scripts": {
-    "prepare": "jsdoc-md"
+    "jsdoc": "jsdoc-md"
   }
 }
 ```
@@ -25,7 +25,7 @@ Add a [`package.json` script](https://docs.npmjs.com/cli/v7/using-npm/scripts) u
 Then run the script to update docs:
 
 ```sh
-npm run prepare
+npm run jsdoc
 ```
 
 ## CLI
@@ -56,12 +56,12 @@ _Using [`npx`](https://docs.npmjs.com/cli/v7/commands/npx)._
 > npx jsdoc-md --source-glob **/*.{mjs,cjs,js} --markdown-path readme.md --target-heading API
 > ```
 
-_A [`package.json` `prepare` script](https://docs.npmjs.com/cli/v7/using-npm/scripts#life-cycle-scripts)._
+_A [`package.json` `jsdoc` script](https://docs.npmjs.com/cli/v7/using-npm/scripts)._
 
 > ```json
 > {
 >   "scripts": {
->     "prepare": "jsdoc-md"
+>     "jsdoc": "jsdoc-md"
 >   }
 > }
 > ```

@@ -5,6 +5,7 @@
 ### Patch
 
 - Added back JSDoc typedefs that were accidentally deleted in v10.0.0.
+- Replaced the package `prepare` script with a `jsdoc` script.
 - Tweaked the package description.
 - Updated readme content.
 
