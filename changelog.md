@@ -9,6 +9,7 @@
 - The API is now ESM in `.mjs` files instead of CJS in `.js` files, [accessible via `import` but not `require`](https://nodejs.org/dist/latest/docs/api/esm.html#esm_require).
 - Replaced the the `package.json` `exports` field public [subpath folder mapping](https://nodejs.org/api/packages.html#packages_subpath_folder_mappings) (deprecated by Node.js) with a [subpath pattern](https://nodejs.org/api/packages.html#packages_subpath_patterns).
 - By default also scape files with the `.cjs` file extension for JSDoc.
+- If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
 
 ### Patch
 

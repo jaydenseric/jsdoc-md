@@ -41,6 +41,14 @@
   "engines": {
     "node": "^12.20 || >= 14.13"
   },
+  "peerDependencies": {
+    "prettier": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "@babel/code-frame": "^7.12.13",
     "@babel/core": "^7.13.16",
@@ -77,9 +85,7 @@
     "test-director": "^6.0.0"
   },
   "scripts": {
-    "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
-    "prepare:jsdoc": "node cli/jsdoc-md.mjs",
-    "prepare:prettier": "prettier --write readme.md",
+    "prepare": "node cli/jsdoc-md.mjs",
     "test": "npm run test:eslint && npm run test:prettier && npm run test:api",
     "test:eslint": "eslint --ext mjs,js .",
     "test:prettier": "prettier -c .",

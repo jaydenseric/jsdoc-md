@@ -30,7 +30,7 @@ npm run jsdoc
 
 ## CLI
 
-The `jsdoc-md` command scrapes JSDoc from source files nested in the current working directory to populate a markdown file documentation section. Source files are excluded via `.gitignore` files.
+The `jsdoc-md` command scrapes JSDoc from source files nested in the current working directory to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
 
 It implements the [function `jsdocMd`](#function-jsdocmd) and has the following arguments:
 
@@ -50,13 +50,11 @@ npx jsdoc-md
 npx jsdoc-md --source-glob **/*.{mjs,cjs,js} --markdown-path readme.md --target-heading API
 ```
 
-Example [`package.json` scripts](https://docs.npmjs.com/files/package.json#scripts) for a project that uses [Prettier](https://prettier.io) to format the readme:
+Example [`package.json` scripts](https://docs.npmjs.com/files/package.json#scripts):
 
 ```json
 {
-  "prepare": "npm run prepare:jsdoc && npm run prepare:prettier",
-  "prepare:jsdoc": "jsdoc-md",
-  "prepare:prettier": "prettier readme.md --write"
+  "prepare": "jsdoc-md"
 }
 ```
 
@@ -68,7 +66,7 @@ Example [`package.json` scripts](https://docs.npmjs.com/files/package.json#scrip
 
 ### function jsdocMd
 
-Scrapes JSDoc from source files to populate a markdown file documentation section. Source files are excluded via `.gitignore` files.
+Scrapes JSDoc from source files to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
 
 | Parameter | Type | Description |
 | :-- | :-- | :-- |
