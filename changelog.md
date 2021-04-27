@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Added back JSDoc typedefs that were accidentally deleted in v10.0.0.
+
 ## 10.0.0
 
 ### Major
