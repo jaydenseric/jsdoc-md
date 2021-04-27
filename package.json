@@ -69,7 +69,7 @@
     "unist-util-remove-position": "^4.0.0"
   },
   "devDependencies": {
-    "coverage-node": "^4.0.0",
+    "coverage-node": "^5.0.0",
     "disposable-directory": "^3.0.0",
     "eslint": "^7.25.0",
     "eslint-config-env": "^19.0.1",
