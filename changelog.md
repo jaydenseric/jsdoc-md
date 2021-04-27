@@ -5,6 +5,7 @@
 ### Patch
 
 - Added back JSDoc typedefs that were accidentally deleted in v10.0.0.
+- Tweaked the package description.
 - Updated readme content.
 
 ## 10.0.0

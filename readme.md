@@ -2,7 +2,7 @@
 
 [![npm version](https://badgen.net/npm/v/jsdoc-md)](https://npm.im/jsdoc-md) [![CI status](https://github.com/jaydenseric/jsdoc-md/workflows/CI/badge.svg)](https://github.com/jaydenseric/jsdoc-md/actions)
 
-A Node.js CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
+A Node.js CLI and equivalent JS API to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
 
 ## Setup
 

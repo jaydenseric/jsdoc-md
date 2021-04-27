@@ -1,7 +1,7 @@
 {
   "name": "jsdoc-md",
   "version": "10.0.0",
-  "description": "A CLI to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
+  "description": "A CLI and equivalent JS API to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as readme.md).",
   "license": "MIT",
   "author": {
     "name": "Jayden Seric",
