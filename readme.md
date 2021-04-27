@@ -12,12 +12,12 @@ To install from [npm](https://npmjs.com) run:
 npm install jsdoc-md --save-dev
 ```
 
-Add a script to your `package.json`:
+Add a [`package.json` script](https://docs.npmjs.com/cli/v7/using-npm/scripts) using the command [`jsdoc-md`](#command-jsdoc-md):
 
 ```json
 {
   "scripts": {
-    "jsdoc": "jsdoc-md"
+    "prepare": "jsdoc-md"
   }
 }
 ```
@@ -25,38 +25,46 @@ Add a script to your `package.json`:
 Then run the script to update docs:
 
 ```sh
-npm run jsdoc
+npm run prepare
 ```
 
 ## CLI
 
-The `jsdoc-md` command scrapes JSDoc from source files nested in the current working directory to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
+### Command `jsdoc-md`
 
-It implements the [function `jsdocMd`](#function-jsdocmd) and has the following arguments:
+Scrapes JSDoc from source files nested in the current working directory to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.
 
-| Option | Alias | Default | Description |
+It implements the function [`jsdocMd`](#function-jsdocmd).
+
+#### Arguments
+
+| Argument | Alias | Default | Description |
 | :-- | :-- | :-- | :-- |
 | `--source-glob` | `-s` | `**/*.{mjs,cjs,js}` | JSDoc source file glob pattern. |
 | `--markdown-path` | `-m` | `readme.md` | Path to the markdown file for docs insertion. |
 | `--target-heading` | `-t` | `API` | Markdown file heading to insert docs under. |
 
-[`npx`](https://npm.im/npx) examples:
+#### Examples
 
-```sh
-npx jsdoc-md
-```
+_Using [`npx`](https://docs.npmjs.com/cli/v7/commands/npx)._
 
-```sh
-npx jsdoc-md --source-glob **/*.{mjs,cjs,js} --markdown-path readme.md --target-heading API
-```
+> ```sh
+> npx jsdoc-md
+> ```
+>
+> ```sh
+> npx jsdoc-md --source-glob **/*.{mjs,cjs,js} --markdown-path readme.md --target-heading API
+> ```
 
-Example [`package.json` scripts](https://docs.npmjs.com/files/package.json#scripts):
+_A [`package.json` `prepare` script](https://docs.npmjs.com/cli/v7/using-npm/scripts#life-cycle-scripts)._
 
-```json
-{
-  "prepare": "jsdoc-md"
-}
-```
+> ```json
+> {
+>   "scripts": {
+>     "prepare": "jsdoc-md"
+>   }
+> }
+> ```
 
 ## API
 
