@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Readme tweaks.
+
 ## 10.0.1
 
 ### Patch

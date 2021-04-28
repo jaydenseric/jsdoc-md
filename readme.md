@@ -6,7 +6,7 @@ A Node.js CLI and equivalent JS API to analyze source JSDoc and generate documen
 
 ## Setup
 
-To install from [npm](https://npmjs.com/get-npm) run:
+To install with [npm](https://npmjs.com/get-npm), run:
 
 ```sh
 npm install jsdoc-md --save-dev
