@@ -14,22 +14,19 @@ const TEST_CODE_FILE_PATH = '/a.js';
 
 export default (tests) => {
   tests.add(
-    '`typeAstToMdAst` with first argument `typeJsdocAst` not an object.',
+    '`typeAstToMdAst` with argument 1 `typeJsdocAst` not an object.',
     () => {
       throws(() => {
         typeAstToMdAst(true);
-      }, new TypeError('First argument `typeJsdocAst` must be an object.'));
+      }, new TypeError('Argument 1 `typeJsdocAst` must be an object.'));
     }
   );
 
-  tests.add(
-    '`typeAstToMdAst` with second argument `members` not an array.',
-    () => {
-      throws(() => {
-        typeAstToMdAst({}, true);
-      }, new TypeError('Second argument `members` must be an array.'));
-    }
-  );
+  tests.add('`typeAstToMdAst` with argument 2 `members` not an array.', () => {
+    throws(() => {
+      typeAstToMdAst({}, true);
+    }, new TypeError('Argument 2 `members` must be an array.'));
+  });
 
   tests.add('`typeAstToMdAst` with various types.', async () => {
     const code = `/**

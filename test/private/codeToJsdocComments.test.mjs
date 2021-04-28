@@ -6,33 +6,31 @@ const TEST_CODE_FILE_PATH = '/a.js';
 
 export default (tests) => {
   tests.add(
-    '`codeToJsdocComments` with first argument `code` not a string.',
+    '`codeToJsdocComments` with argument 1 `code` not a string.',
     async () => {
       await rejects(
         codeToJsdocComments(true, TEST_CODE_FILE_PATH),
-        new TypeError('First argument `code` must be a string.')
+        new TypeError('Argument 1 `code` must be a string.')
       );
     }
   );
 
   tests.add(
-    '`codeToJsdocComments` with second argument `codeFilePath` not a string.',
+    '`codeToJsdocComments` with argument 2 `codeFilePath` not a string.',
     async () => {
       await rejects(
         codeToJsdocComments('', true),
-        new TypeError('Second argument `codeFilePath` must be a string.')
+        new TypeError('Argument 2 `codeFilePath` must be a string.')
       );
     }
   );
 
   tests.add(
-    '`codeToJsdocComments` with second argument `codeFilePath` not a populated string.',
+    '`codeToJsdocComments` with argument 2 `codeFilePath` not a populated string.',
     async () => {
       await rejects(
         codeToJsdocComments('', ''),
-        new TypeError(
-          'Second argument `codeFilePath` must be a populated string.'
-        )
+        new TypeError('Argument 2 `codeFilePath` must be a populated string.')
       );
     }
   );

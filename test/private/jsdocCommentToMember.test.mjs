@@ -10,18 +10,18 @@ const TEST_CODE_FILE_PATH = '/a.js';
 
 export default (tests) => {
   tests.add(
-    '`jsdocCommentToMember` with first argument `jsdocComment` not an object.',
+    '`jsdocCommentToMember` with argument 1 `jsdocComment` not an object.',
     () => {
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, '']]);
 
       throws(() => {
         jsdocCommentToMember(true, codeFiles, TEST_CODE_FILE_PATH);
-      }, new TypeError('First argument `jsdocComment` must be an object.'));
+      }, new TypeError('Argument 1 `jsdocComment` must be an object.'));
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with second argument `codeFiles` not a `Map` instance.',
+    '`jsdocCommentToMember` with argument 2 `codeFiles` not a `Map` instance.',
     async () => {
       const code = '/** */';
       const [jsdocComment] = await codeToJsdocComments(
@@ -31,12 +31,12 @@ export default (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, true, TEST_CODE_FILE_PATH);
-      }, new TypeError('Second argument `codeFiles` must be a `Map` instance.'));
+      }, new TypeError('Argument 2 `codeFiles` must be a `Map` instance.'));
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with third argument `codeFilePath` not a string.',
+    '`jsdocCommentToMember` with argument 3 `codeFilePath` not a string.',
     async () => {
       const code = '/** */';
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
@@ -47,12 +47,12 @@ export default (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, codeFiles, true);
-      }, new TypeError('Third argument `codeFilePath` must be a string.'));
+      }, new TypeError('Argument 3 `codeFilePath` must be a string.'));
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with third argument `codeFilePath` not a populated string.',
+    '`jsdocCommentToMember` with argument 3 `codeFilePath` not a populated string.',
     async () => {
       const code = '/** */';
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
@@ -63,7 +63,7 @@ export default (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, codeFiles, '');
-      }, new TypeError('Third argument `codeFilePath` must be a populated string.'));
+      }, new TypeError('Argument 3 `codeFilePath` must be a populated string.'));
     }
   );
 

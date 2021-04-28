@@ -12,14 +12,14 @@ import CodePosition from './CodePosition.mjs';
 export default function codePositionToIndex(codePosition, code) {
   if (!(codePosition instanceof CodePosition))
     throw new TypeError(
-      'First argument `codePosition` must be a `CodePosition` instance.'
+      'Argument 1 `codePosition` must be a `CodePosition` instance.'
     );
 
   if (typeof code !== 'string')
-    throw new TypeError('Second argument `code` must be a string.');
+    throw new TypeError('Argument 2 `code` must be a string.');
 
   if (code === '')
-    throw new TypeError('Second argument `code` must be a populated string.');
+    throw new TypeError('Argument 2 `code` must be a populated string.');
 
   let index = 0;
   let line = 1;

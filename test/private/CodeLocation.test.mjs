@@ -4,40 +4,37 @@ import CodePosition from '../../private/CodePosition.mjs';
 
 export default (tests) => {
   tests.add(
-    '`CodeLocation` with first argument `start` not a `CodePosition` instance.',
+    '`CodeLocation` with argument 1 `start` not a `CodePosition` instance.',
     () => {
       throws(() => {
         new CodeLocation(true);
-      }, new TypeError('First argument `start` must be a `CodePosition` instance.'));
+      }, new TypeError('Argument 1 `start` must be a `CodePosition` instance.'));
     }
   );
 
   tests.add(
-    '`CodeLocation` with second argument `end` not a `CodePosition` instance.',
+    '`CodeLocation` with argument 2 `end` not a `CodePosition` instance.',
     () => {
       throws(() => {
         new CodeLocation(new CodePosition(1, 1), true);
-      }, new TypeError('Second argument `end` must be a `CodePosition` instance.'));
+      }, new TypeError('Argument 2 `end` must be a `CodePosition` instance.'));
     }
   );
 
-  tests.add(
-    '`CodeLocation` with second argument `end` an undefined value.',
-    () => {
-      let end;
+  tests.add('`CodeLocation` with argument 2 `end` an undefined value.', () => {
+    let end;
 
-      throws(() => {
-        new CodeLocation(new CodePosition(1, 1), end);
-      }, new TypeError('Second argument `end` must be a `CodePosition` instance.'));
-    }
-  );
+    throws(() => {
+      new CodeLocation(new CodePosition(1, 1), end);
+    }, new TypeError('Argument 2 `end` must be a `CodePosition` instance.'));
+  });
 
   tests.add(
-    '`CodeLocation` with second argument `end` not at or beyond the start position.',
+    '`CodeLocation` with argument 2 `end` not at or beyond the start position.',
     () => {
       throws(() => {
         new CodeLocation(new CodePosition(2, 1), new CodePosition(1, 1));
-      }, new TypeError('Second argument `end` must be a code position at or beyond the start code position.'));
+      }, new TypeError('Argument 2 `end` must be a code position at or beyond the start code position.'));
     }
   );
 

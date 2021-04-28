@@ -18,12 +18,10 @@ const MEMBERSHIPS = {
  */
 export default function outlineMembers(members, codeFiles) {
   if (!Array.isArray(members))
-    throw new TypeError('First argument `members` must be an array.');
+    throw new TypeError('Argument 1 `members` must be an array.');
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError(
-      'Second argument `codeFiles` must be a `Map` instance.'
-    );
+    throw new TypeError('Argument 2 `codeFiles` must be a `Map` instance.');
 
   // Prevent modification of the input array.
   const outline = members.slice();

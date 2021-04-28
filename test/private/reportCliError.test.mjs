@@ -14,11 +14,11 @@ const REPORT_CLI_ERROR_PATH = fileURLToPath(
 
 export default (tests) => {
   tests.add(
-    '`reportCliError` with first argument `cliDescription` not a string.',
+    '`reportCliError` with argument 1 `cliDescription` not a string.',
     () => {
       throws(() => {
         reportCliError(true);
-      }, new TypeError('First argument `cliDescription` must be a string.'));
+      }, new TypeError('Argument 1 `cliDescription` must be a string.'));
     }
   );
 

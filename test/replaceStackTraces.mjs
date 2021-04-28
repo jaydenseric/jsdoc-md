@@ -12,12 +12,10 @@ export default function replaceStackTraces(
   replacer = '$1<stack trace>'
 ) {
   if (typeof string !== 'string')
-    throw new TypeError('First argument `string` must be a string.');
+    throw new TypeError('Argument 1 `string` must be a string.');
 
   if (typeof replacer !== 'string' && typeof replacer !== 'function')
-    throw new TypeError(
-      'Second argument `replacer` must be a string or function.'
-    );
+    throw new TypeError('Argument 2 `replacer` must be a string or function.');
 
   return string.replace(
     /(^ {2,})at (?:(?! \{$).)+(?:\r?\n\1at (?:(?! \{$).)+)*/gmu,

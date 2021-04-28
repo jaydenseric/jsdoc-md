@@ -4,29 +4,29 @@ import codePositionToIndex from '../../private/codePositionToIndex.mjs';
 
 export default (tests) => {
   tests.add(
-    '`codePositionToIndex` with first argument `codePosition` not a `CodePosition` instance.',
+    '`codePositionToIndex` with argument 1 `codePosition` not a `CodePosition` instance.',
     () => {
       throws(() => {
         codePositionToIndex(true);
-      }, new TypeError('First argument `codePosition` must be a `CodePosition` instance.'));
+      }, new TypeError('Argument 1 `codePosition` must be a `CodePosition` instance.'));
     }
   );
 
   tests.add(
-    '`codePositionToIndex` with second argument `code` not a string.',
+    '`codePositionToIndex` with argument 2 `code` not a string.',
     () => {
       throws(() => {
         codePositionToIndex(new CodePosition(1, 1), true);
-      }, new TypeError('Second argument `code` must be a string.'));
+      }, new TypeError('Argument 2 `code` must be a string.'));
     }
   );
 
   tests.add(
-    '`codePositionToIndex` with second argument `code` not a populated string.',
+    '`codePositionToIndex` with argument 2 `code` not a populated string.',
     () => {
       throws(() => {
         codePositionToIndex(new CodePosition(1, 1), '');
-      }, new TypeError('Second argument `code` must be a populated string.'));
+      }, new TypeError('Argument 2 `code` must be a populated string.'));
     }
   );
 

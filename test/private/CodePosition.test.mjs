@@ -2,31 +2,28 @@ import { deepStrictEqual, throws } from 'assert';
 import CodePosition from '../../private/CodePosition.mjs';
 
 export default (tests) => {
-  tests.add('`CodePosition` with first argument `line` not a number.', () => {
+  tests.add('`CodePosition` with argument 1 `line` not a number.', () => {
     throws(() => {
       new CodePosition(true);
-    }, new TypeError('First argument `line` must be a number.'));
+    }, new TypeError('Argument 1 `line` must be a number.'));
   });
 
-  tests.add('`CodePosition` with first argument `line` < 1.', () => {
+  tests.add('`CodePosition` with argument 1 `line` < 1.', () => {
     throws(() => {
       new CodePosition(0);
-    }, new RangeError('First argument `line` must be >= 1.'));
+    }, new RangeError('Argument 1 `line` must be >= 1.'));
   });
 
-  tests.add(
-    '`CodePosition` with second argument `column` not a number.',
-    () => {
-      throws(() => {
-        new CodePosition(1, true);
-      }, new TypeError('Second argument `column` must be a number.'));
-    }
-  );
+  tests.add('`CodePosition` with argument 2 `column` not a number.', () => {
+    throws(() => {
+      new CodePosition(1, true);
+    }, new TypeError('Argument 2 `column` must be a number.'));
+  });
 
-  tests.add('`CodePosition` with second argument `column` < 1.', () => {
+  tests.add('`CodePosition` with argument 2 `column` < 1.', () => {
     throws(() => {
       new CodePosition(1, 0);
-    }, new RangeError('Second argument `column` must be >= 1.'));
+    }, new RangeError('Argument 2 `column` must be >= 1.'));
   });
 
   tests.add('`CodePosition` with arguments valid.', () => {

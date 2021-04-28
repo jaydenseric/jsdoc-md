@@ -3,11 +3,11 @@ import deconstructJsdocNamepath from '../../private/deconstructJsdocNamepath.mjs
 
 export default (tests) => {
   tests.add(
-    '`deconstructJsdocNamepath` with first argument `namepath` not a string.',
+    '`deconstructJsdocNamepath` with argument 1 `namepath` not a string.',
     () => {
       throws(() => {
         deconstructJsdocNamepath(undefined);
-      }, new TypeError('First argument `namepath` must be a string.'));
+      }, new TypeError('Argument 1 `namepath` must be a string.'));
     }
   );
 

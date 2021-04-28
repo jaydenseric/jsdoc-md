@@ -21,25 +21,23 @@ import CodeLocation from './CodeLocation.mjs';
 export default class InvalidJsdocError extends CliError {
   constructor(message, codeFileLocation, code) {
     if (typeof message !== 'string')
-      throw new TypeError('First argument `message` must be a string.');
+      throw new TypeError('Argument 1 `message` must be a string.');
 
     if (typeof codeFileLocation !== 'object')
-      throw new TypeError(
-        'Second argument `codeFileLocation` must be an object.'
-      );
+      throw new TypeError('Argument 2 `codeFileLocation` must be an object.');
 
     if (typeof codeFileLocation.filePath !== 'string')
       throw new TypeError(
-        'Second argument `codeFileLocation` property `filePath` must be a string.'
+        'Argument 2 `codeFileLocation` property `filePath` must be a string.'
       );
 
     if (!(codeFileLocation.codeLocation instanceof CodeLocation))
       throw new TypeError(
-        'Second argument `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'
+        'Argument 2 `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'
       );
 
     if (typeof code !== 'string')
-      throw new TypeError('Third argument `code` must be a string.');
+      throw new TypeError('Argument 3 `code` must be a string.');
 
     const displayEnd =
       // There is an end code position.

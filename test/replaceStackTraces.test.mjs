@@ -3,20 +3,20 @@ import replaceStackTraces from './replaceStackTraces.mjs';
 
 export default (tests) => {
   tests.add(
-    '`replaceStackTraces` with first argument `string` not a string.',
+    '`replaceStackTraces` with argument 1 `string` not a string.',
     () => {
       throws(() => {
         replaceStackTraces(true);
-      }, new TypeError('First argument `string` must be a string.'));
+      }, new TypeError('Argument 1 `string` must be a string.'));
     }
   );
 
   tests.add(
-    '`replaceStackTraces` with second argument `replacer` not a string or function.',
+    '`replaceStackTraces` with argument 2 `replacer` not a string or function.',
     () => {
       throws(() => {
         replaceStackTraces('', true);
-      }, new TypeError('Second argument `replacer` must be a string or function.'));
+      }, new TypeError('Argument 2 `replacer` must be a string or function.'));
     }
   );
 

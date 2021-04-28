@@ -12,13 +12,13 @@ export default class CodeLocation {
   constructor(start, end) {
     if (!(start instanceof CodePosition))
       throw new TypeError(
-        'First argument `start` must be a `CodePosition` instance.'
+        'Argument 1 `start` must be a `CodePosition` instance.'
       );
 
     if (arguments.length > 1) {
       if (!(end instanceof CodePosition))
         throw new TypeError(
-          'Second argument `end` must be a `CodePosition` instance.'
+          'Argument 2 `end` must be a `CodePosition` instance.'
         );
 
       if (
@@ -26,7 +26,7 @@ export default class CodeLocation {
         (start.line === end.line && start.column > end.column)
       )
         throw new TypeError(
-          'Second argument `end` must be a code position at or beyond the start code position.'
+          'Argument 2 `end` must be a code position at or beyond the start code position.'
         );
     }
 

@@ -39,18 +39,15 @@ const KIND_ORDER = [
  */
 export default function membersToMdAst(members, codeFiles, topDepth = 1) {
   if (!Array.isArray(members))
-    throw new TypeError('First argument `members` must be an array.');
+    throw new TypeError('Argument 1 `members` must be an array.');
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError(
-      'Second argument `codeFiles` must be a `Map` instance.'
-    );
+    throw new TypeError('Argument 2 `codeFiles` must be a `Map` instance.');
 
   if (typeof topDepth !== 'number')
-    throw new TypeError('Third argument `topDepth` must be a number.');
+    throw new TypeError('Argument 3 `topDepth` must be a number.');
 
-  if (topDepth < 1)
-    throw new RangeError('Third argument `topDepth` must be >= 1.');
+  if (topDepth < 1) throw new RangeError('Argument 3 `topDepth` must be >= 1.');
 
   const outlinedMembers = outlineMembers(members, codeFiles);
   const mdAst = {

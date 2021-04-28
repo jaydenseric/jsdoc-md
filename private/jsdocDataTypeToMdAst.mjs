@@ -24,33 +24,33 @@ export default function jsdocDataTypeToMdAst(
   parameter
 ) {
   if (typeof jsdocData !== 'object')
-    throw new TypeError('First argument `jsdocData` must be an object.');
+    throw new TypeError('Argument 1 `jsdocData` must be an object.');
 
   if (typeof jsdocData.codeFileLocation !== 'object')
     throw new TypeError(
-      'First argument `jsdocData` property `codeFileLocation` must be an object.'
+      'Argument 1 `jsdocData` property `codeFileLocation` must be an object.'
     );
 
   if (typeof jsdocData.codeFileLocation.filePath !== 'string')
     throw new TypeError(
-      'First argument `jsdocData` property `codeFileLocation` property `filePath` must be a string.'
+      'Argument 1 `jsdocData` property `codeFileLocation` property `filePath` must be a string.'
     );
 
   if (!(jsdocData.codeFileLocation.codeLocation instanceof CodeLocation))
     throw new TypeError(
-      'First argument `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'
+      'Argument 1 `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'
     );
 
   if (typeof jsdocData.data !== 'string')
     throw new TypeError(
-      'First argument `jsdocData` property `data` must be a string.'
+      'Argument 1 `jsdocData` property `data` must be a string.'
     );
 
   if (!Array.isArray(members))
-    throw new TypeError('Second argument `members` must be an array.');
+    throw new TypeError('Argument 2 `members` must be an array.');
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Third argument `codeFiles` must be a `Map` instance.');
+    throw new TypeError('Argument 3 `codeFiles` must be a `Map` instance.');
 
   try {
     return typeAstToMdAst(

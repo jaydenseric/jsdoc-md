@@ -38,37 +38,31 @@ const jsdocTestExamples = ` * @example
  * \`\`\``;
 
 export default (tests) => {
-  tests.add(
-    '`membersToMdAst` with first argument `members` not an array.',
-    () => {
-      throws(() => {
-        membersToMdAst(true);
-      }, new TypeError('First argument `members` must be an array.'));
-    }
-  );
+  tests.add('`membersToMdAst` with argument 1 `members` not an array.', () => {
+    throws(() => {
+      membersToMdAst(true);
+    }, new TypeError('Argument 1 `members` must be an array.'));
+  });
 
   tests.add(
-    '`membersToMdAst` with second argument `codeFiles` not a `Map` instance.',
+    '`membersToMdAst` with argument 2 `codeFiles` not a `Map` instance.',
     () => {
       throws(() => {
         membersToMdAst([], true);
-      }, new TypeError('Second argument `codeFiles` must be a `Map` instance.'));
+      }, new TypeError('Argument 2 `codeFiles` must be a `Map` instance.'));
     }
   );
 
-  tests.add(
-    '`membersToMdAst` with third argument `topDepth` not a number.',
-    () => {
-      throws(() => {
-        membersToMdAst([], new Map(), true);
-      }, new TypeError('Third argument `topDepth` must be a number.'));
-    }
-  );
+  tests.add('`membersToMdAst` with argument 3 `topDepth` not a number.', () => {
+    throws(() => {
+      membersToMdAst([], new Map(), true);
+    }, new TypeError('Argument 3 `topDepth` must be a number.'));
+  });
 
-  tests.add('`membersToMdAst` with third argument `topDepth` < 1.', () => {
+  tests.add('`membersToMdAst` with argument 3 `topDepth` < 1.', () => {
     throws(() => {
       membersToMdAst([], new Map(), 0);
-    }, new RangeError('Third argument `topDepth` must be >= 1.'));
+    }, new RangeError('Argument 3 `topDepth` must be >= 1.'));
   });
 
   tests.add('`membersToMdAst` with no members.', async () => {

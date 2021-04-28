@@ -16,19 +16,17 @@ export default function jsdocCommentsToMembers(
   codeFilePath
 ) {
   if (!Array.isArray(jsdocComments))
-    throw new TypeError('First argument `jsdocComments` must be an array.');
+    throw new TypeError('Argument 1 `jsdocComments` must be an array.');
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError(
-      'Second argument `codeFiles` must be a `Map` instance.'
-    );
+    throw new TypeError('Argument 2 `codeFiles` must be a `Map` instance.');
 
   if (typeof codeFilePath !== 'string')
-    throw new TypeError('Third argument `codeFilePath` must be a string.');
+    throw new TypeError('Argument 3 `codeFilePath` must be a string.');
 
   if (codeFilePath === '')
     throw new TypeError(
-      'Third argument `codeFilePath` must be a populated string.'
+      'Argument 3 `codeFilePath` must be a populated string.'
     );
 
   const members = [];

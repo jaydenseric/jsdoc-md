@@ -14,27 +14,27 @@ const TEST_CODE_FILE_PATH = '/a.js';
 
 export default (tests) => {
   tests.add(
-    '`jsdocDataMdToMdAst` with first argument `jsdocData` not an object.',
+    '`jsdocDataMdToMdAst` with argument 1 `jsdocData` not an object.',
     () => {
       throws(() => {
         jsdocDataMdToMdAst(true);
-      }, new TypeError('First argument `jsdocData` must be an object.'));
+      }, new TypeError('Argument 1 `jsdocData` must be an object.'));
     }
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `codeFileLocation` not an object.',
+    '`jsdocDataMdToMdAst` with argument 1 `jsdocData` property `codeFileLocation` not an object.',
     () => {
       throws(() => {
         jsdocDataMdToMdAst({
           codeFileLocation: true,
         });
-      }, new TypeError('First argument `jsdocData` property `codeFileLocation` must be an object.'));
+      }, new TypeError('Argument 1 `jsdocData` property `codeFileLocation` must be an object.'));
     }
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `codeFileLocation` property `filePath` not a string.',
+    '`jsdocDataMdToMdAst` with argument 1 `jsdocData` property `codeFileLocation` property `filePath` not a string.',
     () => {
       throws(() => {
         jsdocDataMdToMdAst({
@@ -42,12 +42,12 @@ export default (tests) => {
             filePath: true,
           },
         });
-      }, new TypeError('First argument `jsdocData` property `codeFileLocation` property `filePath` must be a string.'));
+      }, new TypeError('Argument 1 `jsdocData` property `codeFileLocation` property `filePath` must be a string.'));
     }
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `codeFileLocation` property `codeLocation` not a `CodeLocation` instance.',
+    '`jsdocDataMdToMdAst` with argument 1 `jsdocData` property `codeFileLocation` property `codeLocation` not a `CodeLocation` instance.',
     () => {
       throws(() => {
         jsdocDataMdToMdAst({
@@ -56,12 +56,12 @@ export default (tests) => {
             codeLocation: true,
           },
         });
-      }, new TypeError('First argument `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'));
+      }, new TypeError('Argument 1 `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'));
     }
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with first argument `jsdocData` property `data` not a string.',
+    '`jsdocDataMdToMdAst` with argument 1 `jsdocData` property `data` not a string.',
     () => {
       throws(() => {
         jsdocDataMdToMdAst({
@@ -74,12 +74,12 @@ export default (tests) => {
           },
           data: true,
         });
-      }, new TypeError('First argument `jsdocData` property `data` must be a string.'));
+      }, new TypeError('Argument 1 `jsdocData` property `data` must be a string.'));
     }
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with second argument `members` not an array.',
+    '`jsdocDataMdToMdAst` with argument 2 `members` not an array.',
     () => {
       throws(() => {
         jsdocDataMdToMdAst(
@@ -95,12 +95,12 @@ export default (tests) => {
           },
           true
         );
-      }, new TypeError('Second argument `members` must be an array.'));
+      }, new TypeError('Argument 2 `members` must be an array.'));
     }
   );
 
   tests.add(
-    '`jsdocDataMdToMdAst` with third argument `codeFiles` not a `Map` instance.',
+    '`jsdocDataMdToMdAst` with argument 3 `codeFiles` not a `Map` instance.',
     () => {
       throws(() => {
         jsdocDataMdToMdAst(
@@ -117,7 +117,7 @@ export default (tests) => {
           [],
           true
         );
-      }, new TypeError('Third argument `codeFiles` must be a `Map` instance.'));
+      }, new TypeError('Argument 3 `codeFiles` must be a `Map` instance.'));
     }
   );
 

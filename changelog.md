@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dev dependencies.
+- Simplified `TypeError` messages.
 - Readme tweaks.
 
 ## 10.0.1

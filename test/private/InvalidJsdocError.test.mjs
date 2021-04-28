@@ -9,59 +9,56 @@ import InvalidJsdocError from '../../private/InvalidJsdocError.mjs';
 
 export default (tests) => {
   tests.add(
-    '`InvalidJsdocError` with first argument `message` not a string.',
+    '`InvalidJsdocError` with argument 1 `message` not a string.',
     () => {
       throws(() => {
         new InvalidJsdocError(true);
-      }, new TypeError('First argument `message` must be a string.'));
+      }, new TypeError('Argument 1 `message` must be a string.'));
     }
   );
 
   tests.add(
-    '`InvalidJsdocError` with second argument `codeFileLocation` not an object.',
+    '`InvalidJsdocError` with argument 2 `codeFileLocation` not an object.',
     () => {
       throws(() => {
         new InvalidJsdocError('a', true);
-      }, new TypeError('Second argument `codeFileLocation` must be an object.'));
+      }, new TypeError('Argument 2 `codeFileLocation` must be an object.'));
     }
   );
 
   tests.add(
-    '`InvalidJsdocError` with second argument `codeFileLocation` property `filePath` not a string.',
+    '`InvalidJsdocError` with argument 2 `codeFileLocation` property `filePath` not a string.',
     () => {
       throws(() => {
         new InvalidJsdocError('a', {});
-      }, new TypeError('Second argument `codeFileLocation` property `filePath` must be a string.'));
+      }, new TypeError('Argument 2 `codeFileLocation` property `filePath` must be a string.'));
     }
   );
 
   tests.add(
-    '`InvalidJsdocError` with second argument `codeFileLocation` property `codeLocation` not a `CodeLocation` instance.',
+    '`InvalidJsdocError` with argument 2 `codeFileLocation` property `codeLocation` not a `CodeLocation` instance.',
     () => {
       throws(() => {
         new InvalidJsdocError('a', {
           filePath: '/a.js',
           codeLocation: true,
         });
-      }, new TypeError('Second argument `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'));
+      }, new TypeError('Argument 2 `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'));
     }
   );
 
-  tests.add(
-    '`InvalidJsdocError` with third argument `code` not a string.',
-    () => {
-      throws(() => {
-        new InvalidJsdocError(
-          'a',
-          {
-            filePath: '/a.js',
-            codeLocation: new CodeLocation(new CodePosition(1, 4)),
-          },
-          true
-        );
-      }, new TypeError('Third argument `code` must be a string.'));
-    }
-  );
+  tests.add('`InvalidJsdocError` with argument 3 `code` not a string.', () => {
+    throws(() => {
+      new InvalidJsdocError(
+        'a',
+        {
+          filePath: '/a.js',
+          codeLocation: new CodeLocation(new CodePosition(1, 4)),
+        },
+        true
+      );
+    }, new TypeError('Argument 3 `code` must be a string.'));
+  });
 
   tests.add(
     '`InvalidJsdocError` with code location end position, none.',

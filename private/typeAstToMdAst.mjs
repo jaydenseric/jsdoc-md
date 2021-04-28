@@ -9,10 +9,10 @@
  */
 export default function typeAstToMdAst(typeJsdocAst, members) {
   if (typeof typeJsdocAst !== 'object')
-    throw new TypeError('First argument `typeJsdocAst` must be an object.');
+    throw new TypeError('Argument 1 `typeJsdocAst` must be an object.');
 
   if (!Array.isArray(members))
-    throw new TypeError('Second argument `members` must be an array.');
+    throw new TypeError('Argument 2 `members` must be an array.');
 
   const children = [];
 

@@ -11,14 +11,14 @@ import { parseAsync } from '@babel/core';
  */
 export default async function codeToJsdocComments(code, codeFilePath) {
   if (typeof code !== 'string')
-    throw new TypeError('First argument `code` must be a string.');
+    throw new TypeError('Argument 1 `code` must be a string.');
 
   if (typeof codeFilePath !== 'string')
-    throw new TypeError('Second argument `codeFilePath` must be a string.');
+    throw new TypeError('Argument 2 `codeFilePath` must be a string.');
 
   if (codeFilePath === '')
     throw new TypeError(
-      'Second argument `codeFilePath` must be a populated string.'
+      'Argument 2 `codeFilePath` must be a populated string.'
     );
 
   const { comments } = await parseAsync(code, {

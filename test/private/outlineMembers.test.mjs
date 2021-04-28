@@ -10,23 +10,20 @@ import jsdocCommentsToMembers from '../jsdocCommentsToMembers.mjs';
 const TEST_CODE_FILE_PATH = '/a.js';
 
 export default (tests) => {
-  tests.add(
-    '`outlineMembers` with first argument `members` not an array.',
-    () => {
-      const codeFiles = new Map([[TEST_CODE_FILE_PATH, '']]);
+  tests.add('`outlineMembers` with argument 1 `members` not an array.', () => {
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, '']]);
 
-      throws(() => {
-        outlineMembers(true, codeFiles);
-      }, new TypeError('First argument `members` must be an array.'));
-    }
-  );
+    throws(() => {
+      outlineMembers(true, codeFiles);
+    }, new TypeError('Argument 1 `members` must be an array.'));
+  });
 
   tests.add(
-    '`outlineMembers` with second argument `codeFiles` not a `Map` instance.',
+    '`outlineMembers` with argument 2 `codeFiles` not a `Map` instance.',
     () => {
       throws(() => {
         outlineMembers([], true);
-      }, new TypeError('Second argument `codeFiles` must be a `Map` instance.'));
+      }, new TypeError('Argument 2 `codeFiles` must be a `Map` instance.'));
     }
   );
 

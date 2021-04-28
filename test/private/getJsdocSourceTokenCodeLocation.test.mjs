@@ -9,16 +9,16 @@ const { default: getCommentParser } = CommentParserParser;
 
 export default (tests) => {
   tests.add(
-    '`getJsdocSourceTokenCodeLocation` with first argument `jsdocSource` not an array.',
+    '`getJsdocSourceTokenCodeLocation` with argument 1 `jsdocSource` not an array.',
     () => {
       throws(() => {
         getJsdocSourceTokenCodeLocation(true);
-      }, new TypeError('First argument `jsdocSource` must be an array.'));
+      }, new TypeError('Argument 1 `jsdocSource` must be an array.'));
     }
   );
 
   tests.add(
-    '`getJsdocSourceTokenCodeLocation` with second argument `dataTokenName` not a string.',
+    '`getJsdocSourceTokenCodeLocation` with argument 2 `dataTokenName` not a string.',
     () => {
       const [
         {
@@ -31,12 +31,12 @@ export default (tests) => {
 
       throws(() => {
         getJsdocSourceTokenCodeLocation(source, true);
-      }, new TypeError('Second argument `dataTokenName` must be a string.'));
+      }, new TypeError('Argument 2 `dataTokenName` must be a string.'));
     }
   );
 
   tests.add(
-    '`getJsdocSourceTokenCodeLocation` with second argument `dataTokenName` not an data token name.',
+    '`getJsdocSourceTokenCodeLocation` with argument 2 `dataTokenName` not an data token name.',
     () => {
       const [
         {
@@ -49,12 +49,12 @@ export default (tests) => {
 
       throws(() => {
         getJsdocSourceTokenCodeLocation(source, 'notavalidtokenname');
-      }, new TypeError('Second argument `dataTokenName` must be a JSDoc source data token name.'));
+      }, new TypeError('Argument 2 `dataTokenName` must be a JSDoc source data token name.'));
     }
   );
 
   tests.add(
-    '`getJsdocSourceTokenCodeLocation` with third argument `firstLineStartColumnNumber` not a `CodePosition` instance.',
+    '`getJsdocSourceTokenCodeLocation` with argument 3 `firstLineStartColumnNumber` not a `CodePosition` instance.',
     () => {
       const [
         {
@@ -67,7 +67,7 @@ export default (tests) => {
 
       throws(() => {
         getJsdocSourceTokenCodeLocation(source, 'name', true);
-      }, new TypeError('Third argument `startCodePosition` must be a `CodePosition` instance.'));
+      }, new TypeError('Argument 3 `startCodePosition` must be a `CodePosition` instance.'));
     }
   );
 

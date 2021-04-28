@@ -8,11 +8,11 @@ const { default: getCommentParser } = CommentParserParser;
 
 export default (tests) => {
   tests.add(
-    '`getJsdocBlockDescriptionSource` with first argument `jsdocBlock` not an object.',
+    '`getJsdocBlockDescriptionSource` with argument 1 `jsdocBlock` not an object.',
     () => {
       throws(() => {
         getJsdocBlockDescriptionSource(true);
-      }, new TypeError('First argument `jsdocBlock` must be an object.'));
+      }, new TypeError('Argument 1 `jsdocBlock` must be an object.'));
     }
   );
 
