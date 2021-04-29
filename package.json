@@ -86,10 +86,11 @@
   },
   "scripts": {
     "jsdoc": "node cli/jsdoc-md.mjs",
-    "test": "npm run test:eslint && npm run test:prettier && npm run test:api",
+    "test": "npm run test:eslint && npm run test:prettier && npm run test:jsdoc && npm run test:api",
     "test:eslint": "eslint --ext mjs,js .",
     "test:prettier": "prettier -c .",
+    "test:jsdoc": "node cli/jsdoc-md.mjs -c",
     "test:api": "coverage-node test/index.mjs",
-    "prepublishOnly": "npm run jsdoc && npm test"
+    "prepublishOnly": "npm test"
   }
 }

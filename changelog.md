@@ -2,9 +2,14 @@
 
 ## Next
 
+### Minor
+
+- Added a new `--check` (and alias `-c`) argument for the command `jsdoc-md` and a `check` option for the function `jsdocMd` to specify if an error should be thrown instead of updating the markdown file if the contents would change; useful for checking docs are up to date in CI. Fixes [#22](https://github.com/jaydenseric/jsdoc-md/issues/22).
+
 ### Patch
 
 - Updated dev dependencies.
+- The command `jsdoc-md` and the function `jsdocMd` no longer updates the markdown file if there are no changes.
 - Simplified `TypeError` messages.
 - Readme tweaks.
 

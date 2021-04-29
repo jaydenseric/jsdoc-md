@@ -1,10 +1,11 @@
 import fs from 'fs';
 import { resolve } from 'path';
 import globby from 'globby';
+import CliError from '../private/CliError.mjs';
 import codeToJsdocComments from '../private/codeToJsdocComments.mjs';
 import jsdocCommentToMember from '../private/jsdocCommentToMember.mjs';
-import mdFileReplaceSection from '../private/mdFileReplaceSection.mjs';
 import membersToMdAst from '../private/membersToMdAst.mjs';
+import replaceMdSection from '../private/replaceMdSection.mjs';
 
 /**
  * Analyzes JSDoc from source files to populate a markdown file documentation
@@ -18,6 +19,7 @@ import membersToMdAst from '../private/membersToMdAst.mjs';
  * @param {string} [options.sourceGlob='**\/*.{mjs,cjs,js}'] JSDoc source file glob pattern.
  * @param {string} [options.markdownPath='readme.md'] Path to the markdown file for docs insertion.
  * @param {string} [options.targetHeading='API'] Markdown file heading to insert docs under.
+ * @param {boolean} [options.check=false] Should an error be thrown instead of updating the markdown file if the contents would change; useful for checking docs are up to date in CI.
  * @returns {Promise<void>} Resolves once the operation is done.
  * @example <caption>Ways to `import`.</caption>
  * ```js
@@ -27,7 +29,7 @@ import membersToMdAst from '../private/membersToMdAst.mjs';
  * ```js
  * import jsdocMd from 'jsdoc-md/public/jsdocMd.mjs';
  * ```
- * @example <caption>Customizing all options.</caption>
+ * @example <caption>Customizing options.</caption>
  * ```js
  * jsdocMd({
  *   cwd: '/path/to/project',
@@ -44,6 +46,7 @@ export default async function jsdocMd({
   sourceGlob = '**/*.{mjs,cjs,js}',
   markdownPath = 'readme.md',
   targetHeading = 'API',
+  check = false,
 } = {}) {
   if (typeof cwd !== 'string')
     throw new TypeError('Option `cwd` must be a string.');
@@ -68,6 +71,9 @@ export default async function jsdocMd({
 
   if (targetHeading === '')
     throw new TypeError('Option `targetHeading` must be a populated string.');
+
+  if (typeof check !== 'boolean')
+    throw new TypeError('Option `check` must be a boolean.');
 
   const codeFilePaths = await globby(sourceGlob, { cwd, gitignore: true });
   const codeFiles = new Map();
@@ -99,9 +105,55 @@ export default async function jsdocMd({
     })
   );
 
-  await mdFileReplaceSection({
-    markdownPath: resolve(cwd, markdownPath),
+  const mdAbsolutePath = resolve(cwd, markdownPath);
+  const mdOriginal = await fs.promises.readFile(mdAbsolutePath, 'utf8');
+
+  let mdUpdated = replaceMdSection(
+    mdOriginal,
     targetHeading,
-    replacementAst: membersToMdAst(jsdocMembers, codeFiles),
-  });
+    membersToMdAst(jsdocMembers, codeFiles)
+  );
+
+  try {
+    var { default: prettier } =
+      // See: https://github.com/mysticatea/eslint-plugin-node/issues/250
+      // eslint-disable-next-line node/no-unsupported-features/es-syntax
+      await import('prettier');
+    // It would be great if there was a way to test this without Prettier
+    // installed.
+    // coverage ignore next line
+  } catch (error) {
+    // Ignore the error, as Prettier is an optional peer dependency.
+  }
+
+  if (prettier) {
+    // Determine if the the markdown file is Prettier ignored.
+    const { ignored, inferredParser } = await prettier.getFileInfo(
+      mdAbsolutePath,
+      {
+        resolveConfig: true,
+        ignorePath:
+          // Prettier CLI doesn’t resolve the ignore file like Git, npm, etc.
+          // See: https://github.com/prettier/prettier/issues/4081
+          resolve(cwd, '.prettierignore'),
+      }
+    );
+
+    if (!ignored) {
+      // Get the Prettier config for the file.
+      const prettierConfig = await prettier.resolveConfig(mdAbsolutePath, {
+        editorconfig: true,
+      });
+
+      // Prettier format the new file contents.
+      mdUpdated = prettier.format(mdUpdated, {
+        ...prettierConfig,
+        parser: inferredParser || 'markdown',
+      });
+    }
+  }
+
+  if (mdOriginal !== mdUpdated)
+    if (check) throw new CliError('Checked markdown needs updating.');
+    else await fs.promises.writeFile(mdAbsolutePath, mdUpdated);
 }

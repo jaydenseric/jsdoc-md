@@ -465,16 +465,16 @@ export default (tests) => {
 
   tests.add('`jsdoc-md` CLI with defaults.', async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const fileNameSourceIgnored = 'D.js';
-      const pathGitignore = join(tempDirPath, '.gitignore');
+      const fileNameSourceGitIgnored = 'GitIgnored.js';
+      const pathGitIgnore = join(tempDirPath, '.gitignore');
       const pathMd = join(tempDirPath, 'readme.md');
-      const pathSourceMjs = join(tempDirPath, 'A.mjs');
-      const pathSourceCjs = join(tempDirPath, 'B.cjs');
-      const pathSourceJs = join(tempDirPath, 'C.js');
-      const pathSourceIgnored = join(tempDirPath, fileNameSourceIgnored);
+      const pathSourceMjs = join(tempDirPath, 'MJS.mjs');
+      const pathSourceCjs = join(tempDirPath, 'CJS.cjs');
+      const pathSourceJs = join(tempDirPath, 'JS.js');
+      const pathSourceGitIgnored = join(tempDirPath, fileNameSourceGitIgnored);
 
       await Promise.all([
-        fs.promises.writeFile(pathGitignore, fileNameSourceIgnored),
+        fs.promises.writeFile(pathGitIgnore, fileNameSourceGitIgnored),
         fs.promises.writeFile(
           pathMd,
           `# Preserve
@@ -490,40 +490,36 @@ Replace.
           pathSourceMjs,
           `/**
  * @kind constant
- * @name A
- * @type {string}
+ * @name MJS
  */
-export default 'A';
+export default 1;
 `
         ),
         fs.promises.writeFile(
           pathSourceCjs,
           `/**
  * @kind constant
- * @name B
- * @type {string}
+ * @name CJS
  */
-module.exports = 'B';
+module.exports = 1;
 `
         ),
         fs.promises.writeFile(
           pathSourceJs,
           `/**
  * @kind constant
- * @name C
- * @type {string}
+ * @name JS
  */
-module.exports = 'C';
+module.exports = 1;
 `
         ),
         fs.promises.writeFile(
-          pathSourceIgnored,
+          pathSourceGitIgnored,
           `/**
  * @kind constant
- * @name D
- * @type {string}
+ * @name GitIgnored
  */
-export default 'D';
+export default 1;
 `
         ),
       ]);
@@ -556,15 +552,15 @@ export default 'D';
   tests.add('`jsdoc-md` CLI with arguments.', async () => {
     await disposableDirectory(async (tempDirPath) => {
       const targetHeading = 'Target';
-      const fileNameSourceIgnored = 'B.jsx';
+      const fileNameSourceGitIgnored = 'B.jsx';
       const fileNameMd = 'markdown.md';
-      const pathGitignore = join(tempDirPath, '.gitignore');
+      const pathGitIgnore = join(tempDirPath, '.gitignore');
       const pathMd = join(tempDirPath, fileNameMd);
       const pathSource = join(tempDirPath, 'A.jsx');
-      const pathSourceIgnored = join(tempDirPath, fileNameSourceIgnored);
+      const pathSourceGitIgnored = join(tempDirPath, fileNameSourceGitIgnored);
 
       await Promise.all([
-        fs.promises.writeFile(pathGitignore, fileNameSourceIgnored),
+        fs.promises.writeFile(pathGitIgnore, fileNameSourceGitIgnored),
         fs.promises.writeFile(
           pathMd,
           `# Preserve
@@ -581,19 +577,17 @@ Replace.
           `/**
  * @kind constant
  * @name A
- * @type {string}
  */
-export default 'A';
+export default 1;
 `
         ),
         fs.promises.writeFile(
-          pathSourceIgnored,
+          pathSourceGitIgnored,
           `/**
  * @kind constant
  * @name B
- * @type {string}
  */
-export default 'B';
+export default 1;
 `
         ),
       ]);
@@ -628,10 +622,98 @@ export default 'B';
     });
   });
 
+  tests.add('`jsdoc-md` CLI with argument `--check`.', async () => {
+    await disposableDirectory(async (tempDirPath) => {
+      const pathMd = join(tempDirPath, 'readme.md');
+      const pathSourceMjs = join(tempDirPath, 'MJS.mjs');
+
+      await Promise.all([
+        fs.promises.writeFile(
+          pathMd,
+          `# Preserve
+
+## API
+
+Replace.
+
+## Preserve
+`
+        ),
+        fs.promises.writeFile(
+          pathSourceMjs,
+          `/**
+ * @kind constant
+ * @name MJS
+ */
+export default 1;
+`
+        ),
+      ]);
+
+      const spawnResult1 = spawnSync('node', [JSDOC_MD_CLI_PATH, '--check'], {
+        cwd: tempDirPath,
+        env: {
+          ...process.env,
+          FORCE_COLOR: 1,
+        },
+      });
+
+      if (spawnResult1.error) throw spawnResult1.error;
+
+      strictEqual(spawnResult1.stdout.toString(), '');
+
+      await snapshot(
+        spawnResult1.stderr.toString(),
+        new URL(
+          '../snapshots/jsdoc-md/argument-check-error-stderr.ans',
+          import.meta.url
+        )
+      );
+
+      strictEqual(spawnResult1.status, 1);
+
+      // Update the markdown so the following check will pass.
+      const spawnResult2 = spawnSync('node', [JSDOC_MD_CLI_PATH], {
+        cwd: tempDirPath,
+        env: {
+          ...process.env,
+          FORCE_COLOR: 1,
+        },
+      });
+
+      if (spawnResult2.error) throw spawnResult2.error;
+
+      strictEqual(spawnResult2.stdout.toString(), '');
+      strictEqual(spawnResult2.stderr.toString(), '');
+      strictEqual(spawnResult2.status, 0);
+
+      const { mtimeMs: modifiedTimeMsFirst } = await fs.promises.stat(pathMd);
+
+      const spawnResult3 = spawnSync('node', [JSDOC_MD_CLI_PATH, '--check'], {
+        cwd: tempDirPath,
+        env: {
+          ...process.env,
+          FORCE_COLOR: 1,
+        },
+      });
+
+      if (spawnResult3.error) throw spawnResult3.error;
+
+      strictEqual(spawnResult3.stdout.toString(), '');
+      strictEqual(spawnResult3.stderr.toString(), '');
+      strictEqual(spawnResult3.status, 0);
+
+      const { mtimeMs: modifiedTimeMsSecond } = await fs.promises.stat(pathMd);
+
+      // The file should not have been modified a second time by the check.
+      strictEqual(modifiedTimeMsFirst, modifiedTimeMsSecond);
+    });
+  });
+
   tests.add('`jsdoc-md` CLI with an invalid JSdoc error.', async () => {
     await disposableDirectory(async (tempDirPath) => {
       const pathMd = join(tempDirPath, 'readme.md');
-      const pathSource = join(tempDirPath, 'A.js');
+      const pathSource = join(tempDirPath, 'A.mjs');
       const mdContent = '## API';
 
       await Promise.all([

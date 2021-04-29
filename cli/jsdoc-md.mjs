@@ -22,6 +22,8 @@ async function jsdocMdCli() {
         '-m': '--markdown-path',
         '--target-heading': String,
         '-t': '--target-heading',
+        '--check': Boolean,
+        '-c': '--check',
       },
       {
         // Don’t throw on unexpected arguments.
@@ -46,9 +48,10 @@ async function jsdocMdCli() {
       '--source-glob': sourceGlob,
       '--markdown-path': markdownPath,
       '--target-heading': targetHeading,
+      '--check': check,
     } = expectedArgs;
 
-    await jsdocMd({ sourceGlob, markdownPath, targetHeading });
+    await jsdocMd({ sourceGlob, markdownPath, targetHeading, check });
   } catch (error) {
     let reportError = error;
 

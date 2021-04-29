@@ -12,21 +12,7 @@ To install with [npm](https://npmjs.com/get-npm), run:
 npm install jsdoc-md --save-dev
 ```
 
-Add a [`package.json` script](https://docs.npmjs.com/cli/v7/using-npm/scripts) using the command [`jsdoc-md`](#command-jsdoc-md):
-
-```json
-{
-  "scripts": {
-    "jsdoc": "jsdoc-md"
-  }
-}
-```
-
-Then run the script to update docs:
-
-```sh
-npm run jsdoc
-```
+Then, use either the CLI command [`jsdoc-md`](#command-jsdoc-md) or the function [`jsdocMd`](#function-jsdocmd) to generate documentation.
 
 ## CLI
 
@@ -43,32 +29,44 @@ It implements the function [`jsdocMd`](#function-jsdocmd).
 | `--source-glob` | `-s` | `**/*.{mjs,cjs,js}` | JSDoc source file glob pattern. |
 | `--markdown-path` | `-m` | `readme.md` | Path to the markdown file for docs insertion. |
 | `--target-heading` | `-t` | `API` | Markdown file heading to insert docs under. |
+| `--check` | `-c` |  | Should an error be thrown instead of updating the markdown file if the contents would change; useful for checking docs are up to date in CI. |
 
 #### Examples
 
 _Using [`npx`](https://docs.npmjs.com/cli/v7/commands/npx)._
 
+> With defaults:
+>
 > ```sh
 > npx jsdoc-md
 > ```
+>
+> With arguments:
 >
 > ```sh
 > npx jsdoc-md --source-glob **/*.{mjs,cjs,js} --markdown-path readme.md --target-heading API
 > ```
 
-_Using a [`package.json` script](https://docs.npmjs.com/cli/v7/using-npm/scripts)._
+_Using package scripts._
 
-> The script:
+> [`package.json` scripts](https://docs.npmjs.com/cli/v7/using-npm/scripts) for a project that also uses [`eslint`](https://npm.im/eslint) and [`prettier`](https://npm.im/prettier):
 >
 > ```json
 > {
 >   "scripts": {
->     "jsdoc": "jsdoc-md"
+>     "jsdoc": "jsdoc-md",
+>     "test": "npm run test:eslint && npm run test:prettier && npm run test:jsdoc",
+>     "test:eslint": "eslint .",
+>     "test:prettier": "prettier -c .",
+>     "test:jsdoc": "jsdoc-md -c",
+>     "prepublishOnly": "npm test"
 >   }
 > }
 > ```
 >
-> To run the script:
+> Run the `test:prettier` script before `test:jsdoc` in the `test` script so [`prettier`](https://npm.im/prettier) reports formatting errors instead of `jsdoc-md`.
+>
+> Whenever the source JSDoc changes, run the `jsdoc` script:
 >
 > ```sh
 > npm run jsdoc
@@ -91,6 +89,7 @@ Analyzes JSDoc from source files to populate a markdown file documentation secti
 | `options.sourceGlob` | string? = `**/*.{mjs,cjs,js}` | JSDoc source file glob pattern. |
 | `options.markdownPath` | string? = `readme.md` | Path to the markdown file for docs insertion. |
 | `options.targetHeading` | string? = `API` | Markdown file heading to insert docs under. |
+| `options.check` | boolean? = `false` | Should an error be thrown instead of updating the markdown file if the contents would change; useful for checking docs are up to date in CI. |
 
 **Returns:** Promise\<void> — Resolves once the operation is done.
 
@@ -106,7 +105,7 @@ _Ways to `import`._
 > import jsdocMd from 'jsdoc-md/public/jsdocMd.mjs';
 > ```
 
-_Customizing all options._
+_Customizing options._
 
 > ```js
 > jsdocMd({
