@@ -2,7 +2,7 @@
 
 [![npm version](https://badgen.net/npm/v/jsdoc-md)](https://npm.im/jsdoc-md) [![CI status](https://github.com/jaydenseric/jsdoc-md/workflows/CI/badge.svg)](https://github.com/jaydenseric/jsdoc-md/actions)
 
-A Node.js CLI and equivalent JS API to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
+A [Node.js](https://nodejs.org) [CLI](#cli) and equivalent JS [API](#api) to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
 
 ## Setup
 
@@ -12,7 +12,7 @@ To install with [npm](https://npmjs.com/get-npm), run:
 npm install jsdoc-md --save-dev
 ```
 
-Then, use either the CLI command [`jsdoc-md`](#command-jsdoc-md) or the function [`jsdocMd`](#function-jsdocmd) to generate documentation.
+Then, use either the [CLI](#cli) command [`jsdoc-md`](#command-jsdoc-md) or the JS [API](#api) function [`jsdocMd`](#function-jsdocmd) to generate documentation.
 
 ## CLI
 

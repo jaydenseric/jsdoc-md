@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Readme tweaks.
 
 ## 10.1.0
 
