@@ -115,10 +115,10 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
       if (member.properties) {
         const propertiesTableHasColumnType = member.properties.some(
-          (property) => 'type' in property || 'default' in property
+          ({ type, default: defaultValue }) => type || defaultValue
         );
         const propertiesTableHasColumnDescription = member.properties.some(
-          (property) => 'description' in property
+          ({ description }) => description
         );
         const propertiesTableAlign = ['left'];
         const propertiesTableRowHeader = {
@@ -178,7 +178,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
                 : [],
             };
 
-            if ('default' in property)
+            if (property.default)
               typeTableCell.children.push(
                 { type: 'text', value: ' = ' },
                 ...jsdocDataTypeToMdAst(
@@ -196,14 +196,13 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
           if (propertiesTableHasColumnDescription)
             propertiesTableRow.children.push({
               type: 'tableCell',
-              children:
-                'description' in property
-                  ? jsdocDataMdToMdAst(
-                      property.description,
-                      outlinedMembers,
-                      codeFiles
-                    )
-                  : [],
+              children: property.description
+                ? jsdocDataMdToMdAst(
+                    property.description,
+                    outlinedMembers,
+                    codeFiles
+                  )
+                : [],
             });
 
           propertiesTable.children.push(propertiesTableRow);
@@ -214,10 +213,10 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
       if (member.parameters) {
         const parametersTableHasColumnType = member.parameters.some(
-          (parameter) => 'type' in parameter || 'default' in parameter
+          ({ type, default: defaultValue }) => type || defaultValue
         );
         const parametersTableHasColumnDescription = member.parameters.some(
-          (parameter) => 'description' in parameter
+          ({ description }) => description
         );
         const parametersTableAlign = ['left'];
         const parametersTableRowHeader = {
@@ -277,7 +276,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
                 : [],
             };
 
-            if ('default' in parameter)
+            if (parameter.default)
               typeTableCell.children.push(
                 { type: 'text', value: ' = ' },
                 ...jsdocDataTypeToMdAst(
@@ -295,14 +294,13 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
           if (parametersTableHasColumnDescription)
             parametersTableRow.children.push({
               type: 'tableCell',
-              children:
-                'description' in parameter
-                  ? jsdocDataMdToMdAst(
-                      parameter.description,
-                      outlinedMembers,
-                      codeFiles
-                    )
-                  : [],
+              children: parameter.description
+                ? jsdocDataMdToMdAst(
+                    parameter.description,
+                    outlinedMembers,
+                    codeFiles
+                  )
+                : [],
             });
 
           parametersTable.children.push(parametersTableRow);
