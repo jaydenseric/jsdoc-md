@@ -50,7 +50,22 @@
         "data": "boolean"
       },
       "optional": true,
-      "default": "true"
+      "default": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 20
+            },
+            "end": {
+              "line": 4,
+              "column": 27
+            }
+          }
+        },
+        "data": "true"
+      }
     },
     {
       "name": "b",
@@ -71,7 +86,22 @@
         "data": "boolean"
       },
       "optional": true,
-      "default": "true"
+      "default": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 24
+            },
+            "end": {
+              "line": 5,
+              "column": 31
+            }
+          }
+        },
+        "data": "true"
+      }
     }
   ]
 }

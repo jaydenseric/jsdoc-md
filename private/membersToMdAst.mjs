@@ -114,147 +114,201 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
         });
 
       if (member.properties) {
-        const propTable = {
-          type: 'table',
-          align: ['left', 'left', 'left'],
+        const propertiesTableHasColumnType = member.properties.some(
+          (property) => 'type' in property || 'default' in property
+        );
+        const propertiesTableHasColumnDescription = member.properties.some(
+          (property) => 'description' in property
+        );
+        const propertiesTableAlign = ['left'];
+        const propertiesTableRowHeader = {
+          type: 'tableRow',
           children: [
             {
-              type: 'tableRow',
-              children: [
-                {
-                  type: 'tableCell',
-                  children: [{ type: 'text', value: 'Property' }],
-                },
-                {
-                  type: 'tableCell',
-                  children: [{ type: 'text', value: 'Type' }],
-                },
-                {
-                  type: 'tableCell',
-                  children: [{ type: 'text', value: 'Description' }],
-                },
-              ],
+              type: 'tableCell',
+              children: [{ type: 'text', value: 'Property' }],
             },
           ],
         };
 
+        if (propertiesTableHasColumnType) {
+          propertiesTableAlign.push('left');
+          propertiesTableRowHeader.children.push({
+            type: 'tableCell',
+            children: [{ type: 'text', value: 'Type' }],
+          });
+        }
+
+        if (propertiesTableHasColumnDescription) {
+          propertiesTableAlign.push('left');
+          propertiesTableRowHeader.children.push({
+            type: 'tableCell',
+            children: [{ type: 'text', value: 'Description' }],
+          });
+        }
+
+        const propertiesTable = {
+          type: 'table',
+          align: propertiesTableAlign,
+          children: [propertiesTableRowHeader],
+        };
+
         for (const property of member.properties) {
-          const typeCellChildren = jsdocDataTypeToMdAst(
-            property.type,
-            outlinedMembers,
-            codeFiles,
-            property.optional,
-            false
-          );
-
-          if ('default' in property)
-            typeCellChildren.push(
-              { type: 'text', value: ' = ' },
-              ...jsdocDataTypeToMdAst(
-                {
-                  ...property.type,
-                  data: property.default,
-                },
-                outlinedMembers,
-                codeFiles,
-                false,
-                false
-              )
-            );
-
-          propTable.children.push({
+          const propertiesTableRow = {
             type: 'tableRow',
             children: [
               {
                 type: 'tableCell',
                 children: [{ type: 'inlineCode', value: property.name }],
               },
-              { type: 'tableCell', children: typeCellChildren },
-              {
-                type: 'tableCell',
-                children: jsdocDataMdToMdAst(
-                  property.description,
-                  outlinedMembers,
-                  codeFiles
-                ),
-              },
             ],
-          });
+          };
+
+          if (propertiesTableHasColumnType) {
+            const typeTableCell = {
+              type: 'tableCell',
+              children: property.type
+                ? jsdocDataTypeToMdAst(
+                    property.type,
+                    outlinedMembers,
+                    codeFiles,
+                    property.optional,
+                    false
+                  )
+                : [],
+            };
+
+            if ('default' in property)
+              typeTableCell.children.push(
+                { type: 'text', value: ' = ' },
+                ...jsdocDataTypeToMdAst(
+                  property.default,
+                  outlinedMembers,
+                  codeFiles,
+                  false,
+                  false
+                )
+              );
+
+            propertiesTableRow.children.push(typeTableCell);
+          }
+
+          if (propertiesTableHasColumnDescription)
+            propertiesTableRow.children.push({
+              type: 'tableCell',
+              children:
+                'description' in property
+                  ? jsdocDataMdToMdAst(
+                      property.description,
+                      outlinedMembers,
+                      codeFiles
+                    )
+                  : [],
+            });
+
+          propertiesTable.children.push(propertiesTableRow);
         }
 
-        mdAst.children.push(propTable);
+        mdAst.children.push(propertiesTable);
       }
 
       if (member.parameters) {
-        const paramTable = {
-          type: 'table',
-          align: ['left', 'left', 'left'],
+        const parametersTableHasColumnType = member.parameters.some(
+          (parameter) => 'type' in parameter || 'default' in parameter
+        );
+        const parametersTableHasColumnDescription = member.parameters.some(
+          (parameter) => 'description' in parameter
+        );
+        const parametersTableAlign = ['left'];
+        const parametersTableRowHeader = {
+          type: 'tableRow',
           children: [
             {
-              type: 'tableRow',
-              children: [
-                {
-                  type: 'tableCell',
-                  children: [{ type: 'text', value: 'Parameter' }],
-                },
-                {
-                  type: 'tableCell',
-                  children: [{ type: 'text', value: 'Type' }],
-                },
-                {
-                  type: 'tableCell',
-                  children: [{ type: 'text', value: 'Description' }],
-                },
-              ],
+              type: 'tableCell',
+              children: [{ type: 'text', value: 'Parameter' }],
             },
           ],
         };
 
+        if (parametersTableHasColumnType) {
+          parametersTableAlign.push('left');
+          parametersTableRowHeader.children.push({
+            type: 'tableCell',
+            children: [{ type: 'text', value: 'Type' }],
+          });
+        }
+
+        if (parametersTableHasColumnDescription) {
+          parametersTableAlign.push('left');
+          parametersTableRowHeader.children.push({
+            type: 'tableCell',
+            children: [{ type: 'text', value: 'Description' }],
+          });
+        }
+
+        const parametersTable = {
+          type: 'table',
+          align: parametersTableAlign,
+          children: [parametersTableRowHeader],
+        };
+
         for (const parameter of member.parameters) {
-          const typeCellChildren = jsdocDataTypeToMdAst(
-            parameter.type,
-            outlinedMembers,
-            codeFiles,
-            parameter.optional,
-            true
-          );
-
-          if ('default' in parameter)
-            typeCellChildren.push(
-              { type: 'text', value: ' = ' },
-              ...jsdocDataTypeToMdAst(
-                {
-                  ...parameter.type,
-                  data: parameter.default,
-                },
-                outlinedMembers,
-                codeFiles,
-                false,
-                false
-              )
-            );
-
-          paramTable.children.push({
+          const parametersTableRow = {
             type: 'tableRow',
             children: [
               {
                 type: 'tableCell',
                 children: [{ type: 'inlineCode', value: parameter.name }],
               },
-              { type: 'tableCell', children: typeCellChildren },
-              {
-                type: 'tableCell',
-                children: jsdocDataMdToMdAst(
-                  parameter.description,
-                  outlinedMembers,
-                  codeFiles
-                ),
-              },
             ],
-          });
+          };
+
+          if (parametersTableHasColumnType) {
+            const typeTableCell = {
+              type: 'tableCell',
+              children: parameter.type
+                ? jsdocDataTypeToMdAst(
+                    parameter.type,
+                    outlinedMembers,
+                    codeFiles,
+                    parameter.optional,
+                    true
+                  )
+                : [],
+            };
+
+            if ('default' in parameter)
+              typeTableCell.children.push(
+                { type: 'text', value: ' = ' },
+                ...jsdocDataTypeToMdAst(
+                  parameter.default,
+                  outlinedMembers,
+                  codeFiles,
+                  false,
+                  false
+                )
+              );
+
+            parametersTableRow.children.push(typeTableCell);
+          }
+
+          if (parametersTableHasColumnDescription)
+            parametersTableRow.children.push({
+              type: 'tableCell',
+              children:
+                'description' in parameter
+                  ? jsdocDataMdToMdAst(
+                      parameter.description,
+                      outlinedMembers,
+                      codeFiles
+                    )
+                  : [],
+            });
+
+          parametersTable.children.push(parametersTableRow);
         }
 
-        mdAst.children.push(paramTable);
+        mdAst.children.push(parametersTable);
       }
 
       if (member.returns) {

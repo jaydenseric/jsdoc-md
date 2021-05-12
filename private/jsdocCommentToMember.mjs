@@ -238,7 +238,18 @@ export default function jsdocCommentToMember(
 
             parameter.optional = tag.optional;
 
-            if (tag.default) parameter.default = tag.default;
+            if (tag.default)
+              parameter.default = {
+                codeFileLocation: {
+                  filePath: codeFilePath,
+                  codeLocation: getJsdocSourceTokenCodeLocation(
+                    tag.source,
+                    'name',
+                    jsdocBlockStartCodePosition
+                  ),
+                },
+                data: tag.default,
+              };
 
             const tagDescriptionTrimmed = trimNewlines(tag.description);
 
@@ -284,7 +295,18 @@ export default function jsdocCommentToMember(
 
             property.optional = tag.optional;
 
-            if (tag.default) property.default = tag.default;
+            if (tag.default)
+              property.default = {
+                codeFileLocation: {
+                  filePath: codeFilePath,
+                  codeLocation: getJsdocSourceTokenCodeLocation(
+                    tag.source,
+                    'name',
+                    jsdocBlockStartCodePosition
+                  ),
+                },
+                data: tag.default,
+              };
 
             const tagDescriptionTrimmed = trimNewlines(tag.description);
 

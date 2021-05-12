@@ -546,6 +546,148 @@ ${jsdocTestExamples}
   });
 
   tests.add(
+    '`membersToMdAst` with parameters, no types, no defaults, no descriptions.',
+    async () => {
+      await membersToMdAstSnapshot(
+        'parameters-no-types-no-defaults-no-descriptions',
+        `/**
+ * @kind function
+ * @name A
+ * @param a
+ * @param b
+ */`
+      );
+    }
+  );
+
+  tests.add(
+    '`membersToMdAst` with parameters, some types, some defaults, some descriptions.',
+    async () => {
+      await membersToMdAstSnapshot(
+        'parameters-some-types-some-defaults-some-descriptions',
+        `/**
+ * @kind function
+ * @name A
+ * @param a Description A.
+ * @param {boolean} b
+ * @param [c=true]
+ * @param {boolean} [d=true]
+ */`
+      );
+    }
+  );
+
+  tests.add(
+    '`membersToMdAst` with properties, no types, no defaults, no descriptions.',
+    async () => {
+      await membersToMdAstSnapshot(
+        'properties-no-types-no-defaults-no-descriptions',
+        `/**
+ * @kind member
+ * @name A
+ * @prop a
+ * @prop b
+ */`
+      );
+    }
+  );
+
+  tests.add(
+    '`membersToMdAst` with properties, some types, some defaults, some descriptions.',
+    async () => {
+      await membersToMdAstSnapshot(
+        'properties-some-types-some-defaults-some-descriptions',
+        `/**
+ * @kind member
+ * @name A
+ * @prop a Description A.
+ * @prop {boolean} b
+ * @prop [c=true]
+ * @prop {boolean} [d=true]
+ */`
+      );
+    }
+  );
+
+  tests.add('`membersToMdAst` with an invalid parameter default.', async () => {
+    const code = `/**
+ * @kind function
+ * @name A
+ * @param [a=**] A.
+ */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const members = jsdocCommentsToMembers(
+      jsdocComments,
+      codeFiles,
+      TEST_CODE_FILE_PATH
+    );
+
+    let caughtError;
+
+    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertKleur = revertableGlobals({ enabled: true }, kleur);
+
+    try {
+      membersToMdAst(members, codeFiles);
+    } catch (error) {
+      caughtError = error;
+    }
+
+    revertEnv();
+    revertKleur();
+
+    strictEqual(caughtError instanceof Error, true);
+
+    await snapshot(
+      caughtError.message,
+      new URL(
+        '../snapshots/membersToMdAst/error-parameter-default-invalid.ans',
+        import.meta.url
+      )
+    );
+  });
+
+  tests.add('`membersToMdAst` with an invalid property default.', async () => {
+    const code = `/**
+ * @kind member
+ * @name A
+ * @prop [a=**] A.
+ */`;
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
+    const jsdocComments = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
+    const members = jsdocCommentsToMembers(
+      jsdocComments,
+      codeFiles,
+      TEST_CODE_FILE_PATH
+    );
+
+    let caughtError;
+
+    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertKleur = revertableGlobals({ enabled: true }, kleur);
+
+    try {
+      membersToMdAst(members, codeFiles);
+    } catch (error) {
+      caughtError = error;
+    }
+
+    revertEnv();
+    revertKleur();
+
+    strictEqual(caughtError instanceof Error, true);
+
+    await snapshot(
+      caughtError.message,
+      new URL(
+        '../snapshots/membersToMdAst/error-property-default-invalid.ans',
+        import.meta.url
+      )
+    );
+  });
+
+  tests.add(
     // This also tests members with only kind and name tags can be processed.
     '`membersToMdAst` sorts members by membership, then kind, then name.',
     async () => {

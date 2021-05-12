@@ -1,0 +1,225 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "Table of contents"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "spread": false,
+      "children": [
+        {
+          "type": "listItem",
+          "spread": false,
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "link",
+                  "title": null,
+                  "url": "#member-a",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "member A"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 1,
+      "children": [
+        {
+          "type": "text",
+          "value": "member A"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "align": [
+        "left",
+        "left",
+        "left"
+      ],
+      "children": [
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Property"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Type"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Description"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "inlineCode",
+                  "value": "a"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": []
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "paragraph",
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Description A."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "inlineCode",
+                  "value": "b"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "boolean"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "inlineCode",
+                  "value": "c"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": " = "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "true"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": []
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "inlineCode",
+                  "value": "d"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "boolean"
+                },
+                {
+                  "type": "text",
+                  "value": "?"
+                },
+                {
+                  "type": "text",
+                  "value": " = "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "true"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

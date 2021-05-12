@@ -10,6 +10,8 @@
 
 - Updated dependencies.
 - Fixed lint errors introduced by the updated Prettier version.
+- Fixed JSDoc parameter or property tags without types or descriptions causing an exception when generating the markdown tables. Now, the “Type” and “Description” columns are only generated if at least one row has a type or description.
+- Corrected the code location for JSDoc parameter and property tag default value invalid JSDoc type errors.
 - Readme tweaks.
 
 ## 10.1.0

@@ -91,6 +91,7 @@ export { default as jsdocMd } from './jsdocMd.mjs';
  * @prop {JsdocData} [type] Parameter type.
  * @prop {string} [name] Parameter namepath.
  * @prop {boolean} [optional=false] Is the parameter optional.
+ * @prop {JsdocData} [default] Default value, if the parameter is optional.
  * @prop {JsdocData} [description] Parameter description markdown.
  * @ignore
  */
@@ -103,6 +104,7 @@ export { default as jsdocMd } from './jsdocMd.mjs';
  * @prop {JsdocData} [type] Property type.
  * @prop {string} [name] Property namepath.
  * @prop {boolean} [optional=false] Is the property optional.
+ * @prop {JsdocData} [default] Default value, if the property is optional.
  * @prop {JsdocData} [description] Property description markdown.
  * @ignore
  */

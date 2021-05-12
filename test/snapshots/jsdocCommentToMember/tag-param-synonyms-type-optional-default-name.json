@@ -50,7 +50,22 @@
         "data": "boolean"
       },
       "optional": true,
-      "default": "true"
+      "default": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 4,
+              "column": 19
+            },
+            "end": {
+              "line": 4,
+              "column": 26
+            }
+          }
+        },
+        "data": "true"
+      }
     },
     {
       "name": "b",
@@ -71,7 +86,22 @@
         "data": "boolean"
       },
       "optional": true,
-      "default": "true"
+      "default": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 5,
+              "column": 24
+            },
+            "end": {
+              "line": 5,
+              "column": 31
+            }
+          }
+        },
+        "data": "true"
+      }
     },
     {
       "name": "c",
@@ -92,7 +122,22 @@
         "data": "boolean"
       },
       "optional": true,
-      "default": "true"
+      "default": {
+        "codeFileLocation": {
+          "filePath": "/a.js",
+          "codeLocation": {
+            "start": {
+              "line": 6,
+              "column": 21
+            },
+            "end": {
+              "line": 6,
+              "column": 28
+            }
+          }
+        },
+        "data": "true"
+      }
     }
   ]
 }
