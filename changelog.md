@@ -1,6 +1,6 @@
 # jsdoc-md changelog
 
-## Next
+## 10.2.0
 
 ### Minor
 
