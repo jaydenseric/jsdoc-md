@@ -14,6 +14,7 @@ Description linking [`A`](#constant-a).
 | `a.a`    | boolean           | Prop `a.a` description.                          |
 | `b`      | boolean?          | Prop `b` description.                            |
 | `c`      | boolean? = `true` | Prop `c` description.                            |
+| `d`      |                   |                                                  |
 
 ## See
 

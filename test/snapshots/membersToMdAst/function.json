@@ -346,6 +346,28 @@
               ]
             }
           ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "children": [
+                {
+                  "type": "inlineCode",
+                  "value": "d"
+                }
+              ]
+            },
+            {
+              "type": "tableCell",
+              "children": []
+            },
+            {
+              "type": "tableCell",
+              "children": []
+            }
+          ]
         }
       ]
     },

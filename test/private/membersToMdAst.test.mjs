@@ -14,12 +14,14 @@ const jsdocTestDescription = ` * Description linking [\`A\`]{@link A}.`;
 const jsdocTestParams = ` * @arg {object} a Param \`a\` description linking [\`A\`]{@link A}.
  * @argument {boolean} a.a Param \`a.a\` description.
  * @param {boolean} [b] Param \`b\` description.
- * @param {boolean} [c=true] Param \`c\` description.`;
+ * @param {boolean} [c=true] Param \`c\` description.
+ * @param d`;
 
 const jsdocTestProps = ` * @property {object} a Prop \`a\` description linking [\`A\`]{@link A}.
  * @prop {boolean} a.a Prop \`a.a\` description.
  * @prop {boolean} [b] Prop \`b\` description.
- * @prop {boolean} [c=true] Prop \`c\` description.`;
+ * @prop {boolean} [c=true] Prop \`c\` description.
+ * @prop d`;
 
 const jsdocTestReturns = `@returns {boolean} Returns description linking [\`A\`]{@link A}.`;
 

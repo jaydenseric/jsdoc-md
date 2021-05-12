@@ -14,6 +14,7 @@ Description linking [`A`](#constant-a).
 | `a.a`     | boolean           | Param `a.a` description.                          |
 | `b`       | boolean?          | Param `b` description.                            |
 | `c`       | boolean? = `true` | Param `c` description.                            |
+| `d`       |                   |                                                   |
 
 **Returns:** boolean — Returns description linking [`A`](#constant-a).
 
