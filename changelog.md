@@ -2,6 +2,10 @@
 
 ## Next
 
+### Minor
+
+- Added a package `sideEffects` field.
+
 ### Patch
 
 - Updated dependencies.
