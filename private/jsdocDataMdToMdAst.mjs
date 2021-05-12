@@ -63,7 +63,8 @@ export default function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
   // Within each JSDoc inline link match, group what comes before the JSDoc
   // namepath so it’s length can be added to the match index to get the namepath
   // offset, so a code location can be derived for a namepath error message.
-  const regex = /(?<beforeNamepath>\{[ \t]*@link[ \t]+)(?<namepathData>\S+?)[ \t]*\}/gu;
+  const regex =
+    /(?<beforeNamepath>\{[ \t]*@link[ \t]+)(?<namepathData>\S+?)[ \t]*\}/gu;
 
   let replacedMd = jsdocData.data;
   let match;

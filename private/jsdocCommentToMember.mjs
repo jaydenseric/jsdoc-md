@@ -418,13 +418,10 @@ export default function jsdocCommentToMember(
                   // line column start must account for the length of the
                   // possible fence (e.g. ` * `).
 
-                  const {
-                    start,
-                    delimiter,
-                    postDelimiter,
-                  } = jsdocBlock.source.find(
-                    ({ number }) => number === line
-                  ).tokens;
+                  const { start, delimiter, postDelimiter } =
+                    jsdocBlock.source.find(
+                      ({ number }) => number === line
+                    ).tokens;
 
                   column =
                     start.length + delimiter.length + postDelimiter.length + 1;

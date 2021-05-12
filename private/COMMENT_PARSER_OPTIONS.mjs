@@ -3,9 +3,8 @@ import CommentParserTokenizerName from 'comment-parser/lib/parser/tokenizers/nam
 import CommentParserTokenizerTag from 'comment-parser/lib/parser/tokenizers/tag.js';
 import CommentParserTokenizerType from 'comment-parser/lib/parser/tokenizers/type.js';
 
-const {
-  default: getCommentParserTokenizerDescription,
-} = CommentParserTokenizerDescription;
+const { default: getCommentParserTokenizerDescription } =
+  CommentParserTokenizerDescription;
 const { default: getCommentParserTokenizerName } = CommentParserTokenizerName;
 const { default: getCommentParserTokenizerTag } = CommentParserTokenizerTag;
 const { default: getCommentParserTokenizerType } = CommentParserTokenizerType;

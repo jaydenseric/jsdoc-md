@@ -9,6 +9,7 @@
 ### Patch
 
 - Updated dependencies.
+- Fixed lint errors introduced by the updated Prettier version.
 - Readme tweaks.
 
 ## 10.1.0
