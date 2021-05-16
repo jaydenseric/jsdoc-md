@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Display the project logo in the readme.
 
 ## 10.2.0
 

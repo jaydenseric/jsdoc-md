@@ -1,3 +1,5 @@
+![jsdoc-md logo](jsdoc-md-logo.svg)
+
 # jsdoc-md
 
 [![npm version](https://badgen.net/npm/v/jsdoc-md)](https://npm.im/jsdoc-md) [![CI status](https://github.com/jaydenseric/jsdoc-md/workflows/CI/badge.svg)](https://github.com/jaydenseric/jsdoc-md/actions)
