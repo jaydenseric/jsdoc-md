@@ -1,4 +1,4 @@
-![jsdoc-md logo](jsdoc-md-logo.svg)
+![jsdoc-md logo](https://raw.githubusercontent.com/jaydenseric/jsdoc-md/a2ce08c27b4c4ffef7adc41d37f230594c17c467/jsdoc-md-logo.svg)
 
 # jsdoc-md
 
