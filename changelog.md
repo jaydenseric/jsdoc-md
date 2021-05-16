@@ -10,6 +10,7 @@
 ### Patch
 
 - Updated dependencies.
+- Updated the GitHub Actions CI config to stop testing Node.js v15.
 - Display the project logo in the readme.
 
 ## 10.2.0
