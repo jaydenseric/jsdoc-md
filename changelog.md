@@ -2,6 +2,11 @@
 
 ## Next
 
+### Major
+
+- Only insert a table of contents into the generated markdown if there’s multiple members.
+- The heading “Table of contents” is no longer inserted before the table of contents in the generated markdown.
+
 ### Patch
 
 - Updated dependencies.

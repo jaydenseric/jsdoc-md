@@ -1,5 +1,3 @@
-# Table of contents
-
 - [class A](#class-a)
   - [A static method a](#a-static-method-a)
 

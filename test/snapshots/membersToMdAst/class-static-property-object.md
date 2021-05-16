@@ -1,5 +1,3 @@
-# Table of contents
-
 - [class A](#class-a)
   - [A static property a](#a-static-property-a)
 

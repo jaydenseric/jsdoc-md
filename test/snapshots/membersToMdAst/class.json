@@ -7,45 +7,6 @@
       "children": [
         {
           "type": "text",
-          "value": "Table of contents"
-        }
-      ]
-    },
-    {
-      "type": "list",
-      "ordered": false,
-      "spread": false,
-      "children": [
-        {
-          "type": "listItem",
-          "spread": false,
-          "children": [
-            {
-              "type": "paragraph",
-              "children": [
-                {
-                  "type": "link",
-                  "title": null,
-                  "url": "#class-a",
-                  "children": [
-                    {
-                      "type": "text",
-                      "value": "class A"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "type": "heading",
-      "depth": 1,
-      "children": [
-        {
-          "type": "text",
           "value": "class A"
         }
       ]

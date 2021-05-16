@@ -1,5 +1,3 @@
-# Table of contents
-
 - [class A](#class-a)
   - [A instance property a](#a-instance-property-a)
 

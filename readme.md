@@ -76,10 +76,6 @@ _Using package scripts._
 
 ## API
 
-### Table of contents
-
-- [function jsdocMd](#function-jsdocmd)
-
 ### function jsdocMd
 
 Analyzes JSDoc from source files to populate a markdown file documentation section. Source files are excluded via `.gitignore` files. If the optional peer dependency [`prettier`](https://npm.im/prettier) is installed, the new markdown file contents is [Prettier](https://prettier.io) formatted.

@@ -1,5 +1,3 @@
-# Table of contents
-
 - [class A](#class-a)
   - [A inner type B](#a-inner-type-b)
 

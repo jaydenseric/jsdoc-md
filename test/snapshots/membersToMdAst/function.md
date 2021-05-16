@@ -1,7 +1,3 @@
-# Table of contents
-
-- [function A](#function-a)
-
 # function A
 
 Description linking [`A`](#function-a).

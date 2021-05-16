@@ -1,7 +1,3 @@
-# Table of contents
-
-- [class A](#class-a)
-
 # class A
 
 Description linking [`A`](#class-a).

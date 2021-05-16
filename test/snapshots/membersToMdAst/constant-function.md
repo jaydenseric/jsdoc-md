@@ -1,7 +1,3 @@
-# Table of contents
-
-- [constant A](#constant-a)
-
 # constant A
 
 Description linking [`A`](#constant-a).

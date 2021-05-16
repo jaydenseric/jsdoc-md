@@ -1,5 +1,3 @@
-# Table of contents
-
 - [class ClassA](#class-classa)
   - [ClassA static method staticMethodA](#classa-static-method-staticmethoda)
   - [ClassA static method staticMethodB](#classa-static-method-staticmethodb)

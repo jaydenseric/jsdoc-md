@@ -2,10 +2,6 @@
 
 ## Target
 
-### Table of contents
-
-- [constant A](#constant-a)
-
 ### constant A
 
 ## Preserve

@@ -1,5 +1,3 @@
-# Table of contents
-
 - [class A](#class-a)
   - [A instance method b](#a-instance-method-b)
     - [A#b inner function c](#ab-inner-function-c)

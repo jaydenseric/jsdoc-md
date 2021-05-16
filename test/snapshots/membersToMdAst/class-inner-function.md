@@ -1,5 +1,3 @@
-# Table of contents
-
 - [class A](#class-a)
   - [A inner function a](#a-inner-function-a)
 

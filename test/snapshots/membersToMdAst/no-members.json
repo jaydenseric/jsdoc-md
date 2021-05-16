@@ -1,15 +1,4 @@
 {
   "type": "root",
-  "children": [
-    {
-      "type": "heading",
-      "depth": 1,
-      "children": [
-        {
-          "type": "text",
-          "value": "Table of contents"
-        }
-      ]
-    }
-  ]
+  "children": []
 }

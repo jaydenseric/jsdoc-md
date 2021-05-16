@@ -1,7 +1,3 @@
-# Table of contents
-
-- [type A](#type-a)
-
 # type A
 
 Description linking [`A`](#type-a).

@@ -50,16 +50,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
   if (topDepth < 1) throw new RangeError('Argument 3 `topDepth` must be >= 1.');
 
   const outlinedMembers = outlineMembers(members, codeFiles);
-  const mdAst = {
-    type: 'root',
-    children: [
-      {
-        type: 'heading',
-        depth: topDepth,
-        children: [{ type: 'text', value: 'Table of contents' }],
-      },
-    ],
-  };
+  const mdAst = { type: 'root', children: [] };
 
   /**
    * Recursively constructs the markdown AST.
@@ -70,6 +61,8 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
    * @ignore
    */
   const recurse = (members, depth) => {
+    let memberIndex = 0;
+
     for (const member of members.sort((a, b) =>
       a.membership !== b.membership
         ? MEMBERSHIP_ORDER.indexOf(a.membership) -
@@ -78,7 +71,9 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
         ? KIND_ORDER.indexOf(a.kind) - KIND_ORDER.indexOf(b.kind)
         : a.name.localeCompare(b.name)
     )) {
-      if (depth === topDepth) mdAst.children.push({ type: 'thematicBreak' });
+      // Show a horizontal rule before all top level members, after the first.
+      if (depth === topDepth && memberIndex)
+        mdAst.children.push({ type: 'thematicBreak' });
 
       mdAst.children.push({
         type: 'heading',
@@ -466,19 +461,37 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
       }
 
       if (member.children) recurse(member.children, depth + 1);
+
+      memberIndex++;
     }
   };
 
   const topMembers = outlinedMembers.filter(({ parent }) => !parent);
   recurse(topMembers, topDepth);
 
-  // Return markdown AST.
-  return unified()
-    .use(gfm)
-    .use(toc, {
-      // Prettier formatting.
-      tight: true,
-      skip: 'Fires|See|Examples',
-    })
-    .runSync(mdAst);
+  // If there’s multiple members, insert a Table of Contents (ToC) at the start.
+  if (outlinedMembers.length > 1) {
+    // Temporarily insert a heading for the ToC to be inserted under.
+    mdAst.children.unshift({
+      type: 'heading',
+      depth: topDepth,
+      children: [{ type: 'text', value: 'Table of contents' }],
+    });
+
+    const mdAstWithToC = unified()
+      .use(gfm)
+      .use(toc, {
+        // Prettier formatting.
+        tight: true,
+        skip: 'Fires|See|Examples',
+      })
+      .runSync(mdAst);
+
+    // Remove the temporary ToC heading.
+    mdAstWithToC.children.shift();
+
+    return mdAstWithToC;
+  }
+
+  return mdAst;
 }
