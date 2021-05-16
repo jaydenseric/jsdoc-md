@@ -1,5 +1,11 @@
 # jsdoc-md changelog
 
+## Next
+
+### Patch
+
+- Updated dependencies.
+
 ## 10.2.0
 
 ### Minor
