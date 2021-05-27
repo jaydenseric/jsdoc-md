@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Renamed imports in the test index module.
 
 ## 11.0.0
 
