@@ -6,6 +6,7 @@
 
 - Updated dependencies.
 - Renamed imports in the test index module.
+- Amended the changelog entries for v6.0.0, v7.0.0, and v10.2.0.
 
 ## 11.0.0
 
@@ -33,6 +34,7 @@
 - Fixed JSDoc parameter or property tags without types or descriptions causing an exception when generating the markdown tables. Now, the “Type” and “Description” columns are only generated if at least one row has a type or description.
 - Corrected the code location for JSDoc parameter and property tag default value invalid JSDoc type errors.
 - Readme tweaks.
+- The file `changelog.md` is no longer published.
 
 ## 10.1.0
 
@@ -182,7 +184,7 @@
 
 - Updated Node.js support to `^10.17.0 || ^12.0.0 || >= 13.7.0`.
 - Updated dev dependencies, some of which require newer Node.js versions than previously supported.
-- Added a [package `exports` field](https://nodejs.org/api/esm.html#esm_package_entry_points) with [conditional exports](https://nodejs.org/api/esm.html#esm_conditional_exports) to support native ESM in Node.js and keep internal code private, [whilst avoiding the dual package hazard](https://nodejs.org/api/esm.html#esm_approach_1_use_an_es_module_wrapper). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
+- Added a package [`exports`](https://nodejs.org/api/packages.html#packages_exports) field with [conditional exports](https://nodejs.org/api/packages.html#packages_conditional_exports) to support native ESM in Node.js and keep internal code private, [whilst avoiding the dual package hazard](https://nodejs.org/api/packages.html#packages_approach_1_use_an_es_module_wrapper). Published files have been reorganized, so previously undocumented deep imports will need to be rewritten according to the newly documented paths.
 
 ### Minor
 
@@ -211,7 +213,7 @@
 
 ### Major
 
-- Updated dependencies, some of which now have a [package `exports` field](https://nodejs.org/api/esm.html#esm_package_exports) to support native ESM in Node.js.
+- Updated dependencies, some of which now have a package [`exports`](https://nodejs.org/api/packages.html#packages_exports) field to support native ESM in Node.js.
 - Updated Node.js support from v10+ to `10 - 12 || >= 13.7` to reflect the package `exports` related breaking changes.
 
 ### Patch
