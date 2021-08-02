@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { resolve } from 'path';
-import globby from 'globby';
+import { globby } from 'globby';
 import CliError from '../private/CliError.mjs';
 import codeToJsdocComments from '../private/codeToJsdocComments.mjs';
 import jsdocCommentToMember from '../private/jsdocCommentToMember.mjs';

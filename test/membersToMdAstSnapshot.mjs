@@ -1,7 +1,7 @@
 import gfm from 'remark-gfm';
 import stringify from 'remark-stringify';
 import snapshot from 'snapshot-assertion';
-import unified from 'unified';
+import { unified } from 'unified';
 import REMARK_STRINGIFY_OPTIONS from '../private/REMARK_STRINGIFY_OPTIONS.mjs';
 import codeToJsdocComments from '../private/codeToJsdocComments.mjs';
 import membersToMdAst from '../private/membersToMdAst.mjs';

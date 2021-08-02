@@ -1,13 +1,14 @@
-import CommentParserTokenizerDescription from 'comment-parser/lib/parser/tokenizers/description.js';
-import CommentParserTokenizerName from 'comment-parser/lib/parser/tokenizers/name.js';
-import CommentParserTokenizerTag from 'comment-parser/lib/parser/tokenizers/tag.js';
-import CommentParserTokenizerType from 'comment-parser/lib/parser/tokenizers/type.js';
-
-const { default: getCommentParserTokenizerDescription } =
-  CommentParserTokenizerDescription;
-const { default: getCommentParserTokenizerName } = CommentParserTokenizerName;
-const { default: getCommentParserTokenizerTag } = CommentParserTokenizerTag;
-const { default: getCommentParserTokenizerType } = CommentParserTokenizerType;
+// The `eslint-plugin-node` rule `no-missing-import` doesn’t support the package
+// `exports` field yet, see:
+// https://github.com/mysticatea/eslint-plugin-node/issues/255
+// eslint-disable-next-line node/no-missing-import
+import getCommentParserTokenizerDescription from 'comment-parser/parser/tokenizers/description';
+// eslint-disable-next-line node/no-missing-import
+import getCommentParserTokenizerName from 'comment-parser/parser/tokenizers/name';
+// eslint-disable-next-line node/no-missing-import
+import getCommentParserTokenizerTag from 'comment-parser/parser/tokenizers/tag';
+// eslint-disable-next-line node/no-missing-import
+import getCommentParserTokenizerType from 'comment-parser/parser/tokenizers/type';
 
 const JSDOC_SPACING_STRATEGY = 'preserve';
 

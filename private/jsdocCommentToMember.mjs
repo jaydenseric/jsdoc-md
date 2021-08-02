@@ -1,4 +1,4 @@
-import CommentParserParser from 'comment-parser/lib/parser/index.js';
+import { parse } from 'comment-parser';
 import trimNewlines from 'trim-newlines';
 import COMMENT_PARSER_OPTIONS from './COMMENT_PARSER_OPTIONS.mjs';
 import CodeLocation from './CodeLocation.mjs';
@@ -7,8 +7,6 @@ import InvalidJsdocError from './InvalidJsdocError.mjs';
 import deconstructJsdocNamepath from './deconstructJsdocNamepath.mjs';
 import getJsdocBlockDescriptionSource from './getJsdocBlockDescriptionSource.mjs';
 import getJsdocSourceTokenCodeLocation from './getJsdocSourceTokenCodeLocation.mjs';
-
-const { default: getCommentParser } = CommentParserParser;
 
 /**
  * Analyzes a JSDoc comment to produce JSDoc member details.
@@ -45,13 +43,14 @@ export default function jsdocCommentToMember(
     jsdocComment.loc.start.column + 1
   );
 
-  const [jsdocBlock] = getCommentParser({
-    ...COMMENT_PARSER_OPTIONS,
-    startLine: jsdocBlockStartCodePosition.line,
-  })(
+  const [jsdocBlock] = parse(
     // Restore the start `/*` and end `*/` that the Babel parse result excludes,
     // so that the JSDoc comment parser can accept it.
-    `/*${jsdocComment.value}*/`
+    `/*${jsdocComment.value}*/`,
+    {
+      ...COMMENT_PARSER_OPTIONS,
+      startLine: jsdocBlockStartCodePosition.line,
+    }
   );
 
   // Ignore JSDoc without tags.

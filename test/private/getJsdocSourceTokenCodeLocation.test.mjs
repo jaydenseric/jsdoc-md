@@ -1,11 +1,9 @@
 import { deepStrictEqual, throws } from 'assert';
-import CommentParserParser from 'comment-parser/lib/parser/index.js';
+import { parse } from 'comment-parser';
 import COMMENT_PARSER_OPTIONS from '../../private/COMMENT_PARSER_OPTIONS.mjs';
 import CodeLocation from '../../private/CodeLocation.mjs';
 import CodePosition from '../../private/CodePosition.mjs';
 import getJsdocSourceTokenCodeLocation from '../../private/getJsdocSourceTokenCodeLocation.mjs';
-
-const { default: getCommentParser } = CommentParserParser;
 
 export default (tests) => {
   tests.add(
@@ -24,10 +22,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij Klm nop. */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine: 1,
-      })('/** @abc {def} hij Klm nop. */');
+      });
 
       throws(() => {
         getJsdocSourceTokenCodeLocation(source, true);
@@ -42,10 +40,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij Klm nop. */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine: 1,
-      })('/** @abc {def} hij Klm nop. */');
+      });
 
       throws(() => {
         getJsdocSourceTokenCodeLocation(source, 'notavalidtokenname');
@@ -60,10 +58,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij Klm nop. */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine: 1,
-      })('/** @abc {def} hij Klm nop. */');
+      });
 
       throws(() => {
         getJsdocSourceTokenCodeLocation(source, 'name', true);
@@ -79,10 +77,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine,
-      })(`/** @abc {def} hij */`);
+      });
 
       throws(() => {
         getJsdocSourceTokenCodeLocation(
@@ -102,10 +100,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij Klm nop. */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine,
-      })('/** @abc {def} hij Klm nop. */');
+      });
 
       deepStrictEqual(
         getJsdocSourceTokenCodeLocation(
@@ -126,10 +124,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij Klm nop. */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine,
-      })('/** @abc {def} hij Klm nop. */');
+      });
 
       deepStrictEqual(
         getJsdocSourceTokenCodeLocation(
@@ -150,10 +148,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij Klm nop. */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine,
-      })('/** @abc {def} hij Klm nop. */');
+      });
 
       deepStrictEqual(
         getJsdocSourceTokenCodeLocation(
@@ -174,10 +172,10 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
+      ] = parse('/** @abc {def} hij Klm nop. */', {
         ...COMMENT_PARSER_OPTIONS,
         startLine,
-      })('/** @abc {def} hij Klm nop. */');
+      });
 
       deepStrictEqual(
         getJsdocSourceTokenCodeLocation(
@@ -198,13 +196,16 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
-        ...COMMENT_PARSER_OPTIONS,
-        startLine,
-      })(`/**
+      ] = parse(
+        `/**
  * @abc {def} hij Klm
  * nop.
- */`);
+ */`,
+        {
+          ...COMMENT_PARSER_OPTIONS,
+          startLine,
+        }
+      );
 
       deepStrictEqual(
         getJsdocSourceTokenCodeLocation(
@@ -225,13 +226,16 @@ export default (tests) => {
         {
           tags: [{ source }],
         },
-      ] = getCommentParser({
-        ...COMMENT_PARSER_OPTIONS,
-        startLine,
-      })(`/**
+      ] = parse(
+        `/**
    * @abc {def} hij Klm
    * nop.
-   */`);
+   */`,
+        {
+          ...COMMENT_PARSER_OPTIONS,
+          startLine,
+        }
+      );
 
       deepStrictEqual(
         getJsdocSourceTokenCodeLocation(

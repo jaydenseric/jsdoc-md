@@ -1,7 +1,7 @@
 import remarkBehead from 'remark-behead';
 import gfm from 'remark-gfm';
 import toc from 'remark-toc';
-import unified from 'unified';
+import { unified } from 'unified';
 import InvalidJsdocError from './InvalidJsdocError.mjs';
 import deconstructJsdocNamepath from './deconstructJsdocNamepath.mjs';
 import jsdocDataMdToMdAst from './jsdocDataMdToMdAst.mjs';

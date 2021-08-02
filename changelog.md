@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Use newly available dependency ESM imports, fixing [#24](https://github.com/jaydenseric/jsdoc-md/issues/24).
 - Renamed imports in the test index module.
 - Amended the changelog entries for v6.0.0, v7.0.0, and v10.2.0.
 

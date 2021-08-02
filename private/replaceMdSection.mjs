@@ -1,7 +1,7 @@
 import gfm from 'remark-gfm';
 import parse from 'remark-parse';
 import stringify from 'remark-stringify';
-import unified from 'unified';
+import { unified } from 'unified';
 import REMARK_STRINGIFY_OPTIONS from './REMARK_STRINGIFY_OPTIONS.mjs';
 import remarkPluginReplaceSection from './remarkPluginReplaceSection.mjs';
 

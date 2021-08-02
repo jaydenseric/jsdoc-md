@@ -1,10 +1,8 @@
 import { deepStrictEqual, throws } from 'assert';
-import CommentParserParser from 'comment-parser/lib/parser/index.js';
+import { parse } from 'comment-parser';
 import snapshot from 'snapshot-assertion';
 import COMMENT_PARSER_OPTIONS from '../../private/COMMENT_PARSER_OPTIONS.mjs';
 import getJsdocBlockDescriptionSource from '../../private/getJsdocBlockDescriptionSource.mjs';
-
-const { default: getCommentParser } = CommentParserParser;
 
 export default (tests) => {
   tests.add(
@@ -19,10 +17,10 @@ export default (tests) => {
   tests.add(
     '`getJsdocBlockDescriptionSource` with no description, tag.',
     () => {
-      const [jsdocBlock] = getCommentParser({
+      const [jsdocBlock] = parse('/**@a*/', {
         ...COMMENT_PARSER_OPTIONS,
         startLine: 1,
-      })(`/**@a*/`);
+      });
 
       deepStrictEqual(getJsdocBlockDescriptionSource(jsdocBlock), []);
     }
@@ -31,13 +29,16 @@ export default (tests) => {
   tests.add(
     '`getJsdocBlockDescriptionSource` with a description, no tags.',
     async () => {
-      const [jsdocBlock] = getCommentParser({
-        ...COMMENT_PARSER_OPTIONS,
-        startLine: 1,
-      })(`/**
+      const [jsdocBlock] = parse(
+        `/**
  * Line 1.
  * Line 2.
- */`);
+ */`,
+        {
+          ...COMMENT_PARSER_OPTIONS,
+          startLine: 1,
+        }
+      );
 
       await snapshot(
         JSON.stringify(getJsdocBlockDescriptionSource(jsdocBlock), null, 2),
@@ -52,15 +53,18 @@ export default (tests) => {
   tests.add(
     '`getJsdocBlockDescriptionSource` with a description, tags.',
     async () => {
-      const [jsdocBlock] = getCommentParser({
-        ...COMMENT_PARSER_OPTIONS,
-        startLine: 1,
-      })(`/**
+      const [jsdocBlock] = parse(
+        `/**
  * Line 1.
  * Line 2.
  * @a
  * @b
- */`);
+ */`,
+        {
+          ...COMMENT_PARSER_OPTIONS,
+          startLine: 1,
+        }
+      );
 
       await snapshot(
         JSON.stringify(getJsdocBlockDescriptionSource(jsdocBlock), null, 2),

@@ -1,6 +1,6 @@
 import gfm from 'remark-gfm';
 import parse from 'remark-parse';
-import unified from 'unified';
+import { unified } from 'unified';
 import { removePosition } from 'unist-util-remove-position';
 import CodeLocation from './CodeLocation.mjs';
 import CodePosition from './CodePosition.mjs';
