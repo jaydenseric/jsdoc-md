@@ -13,6 +13,7 @@ const JSDOC_SOURCE_TOKEN_ORDER = [
   'postName',
   'description',
   'end',
+  'lineEnd',
 ];
 
 const JSDOC_SOURCE_INFO_TOKENS = ['tag', 'name', 'type', 'description'];

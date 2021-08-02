@@ -6,6 +6,7 @@
 
 - Updated dependencies.
 - Use newly available dependency ESM imports, fixing [#24](https://github.com/jaydenseric/jsdoc-md/issues/24).
+- Account for the new [`comment-parser`](https://npm.im/comment-parser) token `lineEnd`.
 - Renamed imports in the test index module.
 - Amended the changelog entries for v6.0.0, v7.0.0, and v10.2.0.
 
