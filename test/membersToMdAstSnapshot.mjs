@@ -1,5 +1,5 @@
-import gfm from 'remark-gfm';
-import stringify from 'remark-stringify';
+import remarkGfm from 'remark-gfm';
+import remarkStringify from 'remark-stringify';
 import snapshot from 'snapshot-assertion';
 import { unified } from 'unified';
 import REMARK_STRINGIFY_OPTIONS from '../private/REMARK_STRINGIFY_OPTIONS.mjs';
@@ -55,8 +55,8 @@ export default async function membersToMdAstSnapshot(
   );
 
   const md = unified()
-    .use(gfm)
-    .use(stringify, REMARK_STRINGIFY_OPTIONS)
+    .use(remarkGfm)
+    .use(remarkStringify, REMARK_STRINGIFY_OPTIONS)
     .stringify(mdAst);
 
   await snapshot(

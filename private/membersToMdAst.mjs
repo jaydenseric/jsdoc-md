@@ -1,6 +1,6 @@
 import remarkBehead from 'remark-behead';
-import gfm from 'remark-gfm';
-import toc from 'remark-toc';
+import remarkGfm from 'remark-gfm';
+import remarkToc from 'remark-toc';
 import { unified } from 'unified';
 import InvalidJsdocError from './InvalidJsdocError.mjs';
 import deconstructJsdocNamepath from './deconstructJsdocNamepath.mjs';
@@ -479,8 +479,8 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
     });
 
     const mdAstWithToC = unified()
-      .use(gfm)
-      .use(toc, {
+      .use(remarkGfm)
+      .use(remarkToc, {
         // Prettier formatting.
         tight: true,
         skip: 'Fires|See|Examples',

@@ -1,6 +1,6 @@
-import gfm from 'remark-gfm';
-import parse from 'remark-parse';
-import stringify from 'remark-stringify';
+import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkStringify from 'remark-stringify';
 import { unified } from 'unified';
 import REMARK_STRINGIFY_OPTIONS from './REMARK_STRINGIFY_OPTIONS.mjs';
 import remarkPluginReplaceSection from './remarkPluginReplaceSection.mjs';
@@ -38,9 +38,9 @@ export default function replaceMdSection(
     throw new TypeError('Argument 3 `replacementMdAst` must be an object.');
 
   return unified()
-    .use(parse)
-    .use(gfm)
-    .use(stringify, REMARK_STRINGIFY_OPTIONS)
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkStringify, REMARK_STRINGIFY_OPTIONS)
     .use(remarkPluginReplaceSection, {
       targetHeading,
       replacementAst: replacementMdAst,

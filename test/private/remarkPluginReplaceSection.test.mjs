@@ -1,5 +1,5 @@
 import { deepStrictEqual, throws } from 'assert';
-import gfm from 'remark-gfm';
+import remarkGfm from 'remark-gfm';
 import { unified } from 'unified';
 import remarkPluginReplaceSection from '../../private/remarkPluginReplaceSection.mjs';
 
@@ -25,7 +25,7 @@ export default (tests) => {
   tests.add('`remarkPluginReplaceSection` with defaults.', () => {
     deepStrictEqual(
       unified()
-        .use(gfm)
+        .use(remarkGfm)
         .use(remarkPluginReplaceSection)
         .runSync({
           type: 'root',
@@ -72,7 +72,7 @@ export default (tests) => {
   tests.add('`remarkPluginReplaceSection` with options.', () => {
     deepStrictEqual(
       unified()
-        .use(gfm)
+        .use(remarkGfm)
         .use(remarkPluginReplaceSection, {
           targetHeading: 'A',
           replacementAst: {
@@ -163,7 +163,7 @@ export default (tests) => {
 
   tests.add('`remarkPluginReplaceSection` with a missing heading.', () => {
     throws(() => {
-      unified().use(gfm).use(remarkPluginReplaceSection).runSync({
+      unified().use(remarkGfm).use(remarkPluginReplaceSection).runSync({
         type: 'root',
         children: [],
       });

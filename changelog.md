@@ -5,6 +5,7 @@
 ### Patch
 
 - Updated dependencies.
+- Renamed remark related imports.
 
 ## 11.0.1
 

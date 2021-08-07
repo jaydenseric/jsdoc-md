@@ -1,5 +1,5 @@
-import gfm from 'remark-gfm';
-import parse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
 import { unified } from 'unified';
 import { removePosition } from 'unist-util-remove-position';
 import CodeLocation from './CodeLocation.mjs';
@@ -129,7 +129,7 @@ export default function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
   // technically more efficient and harmless to the public API, it bloats
   // private test snapshots.
   return removePosition(
-    unified().use(parse).use(gfm).parse(unescapeJsdoc(replacedMd)),
+    unified().use(remarkParse).use(remarkGfm).parse(unescapeJsdoc(replacedMd)),
 
     // Delete the `position` properties from nodes instead of only replacing
     // their values with `undefined`.
