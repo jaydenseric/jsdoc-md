@@ -40,7 +40,7 @@
     "jsdoc-md": "cli/jsdoc-md.mjs"
   },
   "engines": {
-    "node": "^12.20 || >= 14.13"
+    "node": "^12.20.0 || ^14.13.1 || >= 16.0.0"
   },
   "peerDependencies": {
     "prettier": "^2.0.0"
