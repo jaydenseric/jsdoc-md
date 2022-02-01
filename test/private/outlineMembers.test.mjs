@@ -1,34 +1,34 @@
-import { strictEqual, throws } from 'assert';
-import { stringify } from 'flatted';
-import kleur from 'kleur';
-import revertableGlobals from 'revertable-globals';
-import snapshot from 'snapshot-assertion';
+import { strictEqual, throws } from "assert";
+import { stringify } from "flatted";
+import kleur from "kleur";
+import revertableGlobals from "revertable-globals";
+import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
-import outlineMembers from '../../private/outlineMembers.mjs';
-import jsdocCommentsToMembers from '../jsdocCommentsToMembers.mjs';
+import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
+import outlineMembers from "../../private/outlineMembers.mjs";
+import jsdocCommentsToMembers from "../jsdocCommentsToMembers.mjs";
 
-const TEST_CODE_FILE_PATH = '/a.js';
+const TEST_CODE_FILE_PATH = "/a.js";
 
 export default (tests) => {
-  tests.add('`outlineMembers` with argument 1 `members` not an array.', () => {
-    const codeFiles = new Map([[TEST_CODE_FILE_PATH, '']]);
+  tests.add("`outlineMembers` with argument 1 `members` not an array.", () => {
+    const codeFiles = new Map([[TEST_CODE_FILE_PATH, ""]]);
 
     throws(() => {
       outlineMembers(true, codeFiles);
-    }, new TypeError('Argument 1 `members` must be an array.'));
+    }, new TypeError("Argument 1 `members` must be an array."));
   });
 
   tests.add(
-    '`outlineMembers` with argument 2 `codeFiles` not a `Map` instance.',
+    "`outlineMembers` with argument 2 `codeFiles` not a `Map` instance.",
     () => {
       throws(() => {
         outlineMembers([], true);
-      }, new TypeError('Argument 2 `codeFiles` must be a `Map` instance.'));
+      }, new TypeError("Argument 2 `codeFiles` must be a `Map` instance."));
     }
   );
 
-  tests.add('`outlineMembers` with no missing members.', async () => {
+  tests.add("`outlineMembers` with no missing members.", async () => {
     const code = `/**
  * Description.
  * @kind class
@@ -89,13 +89,13 @@ export default (tests) => {
     await snapshot(
       stringify(outlineMembers(members, codeFiles), null, 2),
       new URL(
-        '../snapshots/outlineMembers/no-missing-jsdoc-members.json',
+        "../snapshots/outlineMembers/no-missing-jsdoc-members.json",
         import.meta.url
       )
     );
   });
 
-  tests.add('`outlineMembers` with a missing member.', async () => {
+  tests.add("`outlineMembers` with a missing member.", async () => {
     const code = `// Code before…
 
 class A {
@@ -117,7 +117,7 @@ class A {
 
     let caughtError;
 
-    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertEnv = revertableGlobals({ FORCE_COLOR: "1" }, process.env);
     const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
     try {
@@ -134,7 +134,7 @@ class A {
     await snapshot(
       caughtError.message,
       new URL(
-        '../snapshots/outlineMembers/error-namepath-missing-jsdoc-member.ans',
+        "../snapshots/outlineMembers/error-namepath-missing-jsdoc-member.ans",
         import.meta.url
       )
     );

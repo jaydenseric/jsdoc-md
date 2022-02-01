@@ -1,12 +1,12 @@
-import fs from 'fs';
-import { globby } from 'globby';
-import { resolve } from 'path';
+import fs from "fs";
+import { globby } from "globby";
+import { resolve } from "path";
 
-import CliError from '../private/CliError.mjs';
-import codeToJsdocComments from '../private/codeToJsdocComments.mjs';
-import jsdocCommentToMember from '../private/jsdocCommentToMember.mjs';
-import membersToMdAst from '../private/membersToMdAst.mjs';
-import replaceMdSection from '../private/replaceMdSection.mjs';
+import CliError from "../private/CliError.mjs";
+import codeToJsdocComments from "../private/codeToJsdocComments.mjs";
+import jsdocCommentToMember from "../private/jsdocCommentToMember.mjs";
+import membersToMdAst from "../private/membersToMdAst.mjs";
+import replaceMdSection from "../private/replaceMdSection.mjs";
 
 /**
  * Analyzes JSDoc from source files to populate a markdown file documentation
@@ -17,64 +17,64 @@ import replaceMdSection from '../private/replaceMdSection.mjs';
  * @name jsdocMd
  * @param {object} [options] Options.
  * @param {string} [options.cwd] A directory path to scope the search for source and `.gitignore` files, defaulting to `process.cwd()`.
- * @param {string} [options.sourceGlob='**\/*.{mjs,cjs,js}'] JSDoc source file glob pattern.
- * @param {string} [options.markdownPath='readme.md'] Path to the markdown file for docs insertion.
- * @param {string} [options.targetHeading='API'] Markdown file heading to insert docs under.
+ * @param {string} [options.sourceGlob="**\/*.{mjs,cjs,js}"] JSDoc source file glob pattern.
+ * @param {string} [options.markdownPath="readme.md"] Path to the markdown file for docs insertion.
+ * @param {string} [options.targetHeading="API"] Markdown file heading to insert docs under.
  * @param {boolean} [options.check=false] Should an error be thrown instead of updating the markdown file if the contents would change; useful for checking docs are up to date in CI.
  * @returns {Promise<void>} Resolves once the operation is done.
  * @example <caption>Ways to `import`.</caption>
  * ```js
- * import { jsdocMd } from 'jsdoc-md';
+ * import { jsdocMd } from "jsdoc-md";
  * ```
  *
  * ```js
- * import jsdocMd from 'jsdoc-md/public/jsdocMd.mjs';
+ * import jsdocMd from "jsdoc-md/public/jsdocMd.mjs";
  * ```
  * @example <caption>Customizing options.</caption>
  * ```js
  * jsdocMd({
- *   cwd: '/path/to/project',
- *   sourceGlob: 'index.mjs',
- *   markdownPath: 'README.md',
- *   targetHeading: 'Docs',
+ *   cwd: "/path/to/project",
+ *   sourceGlob: "index.mjs",
+ *   markdownPath: "README.md",
+ *   targetHeading: "Docs",
  * }).then(() => {
- *   console.log('Done!');
+ *   console.log("Done!");
  * });
  * ```
  */
 export default async function jsdocMd({
   cwd = process.cwd(),
-  sourceGlob = '**/*.{mjs,cjs,js}',
-  markdownPath = 'readme.md',
-  targetHeading = 'API',
+  sourceGlob = "**/*.{mjs,cjs,js}",
+  markdownPath = "readme.md",
+  targetHeading = "API",
   check = false,
 } = {}) {
-  if (typeof cwd !== 'string')
-    throw new TypeError('Option `cwd` must be a string.');
+  if (typeof cwd !== "string")
+    throw new TypeError("Option `cwd` must be a string.");
 
-  if (cwd === '')
-    throw new TypeError('Option `cwd` must be a populated string.');
+  if (cwd === "")
+    throw new TypeError("Option `cwd` must be a populated string.");
 
-  if (typeof sourceGlob !== 'string')
-    throw new TypeError('Option `sourceGlob` must be a string.');
+  if (typeof sourceGlob !== "string")
+    throw new TypeError("Option `sourceGlob` must be a string.");
 
-  if (sourceGlob === '')
-    throw new TypeError('Option `sourceGlob` must be a populated string.');
+  if (sourceGlob === "")
+    throw new TypeError("Option `sourceGlob` must be a populated string.");
 
-  if (typeof markdownPath !== 'string')
-    throw new TypeError('Option `markdownPath` must be a string.');
+  if (typeof markdownPath !== "string")
+    throw new TypeError("Option `markdownPath` must be a string.");
 
-  if (markdownPath === '')
-    throw new TypeError('Option `markdownPath` must be a populated string.');
+  if (markdownPath === "")
+    throw new TypeError("Option `markdownPath` must be a populated string.");
 
-  if (typeof targetHeading !== 'string')
-    throw new TypeError('Option `targetHeading` must be a string.');
+  if (typeof targetHeading !== "string")
+    throw new TypeError("Option `targetHeading` must be a string.");
 
-  if (targetHeading === '')
-    throw new TypeError('Option `targetHeading` must be a populated string.');
+  if (targetHeading === "")
+    throw new TypeError("Option `targetHeading` must be a populated string.");
 
-  if (typeof check !== 'boolean')
-    throw new TypeError('Option `check` must be a boolean.');
+  if (typeof check !== "boolean")
+    throw new TypeError("Option `check` must be a boolean.");
 
   const codeFilePaths = await globby(sourceGlob, { cwd, gitignore: true });
   const codeFiles = new Map();
@@ -85,7 +85,7 @@ export default async function jsdocMd({
       // Update the code files map.
       codeFiles.set(
         codeFilePath,
-        await fs.promises.readFile(resolve(cwd, codeFilePath), 'utf8')
+        await fs.promises.readFile(resolve(cwd, codeFilePath), "utf8")
       );
 
       // Get the JSDoc comments from the code.
@@ -107,7 +107,7 @@ export default async function jsdocMd({
   );
 
   const mdAbsolutePath = resolve(cwd, markdownPath);
-  const mdOriginal = await fs.promises.readFile(mdAbsolutePath, 'utf8');
+  const mdOriginal = await fs.promises.readFile(mdAbsolutePath, "utf8");
 
   let mdUpdated = replaceMdSection(
     mdOriginal,
@@ -116,7 +116,7 @@ export default async function jsdocMd({
   );
 
   try {
-    var { default: prettier } = await import('prettier');
+    var { default: prettier } = await import("prettier");
     // It would be great if there was a way to test this without Prettier
     // installed.
     // coverage ignore next line
@@ -133,7 +133,7 @@ export default async function jsdocMd({
         ignorePath:
           // Prettier CLI doesn’t resolve the ignore file like Git, npm, etc.
           // See: https://github.com/prettier/prettier/issues/4081
-          resolve(cwd, '.prettierignore'),
+          resolve(cwd, ".prettierignore"),
       }
     );
 
@@ -146,12 +146,12 @@ export default async function jsdocMd({
       // Prettier format the new file contents.
       mdUpdated = prettier.format(mdUpdated, {
         ...prettierConfig,
-        parser: inferredParser || 'markdown',
+        parser: inferredParser || "markdown",
       });
     }
   }
 
   if (mdOriginal !== mdUpdated)
-    if (check) throw new CliError('Checked markdown needs updating.');
+    if (check) throw new CliError("Checked markdown needs updating.");
     else await fs.promises.writeFile(mdAbsolutePath, mdUpdated);
 }

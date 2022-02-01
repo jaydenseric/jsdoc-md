@@ -8,37 +8,37 @@
  * @ignore
  */
 export default function typeAstToMdAst(typeJsdocAst, members) {
-  if (typeof typeJsdocAst !== 'object')
-    throw new TypeError('Argument 1 `typeJsdocAst` must be an object.');
+  if (typeof typeJsdocAst !== "object")
+    throw new TypeError("Argument 1 `typeJsdocAst` must be an object.");
 
   if (!Array.isArray(members))
-    throw new TypeError('Argument 2 `members` must be an array.');
+    throw new TypeError("Argument 2 `members` must be an array.");
 
   const children = [];
 
   switch (typeJsdocAst.type) {
-    case 'AllLiteral':
-      children.push({ type: 'text', value: '*' });
+    case "AllLiteral":
+      children.push({ type: "text", value: "*" });
       break;
-    case 'NullableLiteral':
-      children.push({ type: 'text', value: '?' });
+    case "NullableLiteral":
+      children.push({ type: "text", value: "?" });
       break;
-    case 'NullLiteral':
-      children.push({ type: 'inlineCode', value: 'null' });
+    case "NullLiteral":
+      children.push({ type: "inlineCode", value: "null" });
       break;
-    case 'UndefinedLiteral':
-      children.push({ type: 'inlineCode', value: 'undefined' });
+    case "UndefinedLiteral":
+      children.push({ type: "inlineCode", value: "undefined" });
       break;
-    case 'VoidLiteral':
-      children.push({ type: 'inlineCode', value: 'void' });
+    case "VoidLiteral":
+      children.push({ type: "inlineCode", value: "void" });
       break;
-    case 'NumericLiteralType':
-    case 'BooleanLiteralType':
-      children.push({ type: 'inlineCode', value: String(typeJsdocAst.value) });
+    case "NumericLiteralType":
+    case "BooleanLiteralType":
+      children.push({ type: "inlineCode", value: String(typeJsdocAst.value) });
       break;
-    case 'StringLiteralType':
+    case "StringLiteralType":
       children.push({
-        type: 'inlineCode',
+        type: "inlineCode",
         value:
           // It would be nice to always display quotes around strings, but
           // escaping nested quotes would be tricky and may confuse readers
@@ -50,38 +50,38 @@ export default function typeAstToMdAst(typeJsdocAst, members) {
             : typeJsdocAst.value,
       });
       break;
-    case 'RestType':
+    case "RestType":
       children.push(
-        { type: 'text', value: '…' },
+        { type: "text", value: "…" },
         ...typeAstToMdAst(typeJsdocAst.expression, members)
       );
       break;
-    case 'OptionalType':
+    case "OptionalType":
       children.push(...typeAstToMdAst(typeJsdocAst.expression, members), {
-        type: 'text',
-        value: '?',
+        type: "text",
+        value: "?",
       });
       break;
-    case 'UnionType': {
+    case "UnionType": {
       for (const [
         index,
         elementTypeJsdocAst,
       ] of typeJsdocAst.elements.entries()) {
         if (index !== 0)
           children.push({
-            type: 'text',
+            type: "text",
             value:
               // These are special no-break space Unicode characters.
-              ' | ',
+              " | ",
           });
         children.push(...typeAstToMdAst(elementTypeJsdocAst, members));
       }
       break;
     }
-    case 'TypeApplication': {
+    case "TypeApplication": {
       children.push(...typeAstToMdAst(typeJsdocAst.expression, members), {
-        type: 'text',
-        value: '<',
+        type: "text",
+        value: "<",
       });
       for (const [
         index,
@@ -89,56 +89,56 @@ export default function typeAstToMdAst(typeJsdocAst, members) {
       ] of typeJsdocAst.applications.entries()) {
         if (index !== 0)
           children.push({
-            type: 'text',
+            type: "text",
             value:
               // This is a special no-break space Unicode character.
-              ', ',
+              ", ",
           });
         children.push(...typeAstToMdAst(applicationTypeJsdocAst, members));
       }
-      children.push({ type: 'text', value: '>' });
+      children.push({ type: "text", value: ">" });
       break;
     }
-    case 'ArrayType': {
-      children.push({ type: 'text', value: '[' });
+    case "ArrayType": {
+      children.push({ type: "text", value: "[" });
       for (const [
         index,
         elementTypeJsdocAst,
       ] of typeJsdocAst.elements.entries()) {
         if (index !== 0)
           children.push({
-            type: 'text',
+            type: "text",
             value:
               // These are special no-break space Unicode characters.
-              ', ',
+              ", ",
           });
         children.push(...typeAstToMdAst(elementTypeJsdocAst, members));
       }
-      children.push({ type: 'text', value: ']' });
+      children.push({ type: "text", value: "]" });
       break;
     }
-    case 'FieldType':
+    case "FieldType":
       children.push(
-        { type: 'text', value: `${typeJsdocAst.key}: ` },
+        { type: "text", value: `${typeJsdocAst.key}: ` },
         ...typeAstToMdAst(typeJsdocAst.value, members)
       );
       break;
-    case 'RecordType': {
-      children.push({ type: 'text', value: '{' });
+    case "RecordType": {
+      children.push({ type: "text", value: "{" });
       for (const [index, fieldTypeJsdocAst] of typeJsdocAst.fields.entries()) {
         if (index !== 0)
           children.push({
-            type: 'text',
+            type: "text",
             value:
               // This is a special no-break space Unicode character.
-              ', ',
+              ", ",
           });
         children.push(...typeAstToMdAst(fieldTypeJsdocAst, members));
       }
-      children.push({ type: 'text', value: '}' });
+      children.push({ type: "text", value: "}" });
       break;
     }
-    case 'NameExpression': {
+    case "NameExpression": {
       const linkedMember = members.find(
         ({ namepath: { data } }) => data === typeJsdocAst.name
       );
@@ -146,21 +146,21 @@ export default function typeAstToMdAst(typeJsdocAst, members) {
       children.push(
         linkedMember
           ? {
-              type: 'link',
+              type: "link",
               url: `#${linkedMember.slug}`,
-              children: [{ type: 'text', value: typeJsdocAst.name }],
+              children: [{ type: "text", value: typeJsdocAst.name }],
             }
-          : { type: 'text', value: typeJsdocAst.name }
+          : { type: "text", value: typeJsdocAst.name }
       );
 
       break;
     }
-    case 'FunctionType': {
-      children.push({ type: 'text', value: 'function(' });
+    case "FunctionType": {
+      children.push({ type: "text", value: "function(" });
 
       if (typeJsdocAst.this)
         children.push(
-          { type: 'text', value: `${typeJsdocAst.new ? 'new' : 'this'}:` },
+          { type: "text", value: `${typeJsdocAst.new ? "new" : "this"}:` },
           ...typeAstToMdAst(typeJsdocAst.this, members)
         );
 
@@ -171,19 +171,19 @@ export default function typeAstToMdAst(typeJsdocAst, members) {
         ] of typeJsdocAst.params.entries()) {
           if (index !== 0 || typeJsdocAst.this)
             children.push({
-              type: 'text',
+              type: "text",
               value:
                 // This is a special no-break space Unicode character.
-                ', ',
+                ", ",
             });
           children.push(...typeAstToMdAst(paramTypeJsdocAst, members));
         }
 
-      children.push({ type: 'text', value: ')' });
+      children.push({ type: "text", value: ")" });
 
       if (typeJsdocAst.result)
         children.push(
-          { type: 'text', value: ':' },
+          { type: "text", value: ":" },
           ...typeAstToMdAst(typeJsdocAst.result, members)
         );
 

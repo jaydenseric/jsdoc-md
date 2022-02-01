@@ -6,8 +6,8 @@
  * @ignore
  */
 export default {
-  bullet: '-',
-  emphasis: '_',
-  listItemIndent: '1',
-  rule: '-',
+  bullet: "-",
+  emphasis: "_",
+  listItemIndent: "1",
+  rule: "-",
 };

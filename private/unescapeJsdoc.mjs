@@ -15,8 +15,8 @@
  * @ignore
  */
 export default function unescapeJsdoc(content) {
-  if (typeof content !== 'string')
-    throw new TypeError('Argument 1 `content` must be a string.');
+  if (typeof content !== "string")
+    throw new TypeError("Argument 1 `content` must be a string.");
 
-  return content.replace(/(?<=\*)\\(?=\\*\/)/gu, '');
+  return content.replace(/(?<=\*)\\(?=\\*\/)/gu, "");
 }

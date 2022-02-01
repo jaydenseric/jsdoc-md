@@ -8,15 +8,15 @@
  */
 export default class CodePosition {
   constructor(line, column) {
-    if (typeof line !== 'number')
-      throw new TypeError('Argument 1 `line` must be a number.');
+    if (typeof line !== "number")
+      throw new TypeError("Argument 1 `line` must be a number.");
 
-    if (line < 1) throw new RangeError('Argument 1 `line` must be >= 1.');
+    if (line < 1) throw new RangeError("Argument 1 `line` must be >= 1.");
 
-    if (typeof column !== 'number')
-      throw new TypeError('Argument 2 `column` must be a number.');
+    if (typeof column !== "number")
+      throw new TypeError("Argument 2 `column` must be a number.");
 
-    if (column < 1) throw new RangeError('Argument 2 `column` must be >= 1.');
+    if (column < 1) throw new RangeError("Argument 2 `column` must be >= 1.");
 
     this.line = line;
     this.column = column;

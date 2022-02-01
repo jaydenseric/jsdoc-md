@@ -1,6 +1,6 @@
-import { parseParamType, parseType } from 'doctrine';
+import { parseParamType, parseType } from "doctrine";
 
-import unescapeJsdoc from './unescapeJsdoc.mjs';
+import unescapeJsdoc from "./unescapeJsdoc.mjs";
 
 /**
  * Converts a JSDoc type string to a Doctrine AST node.
@@ -20,9 +20,9 @@ export default function typeToTypeAst({ type, parameter, optional }) {
 
   // Workaround Doctrine erroring if there is an `event:` prefix in a namepath:
   // https://github.com/eslint/doctrine/issues/221
-  if (unescapedType.includes('event:'))
+  if (unescapedType.includes("event:"))
     typeAst = {
-      type: 'NameExpression',
+      type: "NameExpression",
       name: unescapedType,
     };
   else
@@ -37,7 +37,7 @@ export default function typeToTypeAst({ type, parameter, optional }) {
   return optional &&
     // Account for the edge case where optionality is indicated both in the type
     // string and the name, e.g. `{string=} [name]`.
-    typeAst.type !== 'OptionalType'
-    ? { type: 'OptionalType', expression: typeAst }
+    typeAst.type !== "OptionalType"
+    ? { type: "OptionalType", expression: typeAst }
     : typeAst;
 }

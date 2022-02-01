@@ -1,24 +1,24 @@
-import { deepStrictEqual, throws } from 'assert';
-import { parse } from 'comment-parser';
-import snapshot from 'snapshot-assertion';
+import { deepStrictEqual, throws } from "assert";
+import { parse } from "comment-parser";
+import snapshot from "snapshot-assertion";
 
-import COMMENT_PARSER_OPTIONS from '../../private/COMMENT_PARSER_OPTIONS.mjs';
-import getJsdocBlockDescriptionSource from '../../private/getJsdocBlockDescriptionSource.mjs';
+import COMMENT_PARSER_OPTIONS from "../../private/COMMENT_PARSER_OPTIONS.mjs";
+import getJsdocBlockDescriptionSource from "../../private/getJsdocBlockDescriptionSource.mjs";
 
 export default (tests) => {
   tests.add(
-    '`getJsdocBlockDescriptionSource` with argument 1 `jsdocBlock` not an object.',
+    "`getJsdocBlockDescriptionSource` with argument 1 `jsdocBlock` not an object.",
     () => {
       throws(() => {
         getJsdocBlockDescriptionSource(true);
-      }, new TypeError('Argument 1 `jsdocBlock` must be an object.'));
+      }, new TypeError("Argument 1 `jsdocBlock` must be an object."));
     }
   );
 
   tests.add(
-    '`getJsdocBlockDescriptionSource` with no description, tag.',
+    "`getJsdocBlockDescriptionSource` with no description, tag.",
     () => {
-      const [jsdocBlock] = parse('/**@a*/', {
+      const [jsdocBlock] = parse("/**@a*/", {
         ...COMMENT_PARSER_OPTIONS,
         startLine: 1,
       });
@@ -28,7 +28,7 @@ export default (tests) => {
   );
 
   tests.add(
-    '`getJsdocBlockDescriptionSource` with a description, no tags.',
+    "`getJsdocBlockDescriptionSource` with a description, no tags.",
     async () => {
       const [jsdocBlock] = parse(
         `/**
@@ -44,7 +44,7 @@ export default (tests) => {
       await snapshot(
         JSON.stringify(getJsdocBlockDescriptionSource(jsdocBlock), null, 2),
         new URL(
-          '../snapshots/getJsdocBlockDescriptionSource/description-no-tags.json',
+          "../snapshots/getJsdocBlockDescriptionSource/description-no-tags.json",
           import.meta.url
         )
       );
@@ -52,7 +52,7 @@ export default (tests) => {
   );
 
   tests.add(
-    '`getJsdocBlockDescriptionSource` with a description, tags.',
+    "`getJsdocBlockDescriptionSource` with a description, tags.",
     async () => {
       const [jsdocBlock] = parse(
         `/**
@@ -70,7 +70,7 @@ export default (tests) => {
       await snapshot(
         JSON.stringify(getJsdocBlockDescriptionSource(jsdocBlock), null, 2),
         new URL(
-          '../snapshots/getJsdocBlockDescriptionSource/description-tags.json',
+          "../snapshots/getJsdocBlockDescriptionSource/description-tags.json",
           import.meta.url
         )
       );

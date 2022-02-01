@@ -11,8 +11,8 @@
  * @ignore
  */
 export default function getJsdocBlockDescriptionSource(jsdocBlock) {
-  if (typeof jsdocBlock !== 'object')
-    throw new TypeError('Argument 1 `jsdocBlock` must be an object.');
+  if (typeof jsdocBlock !== "object")
+    throw new TypeError("Argument 1 `jsdocBlock` must be an object.");
 
   return jsdocBlock.tags.length
     ? jsdocBlock.source.filter(

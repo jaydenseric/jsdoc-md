@@ -1,14 +1,14 @@
-import { strictEqual, throws } from 'assert';
-import kleur from 'kleur';
-import revertableGlobals from 'revertable-globals';
-import snapshot from 'snapshot-assertion';
+import { strictEqual, throws } from "assert";
+import kleur from "kleur";
+import revertableGlobals from "revertable-globals";
+import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
-import membersToMdAst from '../../private/membersToMdAst.mjs';
-import jsdocCommentsToMembers from '../jsdocCommentsToMembers.mjs';
-import membersToMdAstSnapshot from '../membersToMdAstSnapshot.mjs';
+import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
+import membersToMdAst from "../../private/membersToMdAst.mjs";
+import jsdocCommentsToMembers from "../jsdocCommentsToMembers.mjs";
+import membersToMdAstSnapshot from "../membersToMdAstSnapshot.mjs";
 
-const TEST_CODE_FILE_PATH = '/a.js';
+const TEST_CODE_FILE_PATH = "/a.js";
 
 const jsdocTestDescription = ` * Description linking [\`A\`]{@link A}.`;
 
@@ -41,42 +41,42 @@ const jsdocTestExamples = ` * @example
  * \`\`\``;
 
 export default (tests) => {
-  tests.add('`membersToMdAst` with argument 1 `members` not an array.', () => {
+  tests.add("`membersToMdAst` with argument 1 `members` not an array.", () => {
     throws(() => {
       membersToMdAst(true);
-    }, new TypeError('Argument 1 `members` must be an array.'));
+    }, new TypeError("Argument 1 `members` must be an array."));
   });
 
   tests.add(
-    '`membersToMdAst` with argument 2 `codeFiles` not a `Map` instance.',
+    "`membersToMdAst` with argument 2 `codeFiles` not a `Map` instance.",
     () => {
       throws(() => {
         membersToMdAst([], true);
-      }, new TypeError('Argument 2 `codeFiles` must be a `Map` instance.'));
+      }, new TypeError("Argument 2 `codeFiles` must be a `Map` instance."));
     }
   );
 
-  tests.add('`membersToMdAst` with argument 3 `topDepth` not a number.', () => {
+  tests.add("`membersToMdAst` with argument 3 `topDepth` not a number.", () => {
     throws(() => {
       membersToMdAst([], new Map(), true);
-    }, new TypeError('Argument 3 `topDepth` must be a number.'));
+    }, new TypeError("Argument 3 `topDepth` must be a number."));
   });
 
-  tests.add('`membersToMdAst` with argument 3 `topDepth` < 1.', () => {
+  tests.add("`membersToMdAst` with argument 3 `topDepth` < 1.", () => {
     throws(() => {
       membersToMdAst([], new Map(), 0);
-    }, new RangeError('Argument 3 `topDepth` must be >= 1.'));
+    }, new RangeError("Argument 3 `topDepth` must be >= 1."));
   });
 
-  tests.add('`membersToMdAst` with no members.', async () => {
-    await membersToMdAstSnapshot('no-members', '');
+  tests.add("`membersToMdAst` with no members.", async () => {
+    await membersToMdAstSnapshot("no-members", "");
   });
 
   tests.add(
-    '`membersToMdAst` with third parameter `topDepth` as `1` (default).',
+    "`membersToMdAst` with third parameter `topDepth` as `1` (default).",
     async () => {
       await membersToMdAstSnapshot(
-        'parameter-topDepth-as-1',
+        "parameter-topDepth-as-1",
         `/**
  * @kind member
  * @name A
@@ -86,10 +86,10 @@ export default (tests) => {
   );
 
   tests.add(
-    '`membersToMdAst` with third parameter `topDepth` as `3`.',
+    "`membersToMdAst` with third parameter `topDepth` as `3`.",
     async () => {
       await membersToMdAstSnapshot(
-        'parameter-topDepth-as-3',
+        "parameter-topDepth-as-3",
         `/**
  * @kind member
  * @name A
@@ -99,9 +99,9 @@ export default (tests) => {
     }
   );
 
-  tests.add('`membersToMdAst` with a class.', async () => {
+  tests.add("`membersToMdAst` with a class.", async () => {
     await membersToMdAstSnapshot(
-      'class',
+      "class",
       `/**
 ${jsdocTestDescription}
  * @kind class
@@ -114,9 +114,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a class, static method.', async () => {
+  tests.add("`membersToMdAst` with a class, static method.", async () => {
     await membersToMdAstSnapshot(
-      'class-static-method',
+      "class-static-method",
       `/**
  * @kind class
  * @name A
@@ -135,10 +135,10 @@ ${jsdocTestExamples}
   });
 
   tests.add(
-    '`membersToMdAst` with a class, static property, type object.',
+    "`membersToMdAst` with a class, static property, type object.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-static-property-object',
+        "class-static-property-object",
         `/**
  * @kind class
  * @name A
@@ -157,9 +157,9 @@ ${jsdocTestExamples}
     }
   );
 
-  tests.add('`membersToMdAst` with a class, instance method.', async () => {
+  tests.add("`membersToMdAst` with a class, instance method.", async () => {
     await membersToMdAstSnapshot(
-      'class-instance-method',
+      "class-instance-method",
       `/**
  * @kind class
  * @name A
@@ -178,10 +178,10 @@ ${jsdocTestExamples}
   });
 
   tests.add(
-    '`membersToMdAst` with a class, instance method, fires events.',
+    "`membersToMdAst` with a class, instance method, fires events.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-instance-method-fires-events',
+        "class-instance-method-fires-events",
         // Test the fires tag namepath with and without the optional `event:`
         // prefix.
         `/**
@@ -210,10 +210,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with a class, instance property, type object.',
+    "`membersToMdAst` with a class, instance property, type object.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-instance-property-object',
+        "class-instance-property-object",
         `/**
  * @kind class
  * @name A
@@ -232,9 +232,9 @@ ${jsdocTestExamples}
     }
   );
 
-  tests.add('`membersToMdAst` with a class, event, type object.', async () => {
+  tests.add("`membersToMdAst` with a class, event, type object.", async () => {
     await membersToMdAstSnapshot(
-      'class-event-object',
+      "class-event-object",
       `/**
  * @kind class
  * @name A
@@ -253,10 +253,10 @@ ${jsdocTestExamples}
   });
 
   tests.add(
-    '`membersToMdAst` with a class, event, no `event:` name prefix.',
+    "`membersToMdAst` with a class, event, no `event:` name prefix.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-event-no-name-prefix',
+        "class-event-no-name-prefix",
         `/**
  * @kind class
  * @name A
@@ -271,10 +271,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with a class, event name conflict solved by `event:` name prefix.',
+    "`membersToMdAst` with a class, event name conflict solved by `event:` name prefix.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-event-name-conflict-solved-by-prefix',
+        "class-event-name-conflict-solved-by-prefix",
         `/**
  * @kind class
  * @name A
@@ -295,9 +295,9 @@ ${jsdocTestExamples}
     }
   );
 
-  tests.add('`membersToMdAst` with a class, inner class.', async () => {
+  tests.add("`membersToMdAst` with a class, inner class.", async () => {
     await membersToMdAstSnapshot(
-      'class-inner-class',
+      "class-inner-class",
       `/**
  * @kind class
  * @name A
@@ -315,9 +315,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a class, inner function.', async () => {
+  tests.add("`membersToMdAst` with a class, inner function.", async () => {
     await membersToMdAstSnapshot(
-      'class-inner-function',
+      "class-inner-function",
       `/**
  * @kind class
  * @name A
@@ -336,10 +336,10 @@ ${jsdocTestExamples}
   });
 
   tests.add(
-    '`membersToMdAst` with a class, inner member, type object.',
+    "`membersToMdAst` with a class, inner member, type object.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-inner-member-object',
+        "class-inner-member-object",
         `/**
  * @kind class
  * @name A
@@ -359,10 +359,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with a class, inner constant, type object.',
+    "`membersToMdAst` with a class, inner constant, type object.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-inner-constant-object',
+        "class-inner-constant-object",
         `/**
  * @kind class
  * @name A
@@ -382,10 +382,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with a class, inner typedef, type object.',
+    "`membersToMdAst` with a class, inner typedef, type object.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-inner-typedef-object',
+        "class-inner-typedef-object",
         `/**
  * @kind class
  * @name A
@@ -405,10 +405,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with a class, inner typedef, type function.',
+    "`membersToMdAst` with a class, inner typedef, type function.",
     async () => {
       await membersToMdAstSnapshot(
-        'class-inner-typedef-function',
+        "class-inner-typedef-function",
         `/**
  * @kind class
  * @name A
@@ -428,9 +428,9 @@ ${jsdocTestExamples}
     }
   );
 
-  tests.add('`membersToMdAst` with a function.', async () => {
+  tests.add("`membersToMdAst` with a function.", async () => {
     await membersToMdAstSnapshot(
-      'function',
+      "function",
       `/**
 ${jsdocTestDescription}
  * @kind function
@@ -444,9 +444,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a function, no returns type.', async () => {
+  tests.add("`membersToMdAst` with a function, no returns type.", async () => {
     await membersToMdAstSnapshot(
-      'function-no-returns-type',
+      "function-no-returns-type",
       `/**
  * @kind function
  * @name A
@@ -455,9 +455,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a member, type object.', async () => {
+  tests.add("`membersToMdAst` with a member, type object.", async () => {
     await membersToMdAstSnapshot(
-      'member-object',
+      "member-object",
       `/**
 ${jsdocTestDescription}
  * @kind member
@@ -470,9 +470,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a member, type function.', async () => {
+  tests.add("`membersToMdAst` with a member, type function.", async () => {
     await membersToMdAstSnapshot(
-      'member-function',
+      "member-function",
       `/**
 ${jsdocTestDescription}
  * @kind member
@@ -486,9 +486,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a constant, type object.', async () => {
+  tests.add("`membersToMdAst` with a constant, type object.", async () => {
     await membersToMdAstSnapshot(
-      'constant-object',
+      "constant-object",
       `/**
 ${jsdocTestDescription}
  * @kind constant
@@ -501,9 +501,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a constant, type function.', async () => {
+  tests.add("`membersToMdAst` with a constant, type function.", async () => {
     await membersToMdAstSnapshot(
-      'constant-function',
+      "constant-function",
       `/**
 ${jsdocTestDescription}
  * @kind constant
@@ -517,9 +517,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a typedef, type object.', async () => {
+  tests.add("`membersToMdAst` with a typedef, type object.", async () => {
     await membersToMdAstSnapshot(
-      'typedef-object',
+      "typedef-object",
       `/**
 ${jsdocTestDescription}
  * @kind typedef
@@ -532,9 +532,9 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with a typedef, type function.', async () => {
+  tests.add("`membersToMdAst` with a typedef, type function.", async () => {
     await membersToMdAstSnapshot(
-      'typedef-function',
+      "typedef-function",
       `/**
 ${jsdocTestDescription}
  * @kind typedef
@@ -549,10 +549,10 @@ ${jsdocTestExamples}
   });
 
   tests.add(
-    '`membersToMdAst` with parameters, no types, no defaults, no descriptions.',
+    "`membersToMdAst` with parameters, no types, no defaults, no descriptions.",
     async () => {
       await membersToMdAstSnapshot(
-        'parameters-no-types-no-defaults-no-descriptions',
+        "parameters-no-types-no-defaults-no-descriptions",
         `/**
  * @kind function
  * @name A
@@ -564,10 +564,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with parameters, some types, some defaults, some descriptions.',
+    "`membersToMdAst` with parameters, some types, some defaults, some descriptions.",
     async () => {
       await membersToMdAstSnapshot(
-        'parameters-some-types-some-defaults-some-descriptions',
+        "parameters-some-types-some-defaults-some-descriptions",
         `/**
  * @kind function
  * @name A
@@ -581,10 +581,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with properties, no types, no defaults, no descriptions.',
+    "`membersToMdAst` with properties, no types, no defaults, no descriptions.",
     async () => {
       await membersToMdAstSnapshot(
-        'properties-no-types-no-defaults-no-descriptions',
+        "properties-no-types-no-defaults-no-descriptions",
         `/**
  * @kind member
  * @name A
@@ -596,10 +596,10 @@ ${jsdocTestExamples}
   );
 
   tests.add(
-    '`membersToMdAst` with properties, some types, some defaults, some descriptions.',
+    "`membersToMdAst` with properties, some types, some defaults, some descriptions.",
     async () => {
       await membersToMdAstSnapshot(
-        'properties-some-types-some-defaults-some-descriptions',
+        "properties-some-types-some-defaults-some-descriptions",
         `/**
  * @kind member
  * @name A
@@ -612,7 +612,7 @@ ${jsdocTestExamples}
     }
   );
 
-  tests.add('`membersToMdAst` with an invalid parameter default.', async () => {
+  tests.add("`membersToMdAst` with an invalid parameter default.", async () => {
     const code = `/**
  * @kind function
  * @name A
@@ -628,7 +628,7 @@ ${jsdocTestExamples}
 
     let caughtError;
 
-    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertEnv = revertableGlobals({ FORCE_COLOR: "1" }, process.env);
     const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
     try {
@@ -645,13 +645,13 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        '../snapshots/membersToMdAst/error-parameter-default-invalid.ans',
+        "../snapshots/membersToMdAst/error-parameter-default-invalid.ans",
         import.meta.url
       )
     );
   });
 
-  tests.add('`membersToMdAst` with an invalid property default.', async () => {
+  tests.add("`membersToMdAst` with an invalid property default.", async () => {
     const code = `/**
  * @kind member
  * @name A
@@ -667,7 +667,7 @@ ${jsdocTestExamples}
 
     let caughtError;
 
-    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertEnv = revertableGlobals({ FORCE_COLOR: "1" }, process.env);
     const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
     try {
@@ -684,7 +684,7 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        '../snapshots/membersToMdAst/error-property-default-invalid.ans',
+        "../snapshots/membersToMdAst/error-property-default-invalid.ans",
         import.meta.url
       )
     );
@@ -692,11 +692,11 @@ ${jsdocTestExamples}
 
   tests.add(
     // This also tests members with only kind and name tags can be processed.
-    '`membersToMdAst` sorts members by membership, then kind, then name.',
+    "`membersToMdAst` sorts members by membership, then kind, then name.",
     async () => {
       // Provide members in the opposite order expected in the markdown.
       await membersToMdAstSnapshot(
-        'sort',
+        "sort",
         `/**
  * @kind typedef
  * @name TypeB
@@ -845,9 +845,9 @@ ${jsdocTestExamples}
     }
   );
 
-  tests.add('`membersToMdAst` with deeply nested members.', async () => {
+  tests.add("`membersToMdAst` with deeply nested members.", async () => {
     await membersToMdAstSnapshot(
-      'deeply-nested-members',
+      "deeply-nested-members",
       `/**
  * @kind class
  * @name A
@@ -878,7 +878,7 @@ ${jsdocTestExamples}
     );
   });
 
-  tests.add('`membersToMdAst` with an invalid event namepath.', async () => {
+  tests.add("`membersToMdAst` with an invalid event namepath.", async () => {
     const code = `/**
  * @kind function
  * @name A
@@ -894,7 +894,7 @@ ${jsdocTestExamples}
 
     let caughtError;
 
-    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertEnv = revertableGlobals({ FORCE_COLOR: "1" }, process.env);
     const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
     try {
@@ -911,13 +911,13 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        '../snapshots/membersToMdAst/error-event-namepath-invalid.ans',
+        "../snapshots/membersToMdAst/error-event-namepath-invalid.ans",
         import.meta.url
       )
     );
   });
 
-  tests.add('`membersToMdAst` with a missing event namepath.', async () => {
+  tests.add("`membersToMdAst` with a missing event namepath.", async () => {
     const code = `/**
  * @kind class
  * @name A
@@ -938,7 +938,7 @@ ${jsdocTestExamples}
 
     let caughtError;
 
-    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertEnv = revertableGlobals({ FORCE_COLOR: "1" }, process.env);
     const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
     try {
@@ -955,7 +955,7 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        '../snapshots/membersToMdAst/error-event-namepath-missing-jsdoc-member.ans',
+        "../snapshots/membersToMdAst/error-event-namepath-missing-jsdoc-member.ans",
         import.meta.url
       )
     );

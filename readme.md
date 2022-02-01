@@ -96,23 +96,23 @@ Analyzes JSDoc from source files to populate a markdown file documentation secti
 _Ways to `import`._
 
 > ```js
-> import { jsdocMd } from 'jsdoc-md';
+> import { jsdocMd } from "jsdoc-md";
 > ```
 >
 > ```js
-> import jsdocMd from 'jsdoc-md/public/jsdocMd.mjs';
+> import jsdocMd from "jsdoc-md/public/jsdocMd.mjs";
 > ```
 
 _Customizing options._
 
 > ```js
 > jsdocMd({
->   cwd: '/path/to/project',
->   sourceGlob: 'index.mjs',
->   markdownPath: 'README.md',
->   targetHeading: 'Docs',
+>   cwd: "/path/to/project",
+>   sourceGlob: "index.mjs",
+>   markdownPath: "README.md",
+>   targetHeading: "Docs",
 > }).then(() => {
->   console.log('Done!');
+>   console.log("Done!");
 > });
 > ```
 
@@ -181,7 +181,7 @@ Other inline tags such as [`{@tutorial}`](https://jsdoc.app/tags-inline-tutorial
  * This usage:
  *
  * ```js
- * popup('Hello!');
+ * popup("Hello!");
  * ```
  *
  * Displays like this on macOS:

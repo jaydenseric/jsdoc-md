@@ -1,23 +1,23 @@
-import { strictEqual } from 'assert';
-import { spawnSync } from 'child_process';
-import disposableDirectory from 'disposable-directory';
-import fs from 'fs';
-import { join } from 'path';
-import snapshot from 'snapshot-assertion';
-import { fileURLToPath } from 'url';
+import { strictEqual } from "assert";
+import { spawnSync } from "child_process";
+import disposableDirectory from "disposable-directory";
+import fs from "fs";
+import { join } from "path";
+import snapshot from "snapshot-assertion";
+import { fileURLToPath } from "url";
 
 const JSDOC_MD_CLI_PATH = fileURLToPath(
-  new URL('../../cli/jsdoc-md.mjs', import.meta.url)
+  new URL("../../cli/jsdoc-md.mjs", import.meta.url)
 );
 
 export default (tests) => {
   tests.add(
-    '`jsdoc-md` CLI with argument `--source-glob` value empty.',
+    "`jsdoc-md` CLI with argument `--source-glob` value empty.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '--source-glob='],
+          "node",
+          [JSDOC_MD_CLI_PATH, "--source-glob="],
           {
             cwd: tempDirPath,
             env: {
@@ -29,12 +29,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-source-glob-value-empty-stderr.ans',
+            "../snapshots/jsdoc-md/argument-source-glob-value-empty-stderr.ans",
             import.meta.url
           )
         );
@@ -45,12 +45,12 @@ export default (tests) => {
   );
 
   tests.add(
-    '`jsdoc-md` CLI with argument `--source-glob` value missing.',
+    "`jsdoc-md` CLI with argument `--source-glob` value missing.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '--source-glob'],
+          "node",
+          [JSDOC_MD_CLI_PATH, "--source-glob"],
           {
             cwd: tempDirPath,
             env: {
@@ -62,12 +62,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-source-glob-value-missing-stderr.ans',
+            "../snapshots/jsdoc-md/argument-source-glob-value-missing-stderr.ans",
             import.meta.url
           )
         );
@@ -77,11 +77,11 @@ export default (tests) => {
     }
   );
 
-  tests.add('`jsdoc-md` CLI with argument `-s` value missing.', async () => {
+  tests.add("`jsdoc-md` CLI with argument `-s` value missing.", async () => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
-        [JSDOC_MD_CLI_PATH, '-s'],
+        "node",
+        [JSDOC_MD_CLI_PATH, "-s"],
         {
           cwd: tempDirPath,
           env: {
@@ -93,12 +93,12 @@ export default (tests) => {
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
+      strictEqual(stdout.toString(), "");
 
       await snapshot(
         stderr.toString(),
         new URL(
-          '../snapshots/jsdoc-md/argument-s-value-missing-stderr.ans',
+          "../snapshots/jsdoc-md/argument-s-value-missing-stderr.ans",
           import.meta.url
         )
       );
@@ -108,12 +108,12 @@ export default (tests) => {
   });
 
   tests.add(
-    '`jsdoc-md` CLI with argument `-s` value missing due to following short arg.',
+    "`jsdoc-md` CLI with argument `-s` value missing due to following short arg.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '-ss'],
+          "node",
+          [JSDOC_MD_CLI_PATH, "-ss"],
           {
             cwd: tempDirPath,
             env: {
@@ -125,12 +125,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-s-value-missing-following-short-arg-stderr.ans',
+            "../snapshots/jsdoc-md/argument-s-value-missing-following-short-arg-stderr.ans",
             import.meta.url
           )
         );
@@ -141,12 +141,12 @@ export default (tests) => {
   );
 
   tests.add(
-    '`jsdoc-md` CLI with argument `--markdown-path` value empty.',
+    "`jsdoc-md` CLI with argument `--markdown-path` value empty.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '--markdown-path='],
+          "node",
+          [JSDOC_MD_CLI_PATH, "--markdown-path="],
           {
             cwd: tempDirPath,
             env: {
@@ -158,12 +158,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-markdown-path-value-empty-stderr.ans',
+            "../snapshots/jsdoc-md/argument-markdown-path-value-empty-stderr.ans",
             import.meta.url
           )
         );
@@ -174,12 +174,12 @@ export default (tests) => {
   );
 
   tests.add(
-    '`jsdoc-md` CLI with argument `--markdown-path` value missing.',
+    "`jsdoc-md` CLI with argument `--markdown-path` value missing.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '--markdown-path'],
+          "node",
+          [JSDOC_MD_CLI_PATH, "--markdown-path"],
           {
             cwd: tempDirPath,
             env: {
@@ -191,12 +191,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-markdown-path-value-missing-stderr.ans',
+            "../snapshots/jsdoc-md/argument-markdown-path-value-missing-stderr.ans",
             import.meta.url
           )
         );
@@ -206,11 +206,11 @@ export default (tests) => {
     }
   );
 
-  tests.add('`jsdoc-md` CLI with argument `-m` value missing.', async () => {
+  tests.add("`jsdoc-md` CLI with argument `-m` value missing.", async () => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
-        [JSDOC_MD_CLI_PATH, '-m'],
+        "node",
+        [JSDOC_MD_CLI_PATH, "-m"],
         {
           cwd: tempDirPath,
           env: {
@@ -222,12 +222,12 @@ export default (tests) => {
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
+      strictEqual(stdout.toString(), "");
 
       await snapshot(
         stderr.toString(),
         new URL(
-          '../snapshots/jsdoc-md/argument-m-value-missing-stderr.ans',
+          "../snapshots/jsdoc-md/argument-m-value-missing-stderr.ans",
           import.meta.url
         )
       );
@@ -237,12 +237,12 @@ export default (tests) => {
   });
 
   tests.add(
-    '`jsdoc-md` CLI with argument `-m` value missing due to following short arg.',
+    "`jsdoc-md` CLI with argument `-m` value missing due to following short arg.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '-mm'],
+          "node",
+          [JSDOC_MD_CLI_PATH, "-mm"],
           {
             cwd: tempDirPath,
             env: {
@@ -254,12 +254,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-m-value-missing-following-short-arg-stderr.ans',
+            "../snapshots/jsdoc-md/argument-m-value-missing-following-short-arg-stderr.ans",
             import.meta.url
           )
         );
@@ -270,12 +270,12 @@ export default (tests) => {
   );
 
   tests.add(
-    '`jsdoc-md` CLI with argument `--target-heading` value empty.',
+    "`jsdoc-md` CLI with argument `--target-heading` value empty.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '--target-heading='],
+          "node",
+          [JSDOC_MD_CLI_PATH, "--target-heading="],
           {
             cwd: tempDirPath,
             env: {
@@ -287,12 +287,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-target-heading-value-empty-stderr.ans',
+            "../snapshots/jsdoc-md/argument-target-heading-value-empty-stderr.ans",
             import.meta.url
           )
         );
@@ -303,12 +303,12 @@ export default (tests) => {
   );
 
   tests.add(
-    '`jsdoc-md` CLI with argument `--target-heading` value missing.',
+    "`jsdoc-md` CLI with argument `--target-heading` value missing.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '--target-heading'],
+          "node",
+          [JSDOC_MD_CLI_PATH, "--target-heading"],
           {
             cwd: tempDirPath,
             env: {
@@ -320,12 +320,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-target-heading-value-missing-stderr.ans',
+            "../snapshots/jsdoc-md/argument-target-heading-value-missing-stderr.ans",
             import.meta.url
           )
         );
@@ -335,11 +335,11 @@ export default (tests) => {
     }
   );
 
-  tests.add('`jsdoc-md` CLI with argument `-t` value missing.', async () => {
+  tests.add("`jsdoc-md` CLI with argument `-t` value missing.", async () => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
-        [JSDOC_MD_CLI_PATH, '-t'],
+        "node",
+        [JSDOC_MD_CLI_PATH, "-t"],
         {
           cwd: tempDirPath,
           env: {
@@ -351,12 +351,12 @@ export default (tests) => {
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
+      strictEqual(stdout.toString(), "");
 
       await snapshot(
         stderr.toString(),
         new URL(
-          '../snapshots/jsdoc-md/argument-t-value-missing-stderr.ans',
+          "../snapshots/jsdoc-md/argument-t-value-missing-stderr.ans",
           import.meta.url
         )
       );
@@ -366,12 +366,12 @@ export default (tests) => {
   });
 
   tests.add(
-    '`jsdoc-md` CLI with argument `-t` value missing due to following short arg.',
+    "`jsdoc-md` CLI with argument `-t` value missing due to following short arg.",
     async () => {
       await disposableDirectory(async (tempDirPath) => {
         const { stdout, stderr, status, error } = spawnSync(
-          'node',
-          [JSDOC_MD_CLI_PATH, '-mm'],
+          "node",
+          [JSDOC_MD_CLI_PATH, "-mm"],
           {
             cwd: tempDirPath,
             env: {
@@ -383,12 +383,12 @@ export default (tests) => {
 
         if (error) throw error;
 
-        strictEqual(stdout.toString(), '');
+        strictEqual(stdout.toString(), "");
 
         await snapshot(
           stderr.toString(),
           new URL(
-            '../snapshots/jsdoc-md/argument-t-value-missing-following-short-arg-stderr.ans',
+            "../snapshots/jsdoc-md/argument-t-value-missing-following-short-arg-stderr.ans",
             import.meta.url
           )
         );
@@ -398,11 +398,11 @@ export default (tests) => {
     }
   );
 
-  tests.add('`jsdoc-md` CLI with an unexpected argument.', async () => {
+  tests.add("`jsdoc-md` CLI with an unexpected argument.", async () => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
-        [JSDOC_MD_CLI_PATH, '--unexpected-a'],
+        "node",
+        [JSDOC_MD_CLI_PATH, "--unexpected-a"],
         {
           cwd: tempDirPath,
           env: {
@@ -414,12 +414,12 @@ export default (tests) => {
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
+      strictEqual(stdout.toString(), "");
 
       await snapshot(
         stderr.toString(),
         new URL(
-          '../snapshots/jsdoc-md/unexpected-argument-stderr.ans',
+          "../snapshots/jsdoc-md/unexpected-argument-stderr.ans",
           import.meta.url
         )
       );
@@ -428,15 +428,15 @@ export default (tests) => {
     });
   });
 
-  tests.add('`jsdoc-md` CLI with unexpected arguments.', async () => {
+  tests.add("`jsdoc-md` CLI with unexpected arguments.", async () => {
     await disposableDirectory(async (tempDirPath) => {
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
+        "node",
         [
           JSDOC_MD_CLI_PATH,
-          '--unexpected-a',
-          '--unexpected-b=',
-          '--unexpected-c=abc',
+          "--unexpected-a",
+          "--unexpected-b=",
+          "--unexpected-c=abc",
         ],
         {
           cwd: tempDirPath,
@@ -449,12 +449,12 @@ export default (tests) => {
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
+      strictEqual(stdout.toString(), "");
 
       await snapshot(
         stderr.toString(),
         new URL(
-          '../snapshots/jsdoc-md/unexpected-arguments-stderr.ans',
+          "../snapshots/jsdoc-md/unexpected-arguments-stderr.ans",
           import.meta.url
         )
       );
@@ -463,14 +463,14 @@ export default (tests) => {
     });
   });
 
-  tests.add('`jsdoc-md` CLI with defaults.', async () => {
+  tests.add("`jsdoc-md` CLI with defaults.", async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const fileNameSourceGitIgnored = 'GitIgnored.js';
-      const pathGitIgnore = join(tempDirPath, '.gitignore');
-      const pathMd = join(tempDirPath, 'readme.md');
-      const pathSourceMjs = join(tempDirPath, 'MJS.mjs');
-      const pathSourceCjs = join(tempDirPath, 'CJS.cjs');
-      const pathSourceJs = join(tempDirPath, 'JS.js');
+      const fileNameSourceGitIgnored = "GitIgnored.js";
+      const pathGitIgnore = join(tempDirPath, ".gitignore");
+      const pathMd = join(tempDirPath, "readme.md");
+      const pathSourceMjs = join(tempDirPath, "MJS.mjs");
+      const pathSourceCjs = join(tempDirPath, "CJS.cjs");
+      const pathSourceJs = join(tempDirPath, "JS.js");
       const pathSourceGitIgnored = join(tempDirPath, fileNameSourceGitIgnored);
 
       await Promise.all([
@@ -525,7 +525,7 @@ export default 1;
       ]);
 
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
+        "node",
         [JSDOC_MD_CLI_PATH],
         {
           cwd: tempDirPath,
@@ -538,25 +538,25 @@ export default 1;
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
-      strictEqual(stderr.toString(), '');
+      strictEqual(stdout.toString(), "");
+      strictEqual(stderr.toString(), "");
       strictEqual(status, 0);
 
       await snapshot(
-        await fs.promises.readFile(pathMd, 'utf8'),
-        new URL('../snapshots/jsdoc-md/defaults.md', import.meta.url)
+        await fs.promises.readFile(pathMd, "utf8"),
+        new URL("../snapshots/jsdoc-md/defaults.md", import.meta.url)
       );
     });
   });
 
-  tests.add('`jsdoc-md` CLI with arguments.', async () => {
+  tests.add("`jsdoc-md` CLI with arguments.", async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const targetHeading = 'Target';
-      const fileNameSourceGitIgnored = 'B.jsx';
-      const fileNameMd = 'markdown.md';
-      const pathGitIgnore = join(tempDirPath, '.gitignore');
+      const targetHeading = "Target";
+      const fileNameSourceGitIgnored = "B.jsx";
+      const fileNameMd = "markdown.md";
+      const pathGitIgnore = join(tempDirPath, ".gitignore");
       const pathMd = join(tempDirPath, fileNameMd);
-      const pathSource = join(tempDirPath, 'A.jsx');
+      const pathSource = join(tempDirPath, "A.jsx");
       const pathSourceGitIgnored = join(tempDirPath, fileNameSourceGitIgnored);
 
       await Promise.all([
@@ -593,10 +593,10 @@ export default 1;
       ]);
 
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
+        "node",
         [
           JSDOC_MD_CLI_PATH,
-          '--source-glob=**/*.jsx',
+          "--source-glob=**/*.jsx",
           `--markdown-path=${fileNameMd}`,
           `--target-heading=${targetHeading}`,
         ],
@@ -611,21 +611,21 @@ export default 1;
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
-      strictEqual(stderr.toString(), '');
+      strictEqual(stdout.toString(), "");
+      strictEqual(stderr.toString(), "");
       strictEqual(status, 0);
 
       await snapshot(
-        await fs.promises.readFile(pathMd, 'utf8'),
-        new URL('../snapshots/jsdoc-md/arguments.md', import.meta.url)
+        await fs.promises.readFile(pathMd, "utf8"),
+        new URL("../snapshots/jsdoc-md/arguments.md", import.meta.url)
       );
     });
   });
 
-  tests.add('`jsdoc-md` CLI with argument `--check`.', async () => {
+  tests.add("`jsdoc-md` CLI with argument `--check`.", async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const pathMd = join(tempDirPath, 'readme.md');
-      const pathSourceMjs = join(tempDirPath, 'MJS.mjs');
+      const pathMd = join(tempDirPath, "readme.md");
+      const pathSourceMjs = join(tempDirPath, "MJS.mjs");
 
       await Promise.all([
         fs.promises.writeFile(
@@ -650,7 +650,7 @@ export default 1;
         ),
       ]);
 
-      const spawnResult1 = spawnSync('node', [JSDOC_MD_CLI_PATH, '--check'], {
+      const spawnResult1 = spawnSync("node", [JSDOC_MD_CLI_PATH, "--check"], {
         cwd: tempDirPath,
         env: {
           ...process.env,
@@ -660,12 +660,12 @@ export default 1;
 
       if (spawnResult1.error) throw spawnResult1.error;
 
-      strictEqual(spawnResult1.stdout.toString(), '');
+      strictEqual(spawnResult1.stdout.toString(), "");
 
       await snapshot(
         spawnResult1.stderr.toString(),
         new URL(
-          '../snapshots/jsdoc-md/argument-check-error-stderr.ans',
+          "../snapshots/jsdoc-md/argument-check-error-stderr.ans",
           import.meta.url
         )
       );
@@ -673,7 +673,7 @@ export default 1;
       strictEqual(spawnResult1.status, 1);
 
       // Update the markdown so the following check will pass.
-      const spawnResult2 = spawnSync('node', [JSDOC_MD_CLI_PATH], {
+      const spawnResult2 = spawnSync("node", [JSDOC_MD_CLI_PATH], {
         cwd: tempDirPath,
         env: {
           ...process.env,
@@ -683,13 +683,13 @@ export default 1;
 
       if (spawnResult2.error) throw spawnResult2.error;
 
-      strictEqual(spawnResult2.stdout.toString(), '');
-      strictEqual(spawnResult2.stderr.toString(), '');
+      strictEqual(spawnResult2.stdout.toString(), "");
+      strictEqual(spawnResult2.stderr.toString(), "");
       strictEqual(spawnResult2.status, 0);
 
       const { mtimeMs: modifiedTimeMsFirst } = await fs.promises.stat(pathMd);
 
-      const spawnResult3 = spawnSync('node', [JSDOC_MD_CLI_PATH, '--check'], {
+      const spawnResult3 = spawnSync("node", [JSDOC_MD_CLI_PATH, "--check"], {
         cwd: tempDirPath,
         env: {
           ...process.env,
@@ -699,8 +699,8 @@ export default 1;
 
       if (spawnResult3.error) throw spawnResult3.error;
 
-      strictEqual(spawnResult3.stdout.toString(), '');
-      strictEqual(spawnResult3.stderr.toString(), '');
+      strictEqual(spawnResult3.stdout.toString(), "");
+      strictEqual(spawnResult3.stderr.toString(), "");
       strictEqual(spawnResult3.status, 0);
 
       const { mtimeMs: modifiedTimeMsSecond } = await fs.promises.stat(pathMd);
@@ -710,11 +710,11 @@ export default 1;
     });
   });
 
-  tests.add('`jsdoc-md` CLI with an invalid JSdoc error.', async () => {
+  tests.add("`jsdoc-md` CLI with an invalid JSdoc error.", async () => {
     await disposableDirectory(async (tempDirPath) => {
-      const pathMd = join(tempDirPath, 'readme.md');
-      const pathSource = join(tempDirPath, 'A.mjs');
-      const mdContent = '## API';
+      const pathMd = join(tempDirPath, "readme.md");
+      const pathSource = join(tempDirPath, "A.mjs");
+      const mdContent = "## API";
 
       await Promise.all([
         fs.promises.writeFile(pathMd, mdContent),
@@ -728,7 +728,7 @@ export default 1;
       ]);
 
       const { stdout, stderr, status, error } = spawnSync(
-        'node',
+        "node",
         [JSDOC_MD_CLI_PATH],
         {
           cwd: tempDirPath,
@@ -741,18 +741,18 @@ export default 1;
 
       if (error) throw error;
 
-      strictEqual(stdout.toString(), '');
+      strictEqual(stdout.toString(), "");
 
       await snapshot(
         stderr.toString(),
         new URL(
-          '../snapshots/jsdoc-md/invalid-jsdoc-error-stderr.ans',
+          "../snapshots/jsdoc-md/invalid-jsdoc-error-stderr.ans",
           import.meta.url
         )
       );
 
       strictEqual(status, 1);
-      strictEqual(await fs.promises.readFile(pathMd, 'utf8'), mdContent);
+      strictEqual(await fs.promises.readFile(pathMd, "utf8"), mdContent);
     });
   });
 };

@@ -1,9 +1,9 @@
-import getCommentParserTokenizerDescription from 'comment-parser/parser/tokenizers/description';
-import getCommentParserTokenizerName from 'comment-parser/parser/tokenizers/name';
-import getCommentParserTokenizerTag from 'comment-parser/parser/tokenizers/tag';
-import getCommentParserTokenizerType from 'comment-parser/parser/tokenizers/type';
+import getCommentParserTokenizerDescription from "comment-parser/parser/tokenizers/description";
+import getCommentParserTokenizerName from "comment-parser/parser/tokenizers/name";
+import getCommentParserTokenizerTag from "comment-parser/parser/tokenizers/tag";
+import getCommentParserTokenizerType from "comment-parser/parser/tokenizers/type";
 
-const JSDOC_SPACING_STRATEGY = 'preserve';
+const JSDOC_SPACING_STRATEGY = "preserve";
 
 /**
  * [`comment-parser`](https://npm.im/comment-parser) parser options for parsing
@@ -25,7 +25,7 @@ export default {
     // Type tokenizer.
     (spec) =>
       // JSDoc tags without a type.
-      ['desc', 'description', 'fires', 'ignore', 'kind', 'see'].includes(
+      ["desc", "description", "fires", "ignore", "kind", "see"].includes(
         spec.tag
       )
         ? spec
@@ -35,14 +35,14 @@ export default {
     (spec) =>
       // JSDoc tags without a name.
       [
-        'desc',
-        'description',
-        'example',
-        'ignore',
-        'return',
-        'returns',
-        'see',
-        'type',
+        "desc",
+        "description",
+        "example",
+        "ignore",
+        "return",
+        "returns",
+        "see",
+        "type",
       ].includes(spec.tag)
         ? spec
         : getCommentParserTokenizerName()(spec),
@@ -50,7 +50,7 @@ export default {
     // Description tokenizer.
     (spec) =>
       // JSDoc tags without a description.
-      ['fires', 'ignore', 'kind', 'name', 'type', 'typedef'].includes(spec.tag)
+      ["fires", "ignore", "kind", "name", "type", "typedef"].includes(spec.tag)
         ? spec
         : getCommentParserTokenizerDescription(JSDOC_SPACING_STRATEGY)(spec),
   ],

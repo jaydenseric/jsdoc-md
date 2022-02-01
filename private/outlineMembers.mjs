@@ -1,11 +1,11 @@
-import GithubSlugger from 'github-slugger';
+import GithubSlugger from "github-slugger";
 
-import InvalidJsdocError from './InvalidJsdocError.mjs';
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
 
 const MEMBERSHIPS = {
-  '.': 'static',
-  '#': 'instance',
-  '~': 'inner',
+  ".": "static",
+  "#": "instance",
+  "~": "inner",
 };
 
 /**
@@ -19,10 +19,10 @@ const MEMBERSHIPS = {
  */
 export default function outlineMembers(members, codeFiles) {
   if (!Array.isArray(members))
-    throw new TypeError('Argument 1 `members` must be an array.');
+    throw new TypeError("Argument 1 `members` must be an array.");
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Argument 2 `codeFiles` must be a `Map` instance.');
+    throw new TypeError("Argument 2 `codeFiles` must be a `Map` instance.");
 
   // Prevent modification of the input array.
   const outline = members.slice();
@@ -49,32 +49,32 @@ export default function outlineMembers(members, codeFiles) {
     }
 
     // Set the heading property.
-    member.heading = '';
+    member.heading = "";
 
     if (member.memberof) {
       member.heading += `${member.memberof.data} `;
 
-      if (member.kind !== 'event')
+      if (member.kind !== "event")
         member.heading += `${MEMBERSHIPS[member.membership]} `;
     }
 
     member.heading +=
-      member.kind === 'function' &&
+      member.kind === "function" &&
       member.parent &&
-      member.parent.kind === 'class' &&
-      member.membership !== '~'
-        ? 'method '
-        : member.kind === 'member' &&
+      member.parent.kind === "class" &&
+      member.membership !== "~"
+        ? "method "
+        : member.kind === "member" &&
           member.membership &&
-          member.membership !== '~'
-        ? 'property '
-        : member.kind === 'typedef'
-        ? 'type '
+          member.membership !== "~"
+        ? "property "
+        : member.kind === "typedef"
+        ? "type "
         : `${member.kind} `;
 
     member.heading +=
-      member.kind === 'event'
-        ? member.name.replace(/^event:/u, '')
+      member.kind === "event"
+        ? member.name.replace(/^event:/u, "")
         : member.name;
 
     // Set the slug property.

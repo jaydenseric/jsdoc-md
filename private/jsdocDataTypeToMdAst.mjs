@@ -1,7 +1,7 @@
-import CodeLocation from './CodeLocation.mjs';
-import InvalidJsdocError from './InvalidJsdocError.mjs';
-import typeAstToMdAst from './typeAstToMdAst.mjs';
-import typeToTypeAst from './typeToTypeAst.mjs';
+import CodeLocation from "./CodeLocation.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
+import typeAstToMdAst from "./typeAstToMdAst.mjs";
+import typeToTypeAst from "./typeToTypeAst.mjs";
 
 /**
  * Converts JSDoc data containing a JSDoc type to a markdown AST, linking JSDoc
@@ -23,34 +23,34 @@ export default function jsdocDataTypeToMdAst(
   optional,
   parameter
 ) {
-  if (typeof jsdocData !== 'object')
-    throw new TypeError('Argument 1 `jsdocData` must be an object.');
+  if (typeof jsdocData !== "object")
+    throw new TypeError("Argument 1 `jsdocData` must be an object.");
 
-  if (typeof jsdocData.codeFileLocation !== 'object')
+  if (typeof jsdocData.codeFileLocation !== "object")
     throw new TypeError(
-      'Argument 1 `jsdocData` property `codeFileLocation` must be an object.'
+      "Argument 1 `jsdocData` property `codeFileLocation` must be an object."
     );
 
-  if (typeof jsdocData.codeFileLocation.filePath !== 'string')
+  if (typeof jsdocData.codeFileLocation.filePath !== "string")
     throw new TypeError(
-      'Argument 1 `jsdocData` property `codeFileLocation` property `filePath` must be a string.'
+      "Argument 1 `jsdocData` property `codeFileLocation` property `filePath` must be a string."
     );
 
   if (!(jsdocData.codeFileLocation.codeLocation instanceof CodeLocation))
     throw new TypeError(
-      'Argument 1 `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'
+      "Argument 1 `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance."
     );
 
-  if (typeof jsdocData.data !== 'string')
+  if (typeof jsdocData.data !== "string")
     throw new TypeError(
-      'Argument 1 `jsdocData` property `data` must be a string.'
+      "Argument 1 `jsdocData` property `data` must be a string."
     );
 
   if (!Array.isArray(members))
-    throw new TypeError('Argument 2 `members` must be an array.');
+    throw new TypeError("Argument 2 `members` must be an array.");
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Argument 3 `codeFiles` must be a `Map` instance.');
+    throw new TypeError("Argument 3 `codeFiles` must be a `Map` instance.");
 
   try {
     return typeAstToMdAst(

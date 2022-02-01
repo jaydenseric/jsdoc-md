@@ -1,64 +1,64 @@
-import { deepStrictEqual, throws } from 'assert';
+import { deepStrictEqual, throws } from "assert";
 
-import typeToTypeAst from '../../private/typeToTypeAst.mjs';
+import typeToTypeAst from "../../private/typeToTypeAst.mjs";
 
 export default (tests) => {
-  tests.add('`typeToTypeAst` with non-paramter type, non-optional.', () => {
-    deepStrictEqual(typeToTypeAst({ type: 'a' }), {
-      type: 'NameExpression',
-      name: 'a',
+  tests.add("`typeToTypeAst` with non-paramter type, non-optional.", () => {
+    deepStrictEqual(typeToTypeAst({ type: "a" }), {
+      type: "NameExpression",
+      name: "a",
     });
   });
 
   tests.add(
-    '`typeToTypeAst` with non-parameter type, optional via option.',
+    "`typeToTypeAst` with non-parameter type, optional via option.",
     () => {
-      deepStrictEqual(typeToTypeAst({ type: 'string', optional: true }), {
-        type: 'OptionalType',
+      deepStrictEqual(typeToTypeAst({ type: "string", optional: true }), {
+        type: "OptionalType",
         expression: {
-          type: 'NameExpression',
-          name: 'string',
+          type: "NameExpression",
+          name: "string",
         },
       });
     }
   );
 
-  tests.add('`typeToTypeAst` with parameter type, non-optional.', () => {
-    deepStrictEqual(typeToTypeAst({ type: '...*', parameter: true }), {
-      type: 'RestType',
+  tests.add("`typeToTypeAst` with parameter type, non-optional.", () => {
+    deepStrictEqual(typeToTypeAst({ type: "...*", parameter: true }), {
+      type: "RestType",
       expression: {
-        type: 'AllLiteral',
+        type: "AllLiteral",
       },
     });
   });
 
   tests.add(
-    '`typeToTypeAst` with parameter type, optional via type string.',
+    "`typeToTypeAst` with parameter type, optional via type string.",
     () => {
-      deepStrictEqual(typeToTypeAst({ type: 'string=', parameter: true }), {
-        type: 'OptionalType',
+      deepStrictEqual(typeToTypeAst({ type: "string=", parameter: true }), {
+        type: "OptionalType",
         expression: {
-          type: 'NameExpression',
-          name: 'string',
+          type: "NameExpression",
+          name: "string",
         },
       });
     }
   );
 
   tests.add(
-    '`typeToTypeAst` with parameter type, optional via type string and option.',
+    "`typeToTypeAst` with parameter type, optional via type string and option.",
     () => {
       deepStrictEqual(
         typeToTypeAst({
-          type: 'string=',
+          type: "string=",
           parameter: true,
           optional: true,
         }),
         {
-          type: 'OptionalType',
+          type: "OptionalType",
           expression: {
-            type: 'NameExpression',
-            name: 'string',
+            type: "NameExpression",
+            name: "string",
           },
         }
       );
@@ -66,18 +66,18 @@ export default (tests) => {
   );
 
   tests.add(
-    '`typeToTypeAst` with parameter type, non-optional, event namepath.',
+    "`typeToTypeAst` with parameter type, non-optional, event namepath.",
     () => {
-      deepStrictEqual(typeToTypeAst({ type: 'A#event:a', parameter: true }), {
-        type: 'NameExpression',
-        name: 'A#event:a',
+      deepStrictEqual(typeToTypeAst({ type: "A#event:a", parameter: true }), {
+        type: "NameExpression",
+        name: "A#event:a",
       });
     }
   );
 
-  tests.add('`typeToTypeAst` with invalid type.', () => {
+  tests.add("`typeToTypeAst` with invalid type.", () => {
     throws(() => {
-      typeToTypeAst({ type: '**' });
-    }, new TypeError('Invalid JSDoc type `**`.'));
+      typeToTypeAst({ type: "**" });
+    }, new TypeError("Invalid JSDoc type `**`."));
   });
 };

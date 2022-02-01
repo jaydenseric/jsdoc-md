@@ -1,42 +1,42 @@
-import { deepStrictEqual, rejects } from 'assert';
-import snapshot from 'snapshot-assertion';
+import { deepStrictEqual, rejects } from "assert";
+import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
+import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
 
-const TEST_CODE_FILE_PATH = '/a.js';
+const TEST_CODE_FILE_PATH = "/a.js";
 
 export default (tests) => {
   tests.add(
-    '`codeToJsdocComments` with argument 1 `code` not a string.',
+    "`codeToJsdocComments` with argument 1 `code` not a string.",
     async () => {
       await rejects(
         codeToJsdocComments(true, TEST_CODE_FILE_PATH),
-        new TypeError('Argument 1 `code` must be a string.')
+        new TypeError("Argument 1 `code` must be a string.")
       );
     }
   );
 
   tests.add(
-    '`codeToJsdocComments` with argument 2 `codeFilePath` not a string.',
+    "`codeToJsdocComments` with argument 2 `codeFilePath` not a string.",
     async () => {
       await rejects(
-        codeToJsdocComments('', true),
-        new TypeError('Argument 2 `codeFilePath` must be a string.')
+        codeToJsdocComments("", true),
+        new TypeError("Argument 2 `codeFilePath` must be a string.")
       );
     }
   );
 
   tests.add(
-    '`codeToJsdocComments` with argument 2 `codeFilePath` not a populated string.',
+    "`codeToJsdocComments` with argument 2 `codeFilePath` not a populated string.",
     async () => {
       await rejects(
-        codeToJsdocComments('', ''),
-        new TypeError('Argument 2 `codeFilePath` must be a populated string.')
+        codeToJsdocComments("", ""),
+        new TypeError("Argument 2 `codeFilePath` must be a populated string.")
       );
     }
   );
 
-  tests.add('`codeToJsdocComments` with a comment, line.', async () => {
+  tests.add("`codeToJsdocComments` with a comment, line.", async () => {
     deepStrictEqual(
       await codeToJsdocComments(
         `// a
@@ -48,7 +48,7 @@ let a;`,
   });
 
   tests.add(
-    '`codeToJsdocComments` with a comment, block, single line, not JSDoc.',
+    "`codeToJsdocComments` with a comment, block, single line, not JSDoc.",
     async () => {
       deepStrictEqual(
         await codeToJsdocComments(
@@ -62,17 +62,17 @@ let a;`,
   );
 
   tests.add(
-    '`codeToJsdocComments` with a code string containing JSDoc.',
+    "`codeToJsdocComments` with a code string containing JSDoc.",
     async () => {
       deepStrictEqual(
-        await codeToJsdocComments("const a = '/** a */';", TEST_CODE_FILE_PATH),
+        await codeToJsdocComments('const a = "/** a */";', TEST_CODE_FILE_PATH),
         []
       );
     }
   );
 
   tests.add(
-    '`codeToJsdocComments` with a comment, block, single line, JSDoc.',
+    "`codeToJsdocComments` with a comment, block, single line, JSDoc.",
     async () => {
       await snapshot(
         JSON.stringify(
@@ -85,7 +85,7 @@ let a;`,
           2
         ),
         new URL(
-          '../snapshots/codeToJsdocComments/single-comment-block-single-line-jsdoc.json',
+          "../snapshots/codeToJsdocComments/single-comment-block-single-line-jsdoc.json",
           import.meta.url
         )
       );
@@ -93,7 +93,7 @@ let a;`,
   );
 
   tests.add(
-    '`codeToJsdocComments` with a comment, block, multi line, not JSDoc.',
+    "`codeToJsdocComments` with a comment, block, multi line, not JSDoc.",
     async () => {
       deepStrictEqual(
         await codeToJsdocComments(
@@ -109,7 +109,7 @@ let a;`,
   );
 
   tests.add(
-    '`codeToJsdocComments` with a comment, block, multi line, JSDoc.',
+    "`codeToJsdocComments` with a comment, block, multi line, JSDoc.",
     async () => {
       await snapshot(
         JSON.stringify(
@@ -124,7 +124,7 @@ let a;`,
           2
         ),
         new URL(
-          '../snapshots/codeToJsdocComments/single-comment-block-multi-line-jsdoc.json',
+          "../snapshots/codeToJsdocComments/single-comment-block-multi-line-jsdoc.json",
           import.meta.url
         )
       );
@@ -132,7 +132,7 @@ let a;`,
   );
 
   tests.add(
-    '`codeToJsdocComments` with multiple comments, block, multi line, JSDoc.',
+    "`codeToJsdocComments` with multiple comments, block, multi line, JSDoc.",
     async () => {
       await snapshot(
         JSON.stringify(
@@ -152,7 +152,7 @@ let b;`,
           2
         ),
         new URL(
-          '../snapshots/codeToJsdocComments/multiple-comment-blocks-multi-line-jsdoc.json',
+          "../snapshots/codeToJsdocComments/multiple-comment-blocks-multi-line-jsdoc.json",
           import.meta.url
         )
       );

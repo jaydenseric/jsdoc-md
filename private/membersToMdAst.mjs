@@ -1,31 +1,31 @@
-import remarkBehead from 'remark-behead';
-import remarkGfm from 'remark-gfm';
-import remarkToc from 'remark-toc';
-import { unified } from 'unified';
+import remarkBehead from "remark-behead";
+import remarkGfm from "remark-gfm";
+import remarkToc from "remark-toc";
+import { unified } from "unified";
 
-import deconstructJsdocNamepath from './deconstructJsdocNamepath.mjs';
-import InvalidJsdocError from './InvalidJsdocError.mjs';
-import jsdocDataMdToMdAst from './jsdocDataMdToMdAst.mjs';
-import jsdocDataTypeToMdAst from './jsdocDataTypeToMdAst.mjs';
-import outlineMembers from './outlineMembers.mjs';
+import deconstructJsdocNamepath from "./deconstructJsdocNamepath.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
+import jsdocDataMdToMdAst from "./jsdocDataMdToMdAst.mjs";
+import jsdocDataTypeToMdAst from "./jsdocDataTypeToMdAst.mjs";
+import outlineMembers from "./outlineMembers.mjs";
 
 const MEMBERSHIP_ORDER = [
-  '.', // Static.
-  '#', // Instance.
-  '~', // Inner.
+  ".", // Static.
+  "#", // Instance.
+  "~", // Inner.
 ];
 const KIND_ORDER = [
-  'external',
-  'file',
-  'module',
-  'namespace',
-  'class',
-  'function',
-  'member',
-  'constant',
-  'event',
-  'mixin',
-  'typedef',
+  "external",
+  "file",
+  "module",
+  "namespace",
+  "class",
+  "function",
+  "member",
+  "constant",
+  "event",
+  "mixin",
+  "typedef",
 ];
 
 /**
@@ -40,18 +40,18 @@ const KIND_ORDER = [
  */
 export default function membersToMdAst(members, codeFiles, topDepth = 1) {
   if (!Array.isArray(members))
-    throw new TypeError('Argument 1 `members` must be an array.');
+    throw new TypeError("Argument 1 `members` must be an array.");
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Argument 2 `codeFiles` must be a `Map` instance.');
+    throw new TypeError("Argument 2 `codeFiles` must be a `Map` instance.");
 
-  if (typeof topDepth !== 'number')
-    throw new TypeError('Argument 3 `topDepth` must be a number.');
+  if (typeof topDepth !== "number")
+    throw new TypeError("Argument 3 `topDepth` must be a number.");
 
-  if (topDepth < 1) throw new RangeError('Argument 3 `topDepth` must be >= 1.');
+  if (topDepth < 1) throw new RangeError("Argument 3 `topDepth` must be >= 1.");
 
   const outlinedMembers = outlineMembers(members, codeFiles);
-  const mdAst = { type: 'root', children: [] };
+  const mdAst = { type: "root", children: [] };
 
   /**
    * Recursively constructs the markdown AST.
@@ -74,12 +74,12 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
     )) {
       // Show a horizontal rule before all top level members, after the first.
       if (depth === topDepth && memberIndex)
-        mdAst.children.push({ type: 'thematicBreak' });
+        mdAst.children.push({ type: "thematicBreak" });
 
       mdAst.children.push({
-        type: 'heading',
+        type: "heading",
         depth,
-        children: [{ type: 'text', value: member.heading }],
+        children: [{ type: "text", value: member.heading }],
       });
 
       if (member.description) {
@@ -95,10 +95,10 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
       if (member.type)
         mdAst.children.push({
-          type: 'paragraph',
+          type: "paragraph",
           children: [
-            { type: 'strong', children: [{ type: 'text', value: 'Type:' }] },
-            { type: 'text', value: ' ' },
+            { type: "strong", children: [{ type: "text", value: "Type:" }] },
+            { type: "text", value: " " },
             ...jsdocDataTypeToMdAst(
               member.type,
               outlinedMembers,
@@ -116,53 +116,53 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
         const propertiesTableHasColumnDescription = member.properties.some(
           ({ description }) => description
         );
-        const propertiesTableAlign = ['left'];
+        const propertiesTableAlign = ["left"];
         const propertiesTableRowHeader = {
-          type: 'tableRow',
+          type: "tableRow",
           children: [
             {
-              type: 'tableCell',
-              children: [{ type: 'text', value: 'Property' }],
+              type: "tableCell",
+              children: [{ type: "text", value: "Property" }],
             },
           ],
         };
 
         if (propertiesTableHasColumnType) {
-          propertiesTableAlign.push('left');
+          propertiesTableAlign.push("left");
           propertiesTableRowHeader.children.push({
-            type: 'tableCell',
-            children: [{ type: 'text', value: 'Type' }],
+            type: "tableCell",
+            children: [{ type: "text", value: "Type" }],
           });
         }
 
         if (propertiesTableHasColumnDescription) {
-          propertiesTableAlign.push('left');
+          propertiesTableAlign.push("left");
           propertiesTableRowHeader.children.push({
-            type: 'tableCell',
-            children: [{ type: 'text', value: 'Description' }],
+            type: "tableCell",
+            children: [{ type: "text", value: "Description" }],
           });
         }
 
         const propertiesTable = {
-          type: 'table',
+          type: "table",
           align: propertiesTableAlign,
           children: [propertiesTableRowHeader],
         };
 
         for (const property of member.properties) {
           const propertiesTableRow = {
-            type: 'tableRow',
+            type: "tableRow",
             children: [
               {
-                type: 'tableCell',
-                children: [{ type: 'inlineCode', value: property.name }],
+                type: "tableCell",
+                children: [{ type: "inlineCode", value: property.name }],
               },
             ],
           };
 
           if (propertiesTableHasColumnType) {
             const typeTableCell = {
-              type: 'tableCell',
+              type: "tableCell",
               children: property.type
                 ? jsdocDataTypeToMdAst(
                     property.type,
@@ -176,7 +176,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
             if (property.default)
               typeTableCell.children.push(
-                { type: 'text', value: ' = ' },
+                { type: "text", value: " = " },
                 ...jsdocDataTypeToMdAst(
                   property.default,
                   outlinedMembers,
@@ -191,7 +191,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
           if (propertiesTableHasColumnDescription)
             propertiesTableRow.children.push({
-              type: 'tableCell',
+              type: "tableCell",
               children: property.description
                 ? jsdocDataMdToMdAst(
                     property.description,
@@ -214,53 +214,53 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
         const parametersTableHasColumnDescription = member.parameters.some(
           ({ description }) => description
         );
-        const parametersTableAlign = ['left'];
+        const parametersTableAlign = ["left"];
         const parametersTableRowHeader = {
-          type: 'tableRow',
+          type: "tableRow",
           children: [
             {
-              type: 'tableCell',
-              children: [{ type: 'text', value: 'Parameter' }],
+              type: "tableCell",
+              children: [{ type: "text", value: "Parameter" }],
             },
           ],
         };
 
         if (parametersTableHasColumnType) {
-          parametersTableAlign.push('left');
+          parametersTableAlign.push("left");
           parametersTableRowHeader.children.push({
-            type: 'tableCell',
-            children: [{ type: 'text', value: 'Type' }],
+            type: "tableCell",
+            children: [{ type: "text", value: "Type" }],
           });
         }
 
         if (parametersTableHasColumnDescription) {
-          parametersTableAlign.push('left');
+          parametersTableAlign.push("left");
           parametersTableRowHeader.children.push({
-            type: 'tableCell',
-            children: [{ type: 'text', value: 'Description' }],
+            type: "tableCell",
+            children: [{ type: "text", value: "Description" }],
           });
         }
 
         const parametersTable = {
-          type: 'table',
+          type: "table",
           align: parametersTableAlign,
           children: [parametersTableRowHeader],
         };
 
         for (const parameter of member.parameters) {
           const parametersTableRow = {
-            type: 'tableRow',
+            type: "tableRow",
             children: [
               {
-                type: 'tableCell',
-                children: [{ type: 'inlineCode', value: parameter.name }],
+                type: "tableCell",
+                children: [{ type: "inlineCode", value: parameter.name }],
               },
             ],
           };
 
           if (parametersTableHasColumnType) {
             const typeTableCell = {
-              type: 'tableCell',
+              type: "tableCell",
               children: parameter.type
                 ? jsdocDataTypeToMdAst(
                     parameter.type,
@@ -274,7 +274,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
             if (parameter.default)
               typeTableCell.children.push(
-                { type: 'text', value: ' = ' },
+                { type: "text", value: " = " },
                 ...jsdocDataTypeToMdAst(
                   parameter.default,
                   outlinedMembers,
@@ -289,7 +289,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
           if (parametersTableHasColumnDescription)
             parametersTableRow.children.push({
-              type: 'tableCell',
+              type: "tableCell",
               children: parameter.description
                 ? jsdocDataMdToMdAst(
                     parameter.description,
@@ -308,14 +308,14 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
       if (member.returns) {
         const children = [
           {
-            type: 'strong',
-            children: [{ type: 'text', value: 'Returns:' }],
+            type: "strong",
+            children: [{ type: "text", value: "Returns:" }],
           },
         ];
 
         if (member.returns.type)
           children.push(
-            { type: 'text', value: ' ' },
+            { type: "text", value: " " },
             ...jsdocDataTypeToMdAst(
               member.returns.type,
               outlinedMembers,
@@ -327,7 +327,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
         if (member.returns.description)
           children.push(
-            { type: 'text', value: member.returns.type ? ' — ' : ' ' },
+            { type: "text", value: member.returns.type ? " — " : " " },
             ...jsdocDataMdToMdAst(
               member.returns.description,
               outlinedMembers,
@@ -335,18 +335,18 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
             )
           );
 
-        mdAst.children.push({ type: 'paragraph', children });
+        mdAst.children.push({ type: "paragraph", children });
       }
 
       if (member.fires) {
         mdAst.children.push({
-          type: 'heading',
+          type: "heading",
           depth: depth + 1,
-          children: [{ type: 'text', value: 'Fires' }],
+          children: [{ type: "text", value: "Fires" }],
         });
 
         const firesTagsList = {
-          type: 'list',
+          type: "list",
           ordered: false,
           spread: false,
           children: [],
@@ -367,7 +367,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
           // The JSDoc `@fires` tag uniquely supports omitting the `event:`
           // name prefix in the event namepath.
-          const eventNamepath = name.startsWith('event:')
+          const eventNamepath = name.startsWith("event:")
             ? namepath.data
             : `${memberof}${membership}event:${name}`;
           const eventMember = outlinedMembers.find(
@@ -382,13 +382,13 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
             );
 
           firesTagsList.children.push({
-            type: 'listItem',
+            type: "listItem",
             spread: false,
             children: [
               {
-                type: 'link',
+                type: "link",
                 url: `#${eventMember.slug}`,
-                children: [{ type: 'text', value: eventMember.heading }],
+                children: [{ type: "text", value: eventMember.heading }],
               },
             ],
           });
@@ -399,13 +399,13 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
       if (member.see) {
         mdAst.children.push({
-          type: 'heading',
+          type: "heading",
           depth: depth + 1,
-          children: [{ type: 'text', value: 'See' }],
+          children: [{ type: "text", value: "See" }],
         });
 
         const seeTagsList = {
-          type: 'list',
+          type: "list",
           ordered: false,
           spread: false,
           children: [],
@@ -413,7 +413,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
         for (const see of member.see)
           seeTagsList.children.push({
-            type: 'listItem',
+            type: "listItem",
             spread: false,
             children: jsdocDataMdToMdAst(see, outlinedMembers, codeFiles),
           });
@@ -425,18 +425,18 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
         const headingDepth = depth + 1;
 
         mdAst.children.push({
-          type: 'heading',
+          type: "heading",
           depth: headingDepth,
-          children: [{ type: 'text', value: 'Examples' }],
+          children: [{ type: "text", value: "Examples" }],
         });
 
         for (const { caption, content } of member.examples) {
           if (caption)
             mdAst.children.push({
-              type: 'paragraph',
+              type: "paragraph",
               children: [
                 {
-                  type: 'emphasis',
+                  type: "emphasis",
                   children: jsdocDataMdToMdAst(
                     caption,
                     outlinedMembers,
@@ -456,7 +456,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
 
             for (const node of children) transformHeadingLevel(node);
 
-            mdAst.children.push({ type: 'blockquote', children });
+            mdAst.children.push({ type: "blockquote", children });
           }
         }
       }
@@ -474,9 +474,9 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
   if (outlinedMembers.length > 1) {
     // Temporarily insert a heading for the ToC to be inserted under.
     mdAst.children.unshift({
-      type: 'heading',
+      type: "heading",
       depth: topDepth,
-      children: [{ type: 'text', value: 'Table of contents' }],
+      children: [{ type: "text", value: "Table of contents" }],
     });
 
     const mdAstWithToC = unified()
@@ -484,7 +484,7 @@ export default function membersToMdAst(members, codeFiles, topDepth = 1) {
       .use(remarkToc, {
         // Prettier formatting.
         tight: true,
-        skip: 'Fires|See|Examples',
+        skip: "Fires|See|Examples",
       })
       .runSync(mdAst);
 

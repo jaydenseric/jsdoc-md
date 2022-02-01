@@ -1,4 +1,4 @@
-import { parseAsync } from '@babel/core';
+import { parseAsync } from "@babel/core";
 
 /**
  * Gets JSDoc comments from source code, using Babel.
@@ -10,15 +10,15 @@ import { parseAsync } from '@babel/core';
  * @ignore
  */
 export default async function codeToJsdocComments(code, codeFilePath) {
-  if (typeof code !== 'string')
-    throw new TypeError('Argument 1 `code` must be a string.');
+  if (typeof code !== "string")
+    throw new TypeError("Argument 1 `code` must be a string.");
 
-  if (typeof codeFilePath !== 'string')
-    throw new TypeError('Argument 2 `codeFilePath` must be a string.');
+  if (typeof codeFilePath !== "string")
+    throw new TypeError("Argument 2 `codeFilePath` must be a string.");
 
-  if (codeFilePath === '')
+  if (codeFilePath === "")
     throw new TypeError(
-      'Argument 2 `codeFilePath` must be a populated string.'
+      "Argument 2 `codeFilePath` must be a populated string."
     );
 
   const { comments } = await parseAsync(code, {
@@ -29,8 +29,8 @@ export default async function codeToJsdocComments(code, codeFilePath) {
     // have Babel config to handle it.
     parserOpts: {
       plugins: [
-        'classProperties',
-        ['decorators', { decoratorsBeforeExport: false }],
+        "classProperties",
+        ["decorators", { decoratorsBeforeExport: false }],
       ],
     },
   });
@@ -39,7 +39,7 @@ export default async function codeToJsdocComments(code, codeFilePath) {
     ({ type, value }) =>
       // A comment block starts with `/*`, whereas a comment line starts with
       // `//`. JSDoc can only be a comment block.
-      type === 'CommentBlock' &&
+      type === "CommentBlock" &&
       // The value excludes the start `/*` and end `*/`. A JSDoc comment block
       // starts with `/**` followed by whitespace.
       value.match(/^\*\s/u)

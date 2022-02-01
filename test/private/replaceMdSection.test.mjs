@@ -1,60 +1,60 @@
-import { strictEqual, throws } from 'assert';
+import { strictEqual, throws } from "assert";
 
-import replaceMdSection from '../../private/replaceMdSection.mjs';
+import replaceMdSection from "../../private/replaceMdSection.mjs";
 
 export default (tests) => {
   tests.add(
-    '`replaceMdSection` with argument 1 `markdown` not a string.',
+    "`replaceMdSection` with argument 1 `markdown` not a string.",
     () => {
       throws(
         () => replaceMdSection(true),
-        new TypeError('Argument 1 `markdown` must be a string.')
+        new TypeError("Argument 1 `markdown` must be a string.")
       );
     }
   );
 
   tests.add(
-    '`replaceMdSection` with argument 1 `markdown` not a populated string.',
+    "`replaceMdSection` with argument 1 `markdown` not a populated string.",
     () => {
       throws(
-        () => replaceMdSection(''),
-        new TypeError('Argument 1 `markdown` must be a populated string.')
+        () => replaceMdSection(""),
+        new TypeError("Argument 1 `markdown` must be a populated string.")
       );
     }
   );
 
   tests.add(
-    '`replaceMdSection` with argument 2 `targetHeading` not a string.',
+    "`replaceMdSection` with argument 2 `targetHeading` not a string.",
     () => {
       throws(
-        () => replaceMdSection('a', true),
-        new TypeError('Argument 2 `targetHeading` must be a string.')
+        () => replaceMdSection("a", true),
+        new TypeError("Argument 2 `targetHeading` must be a string.")
       );
     }
   );
 
   tests.add(
-    '`replaceMdSection` with argument 2 `targetHeading` not a populated string.',
+    "`replaceMdSection` with argument 2 `targetHeading` not a populated string.",
     () => {
       throws(
-        () => replaceMdSection('a', ''),
-        new TypeError('Argument 2 `targetHeading` must be a populated string.')
+        () => replaceMdSection("a", ""),
+        new TypeError("Argument 2 `targetHeading` must be a populated string.")
       );
     }
   );
 
   tests.add(
-    '`replaceMdSection` with argument 3 `replacementMdAst` not an object.',
+    "`replaceMdSection` with argument 3 `replacementMdAst` not an object.",
     () => {
       throws(
-        () => replaceMdSection('a', 'a', true),
-        new TypeError('Argument 3 `replacementMdAst` must be an object.')
+        () => replaceMdSection("a", "a", true),
+        new TypeError("Argument 3 `replacementMdAst` must be an object.")
       );
     }
   );
 
-  tests.add('`replaceMdSection` with the target heading present.', () => {
-    const targetHeading = 'Target';
+  tests.add("`replaceMdSection` with the target heading present.", () => {
+    const targetHeading = "Target";
 
     strictEqual(
       replaceMdSection(
@@ -68,14 +68,14 @@ Replace.
 `,
         targetHeading,
         {
-          type: 'root',
+          type: "root",
           children: [
             {
-              type: 'paragraph',
+              type: "paragraph",
               children: [
                 {
-                  type: 'text',
-                  value: 'Replaced.',
+                  type: "text",
+                  value: "Replaced.",
                 },
               ],
             },

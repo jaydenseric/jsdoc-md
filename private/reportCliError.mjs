@@ -1,8 +1,8 @@
-import kleur from 'kleur';
-import { inspect } from 'util';
+import kleur from "kleur";
+import { inspect } from "util";
 
-import CliError from './CliError.mjs';
-import errorConsole from './errorConsole.mjs';
+import CliError from "./CliError.mjs";
+import errorConsole from "./errorConsole.mjs";
 
 /**
  * Reports a CLI error via the process `stderr`.
@@ -13,8 +13,8 @@ import errorConsole from './errorConsole.mjs';
  * @ignore
  */
 export default function reportCliError(cliDescription, error) {
-  if (typeof cliDescription !== 'string')
-    throw new TypeError('Argument 1 `cliDescription` must be a string.');
+  if (typeof cliDescription !== "string")
+    throw new TypeError("Argument 1 `cliDescription` must be a string.");
 
   errorConsole.group(
     // Whitespace blank lines shouldn’t have redundant indentation or color.

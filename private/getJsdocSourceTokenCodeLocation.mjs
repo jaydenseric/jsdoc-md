@@ -1,22 +1,22 @@
-import CodeLocation from './CodeLocation.mjs';
-import CodePosition from './CodePosition.mjs';
+import CodeLocation from "./CodeLocation.mjs";
+import CodePosition from "./CodePosition.mjs";
 
 const JSDOC_SOURCE_TOKEN_ORDER = [
-  'start',
-  'delimiter',
-  'postDelimiter',
-  'tag',
-  'postTag',
-  'type',
-  'postType',
-  'name',
-  'postName',
-  'description',
-  'end',
-  'lineEnd',
+  "start",
+  "delimiter",
+  "postDelimiter",
+  "tag",
+  "postTag",
+  "type",
+  "postType",
+  "name",
+  "postName",
+  "description",
+  "end",
+  "lineEnd",
 ];
 
-const JSDOC_SOURCE_INFO_TOKENS = ['tag', 'name', 'type', 'description'];
+const JSDOC_SOURCE_INFO_TOKENS = ["tag", "name", "type", "description"];
 
 /**
  * Gets a JSDoc comment code location a span of data, given parsed JSDoc
@@ -36,19 +36,19 @@ export default function getJsdocSourceTokenCodeLocation(
   startCodePosition
 ) {
   if (!Array.isArray(jsdocSource))
-    throw new TypeError('Argument 1 `jsdocSource` must be an array.');
+    throw new TypeError("Argument 1 `jsdocSource` must be an array.");
 
-  if (typeof dataTokenName !== 'string')
-    throw new TypeError('Argument 2 `dataTokenName` must be a string.');
+  if (typeof dataTokenName !== "string")
+    throw new TypeError("Argument 2 `dataTokenName` must be a string.");
 
   if (!JSDOC_SOURCE_INFO_TOKENS.includes(dataTokenName))
     throw new TypeError(
-      'Argument 2 `dataTokenName` must be a JSDoc source data token name.'
+      "Argument 2 `dataTokenName` must be a JSDoc source data token name."
     );
 
   if (!(startCodePosition instanceof CodePosition))
     throw new TypeError(
-      'Argument 3 `startCodePosition` must be a `CodePosition` instance.'
+      "Argument 3 `startCodePosition` must be a `CodePosition` instance."
     );
 
   let start;

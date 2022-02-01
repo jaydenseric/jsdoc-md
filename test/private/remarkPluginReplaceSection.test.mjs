@@ -1,67 +1,67 @@
-import { deepStrictEqual, throws } from 'assert';
-import remarkGfm from 'remark-gfm';
-import { unified } from 'unified';
+import { deepStrictEqual, throws } from "assert";
+import remarkGfm from "remark-gfm";
+import { unified } from "unified";
 
-import remarkPluginReplaceSection from '../../private/remarkPluginReplaceSection.mjs';
+import remarkPluginReplaceSection from "../../private/remarkPluginReplaceSection.mjs";
 
 export default (tests) => {
   tests.add(
-    '`remarkPluginReplaceSection` with option `targetHeading` not a string.',
+    "`remarkPluginReplaceSection` with option `targetHeading` not a string.",
     () => {
       throws(() => {
         remarkPluginReplaceSection({ targetHeading: true });
-      }, new TypeError('Option `targetHeading` must be a string.'));
+      }, new TypeError("Option `targetHeading` must be a string."));
     }
   );
 
   tests.add(
-    '`remarkPluginReplaceSection` with option `replacementAst` not an object.',
+    "`remarkPluginReplaceSection` with option `replacementAst` not an object.",
     () => {
       throws(() => {
         remarkPluginReplaceSection({ replacementAst: true });
-      }, new TypeError('Option `replacementAst` must be an object.'));
+      }, new TypeError("Option `replacementAst` must be an object."));
     }
   );
 
-  tests.add('`remarkPluginReplaceSection` with defaults.', () => {
+  tests.add("`remarkPluginReplaceSection` with defaults.", () => {
     deepStrictEqual(
       unified()
         .use(remarkGfm)
         .use(remarkPluginReplaceSection)
         .runSync({
-          type: 'root',
+          type: "root",
           children: [
             {
-              type: 'heading',
+              type: "heading",
               depth: 1,
               children: [
                 {
-                  type: 'text',
-                  value: 'API',
+                  type: "text",
+                  value: "API",
                 },
               ],
             },
             {
-              type: 'paragraph',
+              type: "paragraph",
               children: [
                 {
-                  type: 'text',
-                  value: 'Replace.',
+                  type: "text",
+                  value: "Replace.",
                 },
               ],
             },
           ],
         }),
       {
-        type: 'root',
+        type: "root",
         children: [
           {
-            type: 'heading',
+            type: "heading",
             depth: 1,
             children: [
               {
-                type: 'text',
-                value: 'API',
+                type: "text",
+                value: "API",
               },
             ],
           },
@@ -70,21 +70,21 @@ export default (tests) => {
     );
   });
 
-  tests.add('`remarkPluginReplaceSection` with options.', () => {
+  tests.add("`remarkPluginReplaceSection` with options.", () => {
     deepStrictEqual(
       unified()
         .use(remarkGfm)
         .use(remarkPluginReplaceSection, {
-          targetHeading: 'A',
+          targetHeading: "A",
           replacementAst: {
-            type: 'root',
+            type: "root",
             children: [
               {
-                type: 'paragraph',
+                type: "paragraph",
                 children: [
                   {
-                    type: 'text',
-                    value: 'Replaced.',
+                    type: "text",
+                    value: "Replaced.",
                   },
                 ],
               },
@@ -92,68 +92,68 @@ export default (tests) => {
           },
         })
         .runSync({
-          type: 'root',
+          type: "root",
           children: [
             {
-              type: 'heading',
+              type: "heading",
               depth: 1,
               children: [
                 {
-                  type: 'text',
-                  value: 'A',
+                  type: "text",
+                  value: "A",
                 },
               ],
             },
             {
-              type: 'paragraph',
+              type: "paragraph",
               children: [
                 {
-                  type: 'text',
-                  value: 'Replace.',
+                  type: "text",
+                  value: "Replace.",
                 },
               ],
             },
             {
-              type: 'heading',
+              type: "heading",
               depth: 1,
               children: [
                 {
-                  type: 'text',
-                  value: 'B',
+                  type: "text",
+                  value: "B",
                 },
               ],
             },
           ],
         }),
       {
-        type: 'root',
+        type: "root",
         children: [
           {
-            type: 'heading',
+            type: "heading",
             depth: 1,
             children: [
               {
-                type: 'text',
-                value: 'A',
+                type: "text",
+                value: "A",
               },
             ],
           },
           {
-            type: 'paragraph',
+            type: "paragraph",
             children: [
               {
-                type: 'text',
-                value: 'Replaced.',
+                type: "text",
+                value: "Replaced.",
               },
             ],
           },
           {
-            type: 'heading',
+            type: "heading",
             depth: 1,
             children: [
               {
-                type: 'text',
-                value: 'B',
+                type: "text",
+                value: "B",
               },
             ],
           },
@@ -162,12 +162,12 @@ export default (tests) => {
     );
   });
 
-  tests.add('`remarkPluginReplaceSection` with a missing heading.', () => {
+  tests.add("`remarkPluginReplaceSection` with a missing heading.", () => {
     throws(() => {
       unified().use(remarkGfm).use(remarkPluginReplaceSection).runSync({
-        type: 'root',
+        type: "root",
         children: [],
       });
-    }, new Error('Missing target heading `API`.'));
+    }, new Error("Missing target heading `API`."));
   });
 };

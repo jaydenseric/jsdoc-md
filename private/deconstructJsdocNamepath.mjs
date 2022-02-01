@@ -8,8 +8,8 @@
  * @ignore
  */
 export default function deconstructJsdocNamepath(namepath) {
-  if (typeof namepath !== 'string')
-    throw new TypeError('Argument 1 `namepath` must be a string.');
+  if (typeof namepath !== "string")
+    throw new TypeError("Argument 1 `namepath` must be a string.");
 
   const [match, memberof, membership, name] =
     namepath.match(/^(?:([^.#~]+(?:[.#~][^.#~]+)*)([.#~]))?([^.#~]+)$/u) || [];

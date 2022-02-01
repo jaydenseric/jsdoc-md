@@ -1,10 +1,10 @@
-import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import remarkStringify from 'remark-stringify';
-import { unified } from 'unified';
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import remarkStringify from "remark-stringify";
+import { unified } from "unified";
 
-import REMARK_STRINGIFY_OPTIONS from './REMARK_STRINGIFY_OPTIONS.mjs';
-import remarkPluginReplaceSection from './remarkPluginReplaceSection.mjs';
+import REMARK_STRINGIFY_OPTIONS from "./REMARK_STRINGIFY_OPTIONS.mjs";
+import remarkPluginReplaceSection from "./remarkPluginReplaceSection.mjs";
 
 /**
  * Replaces a markdown section.
@@ -21,22 +21,22 @@ export default function replaceMdSection(
   targetHeading,
   replacementMdAst
 ) {
-  if (typeof markdown !== 'string')
-    throw new TypeError('Argument 1 `markdown` must be a string.');
+  if (typeof markdown !== "string")
+    throw new TypeError("Argument 1 `markdown` must be a string.");
 
-  if (markdown === '')
-    throw new TypeError('Argument 1 `markdown` must be a populated string.');
+  if (markdown === "")
+    throw new TypeError("Argument 1 `markdown` must be a populated string.");
 
-  if (typeof targetHeading !== 'string')
-    throw new TypeError('Argument 2 `targetHeading` must be a string.');
+  if (typeof targetHeading !== "string")
+    throw new TypeError("Argument 2 `targetHeading` must be a string.");
 
-  if (targetHeading === '')
+  if (targetHeading === "")
     throw new TypeError(
-      'Argument 2 `targetHeading` must be a populated string.'
+      "Argument 2 `targetHeading` must be a populated string."
     );
 
-  if (typeof replacementMdAst !== 'object')
-    throw new TypeError('Argument 3 `replacementMdAst` must be an object.');
+  if (typeof replacementMdAst !== "object")
+    throw new TypeError("Argument 3 `replacementMdAst` must be an object.");
 
   return unified()
     .use(remarkParse)

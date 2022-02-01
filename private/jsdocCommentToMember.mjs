@@ -1,13 +1,13 @@
-import { parse } from 'comment-parser';
-import trimNewlines from 'trim-newlines';
+import { parse } from "comment-parser";
+import trimNewlines from "trim-newlines";
 
-import CodeLocation from './CodeLocation.mjs';
-import CodePosition from './CodePosition.mjs';
-import COMMENT_PARSER_OPTIONS from './COMMENT_PARSER_OPTIONS.mjs';
-import deconstructJsdocNamepath from './deconstructJsdocNamepath.mjs';
-import getJsdocBlockDescriptionSource from './getJsdocBlockDescriptionSource.mjs';
-import getJsdocSourceTokenCodeLocation from './getJsdocSourceTokenCodeLocation.mjs';
-import InvalidJsdocError from './InvalidJsdocError.mjs';
+import CodeLocation from "./CodeLocation.mjs";
+import CodePosition from "./CodePosition.mjs";
+import COMMENT_PARSER_OPTIONS from "./COMMENT_PARSER_OPTIONS.mjs";
+import deconstructJsdocNamepath from "./deconstructJsdocNamepath.mjs";
+import getJsdocBlockDescriptionSource from "./getJsdocBlockDescriptionSource.mjs";
+import getJsdocSourceTokenCodeLocation from "./getJsdocSourceTokenCodeLocation.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
 
 /**
  * Analyzes a JSDoc comment to produce JSDoc member details.
@@ -24,18 +24,18 @@ export default function jsdocCommentToMember(
   codeFiles,
   codeFilePath
 ) {
-  if (typeof jsdocComment !== 'object')
-    throw new TypeError('Argument 1 `jsdocComment` must be an object.');
+  if (typeof jsdocComment !== "object")
+    throw new TypeError("Argument 1 `jsdocComment` must be an object.");
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Argument 2 `codeFiles` must be a `Map` instance.');
+    throw new TypeError("Argument 2 `codeFiles` must be a `Map` instance.");
 
-  if (typeof codeFilePath !== 'string')
-    throw new TypeError('Argument 3 `codeFilePath` must be a string.');
+  if (typeof codeFilePath !== "string")
+    throw new TypeError("Argument 3 `codeFilePath` must be a string.");
 
-  if (codeFilePath === '')
+  if (codeFilePath === "")
     throw new TypeError(
-      'Argument 3 `codeFilePath` must be a populated string.'
+      "Argument 3 `codeFilePath` must be a populated string."
     );
 
   const jsdocBlockStartCodePosition = new CodePosition(
@@ -75,7 +75,7 @@ export default function jsdocCommentToMember(
       const tag = jsdocBlock.tags[index];
 
       switch (tag.tag) {
-        case 'kind':
+        case "kind":
           if (
             !kind &&
             // Ignore an invalid tag missing a name.
@@ -84,7 +84,7 @@ export default function jsdocCommentToMember(
             kind = tag.name;
 
           break;
-        case 'name':
+        case "name":
           if (
             !namepath &&
             // Ignore an invalid tag missing a name.
@@ -95,7 +95,7 @@ export default function jsdocCommentToMember(
                 filePath: codeFilePath,
                 codeLocation: getJsdocSourceTokenCodeLocation(
                   tag.source,
-                  'name',
+                  "name",
                   jsdocBlockStartCodePosition
                 ),
               },
@@ -103,10 +103,10 @@ export default function jsdocCommentToMember(
             };
 
           break;
-        case 'typedef':
+        case "typedef":
           // Ignore an invalid tag missing a name.
           if (tag.name) {
-            if (!kind) kind = 'typedef';
+            if (!kind) kind = "typedef";
 
             if (!namepath)
               namepath = {
@@ -114,7 +114,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'name',
+                    "name",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -127,7 +127,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'type',
+                    "type",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -136,11 +136,11 @@ export default function jsdocCommentToMember(
           }
 
           break;
-        case 'callback':
+        case "callback":
           // A callback tag is a typedef with an implied function type.
           // Ignore an invalid tag missing a name.
           if (tag.name) {
-            if (!kind) kind = 'typedef';
+            if (!kind) kind = "typedef";
 
             if (!namepath)
               namepath = {
@@ -148,7 +148,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'name',
+                    "name",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -161,18 +161,18 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'tag',
+                    "tag",
                     jsdocBlockStartCodePosition
                   ),
                 },
                 // A special case; the tag implies this type so this data is not
                 // what is actually at the associated code file location.
-                data: 'Function',
+                data: "Function",
               };
           }
 
           break;
-        case 'type':
+        case "type":
           if (
             !type &&
             // Ignore an invalid tag missing a type.
@@ -183,7 +183,7 @@ export default function jsdocCommentToMember(
                 filePath: codeFilePath,
                 codeLocation: getJsdocSourceTokenCodeLocation(
                   tag.source,
-                  'type',
+                  "type",
                   jsdocBlockStartCodePosition
                 ),
               },
@@ -191,8 +191,8 @@ export default function jsdocCommentToMember(
             };
 
           break;
-        case 'desc':
-        case 'description': {
+        case "desc":
+        case "description": {
           if (!description) {
             const tagDescriptionTrimmed = trimNewlines(tag.description);
 
@@ -203,7 +203,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'description',
+                    "description",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -213,9 +213,9 @@ export default function jsdocCommentToMember(
 
           break;
         }
-        case 'arg':
-        case 'argument':
-        case 'param': {
+        case "arg":
+        case "argument":
+        case "param": {
           // Ignore an invalid tag missing a name.
           if (tag.name) {
             // Define the JSDoc parameter with nicely ordered properties.
@@ -229,7 +229,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'type',
+                    "type",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -244,7 +244,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'name',
+                    "name",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -259,7 +259,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'description',
+                    "description",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -271,8 +271,8 @@ export default function jsdocCommentToMember(
 
           break;
         }
-        case 'prop':
-        case 'property': {
+        case "prop":
+        case "property": {
           // Ignore an invalid tag missing a name.
           if (tag.name) {
             // Define the JSDoc property with nicely ordered properties.
@@ -286,7 +286,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'type',
+                    "type",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -301,7 +301,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'name',
+                    "name",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -316,7 +316,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'description',
+                    "description",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -328,8 +328,8 @@ export default function jsdocCommentToMember(
 
           break;
         }
-        case 'return':
-        case 'returns': {
+        case "return":
+        case "returns": {
           // Ignore an invalid tag missing both a type and description.
           if (!returns.type && tag.type)
             returns.type = {
@@ -337,7 +337,7 @@ export default function jsdocCommentToMember(
                 filePath: codeFilePath,
                 codeLocation: getJsdocSourceTokenCodeLocation(
                   tag.source,
-                  'type',
+                  "type",
                   jsdocBlockStartCodePosition
                 ),
               },
@@ -353,7 +353,7 @@ export default function jsdocCommentToMember(
                   filePath: codeFilePath,
                   codeLocation: getJsdocSourceTokenCodeLocation(
                     tag.source,
-                    'description',
+                    "description",
                     jsdocBlockStartCodePosition
                   ),
                 },
@@ -363,8 +363,8 @@ export default function jsdocCommentToMember(
 
           break;
         }
-        case 'emits':
-        case 'fires': {
+        case "emits":
+        case "fires": {
           if (
             // Ignore an invalid tag missing a name.
             tag.name &&
@@ -376,7 +376,7 @@ export default function jsdocCommentToMember(
                 filePath: codeFilePath,
                 codeLocation: getJsdocSourceTokenCodeLocation(
                   tag.source,
-                  'name',
+                  "name",
                   jsdocBlockStartCodePosition
                 ),
               },
@@ -385,7 +385,7 @@ export default function jsdocCommentToMember(
 
           break;
         }
-        case 'see': {
+        case "see": {
           const tagDescriptionTrimmed = trimNewlines(tag.description);
 
           // Ignore an invalid tag missing a description.
@@ -395,7 +395,7 @@ export default function jsdocCommentToMember(
                 filePath: codeFilePath,
                 codeLocation: getJsdocSourceTokenCodeLocation(
                   tag.source,
-                  'description',
+                  "description",
                   jsdocBlockStartCodePosition
                 ),
               },
@@ -404,7 +404,7 @@ export default function jsdocCommentToMember(
 
           break;
         }
-        case 'example': {
+        case "example": {
           const tagDescriptionTrimmed = trimNewlines(tag.description);
 
           // Ignore an invalid tag missing a description.
@@ -426,13 +426,13 @@ export default function jsdocCommentToMember(
             if (captionData || contentData) {
               let { line, column } = getJsdocSourceTokenCodeLocation(
                 tag.source,
-                'description',
+                "description",
                 jsdocBlockStartCodePosition
               ).start;
               let charIndex = 0;
 
               const nextChar = () => {
-                if (tagDescriptionTrimmed[charIndex] === '\n') {
+                if (tagDescriptionTrimmed[charIndex] === "\n") {
                   line++;
 
                   // Because the tag description characters being looped have
@@ -506,7 +506,7 @@ export default function jsdocCommentToMember(
 
           break;
         }
-        case 'ignore':
+        case "ignore":
           // Ignore JSDoc with an ignore tag. It’s best for this tag to be used
           // last in a JSDoc comment, so processing can be bailed earlier.
           return;
@@ -547,7 +547,7 @@ export default function jsdocCommentToMember(
         };
 
       // Automatically add a missing `event:` prefix to an event name.
-      if (kind === 'event' && !name.startsWith('event:'))
+      if (kind === "event" && !name.startsWith("event:"))
         name = `event:${name}`;
 
       // Define the JSDoc member with nicely ordered properties, and only add
@@ -590,7 +590,7 @@ export default function jsdocCommentToMember(
               filePath: codeFilePath,
               codeLocation: getJsdocSourceTokenCodeLocation(
                 getJsdocBlockDescriptionSource(jsdocBlock),
-                'description',
+                "description",
                 jsdocBlockStartCodePosition
               ),
             },

@@ -1,13 +1,13 @@
-import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
-import { unified } from 'unified';
-import { removePosition } from 'unist-util-remove-position';
+import remarkGfm from "remark-gfm";
+import remarkParse from "remark-parse";
+import { unified } from "unified";
+import { removePosition } from "unist-util-remove-position";
 
-import CodeLocation from './CodeLocation.mjs';
-import CodePosition from './CodePosition.mjs';
-import codePositionToIndex from './codePositionToIndex.mjs';
-import InvalidJsdocError from './InvalidJsdocError.mjs';
-import unescapeJsdoc from './unescapeJsdoc.mjs';
+import CodeLocation from "./CodeLocation.mjs";
+import CodePosition from "./CodePosition.mjs";
+import codePositionToIndex from "./codePositionToIndex.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
+import unescapeJsdoc from "./unescapeJsdoc.mjs";
 
 /**
  * Converts JSDoc data containing markdown to a markdown AST, replacing inline
@@ -21,34 +21,34 @@ import unescapeJsdoc from './unescapeJsdoc.mjs';
  * @ignore
  */
 export default function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
-  if (typeof jsdocData !== 'object')
-    throw new TypeError('Argument 1 `jsdocData` must be an object.');
+  if (typeof jsdocData !== "object")
+    throw new TypeError("Argument 1 `jsdocData` must be an object.");
 
-  if (typeof jsdocData.codeFileLocation !== 'object')
+  if (typeof jsdocData.codeFileLocation !== "object")
     throw new TypeError(
-      'Argument 1 `jsdocData` property `codeFileLocation` must be an object.'
+      "Argument 1 `jsdocData` property `codeFileLocation` must be an object."
     );
 
-  if (typeof jsdocData.codeFileLocation.filePath !== 'string')
+  if (typeof jsdocData.codeFileLocation.filePath !== "string")
     throw new TypeError(
-      'Argument 1 `jsdocData` property `codeFileLocation` property `filePath` must be a string.'
+      "Argument 1 `jsdocData` property `codeFileLocation` property `filePath` must be a string."
     );
 
   if (!(jsdocData.codeFileLocation.codeLocation instanceof CodeLocation))
     throw new TypeError(
-      'Argument 1 `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance.'
+      "Argument 1 `jsdocData` property `codeFileLocation` property `codeLocation` must be a `CodeLocation` instance."
     );
 
-  if (typeof jsdocData.data !== 'string')
+  if (typeof jsdocData.data !== "string")
     throw new TypeError(
-      'Argument 1 `jsdocData` property `data` must be a string.'
+      "Argument 1 `jsdocData` property `data` must be a string."
     );
 
   if (!Array.isArray(members))
-    throw new TypeError('Argument 2 `members` must be an array.');
+    throw new TypeError("Argument 2 `members` must be an array.");
 
   if (!(codeFiles instanceof Map))
-    throw new TypeError('Argument 3 `codeFiles` must be a `Map` instance.');
+    throw new TypeError("Argument 3 `codeFiles` must be a `Map` instance.");
 
   // The JSDoc data comes from `comment-parser`, which strips the JSDoc comment
   // fences (e.g. ` * `) from each line. These need to be present when searching
@@ -91,7 +91,7 @@ export default function jsdocDataMdToMdAst(jsdocData, members, codeFiles) {
       let charIndex = 0;
 
       const nextChar = () => {
-        if (jsdocDataCode[charIndex] === '\n') {
+        if (jsdocDataCode[charIndex] === "\n") {
           line++;
           column = 1;
         } else column++;

@@ -1,30 +1,30 @@
-import { strictEqual, throws } from 'assert';
-import kleur from 'kleur';
-import revertableGlobals from 'revertable-globals';
-import snapshot from 'snapshot-assertion';
+import { strictEqual, throws } from "assert";
+import kleur from "kleur";
+import revertableGlobals from "revertable-globals";
+import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
-import InvalidJsdocError from '../../private/InvalidJsdocError.mjs';
-import jsdocCommentToMember from '../../private/jsdocCommentToMember.mjs';
+import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
+import InvalidJsdocError from "../../private/InvalidJsdocError.mjs";
+import jsdocCommentToMember from "../../private/jsdocCommentToMember.mjs";
 
-const TEST_CODE_FILE_PATH = '/a.js';
+const TEST_CODE_FILE_PATH = "/a.js";
 
 export default (tests) => {
   tests.add(
-    '`jsdocCommentToMember` with argument 1 `jsdocComment` not an object.',
+    "`jsdocCommentToMember` with argument 1 `jsdocComment` not an object.",
     () => {
-      const codeFiles = new Map([[TEST_CODE_FILE_PATH, '']]);
+      const codeFiles = new Map([[TEST_CODE_FILE_PATH, ""]]);
 
       throws(() => {
         jsdocCommentToMember(true, codeFiles, TEST_CODE_FILE_PATH);
-      }, new TypeError('Argument 1 `jsdocComment` must be an object.'));
+      }, new TypeError("Argument 1 `jsdocComment` must be an object."));
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with argument 2 `codeFiles` not a `Map` instance.',
+    "`jsdocCommentToMember` with argument 2 `codeFiles` not a `Map` instance.",
     async () => {
-      const code = '/** */';
+      const code = "/** */";
       const [jsdocComment] = await codeToJsdocComments(
         code,
         TEST_CODE_FILE_PATH
@@ -32,14 +32,14 @@ export default (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, true, TEST_CODE_FILE_PATH);
-      }, new TypeError('Argument 2 `codeFiles` must be a `Map` instance.'));
+      }, new TypeError("Argument 2 `codeFiles` must be a `Map` instance."));
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with argument 3 `codeFilePath` not a string.',
+    "`jsdocCommentToMember` with argument 3 `codeFilePath` not a string.",
     async () => {
-      const code = '/** */';
+      const code = "/** */";
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
@@ -48,14 +48,14 @@ export default (tests) => {
 
       throws(() => {
         jsdocCommentToMember(jsdocComment, codeFiles, true);
-      }, new TypeError('Argument 3 `codeFilePath` must be a string.'));
+      }, new TypeError("Argument 3 `codeFilePath` must be a string."));
     }
   );
 
   tests.add(
-    '`jsdocCommentToMember` with argument 3 `codeFilePath` not a populated string.',
+    "`jsdocCommentToMember` with argument 3 `codeFilePath` not a populated string.",
     async () => {
-      const code = '/** */';
+      const code = "/** */";
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
@@ -63,13 +63,13 @@ export default (tests) => {
       );
 
       throws(() => {
-        jsdocCommentToMember(jsdocComment, codeFiles, '');
-      }, new TypeError('Argument 3 `codeFilePath` must be a populated string.'));
+        jsdocCommentToMember(jsdocComment, codeFiles, "");
+      }, new TypeError("Argument 3 `codeFilePath` must be a populated string."));
     }
   );
 
-  tests.add('`jsdocCommentToMember` with a JSDoc syntax error.', async () => {
-    const code = '/** @tag [name */';
+  tests.add("`jsdocCommentToMember` with a JSDoc syntax error.", async () => {
+    const code = "/** @tag [name */";
     const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
@@ -79,9 +79,9 @@ export default (tests) => {
   });
 
   tests.add(
-    '`jsdocCommentToMember` with no description, no tags.',
+    "`jsdocCommentToMember` with no description, no tags.",
     async () => {
-      const code = '/** */';
+      const code = "/** */";
       const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
       const [jsdocComment] = await codeToJsdocComments(
         code,
@@ -94,8 +94,8 @@ export default (tests) => {
     }
   );
 
-  tests.add('`jsdocCommentToMember` with description, no tags.', async () => {
-    const code = '/** Description. */';
+  tests.add("`jsdocCommentToMember` with description, no tags.", async () => {
+    const code = "/** Description. */";
     const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
@@ -104,8 +104,8 @@ export default (tests) => {
     );
   });
 
-  tests.add('`jsdocCommentToMember` with a missing kind.', async () => {
-    const code = '/** @name A */';
+  tests.add("`jsdocCommentToMember` with a missing kind.", async () => {
+    const code = "/** @name A */";
     const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
@@ -114,8 +114,8 @@ export default (tests) => {
     );
   });
 
-  tests.add('`jsdocCommentToMember` with a missing name.', async () => {
-    const code = '/** @kind member */';
+  tests.add("`jsdocCommentToMember` with a missing name.", async () => {
+    const code = "/** @kind member */";
     const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
@@ -124,8 +124,8 @@ export default (tests) => {
     );
   });
 
-  tests.add('`jsdocCommentToMember` with tag ignore.', async () => {
-    const code = '/** @ignore */';
+  tests.add("`jsdocCommentToMember` with tag ignore.", async () => {
+    const code = "/** @ignore */";
     const codeFiles = new Map([[TEST_CODE_FILE_PATH, code]]);
     const [jsdocComment] = await codeToJsdocComments(code, TEST_CODE_FILE_PATH);
     strictEqual(
@@ -134,7 +134,7 @@ export default (tests) => {
     );
   });
 
-  tests.add('`jsdocCommentToMember` with an invalid namepath.', async () => {
+  tests.add("`jsdocCommentToMember` with an invalid namepath.", async () => {
     const code = `// Code before…
 const a = true;
 
@@ -150,7 +150,7 @@ const b = true;
 
     let caughtError;
 
-    const revertEnv = revertableGlobals({ FORCE_COLOR: '1' }, process.env);
+    const revertEnv = revertableGlobals({ FORCE_COLOR: "1" }, process.env);
     const revertKleur = revertableGlobals({ enabled: true }, kleur);
 
     try {
@@ -167,13 +167,13 @@ const b = true;
     await snapshot(
       caughtError.message,
       new URL(
-        '../snapshots/jsdocCommentToMember/error-invalid-namepath.ans',
+        "../snapshots/jsdocCommentToMember/error-invalid-namepath.ans",
         import.meta.url
       )
     );
   });
 
-  tests.add('`jsdocCommentToMember` with description.', async () => {
+  tests.add("`jsdocCommentToMember` with description.", async () => {
     const code = `/**
  * Description.
  * @kind member
@@ -189,14 +189,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/description.json',
+        "../snapshots/jsdocCommentToMember/description.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag desc, missing description.',
+    "`jsdocCommentToMember` with tag desc, missing description.",
     async () => {
       const code = `/**
  * @desc
@@ -216,14 +216,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-desc-missing-description.json',
+          "../snapshots/jsdocCommentToMember/tag-desc-missing-description.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag desc.', async () => {
+  tests.add("`jsdocCommentToMember` with tag desc.", async () => {
     const code = `/**
  * @desc Description.
  * @kind member
@@ -239,14 +239,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-desc.json',
+        "../snapshots/jsdocCommentToMember/tag-desc.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag desc, overriding description.',
+    "`jsdocCommentToMember` with tag desc, overriding description.",
     async () => {
       const code = `/**
  * Description A.
@@ -267,7 +267,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-desc-overriding-description.json',
+          "../snapshots/jsdocCommentToMember/tag-desc-overriding-description.json",
           import.meta.url
         )
       );
@@ -275,7 +275,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag desc, overriding tag desc.',
+    "`jsdocCommentToMember` with tag desc, overriding tag desc.",
     async () => {
       const code = `/**
  * @desc Description A.
@@ -296,7 +296,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-desc-overriding-tag-desc.json',
+          "../snapshots/jsdocCommentToMember/tag-desc-overriding-tag-desc.json",
           import.meta.url
         )
       );
@@ -304,7 +304,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag desc, overriding tag description.',
+    "`jsdocCommentToMember` with tag desc, overriding tag description.",
     async () => {
       const code = `/**
  * @description Description A.
@@ -325,7 +325,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-desc-overriding-tag-description.json',
+          "../snapshots/jsdocCommentToMember/tag-desc-overriding-tag-description.json",
           import.meta.url
         )
       );
@@ -333,7 +333,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag description, missing description.',
+    "`jsdocCommentToMember` with tag description, missing description.",
     async () => {
       const code = `/**
  * @description
@@ -353,14 +353,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-description-missing-description.json',
+          "../snapshots/jsdocCommentToMember/tag-description-missing-description.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag description.', async () => {
+  tests.add("`jsdocCommentToMember` with tag description.", async () => {
     const code = `/**
  * @description Description.
  * @kind member
@@ -376,14 +376,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-description.json',
+        "../snapshots/jsdocCommentToMember/tag-description.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag description, overriding description.',
+    "`jsdocCommentToMember` with tag description, overriding description.",
     async () => {
       const code = `/**
  * Description A.
@@ -404,7 +404,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-description-overriding-description.json',
+          "../snapshots/jsdocCommentToMember/tag-description-overriding-description.json",
           import.meta.url
         )
       );
@@ -412,7 +412,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag description, overriding tag desc.',
+    "`jsdocCommentToMember` with tag description, overriding tag desc.",
     async () => {
       const code = `/**
  * @desc Description A.
@@ -433,7 +433,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-description-overriding-tag-desc.json',
+          "../snapshots/jsdocCommentToMember/tag-description-overriding-tag-desc.json",
           import.meta.url
         )
       );
@@ -441,7 +441,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag description, overriding tag description.',
+    "`jsdocCommentToMember` with tag description, overriding tag description.",
     async () => {
       const code = `/**
  * @description Description A.
@@ -462,14 +462,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-description-overriding-tag-description.json',
+          "../snapshots/jsdocCommentToMember/tag-description-overriding-tag-description.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag kind, missing name.', async () => {
+  tests.add("`jsdocCommentToMember` with tag kind, missing name.", async () => {
     const code = `/**
  * @kind member
  * @kind
@@ -485,13 +485,13 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-kind-missing-name.json',
+        "../snapshots/jsdocCommentToMember/tag-kind-missing-name.json",
         import.meta.url
       )
     );
   });
 
-  tests.add('`jsdocCommentToMember` with tag kind.', async () => {
+  tests.add("`jsdocCommentToMember` with tag kind.", async () => {
     const code = `/**
  * @kind member
  * @name A
@@ -506,14 +506,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-kind.json',
+        "../snapshots/jsdocCommentToMember/tag-kind.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag kind, overriding tag kind.',
+    "`jsdocCommentToMember` with tag kind, overriding tag kind.",
     async () => {
       const code = `/**
  * @kind function
@@ -533,7 +533,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-kind.json',
+          "../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-kind.json",
           import.meta.url
         )
       );
@@ -541,7 +541,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag kind, overriding tag typedef.',
+    "`jsdocCommentToMember` with tag kind, overriding tag typedef.",
     async () => {
       const code = `/**
  * @typedef A
@@ -560,7 +560,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-typedef.json',
+          "../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -568,7 +568,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag kind, overriding tag callback.',
+    "`jsdocCommentToMember` with tag kind, overriding tag callback.",
     async () => {
       const code = `/**
  * @callback A
@@ -587,14 +587,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-callback.json',
+          "../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-callback.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag name, missing name.', async () => {
+  tests.add("`jsdocCommentToMember` with tag name, missing name.", async () => {
     const code = `/**
  * @kind member
  * @name A
@@ -610,13 +610,13 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-name-missing-name.json',
+        "../snapshots/jsdocCommentToMember/tag-name-missing-name.json",
         import.meta.url
       )
     );
   });
 
-  tests.add('`jsdocCommentToMember` with tag name.', async () => {
+  tests.add("`jsdocCommentToMember` with tag name.", async () => {
     const code = `/**
  * @kind member
  * @name A
@@ -631,14 +631,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-name.json',
+        "../snapshots/jsdocCommentToMember/tag-name.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag name, overriding tag name.',
+    "`jsdocCommentToMember` with tag name, overriding tag name.",
     async () => {
       const code = `/**
  * @kind member
@@ -658,7 +658,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-name-overriding-tag-name.json',
+          "../snapshots/jsdocCommentToMember/tag-name-overriding-tag-name.json",
           import.meta.url
         )
       );
@@ -666,7 +666,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag name, overriding tag typedef.',
+    "`jsdocCommentToMember` with tag name, overriding tag typedef.",
     async () => {
       const code = `/**
  * @typedef A
@@ -685,7 +685,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-name-overriding-tag-typedef.json',
+          "../snapshots/jsdocCommentToMember/tag-name-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -693,7 +693,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag name, overriding tag callback.',
+    "`jsdocCommentToMember` with tag name, overriding tag callback.",
     async () => {
       const code = `/**
  * @callback A
@@ -712,14 +712,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-name-overriding-tag-callback.json',
+          "../snapshots/jsdocCommentToMember/tag-name-overriding-tag-callback.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag type, missing type.', async () => {
+  tests.add("`jsdocCommentToMember` with tag type, missing type.", async () => {
     const code = `/**
  * @kind member
  * @name A
@@ -735,13 +735,13 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-type-missing-type.json',
+        "../snapshots/jsdocCommentToMember/tag-type-missing-type.json",
         import.meta.url
       )
     );
   });
 
-  tests.add('`jsdocCommentToMember` with tag type.', async () => {
+  tests.add("`jsdocCommentToMember` with tag type.", async () => {
     const code = `/**
  * @kind member
  * @name A
@@ -757,14 +757,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-type.json',
+        "../snapshots/jsdocCommentToMember/tag-type.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag type, overriding tag type.',
+    "`jsdocCommentToMember` with tag type, overriding tag type.",
     async () => {
       const code = `/**
  * @kind member
@@ -785,7 +785,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-type-overriding-tag-type.json',
+          "../snapshots/jsdocCommentToMember/tag-type-overriding-tag-type.json",
           import.meta.url
         )
       );
@@ -793,7 +793,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag type, overriding tag typedef.',
+    "`jsdocCommentToMember` with tag type, overriding tag typedef.",
     async () => {
       const code = `/**
  * @typedef {string} A
@@ -812,7 +812,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-type-overriding-tag-typedef.json',
+          "../snapshots/jsdocCommentToMember/tag-type-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -820,7 +820,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag type, overriding tag callback.',
+    "`jsdocCommentToMember` with tag type, overriding tag callback.",
     async () => {
       const code = `/**
  * @callback A
@@ -839,7 +839,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-type-overriding-tag-callback.json',
+          "../snapshots/jsdocCommentToMember/tag-type-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -847,7 +847,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag typedef, missing name.',
+    "`jsdocCommentToMember` with tag typedef, missing name.",
     async () => {
       const code = `/**
  * @kind member
@@ -867,14 +867,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-typedef-missing-name.json',
+          "../snapshots/jsdocCommentToMember/tag-typedef-missing-name.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag typedef, name.', async () => {
+  tests.add("`jsdocCommentToMember` with tag typedef, name.", async () => {
     const code = `/**
  * @typedef A
  */`;
@@ -888,14 +888,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-typedef-name.json',
+        "../snapshots/jsdocCommentToMember/tag-typedef-name.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag typedef, type, name.',
+    "`jsdocCommentToMember` with tag typedef, type, name.",
     async () => {
       const code = `/**
  * @typedef {boolean} A
@@ -913,7 +913,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-typedef-type-name.json',
+          "../snapshots/jsdocCommentToMember/tag-typedef-type-name.json",
           import.meta.url
         )
       );
@@ -921,7 +921,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag typedef, overriding tag kind.',
+    "`jsdocCommentToMember` with tag typedef, overriding tag kind.",
     async () => {
       const code = `/**
  * @kind member
@@ -940,7 +940,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-kind.json',
+          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-kind.json",
           import.meta.url
         )
       );
@@ -948,7 +948,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag typedef, overriding tag type.',
+    "`jsdocCommentToMember` with tag typedef, overriding tag type.",
     async () => {
       const code = `/**
  * @type {string}
@@ -967,7 +967,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-type.json',
+          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-type.json",
           import.meta.url
         )
       );
@@ -975,7 +975,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag typedef, overriding tag name.',
+    "`jsdocCommentToMember` with tag typedef, overriding tag name.",
     async () => {
       const code = `/**
  * @name A
@@ -994,7 +994,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-name.json',
+          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-name.json",
           import.meta.url
         )
       );
@@ -1002,7 +1002,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag typedef, overriding tag typedef.',
+    "`jsdocCommentToMember` with tag typedef, overriding tag typedef.",
     async () => {
       const code = `/**
  * @typedef {string} A
@@ -1021,7 +1021,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-typedef.json',
+          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -1029,7 +1029,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag typedef, overriding tag callback.',
+    "`jsdocCommentToMember` with tag typedef, overriding tag callback.",
     async () => {
       const code = `/**
  * @callback A
@@ -1048,7 +1048,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-callback.json',
+          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -1056,7 +1056,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag callback, missing name.',
+    "`jsdocCommentToMember` with tag callback, missing name.",
     async () => {
       const code = `/**
  * @kind member
@@ -1076,14 +1076,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-callback-missing-name.json',
+          "../snapshots/jsdocCommentToMember/tag-callback-missing-name.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag callback, name.', async () => {
+  tests.add("`jsdocCommentToMember` with tag callback, name.", async () => {
     const code = `/**
  * @callback A
  */`;
@@ -1097,14 +1097,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-callback-name.json',
+        "../snapshots/jsdocCommentToMember/tag-callback-name.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag callback, overriding tag kind.',
+    "`jsdocCommentToMember` with tag callback, overriding tag kind.",
     async () => {
       const code = `/**
  * @kind member
@@ -1123,7 +1123,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-kind.json',
+          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-kind.json",
           import.meta.url
         )
       );
@@ -1131,7 +1131,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag callback, overriding tag type.',
+    "`jsdocCommentToMember` with tag callback, overriding tag type.",
     async () => {
       const code = `/**
  * @type {boolean}
@@ -1150,7 +1150,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-type.json',
+          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-type.json",
           import.meta.url
         )
       );
@@ -1158,7 +1158,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag callback, overriding tag name.',
+    "`jsdocCommentToMember` with tag callback, overriding tag name.",
     async () => {
       const code = `/**
  * @name A
@@ -1177,7 +1177,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-name.json',
+          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-name.json",
           import.meta.url
         )
       );
@@ -1185,7 +1185,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag callback, overriding tag typedef.',
+    "`jsdocCommentToMember` with tag callback, overriding tag typedef.",
     async () => {
       const code = `/**
  * @typedef {boolean} A
@@ -1204,7 +1204,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-typedef.json',
+          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -1212,7 +1212,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag callback, overriding tag callback.',
+    "`jsdocCommentToMember` with tag callback, overriding tag callback.",
     async () => {
       const code = `/**
  * @callback A
@@ -1231,7 +1231,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-callback.json',
+          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -1239,7 +1239,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with an event without an `event:` name prefix.',
+    "`jsdocCommentToMember` with an event without an `event:` name prefix.",
     async () => {
       const code = `/**
  * @kind event
@@ -1258,7 +1258,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/event-without-name-prefix.json',
+          "../snapshots/jsdocCommentToMember/event-without-name-prefix.json",
           import.meta.url
         )
       );
@@ -1266,7 +1266,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, missing name.',
+    "`jsdocCommentToMember` with tag param synonyms, missing name.",
     async () => {
       const code = `/**
  * @kind function
@@ -1288,7 +1288,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-missing-name.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-missing-name.json",
           import.meta.url
         )
       );
@@ -1296,7 +1296,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, name.',
+    "`jsdocCommentToMember` with tag param synonyms, name.",
     async () => {
       const code = `/**
  * @kind function
@@ -1318,7 +1318,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-name.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-name.json",
           import.meta.url
         )
       );
@@ -1326,7 +1326,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, type, name.',
+    "`jsdocCommentToMember` with tag param synonyms, type, name.",
     async () => {
       const code = `/**
  * @kind function
@@ -1348,7 +1348,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-type-name.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-name.json",
           import.meta.url
         )
       );
@@ -1356,7 +1356,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, type (optional), name.',
+    "`jsdocCommentToMember` with tag param synonyms, type (optional), name.",
     async () => {
       const code = `/**
  * @kind function
@@ -1378,7 +1378,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name.json",
           import.meta.url
         )
       );
@@ -1386,7 +1386,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, type (optional, default), name.',
+    "`jsdocCommentToMember` with tag param synonyms, type (optional, default), name.",
     async () => {
       const code = `/**
  * @kind function
@@ -1408,7 +1408,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name.json",
           import.meta.url
         )
       );
@@ -1416,7 +1416,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, name, description.',
+    "`jsdocCommentToMember` with tag param synonyms, name, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -1438,7 +1438,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-name-description.json",
           import.meta.url
         )
       );
@@ -1446,7 +1446,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, type, name, description.',
+    "`jsdocCommentToMember` with tag param synonyms, type, name, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -1468,7 +1468,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-type-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-name-description.json",
           import.meta.url
         )
       );
@@ -1476,7 +1476,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, type (optional), name, description.',
+    "`jsdocCommentToMember` with tag param synonyms, type (optional), name, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -1498,7 +1498,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name-description.json",
           import.meta.url
         )
       );
@@ -1506,7 +1506,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag param synonyms, type (optional, default), name, description.',
+    "`jsdocCommentToMember` with tag param synonyms, type (optional, default), name, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -1528,7 +1528,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name-description.json",
           import.meta.url
         )
       );
@@ -1536,7 +1536,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, missing name.',
+    "`jsdocCommentToMember` with tag prop synonyms, missing name.",
     async () => {
       const code = `/**
  * @kind member
@@ -1557,7 +1557,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-missing-name.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-missing-name.json",
           import.meta.url
         )
       );
@@ -1565,7 +1565,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, name.',
+    "`jsdocCommentToMember` with tag prop synonyms, name.",
     async () => {
       const code = `/**
  * @kind member
@@ -1586,7 +1586,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-name.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-name.json",
           import.meta.url
         )
       );
@@ -1594,7 +1594,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, type, name.',
+    "`jsdocCommentToMember` with tag prop synonyms, type, name.",
     async () => {
       const code = `/**
  * @kind member
@@ -1615,7 +1615,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name.json",
           import.meta.url
         )
       );
@@ -1623,7 +1623,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, type (optional), name.',
+    "`jsdocCommentToMember` with tag prop synonyms, type (optional), name.",
     async () => {
       const code = `/**
  * @kind member
@@ -1644,7 +1644,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name.json",
           import.meta.url
         )
       );
@@ -1652,7 +1652,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, type (optional, default), name.',
+    "`jsdocCommentToMember` with tag prop synonyms, type (optional, default), name.",
     async () => {
       const code = `/**
  * @kind member
@@ -1673,7 +1673,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name.json",
           import.meta.url
         )
       );
@@ -1681,7 +1681,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, name, description.',
+    "`jsdocCommentToMember` with tag prop synonyms, name, description.",
     async () => {
       const code = `/**
  * @kind member
@@ -1702,7 +1702,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-name-description.json",
           import.meta.url
         )
       );
@@ -1710,7 +1710,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, type, name, description.',
+    "`jsdocCommentToMember` with tag prop synonyms, type, name, description.",
     async () => {
       const code = `/**
  * @kind member
@@ -1731,7 +1731,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name-description.json",
           import.meta.url
         )
       );
@@ -1739,7 +1739,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, type (optional), name, description.',
+    "`jsdocCommentToMember` with tag prop synonyms, type (optional), name, description.",
     async () => {
       const code = `/**
  * @kind member
@@ -1760,7 +1760,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name-description.json",
           import.meta.url
         )
       );
@@ -1768,7 +1768,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag prop synonyms, type (optional, default), name, description.',
+    "`jsdocCommentToMember` with tag prop synonyms, type (optional, default), name, description.",
     async () => {
       const code = `/**
  * @kind member
@@ -1789,7 +1789,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name-description.json',
+          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name-description.json",
           import.meta.url
         )
       );
@@ -1797,7 +1797,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag return, missing type or description.',
+    "`jsdocCommentToMember` with tag return, missing type or description.",
     async () => {
       const code = `/**
  * @kind function
@@ -1817,14 +1817,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-return-missing-type-or-description.json',
+          "../snapshots/jsdocCommentToMember/tag-return-missing-type-or-description.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag return, type.', async () => {
+  tests.add("`jsdocCommentToMember` with tag return, type.", async () => {
     const code = `/**
  * @kind function
  * @name A
@@ -1840,14 +1840,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-return-type.json',
+        "../snapshots/jsdocCommentToMember/tag-return-type.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag return, type, overriding tag returns.',
+    "`jsdocCommentToMember` with tag return, type, overriding tag returns.",
     async () => {
       const code = `/**
  * @kind function
@@ -1868,7 +1868,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-return-type-overriding-tag-returns.json',
+          "../snapshots/jsdocCommentToMember/tag-return-type-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -1876,7 +1876,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag return, description.',
+    "`jsdocCommentToMember` with tag return, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -1896,7 +1896,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-return-description.json',
+          "../snapshots/jsdocCommentToMember/tag-return-description.json",
           import.meta.url
         )
       );
@@ -1904,7 +1904,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag return, description, overriding tag returns.',
+    "`jsdocCommentToMember` with tag return, description, overriding tag returns.",
     async () => {
       const code = `/**
  * @kind function
@@ -1925,7 +1925,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-return-description-overriding-tag-returns.json',
+          "../snapshots/jsdocCommentToMember/tag-return-description-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -1933,7 +1933,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag return, type, description.',
+    "`jsdocCommentToMember` with tag return, type, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -1953,7 +1953,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-return-type-description.json',
+          "../snapshots/jsdocCommentToMember/tag-return-type-description.json",
           import.meta.url
         )
       );
@@ -1961,7 +1961,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag return, type, description, overriding tag return.',
+    "`jsdocCommentToMember` with tag return, type, description, overriding tag return.",
     async () => {
       const code = `/**
  * @kind function
@@ -1982,7 +1982,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-return.json',
+          "../snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -1990,7 +1990,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag return, type, description, overriding tag returns.',
+    "`jsdocCommentToMember` with tag return, type, description, overriding tag returns.",
     async () => {
       const code = `/**
  * @kind function
@@ -2011,7 +2011,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-returns.json',
+          "../snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -2019,7 +2019,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, missing type or description.',
+    "`jsdocCommentToMember` with tag returns, missing type or description.",
     async () => {
       const code = `/**
  * @kind function
@@ -2039,14 +2039,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-missing-type-or-description.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-missing-type-or-description.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag returns, type.', async () => {
+  tests.add("`jsdocCommentToMember` with tag returns, type.", async () => {
     const code = `/**
  * @kind function
  * @name A
@@ -2062,14 +2062,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-returns-type.json',
+        "../snapshots/jsdocCommentToMember/tag-returns-type.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, type, overriding tag return.',
+    "`jsdocCommentToMember` with tag returns, type, overriding tag return.",
     async () => {
       const code = `/**
  * @kind function
@@ -2090,7 +2090,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-return.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -2098,7 +2098,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, type, overriding tag returns.',
+    "`jsdocCommentToMember` with tag returns, type, overriding tag returns.",
     async () => {
       const code = `/**
  * @kind function
@@ -2119,7 +2119,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-returns.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -2127,7 +2127,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, description.',
+    "`jsdocCommentToMember` with tag returns, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -2147,7 +2147,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-description.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-description.json",
           import.meta.url
         )
       );
@@ -2155,7 +2155,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, description, overriding tag return.',
+    "`jsdocCommentToMember` with tag returns, description, overriding tag return.",
     async () => {
       const code = `/**
  * @kind function
@@ -2176,7 +2176,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-description-overriding-tag-return.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-description-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -2184,7 +2184,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, type, description.',
+    "`jsdocCommentToMember` with tag returns, type, description.",
     async () => {
       const code = `/**
  * @kind function
@@ -2204,7 +2204,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-type-description.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-type-description.json",
           import.meta.url
         )
       );
@@ -2212,7 +2212,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, type, description, overriding tag return.',
+    "`jsdocCommentToMember` with tag returns, type, description, overriding tag return.",
     async () => {
       const code = `/**
  * @kind function
@@ -2233,7 +2233,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-return.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -2241,7 +2241,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag returns, type, description, overriding tag returns.',
+    "`jsdocCommentToMember` with tag returns, type, description, overriding tag returns.",
     async () => {
       const code = `/**
  * @kind function
@@ -2262,7 +2262,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-returns.json',
+          "../snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -2270,7 +2270,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag fires synonyms, missing names.',
+    "`jsdocCommentToMember` with tag fires synonyms, missing names.",
     async () => {
       const code = `/**
  * @kind class
@@ -2291,14 +2291,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-fires-synonyms-missing-names.json',
+          "../snapshots/jsdocCommentToMember/tag-fires-synonyms-missing-names.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag fires synonyms.', async () => {
+  tests.add("`jsdocCommentToMember` with tag fires synonyms.", async () => {
     const code = `/**
  * @kind class
  * @name A
@@ -2315,14 +2315,14 @@ const b = true;
         2
       ),
       new URL(
-        '../snapshots/jsdocCommentToMember/tag-fires-synonyms.json',
+        "../snapshots/jsdocCommentToMember/tag-fires-synonyms.json",
         import.meta.url
       )
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag fires synonyms, duplicate names.',
+    "`jsdocCommentToMember` with tag fires synonyms, duplicate names.",
     async () => {
       const code = `/**
  * @kind class
@@ -2345,7 +2345,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-fires-synonyms-duplicate-names.json',
+          "../snapshots/jsdocCommentToMember/tag-fires-synonyms-duplicate-names.json",
           import.meta.url
         )
       );
@@ -2353,7 +2353,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag see, missing description.',
+    "`jsdocCommentToMember` with tag see, missing description.",
     async () => {
       const code = `/**
  * @kind member
@@ -2373,14 +2373,14 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-see-missing-description.json',
+          "../snapshots/jsdocCommentToMember/tag-see-missing-description.json",
           import.meta.url
         )
       );
     }
   );
 
-  tests.add('`jsdocCommentToMember` with tag see.', async () => {
+  tests.add("`jsdocCommentToMember` with tag see.", async () => {
     const code = `/**
  * @kind member
  * @name A
@@ -2396,12 +2396,12 @@ const b = true;
         null,
         2
       ),
-      new URL('../snapshots/jsdocCommentToMember/tag-see.json', import.meta.url)
+      new URL("../snapshots/jsdocCommentToMember/tag-see.json", import.meta.url)
     );
   });
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, no caption, no content.',
+    "`jsdocCommentToMember` with tag example, no caption, no content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2422,7 +2422,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-no-caption-no-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-no-caption-no-content.json",
           import.meta.url
         )
       );
@@ -2430,7 +2430,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, no caption, newline, content.',
+    "`jsdocCommentToMember` with tag example, no caption, newline, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2455,7 +2455,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-no-caption-newline-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-no-caption-newline-content.json",
           import.meta.url
         )
       );
@@ -2463,7 +2463,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, no caption, multiple newlines, content.',
+    "`jsdocCommentToMember` with tag example, no caption, multiple newlines, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2490,7 +2490,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-no-caption-multiple-newlines-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-no-caption-multiple-newlines-content.json",
           import.meta.url
         )
       );
@@ -2498,7 +2498,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, no caption, space, content.',
+    "`jsdocCommentToMember` with tag example, no caption, space, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2521,7 +2521,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-no-caption-space-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-no-caption-space-content.json",
           import.meta.url
         )
       );
@@ -2529,7 +2529,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, no caption, spaces and tabs, content.',
+    "`jsdocCommentToMember` with tag example, no caption, spaces and tabs, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2552,7 +2552,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-no-caption-spaces-and-tabs-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-no-caption-spaces-and-tabs-content.json",
           import.meta.url
         )
       );
@@ -2560,7 +2560,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption empty, no content.',
+    "`jsdocCommentToMember` with tag example, caption empty, no content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2581,7 +2581,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-empty-no-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-empty-no-content.json",
           import.meta.url
         )
       );
@@ -2589,7 +2589,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption empty, content extra caption close syntax.',
+    "`jsdocCommentToMember` with tag example, caption empty, content extra caption close syntax.",
     async () => {
       const code = `/**
  * @kind member
@@ -2610,7 +2610,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-empty-content-extra-caption-close-syntax.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-empty-content-extra-caption-close-syntax.json",
           import.meta.url
         )
       );
@@ -2618,7 +2618,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption populated, no content.',
+    "`jsdocCommentToMember` with tag example, caption populated, no content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2641,7 +2641,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-no-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-no-content.json",
           import.meta.url
         )
       );
@@ -2649,7 +2649,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption populated, content.',
+    "`jsdocCommentToMember` with tag example, caption populated, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2674,7 +2674,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-content.json",
           import.meta.url
         )
       );
@@ -2682,7 +2682,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption populated, newline, content.',
+    "`jsdocCommentToMember` with tag example, caption populated, newline, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2709,7 +2709,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-newline-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-newline-content.json",
           import.meta.url
         )
       );
@@ -2717,7 +2717,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption populated, multiple newlines, content.',
+    "`jsdocCommentToMember` with tag example, caption populated, multiple newlines, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2746,7 +2746,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-multiple-newlines-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-multiple-newlines-content.json",
           import.meta.url
         )
       );
@@ -2754,7 +2754,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption populated, space, content.',
+    "`jsdocCommentToMember` with tag example, caption populated, space, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2779,7 +2779,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-space-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-space-content.json",
           import.meta.url
         )
       );
@@ -2787,7 +2787,7 @@ const b = true;
   );
 
   tests.add(
-    '`jsdocCommentToMember` with tag example, caption populated, spaces and tabs, content.',
+    "`jsdocCommentToMember` with tag example, caption populated, spaces and tabs, content.",
     async () => {
       const code = `/**
  * @kind member
@@ -2812,7 +2812,7 @@ const b = true;
           2
         ),
         new URL(
-          '../snapshots/jsdocCommentToMember/tag-example-caption-populated-spaces-and-tabs-content.json',
+          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-spaces-and-tabs-content.json",
           import.meta.url
         )
       );

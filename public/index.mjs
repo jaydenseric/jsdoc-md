@@ -1,4 +1,4 @@
-export { default as jsdocMd } from './jsdocMd.mjs';
+export { default as jsdocMd } from "./jsdocMd.mjs";
 
 /**
  * A location in a code file.
@@ -32,7 +32,7 @@ export { default as jsdocMd } from './jsdocMd.mjs';
  * A JSDoc member’s kind.
  * @kind typedef
  * @name JsdocKind
- * @type {'class'|'constant'|'event'|'external'|'file'|'function'|'member'|'mixin'|'module'|'namespace'|'typedef'}
+ * @type {"class"|"constant"|"event"|"external"|"file"|"function"|"member"|"mixin"|"module"|"namespace"|"typedef"}
  * @ignore
  */
 
@@ -79,7 +79,7 @@ export { default as jsdocMd } from './jsdocMd.mjs';
  * - `~`: Inner.
  * @kind typedef
  * @name JsdocMembershipSymbol
- * @type {'.'|'#'|'~'}
+ * @type {"."|"#"|"~"}
  * @ignore
  */
 
