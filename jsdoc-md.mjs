@@ -2,9 +2,9 @@
 
 import arg from "arg";
 
-import CliError from "../private/CliError.mjs";
-import reportCliError from "../private/reportCliError.mjs";
-import jsdocMd from "../public/jsdocMd.mjs";
+import CliError from "./CliError.mjs";
+import jsdocMd from "./jsdocMd.mjs";
+import reportCliError from "./reportCliError.mjs";
 
 /**
  * Runs the `jsdoc-md` CLI.

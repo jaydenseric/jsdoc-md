@@ -2,8 +2,8 @@ import { deepStrictEqual, throws } from "assert";
 import { parse } from "comment-parser";
 import snapshot from "snapshot-assertion";
 
-import COMMENT_PARSER_OPTIONS from "../../private/COMMENT_PARSER_OPTIONS.mjs";
-import getJsdocBlockDescriptionSource from "../../private/getJsdocBlockDescriptionSource.mjs";
+import COMMENT_PARSER_OPTIONS from "./COMMENT_PARSER_OPTIONS.mjs";
+import getJsdocBlockDescriptionSource from "./getJsdocBlockDescriptionSource.mjs";
 
 export default (tests) => {
   tests.add(
@@ -44,7 +44,7 @@ export default (tests) => {
       await snapshot(
         JSON.stringify(getJsdocBlockDescriptionSource(jsdocBlock), null, 2),
         new URL(
-          "../snapshots/getJsdocBlockDescriptionSource/description-no-tags.json",
+          "./test/snapshots/getJsdocBlockDescriptionSource/description-no-tags.json",
           import.meta.url
         )
       );
@@ -70,7 +70,7 @@ export default (tests) => {
       await snapshot(
         JSON.stringify(getJsdocBlockDescriptionSource(jsdocBlock), null, 2),
         new URL(
-          "../snapshots/getJsdocBlockDescriptionSource/description-tags.json",
+          "./test/snapshots/getJsdocBlockDescriptionSource/description-tags.json",
           import.meta.url
         )
       );

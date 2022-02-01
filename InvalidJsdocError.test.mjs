@@ -3,10 +3,10 @@ import kleur from "kleur";
 import revertableGlobals from "revertable-globals";
 import snapshot from "snapshot-assertion";
 
-import CliError from "../../private/CliError.mjs";
-import CodeLocation from "../../private/CodeLocation.mjs";
-import CodePosition from "../../private/CodePosition.mjs";
-import InvalidJsdocError from "../../private/InvalidJsdocError.mjs";
+import CliError from "./CliError.mjs";
+import CodeLocation from "./CodeLocation.mjs";
+import CodePosition from "./CodePosition.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
 
 export default (tests) => {
   tests.add(
@@ -89,7 +89,7 @@ export default (tests) => {
       await snapshot(
         error.message,
         new URL(
-          "../snapshots/InvalidJsdocError/code-location-end-position-none.ans",
+          "./test/snapshots/InvalidJsdocError/code-location-end-position-none.ans",
           import.meta.url
         )
       );
@@ -127,7 +127,7 @@ export default (tests) => {
       await snapshot(
         error.message,
         new URL(
-          "../snapshots/InvalidJsdocError/code-location-end-position-matching-start.ans",
+          "./test/snapshots/InvalidJsdocError/code-location-end-position-matching-start.ans",
           import.meta.url
         )
       );
@@ -165,7 +165,7 @@ export default (tests) => {
       await snapshot(
         error.message,
         new URL(
-          "../snapshots/InvalidJsdocError/code-location-end-position-beyond-start.ans",
+          "./test/snapshots/InvalidJsdocError/code-location-end-position-beyond-start.ans",
           import.meta.url
         )
       );

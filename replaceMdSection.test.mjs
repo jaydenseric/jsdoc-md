@@ -1,6 +1,6 @@
 import { strictEqual, throws } from "assert";
 
-import replaceMdSection from "../../private/replaceMdSection.mjs";
+import replaceMdSection from "./replaceMdSection.mjs";
 
 export default (tests) => {
   tests.add(

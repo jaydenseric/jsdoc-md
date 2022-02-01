@@ -3,13 +3,13 @@ import kleur from "kleur";
 import revertableGlobals from "revertable-globals";
 import snapshot from "snapshot-assertion";
 
-import CodeLocation from "../../private/CodeLocation.mjs";
-import CodePosition from "../../private/CodePosition.mjs";
-import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
-import InvalidJsdocError from "../../private/InvalidJsdocError.mjs";
-import jsdocDataTypeToMdAst from "../../private/jsdocDataTypeToMdAst.mjs";
-import outlineMembers from "../../private/outlineMembers.mjs";
-import jsdocCommentsToMembers from "../jsdocCommentsToMembers.mjs";
+import CodeLocation from "./CodeLocation.mjs";
+import CodePosition from "./CodePosition.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
+import jsdocDataTypeToMdAst from "./jsdocDataTypeToMdAst.mjs";
+import outlineMembers from "./outlineMembers.mjs";
+import jsdocCommentsToMembers from "./test/jsdocCommentsToMembers.mjs";
 
 const TEST_CODE_FILE_PATH = "/a.js";
 
@@ -149,7 +149,7 @@ export default (tests) => {
         2
       ),
       new URL(
-        "../snapshots/jsdocDataTypeToMdAst/type-valid.json",
+        "./test/snapshots/jsdocDataTypeToMdAst/type-valid.json",
         import.meta.url
       )
     );
@@ -203,7 +203,7 @@ export default (tests) => {
     await snapshot(
       caughtError.message,
       new URL(
-        "../snapshots/jsdocDataTypeToMdAst/type-invalid-error-message.ans",
+        "./test/snapshots/jsdocDataTypeToMdAst/type-invalid-error-message.ans",
         import.meta.url
       )
     );

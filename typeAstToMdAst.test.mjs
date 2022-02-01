@@ -4,12 +4,12 @@ import remarkStringify from "remark-stringify";
 import snapshot from "snapshot-assertion";
 import { unified } from "unified";
 
-import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
-import outlineMembers from "../../private/outlineMembers.mjs";
-import REMARK_STRINGIFY_OPTIONS from "../../private/REMARK_STRINGIFY_OPTIONS.mjs";
-import typeAstToMdAst from "../../private/typeAstToMdAst.mjs";
-import typeToTypeAst from "../../private/typeToTypeAst.mjs";
-import jsdocCommentsToMembers from "../jsdocCommentsToMembers.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
+import outlineMembers from "./outlineMembers.mjs";
+import REMARK_STRINGIFY_OPTIONS from "./REMARK_STRINGIFY_OPTIONS.mjs";
+import jsdocCommentsToMembers from "./test/jsdocCommentsToMembers.mjs";
+import typeAstToMdAst from "./typeAstToMdAst.mjs";
+import typeToTypeAst from "./typeToTypeAst.mjs";
 
 const TEST_CODE_FILE_PATH = "/a.js";
 
@@ -91,7 +91,7 @@ export default (tests) => {
         await snapshot(
           JSON.stringify(typeMdAst, null, 2),
           new URL(
-            `../snapshots/typeAstToMdAst/${snapshotFileName}.json`,
+            `./test/snapshots/typeAstToMdAst/${snapshotFileName}.json`,
             import.meta.url
           )
         );
@@ -110,7 +110,7 @@ export default (tests) => {
               ],
             }),
           new URL(
-            `../snapshots/typeAstToMdAst/${snapshotFileName}.md`,
+            `./test/snapshots/typeAstToMdAst/${snapshotFileName}.md`,
             import.meta.url
           )
         );

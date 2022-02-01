@@ -1,7 +1,7 @@
 import { strictEqual, throws } from "assert";
 
-import CodePosition from "../../private/CodePosition.mjs";
-import codePositionToIndex from "../../private/codePositionToIndex.mjs";
+import CodePosition from "./CodePosition.mjs";
+import codePositionToIndex from "./codePositionToIndex.mjs";
 
 export default (tests) => {
   tests.add(

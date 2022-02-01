@@ -1,0 +1,51 @@
+import TestDirector from "test-director";
+
+import test_CliError from "./CliError.test.mjs";
+import test_CodeLocation from "./CodeLocation.test.mjs";
+import test_CodePosition from "./CodePosition.test.mjs";
+import test_codePositionToIndex from "./codePositionToIndex.test.mjs";
+import test_codeToJsdocComments from "./codeToJsdocComments.test.mjs";
+import test_deconstructJsdocNamepath from "./deconstructJsdocNamepath.test.mjs";
+import test_getJsdocBlockDescriptionSource from "./getJsdocBlockDescriptionSource.test.mjs";
+import test_getJsdocSourceTokenCodeLocation from "./getJsdocSourceTokenCodeLocation.test.mjs";
+import test_InvalidJsdocError from "./InvalidJsdocError.test.mjs";
+import test_cli_jsdoc_md from "./jsdoc-md.test.mjs";
+import test_jsdocCommentToMember from "./jsdocCommentToMember.test.mjs";
+import test_jsdocDataMdToMdAst from "./jsdocDataMdToMdAst.test.mjs";
+import test_jsdocDataTypeToMdAst from "./jsdocDataTypeToMdAst.test.mjs";
+import test_jsdocMd from "./jsdocMd.test.mjs";
+import test_membersToMdAst from "./membersToMdAst.test.mjs";
+import test_outlineMembers from "./outlineMembers.test.mjs";
+import test_remarkPluginReplaceSection from "./remarkPluginReplaceSection.test.mjs";
+import test_replaceMdSection from "./replaceMdSection.test.mjs";
+import test_reportCliError from "./reportCliError.test.mjs";
+import test_typeAstToMdAst from "./typeAstToMdAst.test.mjs";
+import test_typeToTypeAst from "./typeToTypeAst.test.mjs";
+import test_unescapeJsdoc from "./unescapeJsdoc.test.mjs";
+
+const tests = new TestDirector();
+
+test_CliError(tests);
+test_CodeLocation(tests);
+test_CodePosition(tests);
+test_codePositionToIndex(tests);
+test_codeToJsdocComments(tests);
+test_deconstructJsdocNamepath(tests);
+test_getJsdocBlockDescriptionSource(tests);
+test_getJsdocSourceTokenCodeLocation(tests);
+test_InvalidJsdocError(tests);
+test_cli_jsdoc_md(tests);
+test_jsdocCommentToMember(tests);
+test_jsdocDataMdToMdAst(tests);
+test_jsdocDataTypeToMdAst(tests);
+test_jsdocMd(tests);
+test_membersToMdAst(tests);
+test_outlineMembers(tests);
+test_remarkPluginReplaceSection(tests);
+test_replaceMdSection(tests);
+test_reportCliError(tests);
+test_typeAstToMdAst(tests);
+test_typeToTypeAst(tests);
+test_unescapeJsdoc(tests);
+
+tests.run();

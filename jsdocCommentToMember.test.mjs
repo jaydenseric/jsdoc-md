@@ -3,9 +3,9 @@ import kleur from "kleur";
 import revertableGlobals from "revertable-globals";
 import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
-import InvalidJsdocError from "../../private/InvalidJsdocError.mjs";
-import jsdocCommentToMember from "../../private/jsdocCommentToMember.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
+import jsdocCommentToMember from "./jsdocCommentToMember.mjs";
 
 const TEST_CODE_FILE_PATH = "/a.js";
 
@@ -167,7 +167,7 @@ const b = true;
     await snapshot(
       caughtError.message,
       new URL(
-        "../snapshots/jsdocCommentToMember/error-invalid-namepath.ans",
+        "./test/snapshots/jsdocCommentToMember/error-invalid-namepath.ans",
         import.meta.url
       )
     );
@@ -189,7 +189,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/description.json",
+        "./test/snapshots/jsdocCommentToMember/description.json",
         import.meta.url
       )
     );
@@ -216,7 +216,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-desc-missing-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-desc-missing-description.json",
           import.meta.url
         )
       );
@@ -239,7 +239,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-desc.json",
+        "./test/snapshots/jsdocCommentToMember/tag-desc.json",
         import.meta.url
       )
     );
@@ -267,7 +267,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-desc-overriding-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-desc-overriding-description.json",
           import.meta.url
         )
       );
@@ -296,7 +296,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-desc-overriding-tag-desc.json",
+          "./test/snapshots/jsdocCommentToMember/tag-desc-overriding-tag-desc.json",
           import.meta.url
         )
       );
@@ -325,7 +325,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-desc-overriding-tag-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-desc-overriding-tag-description.json",
           import.meta.url
         )
       );
@@ -353,7 +353,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-description-missing-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-description-missing-description.json",
           import.meta.url
         )
       );
@@ -376,7 +376,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-description.json",
+        "./test/snapshots/jsdocCommentToMember/tag-description.json",
         import.meta.url
       )
     );
@@ -404,7 +404,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-description-overriding-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-description-overriding-description.json",
           import.meta.url
         )
       );
@@ -433,7 +433,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-description-overriding-tag-desc.json",
+          "./test/snapshots/jsdocCommentToMember/tag-description-overriding-tag-desc.json",
           import.meta.url
         )
       );
@@ -462,7 +462,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-description-overriding-tag-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-description-overriding-tag-description.json",
           import.meta.url
         )
       );
@@ -485,7 +485,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-kind-missing-name.json",
+        "./test/snapshots/jsdocCommentToMember/tag-kind-missing-name.json",
         import.meta.url
       )
     );
@@ -506,7 +506,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-kind.json",
+        "./test/snapshots/jsdocCommentToMember/tag-kind.json",
         import.meta.url
       )
     );
@@ -533,7 +533,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-kind.json",
+          "./test/snapshots/jsdocCommentToMember/tag-kind-overriding-tag-kind.json",
           import.meta.url
         )
       );
@@ -560,7 +560,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-typedef.json",
+          "./test/snapshots/jsdocCommentToMember/tag-kind-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -587,7 +587,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-kind-overriding-tag-callback.json",
+          "./test/snapshots/jsdocCommentToMember/tag-kind-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -610,7 +610,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-name-missing-name.json",
+        "./test/snapshots/jsdocCommentToMember/tag-name-missing-name.json",
         import.meta.url
       )
     );
@@ -631,7 +631,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-name.json",
+        "./test/snapshots/jsdocCommentToMember/tag-name.json",
         import.meta.url
       )
     );
@@ -658,7 +658,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-name-overriding-tag-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-name-overriding-tag-name.json",
           import.meta.url
         )
       );
@@ -685,7 +685,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-name-overriding-tag-typedef.json",
+          "./test/snapshots/jsdocCommentToMember/tag-name-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -712,7 +712,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-name-overriding-tag-callback.json",
+          "./test/snapshots/jsdocCommentToMember/tag-name-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -735,7 +735,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-type-missing-type.json",
+        "./test/snapshots/jsdocCommentToMember/tag-type-missing-type.json",
         import.meta.url
       )
     );
@@ -757,7 +757,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-type.json",
+        "./test/snapshots/jsdocCommentToMember/tag-type.json",
         import.meta.url
       )
     );
@@ -785,7 +785,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-type-overriding-tag-type.json",
+          "./test/snapshots/jsdocCommentToMember/tag-type-overriding-tag-type.json",
           import.meta.url
         )
       );
@@ -812,7 +812,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-type-overriding-tag-typedef.json",
+          "./test/snapshots/jsdocCommentToMember/tag-type-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -839,7 +839,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-type-overriding-tag-callback.json",
+          "./test/snapshots/jsdocCommentToMember/tag-type-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -867,7 +867,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-typedef-missing-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-typedef-missing-name.json",
           import.meta.url
         )
       );
@@ -888,7 +888,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-typedef-name.json",
+        "./test/snapshots/jsdocCommentToMember/tag-typedef-name.json",
         import.meta.url
       )
     );
@@ -913,7 +913,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-typedef-type-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-typedef-type-name.json",
           import.meta.url
         )
       );
@@ -940,7 +940,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-kind.json",
+          "./test/snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-kind.json",
           import.meta.url
         )
       );
@@ -967,7 +967,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-type.json",
+          "./test/snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-type.json",
           import.meta.url
         )
       );
@@ -994,7 +994,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-name.json",
           import.meta.url
         )
       );
@@ -1021,7 +1021,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-typedef.json",
+          "./test/snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -1048,7 +1048,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-callback.json",
+          "./test/snapshots/jsdocCommentToMember/tag-typedef-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -1076,7 +1076,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-callback-missing-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-callback-missing-name.json",
           import.meta.url
         )
       );
@@ -1097,7 +1097,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-callback-name.json",
+        "./test/snapshots/jsdocCommentToMember/tag-callback-name.json",
         import.meta.url
       )
     );
@@ -1123,7 +1123,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-kind.json",
+          "./test/snapshots/jsdocCommentToMember/tag-callback-overriding-tag-kind.json",
           import.meta.url
         )
       );
@@ -1150,7 +1150,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-type.json",
+          "./test/snapshots/jsdocCommentToMember/tag-callback-overriding-tag-type.json",
           import.meta.url
         )
       );
@@ -1177,7 +1177,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-callback-overriding-tag-name.json",
           import.meta.url
         )
       );
@@ -1204,7 +1204,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-typedef.json",
+          "./test/snapshots/jsdocCommentToMember/tag-callback-overriding-tag-typedef.json",
           import.meta.url
         )
       );
@@ -1231,7 +1231,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-callback-overriding-tag-callback.json",
+          "./test/snapshots/jsdocCommentToMember/tag-callback-overriding-tag-callback.json",
           import.meta.url
         )
       );
@@ -1258,7 +1258,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/event-without-name-prefix.json",
+          "./test/snapshots/jsdocCommentToMember/event-without-name-prefix.json",
           import.meta.url
         )
       );
@@ -1288,7 +1288,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-missing-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-missing-name.json",
           import.meta.url
         )
       );
@@ -1318,7 +1318,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-name.json",
           import.meta.url
         )
       );
@@ -1348,7 +1348,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-type-name.json",
           import.meta.url
         )
       );
@@ -1378,7 +1378,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name.json",
           import.meta.url
         )
       );
@@ -1408,7 +1408,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name.json",
           import.meta.url
         )
       );
@@ -1438,7 +1438,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-name-description.json",
           import.meta.url
         )
       );
@@ -1468,7 +1468,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-type-name-description.json",
           import.meta.url
         )
       );
@@ -1498,7 +1498,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-name-description.json",
           import.meta.url
         )
       );
@@ -1528,7 +1528,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-param-synonyms-type-optional-default-name-description.json",
           import.meta.url
         )
       );
@@ -1557,7 +1557,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-missing-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-missing-name.json",
           import.meta.url
         )
       );
@@ -1586,7 +1586,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-name.json",
           import.meta.url
         )
       );
@@ -1615,7 +1615,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name.json",
           import.meta.url
         )
       );
@@ -1644,7 +1644,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name.json",
           import.meta.url
         )
       );
@@ -1673,7 +1673,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name.json",
           import.meta.url
         )
       );
@@ -1702,7 +1702,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-name-description.json",
           import.meta.url
         )
       );
@@ -1731,7 +1731,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-type-name-description.json",
           import.meta.url
         )
       );
@@ -1760,7 +1760,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-name-description.json",
           import.meta.url
         )
       );
@@ -1789,7 +1789,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-prop-synonyms-type-optional-default-name-description.json",
           import.meta.url
         )
       );
@@ -1817,7 +1817,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-return-missing-type-or-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-return-missing-type-or-description.json",
           import.meta.url
         )
       );
@@ -1840,7 +1840,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-return-type.json",
+        "./test/snapshots/jsdocCommentToMember/tag-return-type.json",
         import.meta.url
       )
     );
@@ -1868,7 +1868,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-return-type-overriding-tag-returns.json",
+          "./test/snapshots/jsdocCommentToMember/tag-return-type-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -1896,7 +1896,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-return-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-return-description.json",
           import.meta.url
         )
       );
@@ -1925,7 +1925,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-return-description-overriding-tag-returns.json",
+          "./test/snapshots/jsdocCommentToMember/tag-return-description-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -1953,7 +1953,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-return-type-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-return-type-description.json",
           import.meta.url
         )
       );
@@ -1982,7 +1982,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-return.json",
+          "./test/snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -2011,7 +2011,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-returns.json",
+          "./test/snapshots/jsdocCommentToMember/tag-return-type-description-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -2039,7 +2039,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-missing-type-or-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-missing-type-or-description.json",
           import.meta.url
         )
       );
@@ -2062,7 +2062,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-returns-type.json",
+        "./test/snapshots/jsdocCommentToMember/tag-returns-type.json",
         import.meta.url
       )
     );
@@ -2090,7 +2090,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-return.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -2119,7 +2119,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-returns.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-type-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -2147,7 +2147,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-description.json",
           import.meta.url
         )
       );
@@ -2176,7 +2176,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-description-overriding-tag-return.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-description-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -2204,7 +2204,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-type-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-type-description.json",
           import.meta.url
         )
       );
@@ -2233,7 +2233,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-return.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-return.json",
           import.meta.url
         )
       );
@@ -2262,7 +2262,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-returns.json",
+          "./test/snapshots/jsdocCommentToMember/tag-returns-type-description-overriding-tag-returns.json",
           import.meta.url
         )
       );
@@ -2291,7 +2291,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-fires-synonyms-missing-names.json",
+          "./test/snapshots/jsdocCommentToMember/tag-fires-synonyms-missing-names.json",
           import.meta.url
         )
       );
@@ -2315,7 +2315,7 @@ const b = true;
         2
       ),
       new URL(
-        "../snapshots/jsdocCommentToMember/tag-fires-synonyms.json",
+        "./test/snapshots/jsdocCommentToMember/tag-fires-synonyms.json",
         import.meta.url
       )
     );
@@ -2345,7 +2345,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-fires-synonyms-duplicate-names.json",
+          "./test/snapshots/jsdocCommentToMember/tag-fires-synonyms-duplicate-names.json",
           import.meta.url
         )
       );
@@ -2373,7 +2373,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-see-missing-description.json",
+          "./test/snapshots/jsdocCommentToMember/tag-see-missing-description.json",
           import.meta.url
         )
       );
@@ -2396,7 +2396,10 @@ const b = true;
         null,
         2
       ),
-      new URL("../snapshots/jsdocCommentToMember/tag-see.json", import.meta.url)
+      new URL(
+        "./test/snapshots/jsdocCommentToMember/tag-see.json",
+        import.meta.url
+      )
     );
   });
 
@@ -2422,7 +2425,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-no-caption-no-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-no-caption-no-content.json",
           import.meta.url
         )
       );
@@ -2455,7 +2458,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-no-caption-newline-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-no-caption-newline-content.json",
           import.meta.url
         )
       );
@@ -2490,7 +2493,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-no-caption-multiple-newlines-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-no-caption-multiple-newlines-content.json",
           import.meta.url
         )
       );
@@ -2521,7 +2524,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-no-caption-space-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-no-caption-space-content.json",
           import.meta.url
         )
       );
@@ -2552,7 +2555,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-no-caption-spaces-and-tabs-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-no-caption-spaces-and-tabs-content.json",
           import.meta.url
         )
       );
@@ -2581,7 +2584,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-empty-no-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-empty-no-content.json",
           import.meta.url
         )
       );
@@ -2610,7 +2613,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-empty-content-extra-caption-close-syntax.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-empty-content-extra-caption-close-syntax.json",
           import.meta.url
         )
       );
@@ -2641,7 +2644,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-no-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-populated-no-content.json",
           import.meta.url
         )
       );
@@ -2674,7 +2677,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-populated-content.json",
           import.meta.url
         )
       );
@@ -2709,7 +2712,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-newline-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-populated-newline-content.json",
           import.meta.url
         )
       );
@@ -2746,7 +2749,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-multiple-newlines-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-populated-multiple-newlines-content.json",
           import.meta.url
         )
       );
@@ -2779,7 +2782,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-space-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-populated-space-content.json",
           import.meta.url
         )
       );
@@ -2812,7 +2815,7 @@ const b = true;
           2
         ),
         new URL(
-          "../snapshots/jsdocCommentToMember/tag-example-caption-populated-spaces-and-tabs-content.json",
+          "./test/snapshots/jsdocCommentToMember/tag-example-caption-populated-spaces-and-tabs-content.json",
           import.meta.url
         )
       );

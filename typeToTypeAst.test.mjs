@@ -1,6 +1,6 @@
 import { deepStrictEqual, throws } from "assert";
 
-import typeToTypeAst from "../../private/typeToTypeAst.mjs";
+import typeToTypeAst from "./typeToTypeAst.mjs";
 
 export default (tests) => {
   tests.add("`typeToTypeAst` with non-paramter type, non-optional.", () => {

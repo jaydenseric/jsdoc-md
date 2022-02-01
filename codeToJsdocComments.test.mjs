@@ -1,7 +1,7 @@
 import { deepStrictEqual, rejects } from "assert";
 import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
 
 const TEST_CODE_FILE_PATH = "/a.js";
 
@@ -85,7 +85,7 @@ let a;`,
           2
         ),
         new URL(
-          "../snapshots/codeToJsdocComments/single-comment-block-single-line-jsdoc.json",
+          "./test/snapshots/codeToJsdocComments/single-comment-block-single-line-jsdoc.json",
           import.meta.url
         )
       );
@@ -124,7 +124,7 @@ let a;`,
           2
         ),
         new URL(
-          "../snapshots/codeToJsdocComments/single-comment-block-multi-line-jsdoc.json",
+          "./test/snapshots/codeToJsdocComments/single-comment-block-multi-line-jsdoc.json",
           import.meta.url
         )
       );
@@ -152,7 +152,7 @@ let b;`,
           2
         ),
         new URL(
-          "../snapshots/codeToJsdocComments/multiple-comment-blocks-multi-line-jsdoc.json",
+          "./test/snapshots/codeToJsdocComments/multiple-comment-blocks-multi-line-jsdoc.json",
           import.meta.url
         )
       );

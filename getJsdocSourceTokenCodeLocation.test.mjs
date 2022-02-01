@@ -1,10 +1,10 @@
 import { deepStrictEqual, throws } from "assert";
 import { parse } from "comment-parser";
 
-import CodeLocation from "../../private/CodeLocation.mjs";
-import CodePosition from "../../private/CodePosition.mjs";
-import COMMENT_PARSER_OPTIONS from "../../private/COMMENT_PARSER_OPTIONS.mjs";
-import getJsdocSourceTokenCodeLocation from "../../private/getJsdocSourceTokenCodeLocation.mjs";
+import CodeLocation from "./CodeLocation.mjs";
+import CodePosition from "./CodePosition.mjs";
+import COMMENT_PARSER_OPTIONS from "./COMMENT_PARSER_OPTIONS.mjs";
+import getJsdocSourceTokenCodeLocation from "./getJsdocSourceTokenCodeLocation.mjs";
 
 export default (tests) => {
   tests.add(

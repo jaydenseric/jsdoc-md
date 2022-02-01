@@ -1,6 +1,6 @@
 import { strictEqual, throws } from "assert";
 
-import unescapeJsdoc from "../../private/unescapeJsdoc.mjs";
+import unescapeJsdoc from "./unescapeJsdoc.mjs";
 
 export default (tests) => {
   tests.add("`unescapeJsdoc` with argument 1 `content` not a string.", () => {

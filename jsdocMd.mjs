@@ -2,11 +2,11 @@ import fs from "fs";
 import { globby } from "globby";
 import { resolve } from "path";
 
-import CliError from "../private/CliError.mjs";
-import codeToJsdocComments from "../private/codeToJsdocComments.mjs";
-import jsdocCommentToMember from "../private/jsdocCommentToMember.mjs";
-import membersToMdAst from "../private/membersToMdAst.mjs";
-import replaceMdSection from "../private/replaceMdSection.mjs";
+import CliError from "./CliError.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
+import jsdocCommentToMember from "./jsdocCommentToMember.mjs";
+import membersToMdAst from "./membersToMdAst.mjs";
+import replaceMdSection from "./replaceMdSection.mjs";
 
 /**
  * Analyzes JSDoc from source files to populate a markdown file documentation
@@ -28,7 +28,7 @@ import replaceMdSection from "../private/replaceMdSection.mjs";
  * ```
  *
  * ```js
- * import jsdocMd from "jsdoc-md/public/jsdocMd.mjs";
+ * import jsdocMd from "jsdoc-md/jsdocMd.mjs";
  * ```
  * @example <caption>Customizing options.</caption>
  * ```js

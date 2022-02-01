@@ -2,7 +2,7 @@ import { deepStrictEqual, throws } from "assert";
 import remarkGfm from "remark-gfm";
 import { unified } from "unified";
 
-import remarkPluginReplaceSection from "../../private/remarkPluginReplaceSection.mjs";
+import remarkPluginReplaceSection from "./remarkPluginReplaceSection.mjs";
 
 export default (tests) => {
   tests.add(

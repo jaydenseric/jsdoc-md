@@ -3,10 +3,10 @@ import kleur from "kleur";
 import revertableGlobals from "revertable-globals";
 import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
-import membersToMdAst from "../../private/membersToMdAst.mjs";
-import jsdocCommentsToMembers from "../jsdocCommentsToMembers.mjs";
-import membersToMdAstSnapshot from "../membersToMdAstSnapshot.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
+import membersToMdAst from "./membersToMdAst.mjs";
+import jsdocCommentsToMembers from "./test/jsdocCommentsToMembers.mjs";
+import membersToMdAstSnapshot from "./test/membersToMdAstSnapshot.mjs";
 
 const TEST_CODE_FILE_PATH = "/a.js";
 
@@ -645,7 +645,7 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        "../snapshots/membersToMdAst/error-parameter-default-invalid.ans",
+        "./test/snapshots/membersToMdAst/error-parameter-default-invalid.ans",
         import.meta.url
       )
     );
@@ -684,7 +684,7 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        "../snapshots/membersToMdAst/error-property-default-invalid.ans",
+        "./test/snapshots/membersToMdAst/error-property-default-invalid.ans",
         import.meta.url
       )
     );
@@ -911,7 +911,7 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        "../snapshots/membersToMdAst/error-event-namepath-invalid.ans",
+        "./test/snapshots/membersToMdAst/error-event-namepath-invalid.ans",
         import.meta.url
       )
     );
@@ -955,7 +955,7 @@ ${jsdocTestExamples}
     await snapshot(
       caughtError.message,
       new URL(
-        "../snapshots/membersToMdAst/error-event-namepath-missing-jsdoc-member.ans",
+        "./test/snapshots/membersToMdAst/error-event-namepath-missing-jsdoc-member.ans",
         import.meta.url
       )
     );

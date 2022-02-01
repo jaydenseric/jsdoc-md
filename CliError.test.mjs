@@ -1,6 +1,6 @@
 import { strictEqual, throws } from "assert";
 
-import CliError from "../../private/CliError.mjs";
+import CliError from "./CliError.mjs";
 
 export default (tests) => {
   tests.add("`CliError` with argument 1 `message` not a string.", () => {

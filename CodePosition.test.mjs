@@ -1,6 +1,6 @@
 import { deepStrictEqual, throws } from "assert";
 
-import CodePosition from "../../private/CodePosition.mjs";
+import CodePosition from "./CodePosition.mjs";
 
 export default (tests) => {
   tests.add("`CodePosition` with argument 1 `line` not a number.", () => {

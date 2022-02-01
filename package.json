@@ -24,19 +24,43 @@
     "mjs"
   ],
   "files": [
-    "cli",
-    "private",
-    "public"
+    "CliError.mjs",
+    "CodeLocation.mjs",
+    "CodePosition.mjs",
+    "codePositionToIndex.mjs",
+    "codeToJsdocComments.mjs",
+    "COMMENT_PARSER_OPTIONS.mjs",
+    "deconstructJsdocNamepath.mjs",
+    "errorConsole.mjs",
+    "getJsdocBlockDescriptionSource.mjs",
+    "getJsdocSourceTokenCodeLocation.mjs",
+    "index.mjs",
+    "InvalidJsdocError.mjs",
+    "jsdoc-md.mjs",
+    "jsdocCommentToMember.mjs",
+    "jsdocDataMdToMdAst.mjs",
+    "jsdocDataTypeToMdAst.mjs",
+    "jsdocMd.mjs",
+    "membersToMdAst.mjs",
+    "outlineMembers.mjs",
+    "REMARK_STRINGIFY_OPTIONS.mjs",
+    "remarkPluginReplaceSection.mjs",
+    "replaceMdSection.mjs",
+    "reportCliError.mjs",
+    "typeAstToMdAst.mjs",
+    "typeToTypeAst.mjs",
+    "unescapeJsdoc.mjs"
   ],
   "sideEffects": false,
-  "main": "./public/index.mjs",
+  "main": "./index.mjs",
   "exports": {
-    ".": "./public/index.mjs",
-    "./public/*": "./public/*",
+    ".": "./index.mjs",
+    "./index.mjs": "./index.mjs",
+    "./jsdocMd.mjs": "./jsdocMd.mjs",
     "./package.json": "./package.json"
   },
   "bin": {
-    "jsdoc-md": "cli/jsdoc-md.mjs"
+    "jsdoc-md": "jsdoc-md.mjs"
   },
   "engines": {
     "node": "^12.22.0 || ^14.17.0 || >= 16.0.0"
@@ -81,11 +105,11 @@
     "test-director": "^8.0.1"
   },
   "scripts": {
-    "docs-update": "node cli/jsdoc-md.mjs",
-    "docs-check": "node cli/jsdoc-md.mjs -c",
+    "docs-update": "node jsdoc-md.mjs",
+    "docs-check": "node jsdoc-md.mjs -c",
     "eslint": "eslint .",
     "prettier": "prettier -c .",
-    "tests": "coverage-node test/index.mjs",
+    "tests": "coverage-node test.mjs",
     "test": "npm run eslint && npm run prettier && npm run docs-check && npm run tests",
     "prepublishOnly": "npm test"
   }

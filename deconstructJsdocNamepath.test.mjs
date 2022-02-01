@@ -1,6 +1,6 @@
 import { deepStrictEqual, throws } from "assert";
 
-import deconstructJsdocNamepath from "../../private/deconstructJsdocNamepath.mjs";
+import deconstructJsdocNamepath from "./deconstructJsdocNamepath.mjs";
 
 export default (tests) => {
   tests.add(

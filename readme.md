@@ -100,7 +100,7 @@ _Ways to `import`._
 > ```
 >
 > ```js
-> import jsdocMd from "jsdoc-md/public/jsdocMd.mjs";
+> import jsdocMd from "jsdoc-md/jsdocMd.mjs";
 > ```
 
 _Customizing options._

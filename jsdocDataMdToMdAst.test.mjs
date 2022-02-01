@@ -3,13 +3,13 @@ import kleur from "kleur";
 import revertableGlobals from "revertable-globals";
 import snapshot from "snapshot-assertion";
 
-import CodeLocation from "../../private/CodeLocation.mjs";
-import CodePosition from "../../private/CodePosition.mjs";
-import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
-import InvalidJsdocError from "../../private/InvalidJsdocError.mjs";
-import jsdocDataMdToMdAst from "../../private/jsdocDataMdToMdAst.mjs";
-import outlineMembers from "../../private/outlineMembers.mjs";
-import jsdocCommentsToMembers from "../jsdocCommentsToMembers.mjs";
+import CodeLocation from "./CodeLocation.mjs";
+import CodePosition from "./CodePosition.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
+import InvalidJsdocError from "./InvalidJsdocError.mjs";
+import jsdocDataMdToMdAst from "./jsdocDataMdToMdAst.mjs";
+import outlineMembers from "./outlineMembers.mjs";
+import jsdocCommentsToMembers from "./test/jsdocCommentsToMembers.mjs";
 
 const TEST_CODE_FILE_PATH = "/a.js";
 
@@ -157,7 +157,10 @@ export default (tests) => {
         null,
         2
       ),
-      new URL("../snapshots/jsdocDataMdToMdAst/paragraph.json", import.meta.url)
+      new URL(
+        "./test/snapshots/jsdocDataMdToMdAst/paragraph.json",
+        import.meta.url
+      )
     );
   });
 
@@ -207,7 +210,7 @@ export default (tests) => {
           2
         ),
         new URL(
-          "../snapshots/jsdocDataMdToMdAst/single-link-empty-no-whitespace.json",
+          "./test/snapshots/jsdocDataMdToMdAst/single-link-empty-no-whitespace.json",
           import.meta.url
         )
       );
@@ -260,7 +263,7 @@ export default (tests) => {
           2
         ),
         new URL(
-          "../snapshots/jsdocDataMdToMdAst/single-link-empty-whitespace.json",
+          "./test/snapshots/jsdocDataMdToMdAst/single-link-empty-whitespace.json",
           import.meta.url
         )
       );
@@ -313,7 +316,7 @@ export default (tests) => {
           2
         ),
         new URL(
-          "../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-no-whitespace.json",
+          "./test/snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-no-whitespace.json",
           import.meta.url
         )
       );
@@ -366,7 +369,7 @@ export default (tests) => {
           2
         ),
         new URL(
-          "../snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-whitespace.json",
+          "./test/snapshots/jsdocDataMdToMdAst/single-link-populated-member-found-whitespace.json",
           import.meta.url
         )
       );
@@ -427,7 +430,7 @@ export default (tests) => {
       await snapshot(
         caughtError.message,
         new URL(
-          "../snapshots/jsdocDataMdToMdAst/single-link-populated-member-missing-no-whitespace-error-message.ans",
+          "./test/snapshots/jsdocDataMdToMdAst/single-link-populated-member-missing-no-whitespace-error-message.ans",
           import.meta.url
         )
       );
@@ -539,7 +542,7 @@ export default (tests) => {
         2
       ),
       new URL(
-        "../snapshots/jsdocDataMdToMdAst/multiple-links.json",
+        "./test/snapshots/jsdocDataMdToMdAst/multiple-links.json",
         import.meta.url
       )
     );

@@ -7,7 +7,7 @@ import snapshot from "snapshot-assertion";
 import { fileURLToPath } from "url";
 
 const JSDOC_MD_CLI_PATH = fileURLToPath(
-  new URL("../../cli/jsdoc-md.mjs", import.meta.url)
+  new URL("./jsdoc-md.mjs", import.meta.url)
 );
 
 export default (tests) => {
@@ -34,7 +34,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-source-glob-value-empty-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-source-glob-value-empty-stderr.ans",
             import.meta.url
           )
         );
@@ -67,7 +67,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-source-glob-value-missing-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-source-glob-value-missing-stderr.ans",
             import.meta.url
           )
         );
@@ -98,7 +98,7 @@ export default (tests) => {
       await snapshot(
         stderr.toString(),
         new URL(
-          "../snapshots/jsdoc-md/argument-s-value-missing-stderr.ans",
+          "./test/snapshots/jsdoc-md/argument-s-value-missing-stderr.ans",
           import.meta.url
         )
       );
@@ -130,7 +130,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-s-value-missing-following-short-arg-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-s-value-missing-following-short-arg-stderr.ans",
             import.meta.url
           )
         );
@@ -163,7 +163,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-markdown-path-value-empty-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-markdown-path-value-empty-stderr.ans",
             import.meta.url
           )
         );
@@ -196,7 +196,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-markdown-path-value-missing-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-markdown-path-value-missing-stderr.ans",
             import.meta.url
           )
         );
@@ -227,7 +227,7 @@ export default (tests) => {
       await snapshot(
         stderr.toString(),
         new URL(
-          "../snapshots/jsdoc-md/argument-m-value-missing-stderr.ans",
+          "./test/snapshots/jsdoc-md/argument-m-value-missing-stderr.ans",
           import.meta.url
         )
       );
@@ -259,7 +259,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-m-value-missing-following-short-arg-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-m-value-missing-following-short-arg-stderr.ans",
             import.meta.url
           )
         );
@@ -292,7 +292,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-target-heading-value-empty-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-target-heading-value-empty-stderr.ans",
             import.meta.url
           )
         );
@@ -325,7 +325,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-target-heading-value-missing-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-target-heading-value-missing-stderr.ans",
             import.meta.url
           )
         );
@@ -356,7 +356,7 @@ export default (tests) => {
       await snapshot(
         stderr.toString(),
         new URL(
-          "../snapshots/jsdoc-md/argument-t-value-missing-stderr.ans",
+          "./test/snapshots/jsdoc-md/argument-t-value-missing-stderr.ans",
           import.meta.url
         )
       );
@@ -388,7 +388,7 @@ export default (tests) => {
         await snapshot(
           stderr.toString(),
           new URL(
-            "../snapshots/jsdoc-md/argument-t-value-missing-following-short-arg-stderr.ans",
+            "./test/snapshots/jsdoc-md/argument-t-value-missing-following-short-arg-stderr.ans",
             import.meta.url
           )
         );
@@ -419,7 +419,7 @@ export default (tests) => {
       await snapshot(
         stderr.toString(),
         new URL(
-          "../snapshots/jsdoc-md/unexpected-argument-stderr.ans",
+          "./test/snapshots/jsdoc-md/unexpected-argument-stderr.ans",
           import.meta.url
         )
       );
@@ -454,7 +454,7 @@ export default (tests) => {
       await snapshot(
         stderr.toString(),
         new URL(
-          "../snapshots/jsdoc-md/unexpected-arguments-stderr.ans",
+          "./test/snapshots/jsdoc-md/unexpected-arguments-stderr.ans",
           import.meta.url
         )
       );
@@ -544,7 +544,7 @@ export default 1;
 
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
-        new URL("../snapshots/jsdoc-md/defaults.md", import.meta.url)
+        new URL("./test/snapshots/jsdoc-md/defaults.md", import.meta.url)
       );
     });
   });
@@ -617,7 +617,7 @@ export default 1;
 
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
-        new URL("../snapshots/jsdoc-md/arguments.md", import.meta.url)
+        new URL("./test/snapshots/jsdoc-md/arguments.md", import.meta.url)
       );
     });
   });
@@ -665,7 +665,7 @@ export default 1;
       await snapshot(
         spawnResult1.stderr.toString(),
         new URL(
-          "../snapshots/jsdoc-md/argument-check-error-stderr.ans",
+          "./test/snapshots/jsdoc-md/argument-check-error-stderr.ans",
           import.meta.url
         )
       );
@@ -746,7 +746,7 @@ export default 1;
       await snapshot(
         stderr.toString(),
         new URL(
-          "../snapshots/jsdoc-md/invalid-jsdoc-error-stderr.ans",
+          "./test/snapshots/jsdoc-md/invalid-jsdoc-error-stderr.ans",
           import.meta.url
         )
       );

@@ -6,8 +6,8 @@ import { join } from "path";
 import snapshot from "snapshot-assertion";
 import { fileURLToPath } from "url";
 
-import CliError from "../../private/CliError.mjs";
-import jsdocMd from "../../public/jsdocMd.mjs";
+import CliError from "./CliError.mjs";
+import jsdocMd from "./jsdocMd.mjs";
 
 const DEFAULT_MARKDOWN_PATH = "readme.md";
 const DEFAULT_TARGET_HEADING = "API";
@@ -98,7 +98,7 @@ export default (tests) => {
       // for the code coverage report.
       const pathScript = join(tempDirPath, "test.mjs");
       const pathJsdocMd = fileURLToPath(
-        new URL("../../public/jsdocMd.mjs", import.meta.url)
+        new URL("./jsdocMd.mjs", import.meta.url)
       );
 
       await Promise.all([
@@ -173,7 +173,7 @@ jsdocMd();
 
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
-        new URL("../snapshots/jsdocMd/default-options.md", import.meta.url)
+        new URL("./test/snapshots/jsdocMd/default-options.md", import.meta.url)
       );
     });
   });
@@ -223,7 +223,7 @@ export default 1;
 
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
-        new URL("../snapshots/jsdocMd/option-cwd.md", import.meta.url)
+        new URL("./test/snapshots/jsdocMd/option-cwd.md", import.meta.url)
       );
     });
   });
@@ -280,7 +280,10 @@ export default 1;
 
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
-        new URL("../snapshots/jsdocMd/option-sourceGlob.md", import.meta.url)
+        new URL(
+          "./test/snapshots/jsdocMd/option-sourceGlob.md",
+          import.meta.url
+        )
       );
     });
   });
@@ -320,7 +323,10 @@ export default 1;
 
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
-        new URL("../snapshots/jsdocMd/option-markdownPath.md", import.meta.url)
+        new URL(
+          "./test/snapshots/jsdocMd/option-markdownPath.md",
+          import.meta.url
+        )
       );
     });
   });
@@ -361,7 +367,10 @@ export default 1;
 
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
-        new URL("../snapshots/jsdocMd/option-targetHeading.md", import.meta.url)
+        new URL(
+          "./test/snapshots/jsdocMd/option-targetHeading.md",
+          import.meta.url
+        )
       );
     });
   });
@@ -448,7 +457,7 @@ export default 1;
       ]);
 
       const snapshotPath = new URL(
-        "../snapshots/jsdocMd/run-twice.md",
+        "./test/snapshots/jsdocMd/run-twice.md",
         import.meta.url
       );
 
@@ -508,7 +517,7 @@ export default 1;
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
         new URL(
-          "../snapshots/jsdocMd/without-prettier-config-file.md",
+          "./test/snapshots/jsdocMd/without-prettier-config-file.md",
           import.meta.url
         )
       );
@@ -561,7 +570,7 @@ export default 1;
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
         new URL(
-          "../snapshots/jsdocMd/with-prettier-config-file.md",
+          "./test/snapshots/jsdocMd/with-prettier-config-file.md",
           import.meta.url
         )
       );
@@ -610,7 +619,7 @@ export default 1;
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
         new URL(
-          "../snapshots/jsdocMd/with-prettier-ignore-file.md",
+          "./test/snapshots/jsdocMd/with-prettier-ignore-file.md",
           import.meta.url
         )
       );
@@ -658,7 +667,7 @@ export default 1;
       await snapshot(
         await fs.promises.readFile(pathMd, "utf8"),
         new URL(
-          "../snapshots/jsdocMd/with-prettier-parser-uninferrable.md",
+          "./test/snapshots/jsdocMd/with-prettier-parser-uninferrable.md",
           import.meta.url
         )
       );

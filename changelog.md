@@ -7,6 +7,8 @@
 - Updated Node.js support to `^12.22.0 || ^14.17.0 || >= 16.0.0`.
 - Updated dependencies, some of which require newer Node.js versions than previously supported.
 - Removed `./package` from the package `exports` field; the full `package.json` filename must be used in a `require` path.
+- Public modules are now individually listed in the package `files` and `exports` fields.
+- Shortened public module deep import paths, removing the `/public/`.
 
 ### Patch
 
@@ -14,6 +16,7 @@
 - Simplified dev dependencies and config for ESLint.
 - Simplified package scripts.
 - Use a new [`replace-stack-traces`](https://npm.im/replace-stack-traces) dev dependency in tests.
+- Reorganized the test file structure.
 - Configured Prettier option `singleQuote` to the default, `false`.
 - Added a `license.md` MIT License file.
 - Improved documentation.

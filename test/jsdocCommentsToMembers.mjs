@@ -1,4 +1,4 @@
-import jsdocCommentToMember from "../private/jsdocCommentToMember.mjs";
+import jsdocCommentToMember from "../jsdocCommentToMember.mjs";
 
 /**
  * Converts JSDoc comments to members.

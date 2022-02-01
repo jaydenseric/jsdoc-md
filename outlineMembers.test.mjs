@@ -4,9 +4,9 @@ import kleur from "kleur";
 import revertableGlobals from "revertable-globals";
 import snapshot from "snapshot-assertion";
 
-import codeToJsdocComments from "../../private/codeToJsdocComments.mjs";
-import outlineMembers from "../../private/outlineMembers.mjs";
-import jsdocCommentsToMembers from "../jsdocCommentsToMembers.mjs";
+import codeToJsdocComments from "./codeToJsdocComments.mjs";
+import outlineMembers from "./outlineMembers.mjs";
+import jsdocCommentsToMembers from "./test/jsdocCommentsToMembers.mjs";
 
 const TEST_CODE_FILE_PATH = "/a.js";
 
@@ -89,7 +89,7 @@ export default (tests) => {
     await snapshot(
       stringify(outlineMembers(members, codeFiles), null, 2),
       new URL(
-        "../snapshots/outlineMembers/no-missing-jsdoc-members.json",
+        "./test/snapshots/outlineMembers/no-missing-jsdoc-members.json",
         import.meta.url
       )
     );
@@ -134,7 +134,7 @@ class A {
     await snapshot(
       caughtError.message,
       new URL(
-        "../snapshots/outlineMembers/error-namepath-missing-jsdoc-member.ans",
+        "./test/snapshots/outlineMembers/error-namepath-missing-jsdoc-member.ans",
         import.meta.url
       )
     );
