@@ -6,7 +6,7 @@
 
 A [Node.js](https://nodejs.org) [CLI](#cli) and equivalent JS [API](#api) to analyze source JSDoc and generate documentation under a given heading in a markdown file (such as `readme.md`).
 
-## Setup
+## Installation
 
 To install with [npm](https://npmjs.com/get-npm), run:
 
@@ -35,7 +35,7 @@ It implements the function [`jsdocMd`](#function-jsdocmd).
 
 #### Examples
 
-_Using [`npx`](https://docs.npmjs.com/cli/v7/commands/npx)._
+_Using [`npx`](https://docs.npmjs.com/cli/v8/commands/npx)._
 
 > With defaults:
 >
@@ -51,7 +51,7 @@ _Using [`npx`](https://docs.npmjs.com/cli/v7/commands/npx)._
 
 _Using package scripts._
 
-> [`package.json` scripts](https://docs.npmjs.com/cli/v7/using-npm/scripts) for a project that also uses [`eslint`](https://npm.im/eslint) and [`prettier`](https://npm.im/prettier):
+> [`package.json` scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts) for a project that also uses [`eslint`](https://npm.im/eslint) and [`prettier`](https://npm.im/prettier):
 >
 > ```json
 > {

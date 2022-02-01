@@ -14,6 +14,7 @@
 - Simplified dev dependencies and config for ESLint.
 - Simplified package scripts.
 - Use a new [`replace-stack-traces`](https://npm.im/replace-stack-traces) dev dependency in tests.
+- Improved documentation.
 
 ## 11.0.2
 
