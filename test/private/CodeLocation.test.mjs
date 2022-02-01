@@ -1,4 +1,5 @@
 import { deepStrictEqual, throws } from 'assert';
+
 import CodeLocation from '../../private/CodeLocation.mjs';
 import CodePosition from '../../private/CodePosition.mjs';
 

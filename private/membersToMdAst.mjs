@@ -2,8 +2,9 @@ import remarkBehead from 'remark-behead';
 import remarkGfm from 'remark-gfm';
 import remarkToc from 'remark-toc';
 import { unified } from 'unified';
-import InvalidJsdocError from './InvalidJsdocError.mjs';
+
 import deconstructJsdocNamepath from './deconstructJsdocNamepath.mjs';
+import InvalidJsdocError from './InvalidJsdocError.mjs';
 import jsdocDataMdToMdAst from './jsdocDataMdToMdAst.mjs';
 import jsdocDataTypeToMdAst from './jsdocDataTypeToMdAst.mjs';
 import outlineMembers from './outlineMembers.mjs';

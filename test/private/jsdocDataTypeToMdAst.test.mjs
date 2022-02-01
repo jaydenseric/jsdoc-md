@@ -2,10 +2,11 @@ import { strictEqual, throws } from 'assert';
 import kleur from 'kleur';
 import revertableGlobals from 'revertable-globals';
 import snapshot from 'snapshot-assertion';
+
 import CodeLocation from '../../private/CodeLocation.mjs';
 import CodePosition from '../../private/CodePosition.mjs';
-import InvalidJsdocError from '../../private/InvalidJsdocError.mjs';
 import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
+import InvalidJsdocError from '../../private/InvalidJsdocError.mjs';
 import jsdocDataTypeToMdAst from '../../private/jsdocDataTypeToMdAst.mjs';
 import outlineMembers from '../../private/outlineMembers.mjs';
 import jsdocCommentsToMembers from '../jsdocCommentsToMembers.mjs';

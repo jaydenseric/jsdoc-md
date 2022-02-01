@@ -2,10 +2,11 @@ import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import { unified } from 'unified';
 import { removePosition } from 'unist-util-remove-position';
+
 import CodeLocation from './CodeLocation.mjs';
 import CodePosition from './CodePosition.mjs';
-import InvalidJsdocError from './InvalidJsdocError.mjs';
 import codePositionToIndex from './codePositionToIndex.mjs';
+import InvalidJsdocError from './InvalidJsdocError.mjs';
 import unescapeJsdoc from './unescapeJsdoc.mjs';
 
 /**

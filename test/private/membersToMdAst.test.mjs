@@ -2,6 +2,7 @@ import { strictEqual, throws } from 'assert';
 import kleur from 'kleur';
 import revertableGlobals from 'revertable-globals';
 import snapshot from 'snapshot-assertion';
+
 import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
 import membersToMdAst from '../../private/membersToMdAst.mjs';
 import jsdocCommentsToMembers from '../jsdocCommentsToMembers.mjs';

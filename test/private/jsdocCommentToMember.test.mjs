@@ -2,8 +2,9 @@ import { strictEqual, throws } from 'assert';
 import kleur from 'kleur';
 import revertableGlobals from 'revertable-globals';
 import snapshot from 'snapshot-assertion';
-import InvalidJsdocError from '../../private/InvalidJsdocError.mjs';
+
 import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
+import InvalidJsdocError from '../../private/InvalidJsdocError.mjs';
 import jsdocCommentToMember from '../../private/jsdocCommentToMember.mjs';
 
 const TEST_CODE_FILE_PATH = '/a.js';

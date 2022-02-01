@@ -1,12 +1,13 @@
 import { parse } from 'comment-parser';
 import trimNewlines from 'trim-newlines';
-import COMMENT_PARSER_OPTIONS from './COMMENT_PARSER_OPTIONS.mjs';
+
 import CodeLocation from './CodeLocation.mjs';
 import CodePosition from './CodePosition.mjs';
-import InvalidJsdocError from './InvalidJsdocError.mjs';
+import COMMENT_PARSER_OPTIONS from './COMMENT_PARSER_OPTIONS.mjs';
 import deconstructJsdocNamepath from './deconstructJsdocNamepath.mjs';
 import getJsdocBlockDescriptionSource from './getJsdocBlockDescriptionSource.mjs';
 import getJsdocSourceTokenCodeLocation from './getJsdocSourceTokenCodeLocation.mjs';
+import InvalidJsdocError from './InvalidJsdocError.mjs';
 
 /**
  * Analyzes a JSDoc comment to produce JSDoc member details.

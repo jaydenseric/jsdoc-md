@@ -3,6 +3,7 @@ import { stringify } from 'flatted';
 import kleur from 'kleur';
 import revertableGlobals from 'revertable-globals';
 import snapshot from 'snapshot-assertion';
+
 import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
 import outlineMembers from '../../private/outlineMembers.mjs';
 import jsdocCommentsToMembers from '../jsdocCommentsToMembers.mjs';

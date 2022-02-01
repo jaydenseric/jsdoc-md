@@ -1,14 +1,15 @@
 import TestDirector from 'test-director';
+
 import test_jsdocMdCli from './cli/jsdoc-md.test.mjs';
 import test_CliError from './private/CliError.test.mjs';
 import test_CodeLocation from './private/CodeLocation.test.mjs';
 import test_CodePosition from './private/CodePosition.test.mjs';
-import test_InvalidJsdocError from './private/InvalidJsdocError.test.mjs';
 import test_codePositionToIndex from './private/codePositionToIndex.test.mjs';
 import test_codeToJsdocComments from './private/codeToJsdocComments.test.mjs';
 import test_deconstructJsdocNamepath from './private/deconstructJsdocNamepath.test.mjs';
 import test_getJsdocBlockDescriptionSource from './private/getJsdocBlockDescriptionSource.test.mjs';
 import test_getJsdocSourceTokenCodeLocation from './private/getJsdocSourceTokenCodeLocation.test.mjs';
+import test_InvalidJsdocError from './private/InvalidJsdocError.test.mjs';
 import test_jsdocCommentToMember from './private/jsdocCommentToMember.test.mjs';
 import test_jsdocDataMdToMdAst from './private/jsdocDataMdToMdAst.test.mjs';
 import test_jsdocDataTypeToMdAst from './private/jsdocDataTypeToMdAst.test.mjs';

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import arg from 'arg';
+
 import CliError from '../private/CliError.mjs';
 import reportCliError from '../private/reportCliError.mjs';
 import jsdocMd from '../public/jsdocMd.mjs';

@@ -1,5 +1,6 @@
 import { deepStrictEqual, rejects } from 'assert';
 import snapshot from 'snapshot-assertion';
+
 import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
 
 const TEST_CODE_FILE_PATH = '/a.js';

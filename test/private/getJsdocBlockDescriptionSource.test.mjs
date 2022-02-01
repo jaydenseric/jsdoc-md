@@ -1,6 +1,7 @@
 import { deepStrictEqual, throws } from 'assert';
 import { parse } from 'comment-parser';
 import snapshot from 'snapshot-assertion';
+
 import COMMENT_PARSER_OPTIONS from '../../private/COMMENT_PARSER_OPTIONS.mjs';
 import getJsdocBlockDescriptionSource from '../../private/getJsdocBlockDescriptionSource.mjs';
 

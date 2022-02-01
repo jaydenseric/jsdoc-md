@@ -2,6 +2,7 @@ import { strictEqual, throws } from 'assert';
 import kleur from 'kleur';
 import revertableGlobals from 'revertable-globals';
 import snapshot from 'snapshot-assertion';
+
 import CliError from '../../private/CliError.mjs';
 import CodeLocation from '../../private/CodeLocation.mjs';
 import CodePosition from '../../private/CodePosition.mjs';

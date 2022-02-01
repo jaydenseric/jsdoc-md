@@ -1,4 +1,5 @@
 import { strictEqual, throws } from 'assert';
+
 import CodePosition from '../../private/CodePosition.mjs';
 import codePositionToIndex from '../../private/codePositionToIndex.mjs';
 

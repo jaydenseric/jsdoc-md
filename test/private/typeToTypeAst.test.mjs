@@ -1,4 +1,5 @@
 import { deepStrictEqual, throws } from 'assert';
+
 import typeToTypeAst from '../../private/typeToTypeAst.mjs';
 
 export default (tests) => {

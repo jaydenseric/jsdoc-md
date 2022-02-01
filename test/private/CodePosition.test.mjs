@@ -1,4 +1,5 @@
 import { deepStrictEqual, throws } from 'assert';
+
 import CodePosition from '../../private/CodePosition.mjs';
 
 export default (tests) => {

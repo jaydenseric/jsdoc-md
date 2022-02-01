@@ -1,10 +1,10 @@
 import { strictEqual } from 'assert';
 import { spawnSync } from 'child_process';
+import disposableDirectory from 'disposable-directory';
 import fs from 'fs';
 import { join } from 'path';
-import { fileURLToPath } from 'url';
-import disposableDirectory from 'disposable-directory';
 import snapshot from 'snapshot-assertion';
+import { fileURLToPath } from 'url';
 
 const JSDOC_MD_CLI_PATH = fileURLToPath(
   new URL('../../cli/jsdoc-md.mjs', import.meta.url)

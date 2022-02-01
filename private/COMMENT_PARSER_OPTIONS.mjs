@@ -1,13 +1,6 @@
-// The `eslint-plugin-node` rule `no-missing-import` doesn’t support the package
-// `exports` field yet, see:
-// https://github.com/mysticatea/eslint-plugin-node/issues/255
-// eslint-disable-next-line node/no-missing-import
 import getCommentParserTokenizerDescription from 'comment-parser/parser/tokenizers/description';
-// eslint-disable-next-line node/no-missing-import
 import getCommentParserTokenizerName from 'comment-parser/parser/tokenizers/name';
-// eslint-disable-next-line node/no-missing-import
 import getCommentParserTokenizerTag from 'comment-parser/parser/tokenizers/tag';
-// eslint-disable-next-line node/no-missing-import
 import getCommentParserTokenizerType from 'comment-parser/parser/tokenizers/type';
 
 const JSDOC_SPACING_STRATEGY = 'preserve';

@@ -1,4 +1,5 @@
 import { strictEqual, throws } from 'assert';
+
 import CliError from '../../private/CliError.mjs';
 
 export default (tests) => {

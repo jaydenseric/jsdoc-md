@@ -1,4 +1,5 @@
 import { strictEqual, throws } from 'assert';
+
 import unescapeJsdoc from '../../private/unescapeJsdoc.mjs';
 
 export default (tests) => {

@@ -1,6 +1,7 @@
 import fs from 'fs';
-import { resolve } from 'path';
 import { globby } from 'globby';
+import { resolve } from 'path';
+
 import CliError from '../private/CliError.mjs';
 import codeToJsdocComments from '../private/codeToJsdocComments.mjs';
 import jsdocCommentToMember from '../private/jsdocCommentToMember.mjs';
@@ -115,10 +116,7 @@ export default async function jsdocMd({
   );
 
   try {
-    var { default: prettier } =
-      // See: https://github.com/mysticatea/eslint-plugin-node/issues/250
-      // eslint-disable-next-line node/no-unsupported-features/es-syntax
-      await import('prettier');
+    var { default: prettier } = await import('prettier');
     // It would be great if there was a way to test this without Prettier
     // installed.
     // coverage ignore next line

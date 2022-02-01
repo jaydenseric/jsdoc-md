@@ -3,9 +3,10 @@ import remarkGfm from 'remark-gfm';
 import remarkStringify from 'remark-stringify';
 import snapshot from 'snapshot-assertion';
 import { unified } from 'unified';
-import REMARK_STRINGIFY_OPTIONS from '../../private/REMARK_STRINGIFY_OPTIONS.mjs';
+
 import codeToJsdocComments from '../../private/codeToJsdocComments.mjs';
 import outlineMembers from '../../private/outlineMembers.mjs';
+import REMARK_STRINGIFY_OPTIONS from '../../private/REMARK_STRINGIFY_OPTIONS.mjs';
 import typeAstToMdAst from '../../private/typeAstToMdAst.mjs';
 import typeToTypeAst from '../../private/typeToTypeAst.mjs';
 import jsdocCommentsToMembers from '../jsdocCommentsToMembers.mjs';

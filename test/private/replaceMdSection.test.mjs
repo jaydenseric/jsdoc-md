@@ -1,4 +1,5 @@
 import { strictEqual, throws } from 'assert';
+
 import replaceMdSection from '../../private/replaceMdSection.mjs';
 
 export default (tests) => {

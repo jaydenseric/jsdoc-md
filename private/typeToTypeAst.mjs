@@ -1,4 +1,5 @@
 import { parseParamType, parseType } from 'doctrine';
+
 import unescapeJsdoc from './unescapeJsdoc.mjs';
 
 /**

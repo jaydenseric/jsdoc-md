@@ -1,4 +1,5 @@
 import GithubSlugger from 'github-slugger';
+
 import InvalidJsdocError from './InvalidJsdocError.mjs';
 
 const MEMBERSHIPS = {
