@@ -15,6 +15,7 @@
 - Simplified package scripts.
 - Use a new [`replace-stack-traces`](https://npm.im/replace-stack-traces) dev dependency in tests.
 - Configured Prettier option `singleQuote` to the default, `false`.
+- Added a `license.md` MIT License file.
 - Improved documentation.
 
 ## 11.0.2
