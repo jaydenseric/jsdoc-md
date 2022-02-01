@@ -13,6 +13,7 @@
 - Also run GitHub Actions CI with Node.js v17.
 - Simplified dev dependencies and config for ESLint.
 - Simplified package scripts.
+- Use a new [`replace-stack-traces`](https://npm.im/replace-stack-traces) dev dependency in tests.
 
 ## 11.0.2
 

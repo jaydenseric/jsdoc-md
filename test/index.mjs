@@ -22,11 +22,9 @@ import test_typeAstToMdAst from './private/typeAstToMdAst.test.mjs';
 import test_typeToTypeAst from './private/typeToTypeAst.test.mjs';
 import test_unescapeJsdoc from './private/unescapeJsdoc.test.mjs';
 import test_jsdocMd from './public/jsdocMd.test.mjs';
-import test_replaceStackTraces from './replaceStackTraces.test.mjs';
 
 const tests = new TestDirector();
 
-test_replaceStackTraces(tests);
 test_jsdocMdCli(tests);
 test_CliError(tests);
 test_CodeLocation(tests);
