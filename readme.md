@@ -56,22 +56,22 @@ _Using package scripts._
 > ```json
 > {
 >   "scripts": {
->     "jsdoc": "jsdoc-md",
->     "test": "npm run test:eslint && npm run test:prettier && npm run test:jsdoc",
->     "test:eslint": "eslint .",
->     "test:prettier": "prettier -c .",
->     "test:jsdoc": "jsdoc-md -c",
+>     "docs-update": "jsdoc-md",
+>     "docs-check": "jsdoc-md -c",
+>     "eslint": "eslint .",
+>     "prettier": "prettier -c .",
+>     "test": "npm run eslint && npm run prettier && npm run docs-check",
 >     "prepublishOnly": "npm test"
 >   }
 > }
 > ```
 >
-> Run the `test:prettier` script before `test:jsdoc` in the `test` script so [`prettier`](https://npm.im/prettier) reports formatting errors instead of `jsdoc-md`.
+> Run the `prettier` script before `docs-check` in the `test` script so [`prettier`](https://npm.im/prettier) reports formatting errors instead of `jsdoc-md`.
 >
-> Whenever the source JSDoc changes, run the `jsdoc` script:
+> Whenever the source JSDoc changes, run the `docs-update` script:
 >
 > ```sh
-> npm run jsdoc
+> npm run docs-update
 > ```
 
 ## API
